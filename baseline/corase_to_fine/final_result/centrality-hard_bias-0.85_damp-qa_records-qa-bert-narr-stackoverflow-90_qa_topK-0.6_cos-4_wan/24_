@@ -1,0 +1,5 @@
+The ** operator in Python is really "power;" that is, 2**3 = 8.
+2**2 = 2 power-of 2
+"In this case they happen to have the same value, but...
+"A single asterisk means multiplied by.
+"This could get you in big trouble if x is anything but 2.

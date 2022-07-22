@@ -1,0 +1,5 @@
+2**2 = 2 power-of 2
+** is the operator for "power of".
+"A double asterisk means to the power of.
+"This is x raised to the power 2.
+The ** operator in Python is really "power;" that is, 2**3 = 8.

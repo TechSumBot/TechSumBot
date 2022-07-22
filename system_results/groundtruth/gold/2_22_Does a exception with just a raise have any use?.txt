@@ -1,0 +1,5 @@
+None at all, that I can think of, except if you're debugging that source code and set a breakpoint on the raise statement.
+As a placeholder for a future (or past) more serious handling before re-raising
+I am not able to come up with something useful, other than to keep it as a placeholder for later insertion to catch useful exceptions.
+Either the intent was to catch and log exceptions, without ever coming back to finish the logging, or they heard "you must catch exceptions", implemented this functionality, and someone else decided it should just re-raise.
+this was is in a decorator that wrap func : so basically what i have wanted is to re-raise the error that i catched when i called the function func so that the decorator don't change the behavior of the function func, because when func raise an exception the exception are send to the GUI so that an error message can pop up to the user,

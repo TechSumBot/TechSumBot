@@ -1,0 +1,1 @@
+"[https://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]"See [http://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]"() is deprecated and was removed in Python 3, so you should use !=."The () spelling has been removed in Python 3."From the [documentation (hyper-link)]:

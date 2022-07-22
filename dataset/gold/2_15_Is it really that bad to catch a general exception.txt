@@ -1,0 +1,5 @@
+So having a global exception handler that will log all exceptions and exit the application nicely is a good thing to have.
+"A good rule of thumb is that you should only catch exceptions that you can properly deal with yourself.
+"The problem with catching all exceptions is that you may be catching ones that you don't expect, or indeed ones that you should not be catching.
+"So you should wrap the main body of a thread in a generic try...catch block and pass any exceptions caught there to your global exception handling code.)
+"In my experience, it matters more where the exception came from than which exception is actually thrown.

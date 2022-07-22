@@ -1,0 +1,5 @@
+Firstly, if you don't know what exception has occurred how can you hope to recover from it.
+"It is a lie to say that you can deal with these.
+"The problem with catching all exceptions is that you may be catching ones that you don't expect, or indeed ones that you should not be catching.
+"The fact is that an exception of any kind indicates that something has gone wrong, and you have to sort it out before continuing otherwise you may end up with data integrity problems and other bugs that are not so easy to track down.
+"Personally, I believe the worst thing you can do is swallow exceptions.

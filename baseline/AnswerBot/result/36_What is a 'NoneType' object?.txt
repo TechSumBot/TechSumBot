@@ -1,0 +1,5 @@
+"nonetype is the type for the none object, which is an object that indicates no value.
+"python's none object is roughly equivalent to null, nil, etc.
+"you cannot add none to strings or other objects.
+"in the error message, instead of telling you that you can't concatenate two objects by showing their values (a string and none in this example), the python interpreter tells you this by showing the types of the objects that you tried to concatenate.
+"maybe you forgot to return in one of your functions, or maybe the user didn't provide a command-line option and optparse gave you none for that option's value.

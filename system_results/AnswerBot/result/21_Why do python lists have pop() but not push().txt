@@ -1,0 +1,5 @@
+"push and pop are really concepts that can be applied to either end of a set... just as long as you're consistent... for some reason, to me, push() seems like it should apply to the front of a set...
+"not an official answer by any means (just a guess based on using the language), but python allows you to use lists as stacks (e.g., [section 5.1.1 of the tutorial (hyper-link)]).
+"i stil think that all this is best left out of the list object implementation -- if you need a stack, or a queue, with particular semantics, write a little class that uses a lists
+"fyi, it's not terribly difficult to make a list that has a push method:
+"in other words, for stacks implemented directly as python lists, which already supports fast append(), and del list[-1], it makes sense that list.pop() work by default on the last element.

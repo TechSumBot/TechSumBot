@@ -1,0 +1,5 @@
+By returning a floating point value, the functions can return a sensible value for input values that lie outside the representable range of integers.
+"This makes the discussion of integer range versus float range moot because these functions will simply return the original number whenever the number is outside the range of the integer type.
+"Additionally, you must have versions of ceil and floor which return floating-point numbers if you want to conform to [IEEE 754 (hyper-link)].
+"The whole point of ceil/floor operations is to convert floats to integers!
+Because the range for floats is greater than that of integers -- returning an integer could overflow

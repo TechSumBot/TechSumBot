@@ -1,0 +1,96 @@
+I think this is mostly a matter of style.
+Both should be easily understandable as an infinite loop.
+However, personally I prefer the second option.
+That's because it just takes a mental micro-step less to understand, especially for programmers without C background.
+The first one will work also in those early versions where True is not yet defined.
+IMO the second option is more obvious.
+If you could get rid of the while and write more compact code, that might be more pythonic.
+For example:
+If you have an algorithm that is suppose to terminate in a finite time, I would recommend this, which is always safer than while True:
+The most pythonic way will always be the most readable.
+"Use while True:
+"I believe the second expression is more explicit, and thus more [pythonic (hyper-link)].
+"Neither.
+"Both of them mean I have to scan the code looking for the break, instead of being able to see the stop condition right where it belongs.
+"I try to avoid this kind of thing wherever possible, and if it's not possible, let the code speak for itself like this:
+"Using a basically infinite loop and leaving it from somewhere within the loop (using break) should usually be avoided altogether.
+"Sometimes that isn't possible.
+"In that case, I like to use something like the code above, which, however, still represents the same concept – the above code is nothing more than a compromise – but at least, I can show the purpose of the loop at the beginning – just like I wouldn't call a function do_something_with_args(*args).
+"Fundamentally it doesn't matter, such minutiae doesn't really affect whether something is 'pythonic' or not.
+"If you're interested in trivia however, there are some differences.
+"The [builtin boolean type didn't exist till Python 2.3 (hyper-link)] so code that was intended to run on ancient versions tends to use the while 1: form.
+"You'll see it in the standard library, for instance.
+"The True and False builtins are [not reserved words prior to Python 3 (hyper-link)] so could be assigned to, changing their value.
+"This helps with the case above because code could do True = 1 for backwards compatibility, but means that the name True needs to be looked up in the globals dictionary every time it is used.
+"Because of the above restriction, the bytecode the two versions compile to is different in Python 2 as there's an optimisation for constant integers that it can't use for True.
+"Because Python can tell when compiling the 1 that it's always non-zero, it removes the conditional jump and doesn't load the constant at all: [code snippet]
+"So, while True: is a little easier to read, and while 1: is a bit kinder to old versions of Python.
+"As you're unlikely to need to run on Python 2.2 these days or need to worry about the bytecode count of your loops, the former is marginally preferable.
+"It doesn't really matter.
+"Neither is hard to read or understand, though personally I'd always use while True, which is a bit more explicit.
+"More generally, a whole lot of while–break loops people write in Python could be something else.
+"Sometimes I see people write i = 0; while True: i += 1 ..., which can be replaced with for i in itertools.count() and people writing while True: foo = fun() if foo is None: break when this can be written for foo in iter(fun, None), which requires learning but has less boilerplate and opportunity for silly mistakes.
+I think this is mostly a matter of style.
+Both should be easily understandable as an infinite loop.
+However, personally I prefer the second option.
+That's because it just takes a mental micro-step less to understand, especially for programmers without C background.
+The first one will work also in those early versions where True is not yet defined.
+IMO the second option is more obvious.
+If you could get rid of the while and write more compact code, that might be more pythonic.
+For example:
+If you have an algorithm that is suppose to terminate in a finite time, I would recommend this, which is always safer than while True:
+The most pythonic way will always be the most readable.
+"Use while True:
+"I believe the second expression is more explicit, and thus more [pythonic (hyper-link)].
+"Neither.
+"Both of them mean I have to scan the code looking for the break, instead of being able to see the stop condition right where it belongs.
+"I try to avoid this kind of thing wherever possible, and if it's not possible, let the code speak for itself like this:
+"Using a basically infinite loop and leaving it from somewhere within the loop (using break) should usually be avoided altogether.
+"Sometimes that isn't possible.
+"In that case, I like to use something like the code above, which, however, still represents the same concept – the above code is nothing more than a compromise – but at least, I can show the purpose of the loop at the beginning – just like I wouldn't call a function do_something_with_args(*args).
+"Fundamentally it doesn't matter, such minutiae doesn't really affect whether something is 'pythonic' or not.
+"If you're interested in trivia however, there are some differences.
+"The [builtin boolean type didn't exist till Python 2.3 (hyper-link)] so code that was intended to run on ancient versions tends to use the while 1: form.
+"You'll see it in the standard library, for instance.
+"The True and False builtins are [not reserved words prior to Python 3 (hyper-link)] so could be assigned to, changing their value.
+"This helps with the case above because code could do True = 1 for backwards compatibility, but means that the name True needs to be looked up in the globals dictionary every time it is used.
+"Because of the above restriction, the bytecode the two versions compile to is different in Python 2 as there's an optimisation for constant integers that it can't use for True.
+"Because Python can tell when compiling the 1 that it's always non-zero, it removes the conditional jump and doesn't load the constant at all: [code snippet]
+"So, while True: is a little easier to read, and while 1: is a bit kinder to old versions of Python.
+"As you're unlikely to need to run on Python 2.2 these days or need to worry about the bytecode count of your loops, the former is marginally preferable.
+"It doesn't really matter.
+"Neither is hard to read or understand, though personally I'd always use while True, which is a bit more explicit.
+"More generally, a whole lot of while–break loops people write in Python could be something else.
+"Sometimes I see people write i = 0; while True: i += 1 ..., which can be replaced with for i in itertools.count() and people writing while True: foo = fun() if foo is None: break when this can be written for foo in iter(fun, None), which requires learning but has less boilerplate and opportunity for silly mistakes.
+I think this is mostly a matter of style.
+Both should be easily understandable as an infinite loop.
+However, personally I prefer the second option.
+That's because it just takes a mental micro-step less to understand, especially for programmers without C background.
+The first one will work also in those early versions where True is not yet defined.
+IMO the second option is more obvious.
+If you could get rid of the while and write more compact code, that might be more pythonic.
+For example:
+If you have an algorithm that is suppose to terminate in a finite time, I would recommend this, which is always safer than while True:
+The most pythonic way will always be the most readable.
+"Use while True:
+"I believe the second expression is more explicit, and thus more [pythonic (hyper-link)].
+"Neither.
+"Both of them mean I have to scan the code looking for the break, instead of being able to see the stop condition right where it belongs.
+"I try to avoid this kind of thing wherever possible, and if it's not possible, let the code speak for itself like this:
+"Using a basically infinite loop and leaving it from somewhere within the loop (using break) should usually be avoided altogether.
+"Sometimes that isn't possible.
+"In that case, I like to use something like the code above, which, however, still represents the same concept – the above code is nothing more than a compromise – but at least, I can show the purpose of the loop at the beginning – just like I wouldn't call a function do_something_with_args(*args).
+"Fundamentally it doesn't matter, such minutiae doesn't really affect whether something is 'pythonic' or not.
+"If you're interested in trivia however, there are some differences.
+"The [builtin boolean type didn't exist till Python 2.3 (hyper-link)] so code that was intended to run on ancient versions tends to use the while 1: form.
+"You'll see it in the standard library, for instance.
+"The True and False builtins are [not reserved words prior to Python 3 (hyper-link)] so could be assigned to, changing their value.
+"This helps with the case above because code could do True = 1 for backwards compatibility, but means that the name True needs to be looked up in the globals dictionary every time it is used.
+"Because of the above restriction, the bytecode the two versions compile to is different in Python 2 as there's an optimisation for constant integers that it can't use for True.
+"Because Python can tell when compiling the 1 that it's always non-zero, it removes the conditional jump and doesn't load the constant at all: [code snippet]
+"So, while True: is a little easier to read, and while 1: is a bit kinder to old versions of Python.
+"As you're unlikely to need to run on Python 2.2 these days or need to worry about the bytecode count of your loops, the former is marginally preferable.
+"It doesn't really matter.
+"Neither is hard to read or understand, though personally I'd always use while True, which is a bit more explicit.
+"More generally, a whole lot of while–break loops people write in Python could be something else.
+"Sometimes I see people write i = 0; while True: i += 1 ..., which can be replaced with for i in itertools.count() and people writing while True: foo = fun() if foo is None: break when this can be written for foo in iter(fun, None), which requires learning but has less boilerplate and opportunity for silly mistakes.

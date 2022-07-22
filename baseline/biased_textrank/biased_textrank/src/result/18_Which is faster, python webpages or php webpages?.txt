@@ -1,0 +1,5 @@
+"For example, Python web applications can take advantage of [mod_wsgi (hyper-link)] to talk to web servers, which is faster than any of the typical ways that PHP talks to web servers (even mod_php ends up being slower if you're using Apache, because Apache can only use the Prefork MPM with mod_php rather than multi-threaded MPM like Worker).
+"Because of this, one could argue that Python has a native advantage over PHP.
+"However, optimizers and caching systems can be installed for PHP websites (my favorite is [eAccelerator (hyper-link)]) to much the same effect.
+"Similarly, the PHP-web community is much larger than the Python-web community; Website hosting services are more likely to offer PHP support than Python support; etc.
+"You can integrate your python libraries into the web app, and that is, imho, a huge advantage.

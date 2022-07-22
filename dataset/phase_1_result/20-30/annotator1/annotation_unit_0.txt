@@ -1,0 +1,54 @@
+
+Query:  "Does a exception with just a raise have any use?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/1774804)
+ [1] #0: "None at all, that I can think of, except if you're debugging that source code and set a breakpoint on the raise statement."
+
+Answer:  #1 (https://stackoverflow.com/a/1774812)
+ [0] #1: "Strictly speaking, it's unneeded."
+ [0] #2: "Some possibilities:"
+ [1] #3: "For documentation purposes - just to make it explicit which exceptions are expected"
+ [1] #4: "As a placeholder for a future (or past) more serious handling before re-raising"
+
+Answer:  #2 (https://stackoverflow.com/a/1774834)
+ [0] #5: "In the code you linked to is another additional exception handler:"
+         [code snippet]
+ [1] #6: "Since [UnicodeDecodeError (hyper-link)] is a subclass of ValueError, the second exception handler would cause any UnicodeDecodeError to be ignored."
+ [1] #7: "It looks like this would not be the intended effect and to avoid it the UnicodeDecodeError is processed explicitly by the first handler."
+ [0] #8: "So with both handlers together a ValueError is only ignored if it's not a UnicodeDecodeError."
+
+Answer:  #3 (https://stackoverflow.com/a/1774933)
+ [1] #9: "The most common use is to propagate some one particular exception and handle all the rest."
+ [0] #10: "You can find a lot of examples for propagating KeyboardInterrupt and SystemExit (e.g."
+ [1] #11: "look at asyncore source): it's convenient for servers to log and continue in case of error in request handler, but you shouldn't catch KeyboardInterrupt to exit on SIGINT."
+
+Answer:  #4 (https://stackoverflow.com/a/3937628)
+ [1] #12: "I am not able to come up with something useful, other than to keep it as a placeholder for later insertion to catch useful exceptions."
+ [1] #13: "It kind of avoids re-indenting the code, when you want to include the "try .. except.." blocks later on."
+
+Answer:  #5 (https://stackoverflow.com/a/3937637)
+ [0] #14: "Yes, this is usually a bad practice."
+ [1] #15: "The only (somewhat) correct usage I've seen of this pattern was before VB.NET had a Using construct available."
+ [0] #16: "Usage looked something like:"
+         [code snippet]
+ [0] #17: "Other than that, I really can't think of a good use case for this sort of thing."
+
+Answer:  #6 (https://stackoverflow.com/a/3937641)
+ [0] #18: "I've seen similar code before in a (set of) horrible VB.NET projects."
+ [1] #19: "Either the intent was to catch and log exceptions, without ever coming back to finish the logging, or they heard "you must catch exceptions", implemented this functionality, and someone else decided it should just re-raise."
+ [0] #20: "There is no benefit to the above code."
+
+Answer:  #7 (https://stackoverflow.com/a/3937868)
+ [0] #21: "Example built on [this question (hyper-link)]."
+ [1] #22: "If there's some other except's in the try block, it can be used to filter the exceptions, but alone it's pointless."
+         [code snippet]
+
+Answer:  #8 (https://stackoverflow.com/a/3937978)
+ [0] #23: "sometimes it useful let me give you a real example that i did i my work :"
+ [1] #24: "this was is in a decorator that wrap func : so basically what i have wanted is to re-raise the error that i catched when i called the function func so that the decorator don't change the behavior of the function func, because when func raise an exception the exception are send to the GUI so that an error message can pop up to the user,"
+ [0] #25: "and for the try except i use it because i want to execute the code in finally even if an exception is raised"
+         [code snippet]
+ [0] #26: "hope this will help to understand the use of re-raise"

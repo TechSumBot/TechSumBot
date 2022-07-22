@@ -1,0 +1,5 @@
+The [builtin boolean type didn't exist till Python 2.3 (hyper-link)] so code that was intended to run on ancient versions tends to use the while 1: form.
+The True and False builtins are [not reserved words prior to Python 3 (hyper-link)] so could be assigned to, changing their value.
+Because Python can tell when compiling the 1 that it's always non-zero, it removes the conditional jump and doesn't load the constant at all: [code snippet]
+"So, while True: is a little easier to read, and while 1: is a bit kinder to old versions of Python.
+"There is no practical difference.

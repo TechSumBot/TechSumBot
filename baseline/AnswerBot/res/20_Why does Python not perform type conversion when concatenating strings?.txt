@@ -1,0 +1,5 @@
+"because python does not perform type conversion when concatenating strings.
+this is exactly the loose-typing problem that unfortunately afflicts javascript.
+why does the python interpreter not automatically try using the int() function when it encounters addition of these types?
+the problem is that the conversion is ambiguous, because + means both string concatenation and numeric addition.
+"this behavior is by design, and you should get in the habit of performing explicit type conversions when you need to coerce objects into strings or numbers.

@@ -1,0 +1,5 @@
+For example:
+"Use while True:
+"Neither.
+"Sometimes that isn't possible.
+"If you're interested in trivia however, there are some differences.

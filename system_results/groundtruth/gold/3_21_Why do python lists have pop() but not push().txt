@@ -1,0 +1,5 @@
+Because it appends; it doesn't push.
+If it was called "push", then it would be unclear whether we're adding stuff at the tail or at head of the list.
+Because "append" existed long before "pop" was thought of.
+Implicit here is that most people need to append to a list, but many fewer have occasion to treat lists as stacks, which is why list.append came in so much earlier.
+The list.pop() method is an alternative to del listobject[index] in that it returns the value at the index you are removing.

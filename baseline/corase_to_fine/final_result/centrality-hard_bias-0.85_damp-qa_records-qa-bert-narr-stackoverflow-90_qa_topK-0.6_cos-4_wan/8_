@@ -1,0 +1,5 @@
+"take a look on this: already discussed big time [Grails vs Roo - why SpringSource is pushing two very similar technologies?
+The main difference is that Roo is a pure Java framework whereas Grails leverages Groovy as well as Java.
+Roo is very similar to Grails' command line system (e.g.
+"We have both [Grails (hyper-link)] and [Spring Roo (hyper-link)] because we deeply care about developer productivity and unquestionably both of these tools deliver a serious boost to what teams can achieve on top of Spring.
+"In Grails the findByBook() method is created at runtime, and you can’t view the generated code.

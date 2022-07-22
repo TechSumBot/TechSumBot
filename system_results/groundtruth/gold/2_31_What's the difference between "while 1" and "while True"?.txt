@@ -1,0 +1,5 @@
+I think this is mostly a matter of style.
+I believe the second expression is more explicit, and thus more [pythonic (hyper-link)].
+Fundamentally it doesn't matter, such minutiae doesn't really affect whether something is 'pythonic' or not.
+The True and False builtins are [not reserved words prior to Python 3 (hyper-link)] so could be assigned to, changing their value.
+"So, while True: is a little easier to read, and while 1: is a bit kinder to old versions of Python.

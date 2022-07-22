@@ -1,0 +1,452 @@
+Simply put, REST means using HTTP the way it's meant to be.
+Have a look at [Roy Fielding's dissertation about REST (hyper-link)].
+I think that every person that is doing web development should read it.
+As a note, Roy Fielding is one of the key drivers behind the HTTP protocol, as well.
+To name some of the advandages:
+Simple.
+You can make good use of HTTP cache and proxy server to help you handle high load.
+It helps you organize even a very complex application into simple resources.
+It makes it easy for new clients to use your application, even if you haven't designed it specifically for them (probably, because they weren't around when you created your app).
+Query-strings can be ignored by search engines.
+"I recommend taking a look at Ryan Tomayko's [How I Explained REST to My Wife (hyper-link)]
+"Excerpt from the waybackmaschine link:
+"How about an example.
+"You’re a teacher and want to manage students:
+"what classes they’re in,
+"what grades they’re getting,
+"emergency contacts,
+"information about the books you teach out of, etc.
+"If the systems are web-based, then there’s probably a URL for each of the nouns involved here: student, teacher, class, book, room, etc.
+"...
+"If there were a machine readable representation for each URL, then it would be trivial to latch new tools onto the system because all of that information would be consumable in a standard way.
+"... you could build a country-wide system that was able to talk to each of the individual school systems to collect testing scores.
+"Each of the systems would get information from each other using a simple HTTP GET.
+"If one system needs to add something to another system, it would use an HTTP POST.
+"If a system wants to update something in another system, it uses an HTTP PUT.
+"The only thing left to figure out is what the data should look like.
+"IMHO the biggest advantage that REST enables is that of reducing client/server coupling.
+"It is much easier to evolve a REST interface over time without breaking existing clients.
+"Caching.
+"There are other more in depth benefits of REST which revolve around evolve-ability via loose coupling and hypertext, but caching mechanisms are the main reason you should care about RESTful HTTP.
+"I don't think you will get a good answer to this, partly because nobody really agrees on what REST is.
+"The [wikipedia page (hyper-link)] is heavy on buzzwords and light on explanation.
+"The discussion page is worth a skim just to see how much people disagree on this.
+"As far as I can tell however, REST means this:
+"Instead of having randomly named setter and getter URLs and using GET for all the getters and POST for all the setters, we try to have the URLs identify resources, and then use the HTTP actions GET, POST, PUT and DELETE to do stuff to them.
+"So instead of
+"You would do
+"And then POST and PUT correspond to "create" and "update" operations (but nobody agrees which way round).
+"I think the caching arguments are wrong, because query strings are generally cached, and besides you don't really need to use them.
+"For example django makes something like this very easy, and I wouldn't say it was REST:
+"Or even just include the verb in the URL:
+"In that case GET means something without side-effects, and POST means something that changes data on the server.
+"I think this is perhaps a bit clearer and easier, especially as you can avoid the whole PUT-vs-POST thing.
+"Plus you can add more verbs if you want to, so you aren't artificially bound to what HTTP offers.
+"For example:
+"(Or whatever, it's hard to think of examples until they happen!)
+"So in conclusion, there are only two advantages I can see:
+"Your web API may be cleaner and easier to understand / discover.
+"When synchronising data with a website, it is probably easier to use REST because you can just say synchronize("/articles/1/") or whatever.
+"This depends heavily on your code.
+"However I think there are some pretty big disadvantages:
+"Not all actions easily map to CRUD (create, read/retrieve, update, delete).
+"You may not even be dealing with object type resources.
+"It's extra effort for dubious benefits.
+"Confusion as to which way round PUT and POST are.
+"In English they mean similar things ("I'm going to put/post a notice on the wall.
+"").
+"So in conclusion I would say: unless you really want to go to the extra effort, or if your service maps really well to CRUD operations, save REST for the second version of your API.
+"I just came across another problem with REST: It's not easy to do more than one thing in one request or specify which parts of a compound object you want to get.
+"This is especially important on mobile where round-trip-time can be significant and connections are unreliable.
+"For example, suppose you are getting posts on a facebook timeline.
+"The "pure" REST way would be something like
+"Which is kind of ridiculous.
+"Facebook's API is pretty great IMO, so let's see what they do:
+"By default, most object properties are returned when you make a query.
+"You can choose the fields (or connections) you want returned with the "fields" query parameter.
+"For example, this URL will only return the id, name, and picture of Ben: [https://graph.facebook.com/bgolub?fields=id,name,picture (hyper-link)]
+"I have no idea how you'd do something like that with REST, and if you did whether it would still count as REST.
+"I would certainly ignore anyone who tries to tell you that you shouldn't do that though (especially if the reason is "because it isn't REST")!
+"Simply put: NONE.
+"Feel free to downvote, but I still think there are no real benefits over non-REST HTTP.
+"All current answers are invalid.
+"Arguments from the currently most voted answer:
+"Simple.
+"You can make good use of HTTP cache and proxy server to help you handle high load.
+"It helps you organize even a very complex application into simple resources.
+"It makes it easy for new clients to use your application, even if you haven't designed it specifically for them (probably, because they weren't around when you created your app).
+"With REST you need additional communication layer for your server-side and client-side scripts => it's actually more complicated than use of non-REST HTTP.
+"Caching can be controlled by HTTP headers sent by server.
+"REST does not add any features missing in non-REST.
+"REST does not help you organize things.
+"It forces you to use API supported by server-side library you are using.
+"You can organize your application the same way (or better) when you are using non-REST approach.
+"E.g.
+"see [Model-View-Controller (hyper-link)] or [MVC routing (hyper-link)].
+"Not true at all.
+"It all depends on how well you organize and document your application.
+"REST will not magically make your application better.
+"I would suggest everybody, who is looking for an answer to this question, go through [this "slideshow" (hyper-link)].
+"I couldn't understand what REST is and why it is so cool, its pros and cons, differences from SOAP - but this slideshow was so brilliant and easy to understand, so it is much more clear to me now, than before.
+"Each resource has references to other resources, either in hierarchy or links, so it's easy to browse around.
+"This is an advantage to the human developing the client, saving he/she from constantly consulting the docs, and offering suggestions.
+"It also means the server can change resource names unilaterally (as long as the client software doesn't hardcode the URLs).
+"You can CURL your way into any part of the API or use the web browser to navigate resources.
+"Makes debugging and testing integration much easier.
+"Allows you to specify actions without having to hunt the correct wording.
+"Imagine if OOP getters and setters weren't standardized, and some people used retrieve and define instead.
+"You would have to memorize the correct verb for each individual access point.
+"Knowing there's only a handful of verbs available counters that problem.
+"If you GET a resource that doesn't exist, you can be sure to get a 404 error in a RESTful API.
+ "Contrast it with a non-RESTful API, which may return {error: "Not found"} wrapped in God knows how many layers.
+ "If you need the extra space to write a message to the developer on the other side, you can always use the body of the response.
+ "Imagine two APIs with the same functionality, one following REST and the other not.
+ "Now imagine the following clients for those APIs:
+ "RESTful:
+ "HTTP:
+ "Now think of the following questions:
+ "If the first call of each client worked, how sure can you be the rest will work too?
+ "There was a major update to the API that may or may not have changed those access points.
+ "How much of the docs will you have to re-read?
+ "Can you predict the return of the last query?
+ "You have to edit the review posted (before deleting it).
+ "Can you do so without checking the docs?
+Simply put, REST means using HTTP the way it's meant to be.
+Have a look at [Roy Fielding's dissertation about REST (hyper-link)].
+I think that every person that is doing web development should read it.
+As a note, Roy Fielding is one of the key drivers behind the HTTP protocol, as well.
+To name some of the advandages:
+Simple.
+You can make good use of HTTP cache and proxy server to help you handle high load.
+It helps you organize even a very complex application into simple resources.
+It makes it easy for new clients to use your application, even if you haven't designed it specifically for them (probably, because they weren't around when you created your app).
+Query-strings can be ignored by search engines.
+"I recommend taking a look at Ryan Tomayko's [How I Explained REST to My Wife (hyper-link)]
+"Excerpt from the waybackmaschine link:
+"How about an example.
+"You’re a teacher and want to manage students:
+"what classes they’re in,
+"what grades they’re getting,
+"emergency contacts,
+"information about the books you teach out of, etc.
+"If the systems are web-based, then there’s probably a URL for each of the nouns involved here: student, teacher, class, book, room, etc.
+"...
+"If there were a machine readable representation for each URL, then it would be trivial to latch new tools onto the system because all of that information would be consumable in a standard way.
+"... you could build a country-wide system that was able to talk to each of the individual school systems to collect testing scores.
+"Each of the systems would get information from each other using a simple HTTP GET.
+"If one system needs to add something to another system, it would use an HTTP POST.
+"If a system wants to update something in another system, it uses an HTTP PUT.
+"The only thing left to figure out is what the data should look like.
+"IMHO the biggest advantage that REST enables is that of reducing client/server coupling.
+"It is much easier to evolve a REST interface over time without breaking existing clients.
+"Caching.
+"There are other more in depth benefits of REST which revolve around evolve-ability via loose coupling and hypertext, but caching mechanisms are the main reason you should care about RESTful HTTP.
+"I don't think you will get a good answer to this, partly because nobody really agrees on what REST is.
+"The [wikipedia page (hyper-link)] is heavy on buzzwords and light on explanation.
+"The discussion page is worth a skim just to see how much people disagree on this.
+"As far as I can tell however, REST means this:
+"Instead of having randomly named setter and getter URLs and using GET for all the getters and POST for all the setters, we try to have the URLs identify resources, and then use the HTTP actions GET, POST, PUT and DELETE to do stuff to them.
+"So instead of
+"You would do
+"And then POST and PUT correspond to "create" and "update" operations (but nobody agrees which way round).
+"I think the caching arguments are wrong, because query strings are generally cached, and besides you don't really need to use them.
+"For example django makes something like this very easy, and I wouldn't say it was REST:
+"Or even just include the verb in the URL:
+"In that case GET means something without side-effects, and POST means something that changes data on the server.
+"I think this is perhaps a bit clearer and easier, especially as you can avoid the whole PUT-vs-POST thing.
+"Plus you can add more verbs if you want to, so you aren't artificially bound to what HTTP offers.
+"For example:
+"(Or whatever, it's hard to think of examples until they happen!)
+"So in conclusion, there are only two advantages I can see:
+"Your web API may be cleaner and easier to understand / discover.
+"When synchronising data with a website, it is probably easier to use REST because you can just say synchronize("/articles/1/") or whatever.
+"This depends heavily on your code.
+"However I think there are some pretty big disadvantages:
+"Not all actions easily map to CRUD (create, read/retrieve, update, delete).
+"You may not even be dealing with object type resources.
+"It's extra effort for dubious benefits.
+"Confusion as to which way round PUT and POST are.
+"In English they mean similar things ("I'm going to put/post a notice on the wall.
+"").
+"So in conclusion I would say: unless you really want to go to the extra effort, or if your service maps really well to CRUD operations, save REST for the second version of your API.
+"I just came across another problem with REST: It's not easy to do more than one thing in one request or specify which parts of a compound object you want to get.
+"This is especially important on mobile where round-trip-time can be significant and connections are unreliable.
+"For example, suppose you are getting posts on a facebook timeline.
+"The "pure" REST way would be something like
+"Which is kind of ridiculous.
+"Facebook's API is pretty great IMO, so let's see what they do:
+"By default, most object properties are returned when you make a query.
+"You can choose the fields (or connections) you want returned with the "fields" query parameter.
+"For example, this URL will only return the id, name, and picture of Ben: [https://graph.facebook.com/bgolub?fields=id,name,picture (hyper-link)]
+"I have no idea how you'd do something like that with REST, and if you did whether it would still count as REST.
+"I would certainly ignore anyone who tries to tell you that you shouldn't do that though (especially if the reason is "because it isn't REST")!
+"Simply put: NONE.
+"Feel free to downvote, but I still think there are no real benefits over non-REST HTTP.
+"All current answers are invalid.
+"Arguments from the currently most voted answer:
+"Simple.
+"You can make good use of HTTP cache and proxy server to help you handle high load.
+"It helps you organize even a very complex application into simple resources.
+"It makes it easy for new clients to use your application, even if you haven't designed it specifically for them (probably, because they weren't around when you created your app).
+"With REST you need additional communication layer for your server-side and client-side scripts => it's actually more complicated than use of non-REST HTTP.
+"Caching can be controlled by HTTP headers sent by server.
+"REST does not add any features missing in non-REST.
+"REST does not help you organize things.
+"It forces you to use API supported by server-side library you are using.
+"You can organize your application the same way (or better) when you are using non-REST approach.
+"E.g.
+"see [Model-View-Controller (hyper-link)] or [MVC routing (hyper-link)].
+"Not true at all.
+"It all depends on how well you organize and document your application.
+"REST will not magically make your application better.
+"I would suggest everybody, who is looking for an answer to this question, go through [this "slideshow" (hyper-link)].
+"I couldn't understand what REST is and why it is so cool, its pros and cons, differences from SOAP - but this slideshow was so brilliant and easy to understand, so it is much more clear to me now, than before.
+"Each resource has references to other resources, either in hierarchy or links, so it's easy to browse around.
+"This is an advantage to the human developing the client, saving he/she from constantly consulting the docs, and offering suggestions.
+"It also means the server can change resource names unilaterally (as long as the client software doesn't hardcode the URLs).
+"You can CURL your way into any part of the API or use the web browser to navigate resources.
+"Makes debugging and testing integration much easier.
+"Allows you to specify actions without having to hunt the correct wording.
+"Imagine if OOP getters and setters weren't standardized, and some people used retrieve and define instead.
+"You would have to memorize the correct verb for each individual access point.
+"Knowing there's only a handful of verbs available counters that problem.
+"If you GET a resource that doesn't exist, you can be sure to get a 404 error in a RESTful API.
+ "Contrast it with a non-RESTful API, which may return {error: "Not found"} wrapped in God knows how many layers.
+ "If you need the extra space to write a message to the developer on the other side, you can always use the body of the response.
+ "Imagine two APIs with the same functionality, one following REST and the other not.
+ "Now imagine the following clients for those APIs:
+ "RESTful:
+ "HTTP:
+ "Now think of the following questions:
+ "If the first call of each client worked, how sure can you be the rest will work too?
+ "There was a major update to the API that may or may not have changed those access points.
+ "How much of the docs will you have to re-read?
+ "Can you predict the return of the last query?
+ "You have to edit the review posted (before deleting it).
+ "Can you do so without checking the docs?
+Simply put, REST means using HTTP the way it's meant to be.
+Have a look at [Roy Fielding's dissertation about REST (hyper-link)].
+I think that every person that is doing web development should read it.
+As a note, Roy Fielding is one of the key drivers behind the HTTP protocol, as well.
+To name some of the advandages:
+Simple.
+You can make good use of HTTP cache and proxy server to help you handle high load.
+It helps you organize even a very complex application into simple resources.
+It makes it easy for new clients to use your application, even if you haven't designed it specifically for them (probably, because they weren't around when you created your app).
+Query-strings can be ignored by search engines.
+"I recommend taking a look at Ryan Tomayko's [How I Explained REST to My Wife (hyper-link)]
+"Excerpt from the waybackmaschine link:
+"How about an example.
+"You’re a teacher and want to manage students:
+"what classes they’re in,
+"what grades they’re getting,
+"emergency contacts,
+"information about the books you teach out of, etc.
+"If the systems are web-based, then there’s probably a URL for each of the nouns involved here: student, teacher, class, book, room, etc.
+"...
+"If there were a machine readable representation for each URL, then it would be trivial to latch new tools onto the system because all of that information would be consumable in a standard way.
+"... you could build a country-wide system that was able to talk to each of the individual school systems to collect testing scores.
+"Each of the systems would get information from each other using a simple HTTP GET.
+"If one system needs to add something to another system, it would use an HTTP POST.
+"If a system wants to update something in another system, it uses an HTTP PUT.
+"The only thing left to figure out is what the data should look like.
+"IMHO the biggest advantage that REST enables is that of reducing client/server coupling.
+"It is much easier to evolve a REST interface over time without breaking existing clients.
+"Caching.
+"There are other more in depth benefits of REST which revolve around evolve-ability via loose coupling and hypertext, but caching mechanisms are the main reason you should care about RESTful HTTP.
+"I don't think you will get a good answer to this, partly because nobody really agrees on what REST is.
+"The [wikipedia page (hyper-link)] is heavy on buzzwords and light on explanation.
+"The discussion page is worth a skim just to see how much people disagree on this.
+"As far as I can tell however, REST means this:
+"Instead of having randomly named setter and getter URLs and using GET for all the getters and POST for all the setters, we try to have the URLs identify resources, and then use the HTTP actions GET, POST, PUT and DELETE to do stuff to them.
+"So instead of
+"You would do
+"And then POST and PUT correspond to "create" and "update" operations (but nobody agrees which way round).
+"I think the caching arguments are wrong, because query strings are generally cached, and besides you don't really need to use them.
+"For example django makes something like this very easy, and I wouldn't say it was REST:
+"Or even just include the verb in the URL:
+"In that case GET means something without side-effects, and POST means something that changes data on the server.
+"I think this is perhaps a bit clearer and easier, especially as you can avoid the whole PUT-vs-POST thing.
+"Plus you can add more verbs if you want to, so you aren't artificially bound to what HTTP offers.
+"For example:
+"(Or whatever, it's hard to think of examples until they happen!)
+"So in conclusion, there are only two advantages I can see:
+"Your web API may be cleaner and easier to understand / discover.
+"When synchronising data with a website, it is probably easier to use REST because you can just say synchronize("/articles/1/") or whatever.
+"This depends heavily on your code.
+"However I think there are some pretty big disadvantages:
+"Not all actions easily map to CRUD (create, read/retrieve, update, delete).
+"You may not even be dealing with object type resources.
+"It's extra effort for dubious benefits.
+"Confusion as to which way round PUT and POST are.
+"In English they mean similar things ("I'm going to put/post a notice on the wall.
+"").
+"So in conclusion I would say: unless you really want to go to the extra effort, or if your service maps really well to CRUD operations, save REST for the second version of your API.
+"I just came across another problem with REST: It's not easy to do more than one thing in one request or specify which parts of a compound object you want to get.
+"This is especially important on mobile where round-trip-time can be significant and connections are unreliable.
+"For example, suppose you are getting posts on a facebook timeline.
+"The "pure" REST way would be something like
+"Which is kind of ridiculous.
+"Facebook's API is pretty great IMO, so let's see what they do:
+"By default, most object properties are returned when you make a query.
+"You can choose the fields (or connections) you want returned with the "fields" query parameter.
+"For example, this URL will only return the id, name, and picture of Ben: [https://graph.facebook.com/bgolub?fields=id,name,picture (hyper-link)]
+"I have no idea how you'd do something like that with REST, and if you did whether it would still count as REST.
+"I would certainly ignore anyone who tries to tell you that you shouldn't do that though (especially if the reason is "because it isn't REST")!
+"Simply put: NONE.
+"Feel free to downvote, but I still think there are no real benefits over non-REST HTTP.
+"All current answers are invalid.
+"Arguments from the currently most voted answer:
+"Simple.
+"You can make good use of HTTP cache and proxy server to help you handle high load.
+"It helps you organize even a very complex application into simple resources.
+"It makes it easy for new clients to use your application, even if you haven't designed it specifically for them (probably, because they weren't around when you created your app).
+"With REST you need additional communication layer for your server-side and client-side scripts => it's actually more complicated than use of non-REST HTTP.
+"Caching can be controlled by HTTP headers sent by server.
+"REST does not add any features missing in non-REST.
+"REST does not help you organize things.
+"It forces you to use API supported by server-side library you are using.
+"You can organize your application the same way (or better) when you are using non-REST approach.
+"E.g.
+"see [Model-View-Controller (hyper-link)] or [MVC routing (hyper-link)].
+"Not true at all.
+"It all depends on how well you organize and document your application.
+"REST will not magically make your application better.
+"I would suggest everybody, who is looking for an answer to this question, go through [this "slideshow" (hyper-link)].
+"I couldn't understand what REST is and why it is so cool, its pros and cons, differences from SOAP - but this slideshow was so brilliant and easy to understand, so it is much more clear to me now, than before.
+"Each resource has references to other resources, either in hierarchy or links, so it's easy to browse around.
+"This is an advantage to the human developing the client, saving he/she from constantly consulting the docs, and offering suggestions.
+"It also means the server can change resource names unilaterally (as long as the client software doesn't hardcode the URLs).
+"You can CURL your way into any part of the API or use the web browser to navigate resources.
+"Makes debugging and testing integration much easier.
+"Allows you to specify actions without having to hunt the correct wording.
+"Imagine if OOP getters and setters weren't standardized, and some people used retrieve and define instead.
+"You would have to memorize the correct verb for each individual access point.
+"Knowing there's only a handful of verbs available counters that problem.
+"If you GET a resource that doesn't exist, you can be sure to get a 404 error in a RESTful API.
+ "Contrast it with a non-RESTful API, which may return {error: "Not found"} wrapped in God knows how many layers.
+ "If you need the extra space to write a message to the developer on the other side, you can always use the body of the response.
+ "Imagine two APIs with the same functionality, one following REST and the other not.
+ "Now imagine the following clients for those APIs:
+ "RESTful:
+ "HTTP:
+ "Now think of the following questions:
+ "If the first call of each client worked, how sure can you be the rest will work too?
+ "There was a major update to the API that may or may not have changed those access points.
+ "How much of the docs will you have to re-read?
+ "Can you predict the return of the last query?
+ "You have to edit the review posted (before deleting it).
+ "Can you do so without checking the docs?
+Simply put, REST means using HTTP the way it's meant to be.
+Have a look at [Roy Fielding's dissertation about REST (hyper-link)].
+I think that every person that is doing web development should read it.
+As a note, Roy Fielding is one of the key drivers behind the HTTP protocol, as well.
+To name some of the advandages:
+Simple.
+You can make good use of HTTP cache and proxy server to help you handle high load.
+It helps you organize even a very complex application into simple resources.
+It makes it easy for new clients to use your application, even if you haven't designed it specifically for them (probably, because they weren't around when you created your app).
+Query-strings can be ignored by search engines.
+"I recommend taking a look at Ryan Tomayko's [How I Explained REST to My Wife (hyper-link)]
+"Excerpt from the waybackmaschine link:
+"How about an example.
+"You’re a teacher and want to manage students:
+"what classes they’re in,
+"what grades they’re getting,
+"emergency contacts,
+"information about the books you teach out of, etc.
+"If the systems are web-based, then there’s probably a URL for each of the nouns involved here: student, teacher, class, book, room, etc.
+"...
+"If there were a machine readable representation for each URL, then it would be trivial to latch new tools onto the system because all of that information would be consumable in a standard way.
+"... you could build a country-wide system that was able to talk to each of the individual school systems to collect testing scores.
+"Each of the systems would get information from each other using a simple HTTP GET.
+"If one system needs to add something to another system, it would use an HTTP POST.
+"If a system wants to update something in another system, it uses an HTTP PUT.
+"The only thing left to figure out is what the data should look like.
+"IMHO the biggest advantage that REST enables is that of reducing client/server coupling.
+"It is much easier to evolve a REST interface over time without breaking existing clients.
+"Caching.
+"There are other more in depth benefits of REST which revolve around evolve-ability via loose coupling and hypertext, but caching mechanisms are the main reason you should care about RESTful HTTP.
+"I don't think you will get a good answer to this, partly because nobody really agrees on what REST is.
+"The [wikipedia page (hyper-link)] is heavy on buzzwords and light on explanation.
+"The discussion page is worth a skim just to see how much people disagree on this.
+"As far as I can tell however, REST means this:
+"Instead of having randomly named setter and getter URLs and using GET for all the getters and POST for all the setters, we try to have the URLs identify resources, and then use the HTTP actions GET, POST, PUT and DELETE to do stuff to them.
+"So instead of
+"You would do
+"And then POST and PUT correspond to "create" and "update" operations (but nobody agrees which way round).
+"I think the caching arguments are wrong, because query strings are generally cached, and besides you don't really need to use them.
+"For example django makes something like this very easy, and I wouldn't say it was REST:
+"Or even just include the verb in the URL:
+"In that case GET means something without side-effects, and POST means something that changes data on the server.
+"I think this is perhaps a bit clearer and easier, especially as you can avoid the whole PUT-vs-POST thing.
+"Plus you can add more verbs if you want to, so you aren't artificially bound to what HTTP offers.
+"For example:
+"(Or whatever, it's hard to think of examples until they happen!)
+"So in conclusion, there are only two advantages I can see:
+"Your web API may be cleaner and easier to understand / discover.
+"When synchronising data with a website, it is probably easier to use REST because you can just say synchronize("/articles/1/") or whatever.
+"This depends heavily on your code.
+"However I think there are some pretty big disadvantages:
+"Not all actions easily map to CRUD (create, read/retrieve, update, delete).
+"You may not even be dealing with object type resources.
+"It's extra effort for dubious benefits.
+"Confusion as to which way round PUT and POST are.
+"In English they mean similar things ("I'm going to put/post a notice on the wall.
+"").
+"So in conclusion I would say: unless you really want to go to the extra effort, or if your service maps really well to CRUD operations, save REST for the second version of your API.
+"I just came across another problem with REST: It's not easy to do more than one thing in one request or specify which parts of a compound object you want to get.
+"This is especially important on mobile where round-trip-time can be significant and connections are unreliable.
+"For example, suppose you are getting posts on a facebook timeline.
+"The "pure" REST way would be something like
+"Which is kind of ridiculous.
+"Facebook's API is pretty great IMO, so let's see what they do:
+"By default, most object properties are returned when you make a query.
+"You can choose the fields (or connections) you want returned with the "fields" query parameter.
+"For example, this URL will only return the id, name, and picture of Ben: [https://graph.facebook.com/bgolub?fields=id,name,picture (hyper-link)]
+"I have no idea how you'd do something like that with REST, and if you did whether it would still count as REST.
+"I would certainly ignore anyone who tries to tell you that you shouldn't do that though (especially if the reason is "because it isn't REST")!
+"Simply put: NONE.
+"Feel free to downvote, but I still think there are no real benefits over non-REST HTTP.
+"All current answers are invalid.
+"Arguments from the currently most voted answer:
+"Simple.
+"You can make good use of HTTP cache and proxy server to help you handle high load.
+"It helps you organize even a very complex application into simple resources.
+"It makes it easy for new clients to use your application, even if you haven't designed it specifically for them (probably, because they weren't around when you created your app).
+"With REST you need additional communication layer for your server-side and client-side scripts => it's actually more complicated than use of non-REST HTTP.
+"Caching can be controlled by HTTP headers sent by server.
+"REST does not add any features missing in non-REST.
+"REST does not help you organize things.
+"It forces you to use API supported by server-side library you are using.
+"You can organize your application the same way (or better) when you are using non-REST approach.
+"E.g.
+"see [Model-View-Controller (hyper-link)] or [MVC routing (hyper-link)].
+"Not true at all.
+"It all depends on how well you organize and document your application.
+"REST will not magically make your application better.
+"I would suggest everybody, who is looking for an answer to this question, go through [this "slideshow" (hyper-link)].
+"I couldn't understand what REST is and why it is so cool, its pros and cons, differences from SOAP - but this slideshow was so brilliant and easy to understand, so it is much more clear to me now, than before.
+"Each resource has references to other resources, either in hierarchy or links, so it's easy to browse around.
+"This is an advantage to the human developing the client, saving he/she from constantly consulting the docs, and offering suggestions.
+"It also means the server can change resource names unilaterally (as long as the client software doesn't hardcode the URLs).
+"You can CURL your way into any part of the API or use the web browser to navigate resources.
+"Makes debugging and testing integration much easier.
+"Allows you to specify actions without having to hunt the correct wording.
+"Imagine if OOP getters and setters weren't standardized, and some people used retrieve and define instead.
+"You would have to memorize the correct verb for each individual access point.
+"Knowing there's only a handful of verbs available counters that problem.
+"If you GET a resource that doesn't exist, you can be sure to get a 404 error in a RESTful API.
+ "Contrast it with a non-RESTful API, which may return {error: "Not found"} wrapped in God knows how many layers.
+ "If you need the extra space to write a message to the developer on the other side, you can always use the body of the response.
+ "Imagine two APIs with the same functionality, one following REST and the other not.
+ "Now imagine the following clients for those APIs:
+ "RESTful:
+ "HTTP:
+ "Now think of the following questions:
+ "If the first call of each client worked, how sure can you be the rest will work too?
+ "There was a major update to the API that may or may not have changed those access points.
+ "How much of the docs will you have to re-read?
+ "Can you predict the return of the last query?
+ "You have to edit the review posted (before deleting it).
+ "Can you do so without checking the docs?

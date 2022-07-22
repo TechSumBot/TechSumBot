@@ -1,0 +1,5 @@
+"Sometimes I see people write i = 0; while True: i += 1 ..., which can be replaced with for i in itertools.count() and people writing while True: foo = fun() if foo is None: break when this can be written for foo in iter(fun, None), which requires learning but has less boilerplate and opportunity for silly mistakes.
+"The [builtin boolean type didn't exist till Python 2.3 (hyper-link)] so code that was intended to run on ancient versions tends to use the while 1: form.
+"Neither is hard to read or understand, though personally I'd always use while True, which is a bit more explicit.
+"Using a basically infinite loop and leaving it from somewhere within the loop (using break) should usually be avoided altogether.
+"Because Python can tell when compiling the 1 that it's always non-zero, it removes the conditional jump and doesn't load the constant at all: [code snippet]

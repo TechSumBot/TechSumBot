@@ -1,0 +1,5 @@
+"a concrete example of overhead is the difference between a "local" procedure call and a "remote" procedure call.
+"you can reduce the overhead by using larger packet sizes and udp has a smaller header and no handshake.
+"think about the overhead as the time required to manage the threads and coordinate among them.
+"but, it would be a lot of overhead to get a car to drive down the street, so you might want to walk.
+"for a programmer overhead refers to those system resources which are consumed by your code when it's running on a giving platform on a given set of input data.

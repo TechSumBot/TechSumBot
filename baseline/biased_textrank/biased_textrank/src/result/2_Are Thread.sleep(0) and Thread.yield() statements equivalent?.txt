@@ -1,0 +1,5 @@
+"OpenJDK source (Java SE 7) have the following implementation for Thread.sleep(0) in JVM_Sleep function of jvm.cpp:
+"So Thread.sleep(0) and Thread.yield() may call same system calls in some platforms.
+"os::sleep and os::yield are platform specific stuff.
+"The semantics of Thread.yield and Thread.sleep(0) are undefined [JLS17.9]; the JVM is free to implement them as no-ops or treat them as scheduling hints.
+"Thread.Sleep(0) might have an optimization to just call yield.

@@ -1,0 +1,115 @@
+
+Query:  "What is the advantage of using static methods?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/2438478)
+ [1] #0: "static methods are great because you don't have to declare an instance of the object to which the method belongs."
+ [0] #1: "python's site has some great documentation on static methods here: [http://docs.python.org/library/functions.html#staticmethod (hyper-link)]"
+
+Answer:  #1 (https://stackoverflow.com/a/2438531)
+ [1] #2: "Static methods have almost no reason-to-be in Python."
+ [1] #3: "You use either instance methods or class methods."
+         [code snippet]
+
+Answer:  #2 (https://stackoverflow.com/a/2438541)
+ [0] #4: "Why one would want to define static methods?"
+ [0] #5: "Suppose we have a class called Math then"
+ [0] #6: "nobody will want to create object of class Math and then invoke methods like ceil and floor and fabs on it."
+ [0] #7: "So we make them static."
+ [0] #8: "For example doing"
+         [code snippet]
+ [0] #9: "is much better than"
+         [code snippet]
+ [0] #10: "So they are useful in some way."
+ [0] #11: "You need not create an instance of a class to use them."
+ [0] #12: "Why are not all methods defined as static methods?"
+ [0] #13: "They don't have access to instance variables."
+         [code snippet]
+ [0] #14: "That is why we don't make all the methods static."
+
+Answer:  #3 (https://stackoverflow.com/a/2438559)
+ [0] #15: "When you call a function object from an object instance, it becomes a 'bound method' and gets the instance object itself is passed in as a first argument."
+ [0] #16: "When you call a classmethod object (which wraps a function object) on an object instance, the class of the instance object gets passed in as a first argument."
+ [0] #17: "When you call a staticmethod object (which wraps a function object), no implicit first argument is used."
+         [code snippet]
+
+Answer:  #4 (https://stackoverflow.com/a/2438627)
+ [0] #18: "Static methods have limited use, because they don't have access to the attributes of an instance of a class (like a regular method does), and they don't have access to the attributes of the class itself (like a class method does)."
+ [0] #19: "So they aren't useful for day-to-day methods."
+ [1] #20: "However, they can be useful to group some utility function together with a class - e.g."
+ [1] #21: "a simple conversion from one type to another - that doesn't need access to any information apart from the parameters provided (and perhaps some attributes global to the module.)"
+ [1] #22: "They could be put outside the class, but grouping them inside the class may make sense where they are only applicable there."
+ [1] #23: "You can also reference the method via an instance or the class, rather than the module name, which may help the reader understand to what instance the method is related."
+
+Answer:  #5 (https://stackoverflow.com/a/2438925)
+ [0] #24: "This is not quite to the point of your actual question, but since you've said you are a python newbie perhaps it will be helpful, and no one else has quite come out and said it explicitly."
+ [0] #25: "I would never have fixed the above code by making the method a static method."
+ [0] #26: "I would either have ditched the class and just written a function:"
+         [code snippet]
+ [0] #27: "If you have many related functions, you can group them in a module - i.e, put them all in the same file, named sample.py for example; then"
+         [code snippet]
+ [0] #28: "Or I would have added an __init__ method to the class and created an instance that had useful methods:"
+         [code snippet]
+ [0] #29: "(I also changed the case conventions in the above example to match the style recommended by PEP 8.)"
+ [0] #30: "One of the advantages of Python is that it doesn't force you to use classes for everything."
+ [0] #31: "You can use them only when there is data or state that should be associated with the methods, which is what classes are for."
+ [0] #32: "Otherwise you can use functions, which is what functions are for."
+
+Answer:  #6 (https://stackoverflow.com/a/22589883)
+ [0] #33: "See [this article (hyper-link)] for detailed explanation."
+ [0] #34: "TL;DR"
+ [1] #35: "1.It eliminates the use of self argument."
+ [1] #36: "2.It reduces memory usage because Python doesn't have to instantiate a [bound-method (hyper-link)] for each object instiantiated:"
+         [code snippet]
+ [1] #37: "3.It improves code readability, signifying that the method does not depend on state of the object itself."
+ [1] #38: "4.It allows for method overriding in that if the method were defined at the module-level (i.e."
+ [1] #39: "outside the class) a subclass would not be able to override that method."
+
+Answer:  #7 (https://stackoverflow.com/a/30980489)
+ [1] #40: "Because namespacing functions is nice (as was previously pointed out):"
+ [1] #41: "When I want to be explicit about methods that don't change the state of the object, I use static methods."
+ [0] #42: "This discourages people on my team to start changing the object's attributes in those methods."
+ [0] #43: "When i refactor really rotten code, I start by trying to make as many methods @staticmethod as possible."
+ [0] #44: "This allows me then to extract these methods into a class - though I agree, this is rarely something I use, it did came in helpful a few times."
+
+Answer:  #8 (https://stackoverflow.com/a/48714880)
+ [0] #45: "In my estimation, there is no single performance benefit of using @staticmethods compared to just defining the function outside of and separate from the class it would otherwise be a @staticmethod of."
+ [1] #46: "The only thing I would say justifies their existence is convenience."
+ [0] #47: "Static methods are common in other popular programming languages, so why not python?"
+ [0] #48: "If you want to create a function with behavior that is very closely associated with the class you are creating it for but it doesn't actually access/modify the internal data of an instance of the class in a way that justifies conceptualizing it as a typical method of that class then slap a @staticmethod above it and anyone reading your code will immediately learn a lot about the nature of the method and its relationship to the class."
+ [0] #49: "One thing I occasionally like to do is place functionality that my class uses internally a lot into private @staticmethods."
+ [0] #50: "That way I do not clutter the API exposed by my module with methods that no one using my module would ever need to see let alone use."
+
+Answer:  #9 (https://stackoverflow.com/a/61713212)
+ [0] #51: "The alternatives to a staticmethod are: classmethod, instancemethod, and function."
+ [0] #52: "If you don't know what these are, scroll down to the last section."
+ [1] #53: "If a staticmethod is better than any of these alternatives, depends on for what purpose it is written."
+ [1] #54: "If you don't need access to the attributes or methods of the class or instance, a staticmethod is better than a classmethod or instancemethod."
+ [0] #55: "That way it is clear (from the @staticmethod decorator) that the class' and instance's state is not read or modified."
+ [0] #56: "However, using a function makes that distinction even clearer (see disadvantages)."
+ [0] #57: "The call signature of a staticmethod is the same as that of a classmethod or instancemethod, namely <instance>.<method>(<arguments>)."
+ [0] #58: "Hence it can easily be replaced by one of the three if that is needed later on or in a derived class."
+ [0] #59: "You can't do that with a simple function."
+ [1] #60: "A staticmethod can be used instead of a function to make clear that it subjectively belongs to a class and to prevent namespace conflicts."
+ [1] #61: "It cannot access attributes or methods of the instance or class."
+ [0] #62: "The call signature of a staticmethod is the same as that of a classmethod or instancemethod."
+ [1] #63: "This masks the fact that the staticmethod does not actually read or modify any object information."
+ [0] #64: "This makes code harder to read."
+ [0] #65: "Why not just use a function?"
+ [0] #66: "A staticmethod is difficult to re-use if you ever need to call it from outside the class/instance where it was defined."
+ [0] #67: "If there is any potential for re-use, a function is the better choice."
+ [0] #68: "The staticmethod is seldom used, so people reading code that includes one may take a little longer to read it."
+ [0] #69: "To address discuss the advantages of the staticmethod, we need to know what the alternatives are and how they differ from each other."
+ [0] #70: "The staticmethod belongs to a class but cannot access or modify any instance or class information."
+ [0] #71: "There are three alternatives to it:"
+ [0] #72: "The classmethod has access to the caller's class."
+ [0] #73: "The instancemethod has access to the caller's instance and its class."
+ [0] #74: "The function has nothing to do with classes."
+ [0] #75: "It is the closest in capability to the staticmethod."
+ [0] #76: "Here's what this looks like in code:"
+         [code snippet]
+
+Answer:  #10 (https://stackoverflow.com/a/65560925)
+ [1] #77: "At least the calling of static method does not require to pass a "self" parameter, so - yes, it has an advantage."

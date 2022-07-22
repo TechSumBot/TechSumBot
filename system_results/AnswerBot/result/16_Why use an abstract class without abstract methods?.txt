@@ -1,0 +1,5 @@
+"yes, we can have abstract class without any abstract method.
+child classes can use the general methods defined in the abstract class.
+if this class extends another abstract class and don't have implementation of inherited abstract methods.
+a common reason to do this is to have the abstract class provide exploding implementations of the abstract methods as a convenience to subclasses who don't have to implement all the abstract methods, just those they want to - the remaining ones will still explode but it won't matter if those execution paths aren't exercised.
+"when you make a class abstract (either with or without abstract methods), you are forcing the users of this class to create concrete sub-classes of it, since they can't instantiate it.

@@ -1,0 +1,5 @@
+Just write a quick test, but bear in mind that each language will be faster with certain functions then the other.
+The difference shouldn't be large enough to be the reason to pick one or the other.
+PHP and Python are similiar enough to not warrent any kind of switching.
+I would assume that PHP (>5.5) is faster and more reliable for complex web applications because it is optimized for website scripting.
+For a real benchmark you need two comparable frameworks with hundreds of classes/files an a web application running 100 clients at once.

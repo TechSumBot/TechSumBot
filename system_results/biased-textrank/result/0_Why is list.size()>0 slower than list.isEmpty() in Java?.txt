@@ -1,0 +1,5 @@
+Counting items in a linked list can be very slow.
+For other implementations of List — for example, a naïve linked list* — counting the size might take a very long time, while you only actually care whether it is greater than zero.
+"A primitive linked list (one that doesn't store the size separately) for example could answer isEmpty() much faster than a size() call.
+"In any case, the performance difference between the two will be negligible, especially once you do the comparison you need to do to see if the list is empty (l.size() == 0).
+"Take a look at [Java theory and practice: Anatomy of a flawed microbenchmark](http://www.ibm.com/developerworks/java/library/j-jtp02225.html) for a general description on how to approach benchmarks.

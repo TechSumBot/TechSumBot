@@ -1,0 +1,5 @@
+"if you divide int by 0, then jvm will throw arithmetic exception.
+the result of division by zero is, mathematically speaking, undefined, which can be expressed with a float/double (as nan - not a number), it isn't, however, wrong in any fundamental sense.
+throwing an exception would actually violate that standard.
+"in short: floating point numbers can represent infinity (or even operations that yield values which aren't numbers) so an operation that results in this (e.g.
+"the division of doubles and floats is as per the [ieee 754 (hyper-link)] standards for floating point match which shouldnt throw an exception.

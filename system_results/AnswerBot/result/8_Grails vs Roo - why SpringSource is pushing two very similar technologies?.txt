@@ -1,0 +1,5 @@
+"ben alex from springsource talks about roo in [this interview (hyper-link)] and he is asked about grails vs roo.
+"each technology approaches its primary language (java or groovy) and operating model (dev-time or runtime) with the philosophy of "how do we make the value proposition unbelievably good using this language and operating model combination?".
+"we have both technologies because roo and grails are very different at philosophical and implementation levels (as already noted in the other replies).
+"[springsource (hyper-link)]'s goal is to make it as fast and easy as possible for people to build, run and manage spring-based solutions.
+"we have both [grails (hyper-link)] and [spring roo (hyper-link)] because we deeply care about developer productivity and unquestionably both of these tools deliver a serious boost to what teams can achieve on top of spring.

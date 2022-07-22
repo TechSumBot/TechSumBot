@@ -1,0 +1,5 @@
+It was taken from ABC (python's predecessor) see [here (hyper-link)]:
+It has now been removed in Python 3.
+"See [http://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]
+"The () spelling has been removed in Python 3.
+"[https://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]

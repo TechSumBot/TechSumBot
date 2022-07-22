@@ -1,0 +1,108 @@
+If you want to access them like ClassName.FIELD, then yes, you have to do that.
+If you don't make it static, you have to do something like new ClassName().FIELD, which is unnecessary and a pointless creation of an object.
+However, if you are only using it in the class or making it private, then don't make it static.
+If you are within the actual class, you can just do FIELD.
+To fully grasp this concept, you have to know what static means.
+Static means that it belongs to the actual class, not an instance of it.
+Absolutely not.
+Immutable objects, for example, have final properties, that can be set only once, by the constructor.
+For more information, please see: [http://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html (hyper-link)]
+Immutable objects are not the only case in which final properties are used, but they provide a evident example of their usefulness.
+"They don't always come together and it's not a convention.
+"final fields are often used to create immutable types:
+"On the other hand static but not final fields are not that common and are quite tricky.
+"static final is seen often because it means application1-wide constant.
+"1 - well, class loader-wide, to be precise
+"No, absolutely not - and it's not a convention.
+"static and final are entirely different things.
+"static means that the field relates to the type rather than any particular instance of the type.
+"final means that the field can't change value after initial assignment (which must occur during type/instance initialization).
+"static final fields are usually for constants - whereas instance fields which are final are usually used when creating immutable types.
+"Of course not.
+"They must be static if they belong to the class, and not be static if they belong to the instance of the class:
+"Final fields do not need to be static, and sometimes it can be useful to have a non-static final instance variable.
+"Fields that are marked both static and final are usually used for constants, like this:
+"However, sometimes you'll see a non-static final field when an object has a immutable property.
+"Usually, non-static final fields are still marked private for the usual reasons, though, so it's more of an extra check so the compiler can make sure you're never setting the property again.
+"Absolutely not.
+"Consider:
+"Drop the final, and the class becomes mutable.
+"Add a static, and all your points are the same, and there is no legal way to write the constructor.
+"Ultimately it depends on what you're doing with those variables.
+"If the variable only ever has a lifecycle inside of that specific method - that is, nothing else will ever need to see it or use those values - then declaring them inside of the method is appropriate and correct.
+"Making it more visible than it needs to only adds to confusion for future maintainers (including yourself).
+"If the variable has a lifecycle outside of the class, it might make sense to declare it static.
+"This is particularly true in the case of constants or variables that don't store any state themselves.
+"If it isn't a constant or it doesn't have any purpose outside of the class, then keep it non-static and private.
+If you want to access them like ClassName.FIELD, then yes, you have to do that.
+If you don't make it static, you have to do something like new ClassName().FIELD, which is unnecessary and a pointless creation of an object.
+However, if you are only using it in the class or making it private, then don't make it static.
+If you are within the actual class, you can just do FIELD.
+To fully grasp this concept, you have to know what static means.
+Static means that it belongs to the actual class, not an instance of it.
+Absolutely not.
+Immutable objects, for example, have final properties, that can be set only once, by the constructor.
+For more information, please see: [http://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html (hyper-link)]
+Immutable objects are not the only case in which final properties are used, but they provide a evident example of their usefulness.
+"They don't always come together and it's not a convention.
+"final fields are often used to create immutable types:
+"On the other hand static but not final fields are not that common and are quite tricky.
+"static final is seen often because it means application1-wide constant.
+"1 - well, class loader-wide, to be precise
+"No, absolutely not - and it's not a convention.
+"static and final are entirely different things.
+"static means that the field relates to the type rather than any particular instance of the type.
+"final means that the field can't change value after initial assignment (which must occur during type/instance initialization).
+"static final fields are usually for constants - whereas instance fields which are final are usually used when creating immutable types.
+"Of course not.
+"They must be static if they belong to the class, and not be static if they belong to the instance of the class:
+"Final fields do not need to be static, and sometimes it can be useful to have a non-static final instance variable.
+"Fields that are marked both static and final are usually used for constants, like this:
+"However, sometimes you'll see a non-static final field when an object has a immutable property.
+"Usually, non-static final fields are still marked private for the usual reasons, though, so it's more of an extra check so the compiler can make sure you're never setting the property again.
+"Absolutely not.
+"Consider:
+"Drop the final, and the class becomes mutable.
+"Add a static, and all your points are the same, and there is no legal way to write the constructor.
+"Ultimately it depends on what you're doing with those variables.
+"If the variable only ever has a lifecycle inside of that specific method - that is, nothing else will ever need to see it or use those values - then declaring them inside of the method is appropriate and correct.
+"Making it more visible than it needs to only adds to confusion for future maintainers (including yourself).
+"If the variable has a lifecycle outside of the class, it might make sense to declare it static.
+"This is particularly true in the case of constants or variables that don't store any state themselves.
+"If it isn't a constant or it doesn't have any purpose outside of the class, then keep it non-static and private.
+If you want to access them like ClassName.FIELD, then yes, you have to do that.
+If you don't make it static, you have to do something like new ClassName().FIELD, which is unnecessary and a pointless creation of an object.
+However, if you are only using it in the class or making it private, then don't make it static.
+If you are within the actual class, you can just do FIELD.
+To fully grasp this concept, you have to know what static means.
+Static means that it belongs to the actual class, not an instance of it.
+Absolutely not.
+Immutable objects, for example, have final properties, that can be set only once, by the constructor.
+For more information, please see: [http://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html (hyper-link)]
+Immutable objects are not the only case in which final properties are used, but they provide a evident example of their usefulness.
+"They don't always come together and it's not a convention.
+"final fields are often used to create immutable types:
+"On the other hand static but not final fields are not that common and are quite tricky.
+"static final is seen often because it means application1-wide constant.
+"1 - well, class loader-wide, to be precise
+"No, absolutely not - and it's not a convention.
+"static and final are entirely different things.
+"static means that the field relates to the type rather than any particular instance of the type.
+"final means that the field can't change value after initial assignment (which must occur during type/instance initialization).
+"static final fields are usually for constants - whereas instance fields which are final are usually used when creating immutable types.
+"Of course not.
+"They must be static if they belong to the class, and not be static if they belong to the instance of the class:
+"Final fields do not need to be static, and sometimes it can be useful to have a non-static final instance variable.
+"Fields that are marked both static and final are usually used for constants, like this:
+"However, sometimes you'll see a non-static final field when an object has a immutable property.
+"Usually, non-static final fields are still marked private for the usual reasons, though, so it's more of an extra check so the compiler can make sure you're never setting the property again.
+"Absolutely not.
+"Consider:
+"Drop the final, and the class becomes mutable.
+"Add a static, and all your points are the same, and there is no legal way to write the constructor.
+"Ultimately it depends on what you're doing with those variables.
+"If the variable only ever has a lifecycle inside of that specific method - that is, nothing else will ever need to see it or use those values - then declaring them inside of the method is appropriate and correct.
+"Making it more visible than it needs to only adds to confusion for future maintainers (including yourself).
+"If the variable has a lifecycle outside of the class, it might make sense to declare it static.
+"This is particularly true in the case of constants or variables that don't store any state themselves.
+"If it isn't a constant or it doesn't have any purpose outside of the class, then keep it non-static and private.

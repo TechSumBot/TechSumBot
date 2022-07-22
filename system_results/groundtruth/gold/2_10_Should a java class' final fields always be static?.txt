@@ -1,0 +1,5 @@
+Absolutely not.
+"static final fields are usually for constants - whereas instance fields which are final are usually used when creating immutable types.
+"Final fields do not need to be static, and sometimes it can be useful to have a non-static final instance variable.
+"However, sometimes you'll see a non-static final field when an object has a immutable property.
+"Ultimately it depends on what you're doing with those variables.

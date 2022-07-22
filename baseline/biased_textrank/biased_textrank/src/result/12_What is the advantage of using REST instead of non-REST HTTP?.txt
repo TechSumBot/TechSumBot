@@ -1,0 +1,5 @@
+Simply put, REST means using HTTP the way it's meant to be.
+"In that case GET means something without side-effects, and POST means something that changes data on the server.
+"I think this is perhaps a bit clearer and easier, especially as you can avoid the whole PUT-vs-POST thing.
+"When synchronising data with a website, it is probably easier to use REST because you can just say synchronize("/articles/1/") or whatever.
+ "Contrast it with a non-RESTful API, which may return {error: "Not found"} wrapped in God knows how many layers.

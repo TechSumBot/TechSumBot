@@ -1,0 +1,5 @@
+Java's float and double types, like pretty much any other language out there (and pretty much any hardware FP unit), implement the [IEEE 754 (hyper-link)] standard for floating point math, which mandates division by zero to return a special "infinity" value.
+"If you divide int by 0, then JVM will throw Arithmetic Exception.
+"But if we divide int by 0.0, then JVM will show Infinity: public static void main(String [] args){ int a=10; System.out.println(a/0.0); } Console: Infinity
+"if the value of the divisor in an integer division is 0, then an ArithmeticException is thrown.
+"Division of a zero by a zero results in NaN; division of zero by any other finite value results in a signed zero.

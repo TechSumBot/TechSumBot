@@ -1,0 +1,201 @@
+Well, I don't see any difference between catching a general exception or a specific one, except that when having multiple catch blocks, you can react differently depending on what the exception is.
+In conclusion, you will catch both IOException and NullPointerException with a generic Exception, but the way your program should react is probably different.
+Unless you are doing some logging and clean up code in the front end of your application, then I think it is bad to catch all exceptions.
+My basic rule of thumb is to catch all the exceptions you expect and anything else is a bug.
+If you catch everything and continue on, it's a bit like putting a sticking plaster over the warning light on your car dashboard.
+You can't see it anymore, but it doesn't mean everything is ok.
+The point is twofold I think.
+Firstly, if you don't know what exception has occurred how can you hope to recover from it.
+If you expect that a user might type a filename in wrong then you can expect a FileNotFoundException and tell the user to try again.
+If that same code generated a NullReferenceException and you simply told the user to try again they wouldn't know what had happened.
+"Secondly, the FxCop guidelines do focus on Library/Framework code - not all their rules are designed to be applicable to EXE's or ASP.Net web sites.
+"So having a global exception handler that will log all exceptions and exit the application nicely is a good thing to have.
+"Obviously this is one of those questions where the only real answer is "it depends."
+"The main thing it depends on is where your are catching the exception.
+"In general libraries should be more conservative with catching exceptions whereas at the top level of your program (e.g.
+"in your main method or in the top of the action method in a controller, etc) you can be more liberal with what you catch.
+"The reason for this is that e.g.
+"you don't want to catch all exceptions in a library because you may mask problems that have nothing to do with your library, like "OutOfMemoryException" which you really would prefer bubbles up so that the user can be notified, etc.
+"On the other hand, if you are talking about catching exceptions inside your main() method which catches the exception, displays it and then exits... well, it's probably safe to catch just about any exception here.
+"The most important rule about catching all exceptions is that you should never just swallow all exceptions silently... e.g.
+"something like this in Java:
+"or this in Python:
+"Because these can be some of the hardest issues to track down.
+"A good rule of thumb is that you should only catch exceptions that you can properly deal with yourself.
+"If you cannot handle the exception completely then you should let it bubble up to someone who can.
+"Yes!
+"(except at the "top" of your application)
+"By catching an exception and allowing the code execution to continue, you are stating that you know how do deal with and circumvent, or fix a particular problem.
+"You are stating that this is a recoverable situation.
+"Catching Exception or SystemException means that you will catch problems like IO errors, network errors, out-of-memory errors, missing-code errors, null-pointer-dereferencing and the likes.
+"It is a lie to say that you can deal with these.
+"In a well organised application, these unrecoverable problems should be handled high up the stack.
+"In addition, as code evolves, you don't want your function to catch a new exception that is added in the future to a called method.
+"In my opinion you should catch all exceptions you expect, but this rule applies to anything but your interface logic.
+"All the way down the call stack you should probably create a way to catch all exceptions, do some logging/give user feedback and, if needed and possible, shut down gracefully.
+"Nothing is worse than an application crashing with some user unfriendly stacktrace dumped to the screen.
+"Not only does it give (perhaps unwanted) insight into your code, but it also confuses your end-user, and sometimes even scares them away to a competing application.
+"The problem with catching all exceptions is that you may be catching ones that you don't expect, or indeed ones that you should not be catching.
+"The fact is that an exception of any kind indicates that something has gone wrong, and you have to sort it out before continuing otherwise you may end up with data integrity problems and other bugs that are not so easy to track down.
+"To give one example, in one project I implemented an exception type called CriticalException.
+"This indicates an error condition that requires intervention by the developers and/or administrative staff otherwise customers get incorrectly billed, or other data integrity problems might result.
+"It can also be used in other similar cases when merely logging the exception is not sufficient, and an e-mail alert needs to be sent out.
+"Another developer who didn't properly understand the concept of exceptions then wrapped some code that could potentially throw this exception in a generic try...catch block which discarded all exceptions.
+"Fortunately, I spotted it, but it could have resulted in serious problems, especially since the "very uncommon" corner case that it was supposed to catch turned out to be a lot more common than I anticipated.
+"So in general, catching generic exceptions is bad unless you are 100% sure that you know exactly which kinds of exceptions will be thrown and under which circumstances.
+"If in doubt, let them bubble up to the top level exception handler instead.
+"A similar rule here is never throw exceptions of type System.Exception.
+"You (or another developer) may want to catch your specific exception higher up the call stack while letting others go through.
+"(There is one point to note, however.
+"In .NET 2.0, if a thread encounters any uncaught exceptions it unloads your whole app domain.
+"So you should wrap the main body of a thread in a generic try...catch block and pass any exceptions caught there to your global exception handling code.)
+"There's been a lot of philosophical discussions (more like arguments) about this issue.
+"Personally, I believe the worst thing you can do is swallow exceptions.
+"The next worst is allowing an exception to bubble up to the surface where the user gets a nasty screen full of technical mumbo-jumbo.
+"I would like to play devil's advocate for catching Exception and logging it and rethrowing it.
+"This can be necessary if, for example, you are somewhere in the code and an unexpected exception happens, you can catch it, log meaningful state information that wouldn't be available in a simple stack trace, and then rethrow it to upper layers to deal with.
+"There are two completely different use cases.
+"The first is the one most people are thinking about, putting a try/catch around some operation that requires a checked exception.
+"This should not be a catch-all by any means.
+"The second, however, is to stop your program from breaking when it could continue.
+"These cases are:
+"The top of all threads (By default, exceptions will vanish without a trace!)
+"Inside a main processing loop that you expect to never exit
+"Inside a Loop processing a list of objects where one failure shouldn't stop others
+"Top of the "main" thread--You might control a crash here, like dump a little data to stdout when you run out of memory.
+"If you have a "Runner" that runs code (for instance, if someone adds a listener to you and you call the listener) then when you run the code you should catch Exception to log the problem and let you continue notifying other listeners.
+"These cases you ALWAYS want to catch Exception (Maybe even Throwable sometimes) in order to catch programming/unexpected errors, log them and continue.
+Well, I don't see any difference between catching a general exception or a specific one, except that when having multiple catch blocks, you can react differently depending on what the exception is.
+In conclusion, you will catch both IOException and NullPointerException with a generic Exception, but the way your program should react is probably different.
+Unless you are doing some logging and clean up code in the front end of your application, then I think it is bad to catch all exceptions.
+My basic rule of thumb is to catch all the exceptions you expect and anything else is a bug.
+If you catch everything and continue on, it's a bit like putting a sticking plaster over the warning light on your car dashboard.
+You can't see it anymore, but it doesn't mean everything is ok.
+The point is twofold I think.
+Firstly, if you don't know what exception has occurred how can you hope to recover from it.
+If you expect that a user might type a filename in wrong then you can expect a FileNotFoundException and tell the user to try again.
+If that same code generated a NullReferenceException and you simply told the user to try again they wouldn't know what had happened.
+"Secondly, the FxCop guidelines do focus on Library/Framework code - not all their rules are designed to be applicable to EXE's or ASP.Net web sites.
+"So having a global exception handler that will log all exceptions and exit the application nicely is a good thing to have.
+"Obviously this is one of those questions where the only real answer is "it depends."
+"The main thing it depends on is where your are catching the exception.
+"In general libraries should be more conservative with catching exceptions whereas at the top level of your program (e.g.
+"in your main method or in the top of the action method in a controller, etc) you can be more liberal with what you catch.
+"The reason for this is that e.g.
+"you don't want to catch all exceptions in a library because you may mask problems that have nothing to do with your library, like "OutOfMemoryException" which you really would prefer bubbles up so that the user can be notified, etc.
+"On the other hand, if you are talking about catching exceptions inside your main() method which catches the exception, displays it and then exits... well, it's probably safe to catch just about any exception here.
+"The most important rule about catching all exceptions is that you should never just swallow all exceptions silently... e.g.
+"something like this in Java:
+"or this in Python:
+"Because these can be some of the hardest issues to track down.
+"A good rule of thumb is that you should only catch exceptions that you can properly deal with yourself.
+"If you cannot handle the exception completely then you should let it bubble up to someone who can.
+"Yes!
+"(except at the "top" of your application)
+"By catching an exception and allowing the code execution to continue, you are stating that you know how do deal with and circumvent, or fix a particular problem.
+"You are stating that this is a recoverable situation.
+"Catching Exception or SystemException means that you will catch problems like IO errors, network errors, out-of-memory errors, missing-code errors, null-pointer-dereferencing and the likes.
+"It is a lie to say that you can deal with these.
+"In a well organised application, these unrecoverable problems should be handled high up the stack.
+"In addition, as code evolves, you don't want your function to catch a new exception that is added in the future to a called method.
+"In my opinion you should catch all exceptions you expect, but this rule applies to anything but your interface logic.
+"All the way down the call stack you should probably create a way to catch all exceptions, do some logging/give user feedback and, if needed and possible, shut down gracefully.
+"Nothing is worse than an application crashing with some user unfriendly stacktrace dumped to the screen.
+"Not only does it give (perhaps unwanted) insight into your code, but it also confuses your end-user, and sometimes even scares them away to a competing application.
+"The problem with catching all exceptions is that you may be catching ones that you don't expect, or indeed ones that you should not be catching.
+"The fact is that an exception of any kind indicates that something has gone wrong, and you have to sort it out before continuing otherwise you may end up with data integrity problems and other bugs that are not so easy to track down.
+"To give one example, in one project I implemented an exception type called CriticalException.
+"This indicates an error condition that requires intervention by the developers and/or administrative staff otherwise customers get incorrectly billed, or other data integrity problems might result.
+"It can also be used in other similar cases when merely logging the exception is not sufficient, and an e-mail alert needs to be sent out.
+"Another developer who didn't properly understand the concept of exceptions then wrapped some code that could potentially throw this exception in a generic try...catch block which discarded all exceptions.
+"Fortunately, I spotted it, but it could have resulted in serious problems, especially since the "very uncommon" corner case that it was supposed to catch turned out to be a lot more common than I anticipated.
+"So in general, catching generic exceptions is bad unless you are 100% sure that you know exactly which kinds of exceptions will be thrown and under which circumstances.
+"If in doubt, let them bubble up to the top level exception handler instead.
+"A similar rule here is never throw exceptions of type System.Exception.
+"You (or another developer) may want to catch your specific exception higher up the call stack while letting others go through.
+"(There is one point to note, however.
+"In .NET 2.0, if a thread encounters any uncaught exceptions it unloads your whole app domain.
+"So you should wrap the main body of a thread in a generic try...catch block and pass any exceptions caught there to your global exception handling code.)
+"There's been a lot of philosophical discussions (more like arguments) about this issue.
+"Personally, I believe the worst thing you can do is swallow exceptions.
+"The next worst is allowing an exception to bubble up to the surface where the user gets a nasty screen full of technical mumbo-jumbo.
+"I would like to play devil's advocate for catching Exception and logging it and rethrowing it.
+"This can be necessary if, for example, you are somewhere in the code and an unexpected exception happens, you can catch it, log meaningful state information that wouldn't be available in a simple stack trace, and then rethrow it to upper layers to deal with.
+"There are two completely different use cases.
+"The first is the one most people are thinking about, putting a try/catch around some operation that requires a checked exception.
+"This should not be a catch-all by any means.
+"The second, however, is to stop your program from breaking when it could continue.
+"These cases are:
+"The top of all threads (By default, exceptions will vanish without a trace!)
+"Inside a main processing loop that you expect to never exit
+"Inside a Loop processing a list of objects where one failure shouldn't stop others
+"Top of the "main" thread--You might control a crash here, like dump a little data to stdout when you run out of memory.
+"If you have a "Runner" that runs code (for instance, if someone adds a listener to you and you call the listener) then when you run the code you should catch Exception to log the problem and let you continue notifying other listeners.
+"These cases you ALWAYS want to catch Exception (Maybe even Throwable sometimes) in order to catch programming/unexpected errors, log them and continue.
+Well, I don't see any difference between catching a general exception or a specific one, except that when having multiple catch blocks, you can react differently depending on what the exception is.
+In conclusion, you will catch both IOException and NullPointerException with a generic Exception, but the way your program should react is probably different.
+Unless you are doing some logging and clean up code in the front end of your application, then I think it is bad to catch all exceptions.
+My basic rule of thumb is to catch all the exceptions you expect and anything else is a bug.
+If you catch everything and continue on, it's a bit like putting a sticking plaster over the warning light on your car dashboard.
+You can't see it anymore, but it doesn't mean everything is ok.
+The point is twofold I think.
+Firstly, if you don't know what exception has occurred how can you hope to recover from it.
+If you expect that a user might type a filename in wrong then you can expect a FileNotFoundException and tell the user to try again.
+If that same code generated a NullReferenceException and you simply told the user to try again they wouldn't know what had happened.
+"Secondly, the FxCop guidelines do focus on Library/Framework code - not all their rules are designed to be applicable to EXE's or ASP.Net web sites.
+"So having a global exception handler that will log all exceptions and exit the application nicely is a good thing to have.
+"Obviously this is one of those questions where the only real answer is "it depends."
+"The main thing it depends on is where your are catching the exception.
+"In general libraries should be more conservative with catching exceptions whereas at the top level of your program (e.g.
+"in your main method or in the top of the action method in a controller, etc) you can be more liberal with what you catch.
+"The reason for this is that e.g.
+"you don't want to catch all exceptions in a library because you may mask problems that have nothing to do with your library, like "OutOfMemoryException" which you really would prefer bubbles up so that the user can be notified, etc.
+"On the other hand, if you are talking about catching exceptions inside your main() method which catches the exception, displays it and then exits... well, it's probably safe to catch just about any exception here.
+"The most important rule about catching all exceptions is that you should never just swallow all exceptions silently... e.g.
+"something like this in Java:
+"or this in Python:
+"Because these can be some of the hardest issues to track down.
+"A good rule of thumb is that you should only catch exceptions that you can properly deal with yourself.
+"If you cannot handle the exception completely then you should let it bubble up to someone who can.
+"Yes!
+"(except at the "top" of your application)
+"By catching an exception and allowing the code execution to continue, you are stating that you know how do deal with and circumvent, or fix a particular problem.
+"You are stating that this is a recoverable situation.
+"Catching Exception or SystemException means that you will catch problems like IO errors, network errors, out-of-memory errors, missing-code errors, null-pointer-dereferencing and the likes.
+"It is a lie to say that you can deal with these.
+"In a well organised application, these unrecoverable problems should be handled high up the stack.
+"In addition, as code evolves, you don't want your function to catch a new exception that is added in the future to a called method.
+"In my opinion you should catch all exceptions you expect, but this rule applies to anything but your interface logic.
+"All the way down the call stack you should probably create a way to catch all exceptions, do some logging/give user feedback and, if needed and possible, shut down gracefully.
+"Nothing is worse than an application crashing with some user unfriendly stacktrace dumped to the screen.
+"Not only does it give (perhaps unwanted) insight into your code, but it also confuses your end-user, and sometimes even scares them away to a competing application.
+"The problem with catching all exceptions is that you may be catching ones that you don't expect, or indeed ones that you should not be catching.
+"The fact is that an exception of any kind indicates that something has gone wrong, and you have to sort it out before continuing otherwise you may end up with data integrity problems and other bugs that are not so easy to track down.
+"To give one example, in one project I implemented an exception type called CriticalException.
+"This indicates an error condition that requires intervention by the developers and/or administrative staff otherwise customers get incorrectly billed, or other data integrity problems might result.
+"It can also be used in other similar cases when merely logging the exception is not sufficient, and an e-mail alert needs to be sent out.
+"Another developer who didn't properly understand the concept of exceptions then wrapped some code that could potentially throw this exception in a generic try...catch block which discarded all exceptions.
+"Fortunately, I spotted it, but it could have resulted in serious problems, especially since the "very uncommon" corner case that it was supposed to catch turned out to be a lot more common than I anticipated.
+"So in general, catching generic exceptions is bad unless you are 100% sure that you know exactly which kinds of exceptions will be thrown and under which circumstances.
+"If in doubt, let them bubble up to the top level exception handler instead.
+"A similar rule here is never throw exceptions of type System.Exception.
+"You (or another developer) may want to catch your specific exception higher up the call stack while letting others go through.
+"(There is one point to note, however.
+"In .NET 2.0, if a thread encounters any uncaught exceptions it unloads your whole app domain.
+"So you should wrap the main body of a thread in a generic try...catch block and pass any exceptions caught there to your global exception handling code.)
+"There's been a lot of philosophical discussions (more like arguments) about this issue.
+"Personally, I believe the worst thing you can do is swallow exceptions.
+"The next worst is allowing an exception to bubble up to the surface where the user gets a nasty screen full of technical mumbo-jumbo.
+"I would like to play devil's advocate for catching Exception and logging it and rethrowing it.
+"This can be necessary if, for example, you are somewhere in the code and an unexpected exception happens, you can catch it, log meaningful state information that wouldn't be available in a simple stack trace, and then rethrow it to upper layers to deal with.
+"There are two completely different use cases.
+"The first is the one most people are thinking about, putting a try/catch around some operation that requires a checked exception.
+"This should not be a catch-all by any means.
+"The second, however, is to stop your program from breaking when it could continue.
+"These cases are:
+"The top of all threads (By default, exceptions will vanish without a trace!)
+"Inside a main processing loop that you expect to never exit
+"Inside a Loop processing a list of objects where one failure shouldn't stop others
+"Top of the "main" thread--You might control a crash here, like dump a little data to stdout when you run out of memory.
+"If you have a "Runner" that runs code (for instance, if someone adds a listener to you and you call the listener) then when you run the code you should catch Exception to log the problem and let you continue notifying other listeners.
+"These cases you ALWAYS want to catch Exception (Maybe even Throwable sometimes) in order to catch programming/unexpected errors, log them and continue.

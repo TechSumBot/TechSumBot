@@ -1,0 +1,5 @@
+dir(__builtins__) outputs a view of 'Python's builtin world'.
+"list() is used for creating a lists, so dir() is used for listing elements object which has a similar tree-like structure to file system.
+"[dir(): Display a namespace's names (hyper-link)]
+"This is pretty much the meaning of the word directory in english.
+It gives you a directory of all attributes of an object.

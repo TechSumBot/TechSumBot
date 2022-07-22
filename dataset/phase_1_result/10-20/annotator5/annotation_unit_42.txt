@@ -1,0 +1,83 @@
+
+Query:  "What is the difference between an ordered and a sorted collection?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/1084159)
+ [1] #0: "An ordered collection maintains the order of the elements based on the sequence you put stuff into/remove them from the collection."
+ [1] #1: "A sorted collection keeps the elements sorted based on a sort criteria."
+
+Answer:  #1 (https://stackoverflow.com/a/1084163)
+ [1] #2: "An ordered collection means that the elements of the collection have a specific order."
+ [1] #3: "The order is independent of the value."
+ [1] #4: "A [List (hyper-link)] is an example."
+ [1] #5: "A sorted collection means that not only does the collection have order, but the order depends on the value of the element."
+ [1] #6: "A [SortedSet (hyper-link)] is an example."
+ [0] #7: "In contrast, a collection without any order can maintain the elements in any order."
+ [0] #8: "A [Set (hyper-link)] is an example."
+
+Answer:  #2 (https://stackoverflow.com/a/1084165)
+ [1] #9: "Java uses "ordered collection" to mean a collection such as List, where (unlike HashSet), the collection remembers what order the elements are supposed to be in."
+ [1] #10: "So elements can be added to the collection at a particular "place" in the order."
+ [1] #11: "Java uses "sorted collection" to mean a collection such as SortedSet, where (unlike List), the order that the iterator traverses the collection is in accordance with a specified Comparator or the natural order of the elements."
+ [1] #12: "So the difference is whether the ordering depends on the values ("sorted"), or is a property that elements have independently of their value ("ordered")."
+
+Answer:  #3 (https://stackoverflow.com/a/1084170)
+ [1] #13: "Sorted would imply ordering according to an implementation of Comparable or Comparator."
+ [1] #14: "Ordered would imply that it is following the insertion order or some other definition of order that is consistent and defined, but otherwise arbitrary."
+ [1] #15: "So a sorted list of strings would be sorted according to the String.compareTo method."
+ [1] #16: "A list might contain a list of strings inserted in arbitrary order, but that order will always remain the same."
+ [0] #17: "Of course there are methods on the Collections class to sort a list."
+
+Answer:  #4 (https://stackoverflow.com/a/1084173)
+ [0] #18: "Yes, though the concepts are similar."
+ [1] #19: "List is an ordered collection: each element has an index, which forms an ordering of the elements, but not usually related to any property of the elements themselves."
+ [1] #20: "SortedMap and SortedSet are sorted collections, which means that iteration through the collection will happen in a sequence derived from the elements themselves."
+ [1] #21: "For example, if you have a SortedSet<String> then the Strings will be sorted according to the lexicographical sort order."
+ [1] #22: "An ordered Collection can be sorted but doesn't have to be (e.g."
+ [1] #23: "after using Collections.sort()) when the external ordering is identical with the elements' sort order."
+ [1] #24: "A sorted collection is always implicitly ordered (i.e."
+ [1] #25: "there is always a "first" element, and it's always the same as long as you don't add another, smaller one)."
+
+Answer:  #5 (https://stackoverflow.com/a/26320997)
+ [1] #26: "An ordered collection is a collection that keep track of a consecutive index which every element is inserted in."
+ [1] #27: "A sorted collection is an ordered collection when the order additionally depends on the value of the element to be inserted in, throughout the use of the Comparable interface which provides you with a method to define the sorting criteria."
+ [0] #28: "I hope it could help."
+
+Answer:  #6 (https://stackoverflow.com/a/36025906)
+ [1] #29: "A sorted collection usually mean the elements are sorted from minimun value to maxinum value or vice versa depending on the attribute(s) of the elements on which algorithms work."
+ [1] #30: "for a interger collections, the sorted may be from min number to max number for a person collection, it may be sored by the height of persons or the weight of persons, etc."
+ [1] #31: "When talking about order, it usually means the order of insertion."
+ [1] #32: "The order may be changed after sorting"
+
+Answer:  #7 (https://stackoverflow.com/a/60427059)
+ [0] #33: "Sorted Collection vs."
+ [0] #34: "Ordered Collection"
+ [0] #35: "1."
+ [0] #36: "Sorted collection"
+ [1] #37: "A sorted collection is sorting a collection by utilizing the sorting features provided by the Java collections framework."
+ [1] #38: "The sorting occurs in the memory of JVM which running Hibernate, after the data being read from database using java comparator."
+ [1] #39: "If your collection is not large, it will be more efficient way to sort it."
+ [1] #40: "As it happens in jvm memory, it can throw Out of Memory error."
+ [0] #41: "2."
+ [0] #42: "Order collection"
+ [1] #43: "Order collection is sorting a collection by specifying the order-by clause in query for sorting this collection when retrieval."
+ [1] #44: "If your collection is very large, it will be more efficient way to sort it."
+ [1] #45: "It is fast compared to sorted collection."
+
+Answer:  #8 (https://stackoverflow.com/a/16925677)
+ [1] #46: "By ordered, it means that each element is assigned an index and can be referenced by that index."
+ [1] #47: "In a Set, things don't have an index."
+
+Answer:  #9 (https://stackoverflow.com/a/16925688)
+ [1] #48: "Ordered doesn't mean sorted, it means that the items will show up in the order you put them in."
+ [1] #49: "This is in contrast to, say, a SortedSet where the items will not be ordered in the order you put them in, they will be sorted according to whatever sort criteria you put, or a HashMap, where they might show up in any order at all, depending on the hash function."
+
+Answer:  #10 (https://stackoverflow.com/a/16925706)
+ [1] #50: "A List is an ordered Collection (sometimes called a sequence)."
+ [1] #51: "This means that a List maintains the order of the elements."
+ [1] #52: "In other words, the first element you add remains at index 0."
+ [1] #53: "The second element you add remains at index 1."
+ [0] #54: "And so forth."
+ [1] #55: "If you remove an element, the rest of the elements remain in the same order, although the elements after the removed element change their index positions."

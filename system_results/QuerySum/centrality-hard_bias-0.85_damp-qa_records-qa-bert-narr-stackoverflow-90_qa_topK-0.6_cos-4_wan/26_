@@ -1,0 +1,5 @@
+It has to do with [operator precedence in Python (hyper-link)] (the interpreter thinks you're comparing True to not, since == has a higher precedence than not).
+"The true reason for True == not False being a syntax error is that there exists no syntax rule that would produce a [comparison (hyper-link)] therefrom, since
+"This groups as:
+"An assignment operator, on the other hand, has lower precedence, so:
+"In the case of your example

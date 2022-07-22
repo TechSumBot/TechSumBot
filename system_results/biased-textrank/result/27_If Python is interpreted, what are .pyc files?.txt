@@ -1,0 +1,5 @@
+"Stackless Python: compiles to CPython bytecode which it then interprets.
+"When you try to execute this file using say "python filename.py"
+"This command invokes Python Virtual Machine.
+"ref:[PEP3147 (hyper-link)] ref:[“Compiled” Python files (hyper-link)]
+ "When you execute your code, python creates a compiled pyc file.

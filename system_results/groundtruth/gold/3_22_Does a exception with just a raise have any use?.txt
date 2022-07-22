@@ -1,0 +1,5 @@
+None at all, that I can think of, except if you're debugging that source code and set a breakpoint on the raise statement.
+For documentation purposes - just to make it explicit which exceptions are expected
+I am not able to come up with something useful, other than to keep it as a placeholder for later insertion to catch useful exceptions.
+If there's some other except's in the try block, it can be used to filter the exceptions, but alone it's pointless.
+this was is in a decorator that wrap func : so basically what i have wanted is to re-raise the error that i catched when i called the function func so that the decorator don't change the behavior of the function func, because when func raise an exception the exception are send to the GUI so that an error message can pop up to the user,

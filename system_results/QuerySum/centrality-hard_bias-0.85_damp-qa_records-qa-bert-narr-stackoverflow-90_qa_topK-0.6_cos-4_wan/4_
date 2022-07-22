@@ -1,0 +1,5 @@
+The default, parameterless constructor is added if you don't do anything yourself to take control over object creation.
+"There we have it -- exactly the two ways that C#, C++ and Java allow the removal of the default public parameterless constructor.
+If I've defined a constructor of my own, especially one with parameters, then I most likely have logic of my own that must be executed on creating the class.
+"If you have already defined a constructor, your class is valid, so why should the compiler assume you want a default constructor?
+"And now you have to explicitly define a no-arg constructor if you'd like an object to be created either the default way or by passing parameters.

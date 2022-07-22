@@ -1,0 +1,5 @@
+"Wrapper classes are used to convert any primitive type into an object.The primitive data types are not objects, they do not belong to any class, they are defined in the language itself.
+"Wrapper classes are used to convert any data type into an object.
+"Type wrapper are classes that encapsulate a primitive type within an object.
+Wrapper classes are used instead of primitive types when an Object is expected.
+"As a solution to this problem, Java allows you to include the primitives in the family of objects by using what are called wrapper classes.

@@ -1,0 +1,5 @@
+"list.append() is the equivalent of pushing a value onto the end.
+"Note that Python lists are not limited to being used as a stack or queue, and list.pop() is a later addition to the list type to make removing-and-returning more efficient.
+"In other words, for stacks implemented directly as Python lists, which already supports fast append(), and del list[-1], it makes sense that list.pop() work by default on the last element.
+Because it appends an element to a list?
+"list.push() could be added for symmetry with list.pop() but I'm not a big fan of multiple names for the same operation -- sooner or later you're going to read code that uses the other one, so you need to learn both, which is more cognitive load.

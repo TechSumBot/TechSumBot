@@ -1,0 +1,5 @@
+even in the best case, size() == 0 is still not faster than isempty(), so there is no compelling reason to ever use the former.
+for arraylist, yes — you are correct that the operations take (roughly) the same time.
+if things change a few years down the line with code restructuring, testing will show that "it works," but things are running less efficiently than before.
+* i originally wrote linkedlist here, implicitly referencing java.util.linkedlist, though that particular implementation does store its size explicitly, making size() an o(1) operation here.
+"you could try calling l.size() a couple of million times and l.isempty() a couple of million times in two separate programs but in theory the compiler could just optimize away all those calls since you're not actually doing anything with the results.

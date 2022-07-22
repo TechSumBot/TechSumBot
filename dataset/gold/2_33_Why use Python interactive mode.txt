@@ -1,0 +1,5 @@
+That's just for little tests and for practicing with the language.
+"However with the python interpreter, you can always import any module that you are thinking about using and check what it offers.
+"help(anything) for documentation.
+"You don't need to put selective print statements in code to see what variables are when you write it in the interpreter.
+"I personally use the Python shell as a very quick way to perform simple Numerical operations (provided by the math module).

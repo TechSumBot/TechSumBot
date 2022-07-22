@@ -1,0 +1,5 @@
+In Collections for example, an ArrayList may contain instances of any subclass of Object, but because primitive types are not Objects, they could not be contained in the ArrayList.
+Wrapper classes are used to convert any primitive type into an object.The primitive data types are not objects, they do not belong to any class, they are defined in the language itself.
+You use the wrappers when you need types that fit in the object oriented world - like polymorphism, collections etc.
+"Wrapper classes are used to convert any data type into an object.
+"1) To convert simple data types into objects, that is, to give object form to a data type; here constructors are used.

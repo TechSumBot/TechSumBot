@@ -1,0 +1,5 @@
+Static means that it belongs to the actual class, not an instance of it.
+Immutable objects, for example, have final properties, that can be set only once, by the constructor.
+"final means that the field can't change value after initial assignment (which must occur during type/instance initialization).
+"static final fields are usually for constants - whereas instance fields which are final are usually used when creating immutable types.
+"If the variable has a lifecycle outside of the class, it might make sense to declare it static.

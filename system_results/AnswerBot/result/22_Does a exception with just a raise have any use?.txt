@@ -1,0 +1,5 @@
+the most common use is to propagate some one particular exception and handle all the rest.
+none at all, that i can think of, except if you're debugging that source code and set a breakpoint on the raise statement.
+in the code you linked to is another additional exception handler:
+"look at asyncore source): it's convenient for servers to log and continue in case of error in request handler, but you shouldn't catch keyboardinterrupt to exit on sigint.
+it looks like this would not be the intended effect and to avoid it the unicodedecodeerror is processed explicitly by the first handler.

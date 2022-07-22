@@ -1,0 +1,66 @@
+
+Query:  "Should a java class' final fields always be static?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/14913459)
+ [1] #0: "If you want to access them like ClassName.FIELD, then yes, you have to do that."
+ [1] #1: "If you don't make it static, you have to do something like new ClassName().FIELD, which is unnecessary and a pointless creation of an object."
+ [0] #2: "However, if you are only using it in the class or making it private, then don't make it static."
+ [1] #3: "If you are within the actual class, you can just do FIELD."
+ [0] #4: "To fully grasp this concept, you have to know what static means."
+ [1] #5: "Static means that it belongs to the actual class, not an instance of it."
+
+Answer:  #1 (https://stackoverflow.com/a/14913464)
+ [1] #6: "Absolutely not."
+ [0] #7: "Immutable objects, for example, have final properties, that can be set only once, by the constructor."
+ [0] #8: "For more information, please see: [http://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html (hyper-link)]"
+ [1] #9: "Immutable objects are not the only case in which final properties are used, but they provide a evident example of their usefulness."
+
+Answer:  #2 (https://stackoverflow.com/a/14913469)
+ [1] #10: "They don't always come together and it's not a convention."
+ [1] #11: "final fields are often used to create immutable types:"
+         [code snippet]
+ [1] #12: "On the other hand static but not final fields are not that common and are quite tricky."
+ [1] #13: "static final is seen often because it means application1-wide constant."
+ [0] #14: "1 - well, class loader-wide, to be precise"
+
+Answer:  #3 (https://stackoverflow.com/a/14913472)
+ [1] #15: "No, absolutely not - and it's not a convention."
+ [1] #16: "static and final are entirely different things."
+ [1] #17: "static means that the field relates to the type rather than any particular instance of the type."
+ [1] #18: "final means that the field can't change value after initial assignment (which must occur during type/instance initialization)."
+ [1] #19: "static final fields are usually for constants - whereas instance fields which are final are usually used when creating immutable types."
+
+Answer:  #4 (https://stackoverflow.com/a/14913476)
+ [1] #20: "Of course not."
+ [1] #21: "They must be static if they belong to the class, and not be static if they belong to the instance of the class:"
+         [code snippet]
+
+Answer:  #5 (https://stackoverflow.com/a/14913484)
+ [1] #22: "Final fields do not need to be static, and sometimes it can be useful to have a non-static final instance variable."
+ [1] #23: "Fields that are marked both static and final are usually used for constants, like this:"
+         [code snippet]
+ [1] #24: "However, sometimes you'll see a non-static final field when an object has a immutable property."
+ [1] #25: "Usually, non-static final fields are still marked private for the usual reasons, though, so it's more of an extra check so the compiler can make sure you're never setting the property again."
+
+Answer:  #6 (https://stackoverflow.com/a/14913495)
+ [1] #26: "Absolutely not."
+ [0] #27: "Consider:"
+         [code snippet]
+ [0] #28: "Drop the final, and the class becomes mutable."
+ [0] #29: "Add a static, and all your points are the same, and there is no legal way to write the constructor."
+
+Answer:  #7 (https://stackoverflow.com/a/49281939)
+ [1] #30: "Ultimately it depends on what you're doing with those variables."
+ [1] #31: "If the variable only ever has a lifecycle inside of that specific method - that is, nothing else will ever need to see it or use those values - then declaring them inside of the method is appropriate and correct."
+ [0] #32: "Making it more visible than it needs to only adds to confusion for future maintainers (including yourself)."
+ [0] #33: "If the variable has a lifecycle outside of the class, it might make sense to declare it static."
+ [0] #34: "This is particularly true in the case of constants or variables that don't store any state themselves."
+ [0] #35: "If it isn't a constant or it doesn't have any purpose outside of the class, then keep it non-static and private."
+
+Answer:  #8 (https://stackoverflow.com/a/49281959)
+ [1] #36: "No definitely not."
+         [code snippet]
+ [0] #37: "If you made immutable, final x static, then all instances of MyIntegerContainer would share the same value of x which would not make for a very good data container."

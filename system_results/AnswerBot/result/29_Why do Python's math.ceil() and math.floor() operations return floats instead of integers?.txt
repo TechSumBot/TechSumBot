@@ -1,0 +1,5 @@
+"however, they return integers in python 3.
+because the range for floats is greater than that of integers -- returning an integer could overflow
+"additionally, you must have versions of ceil and floor which return floating-point numbers if you want to conform to [ieee 754 (hyper-link)].
+by returning a floating point value, the functions can return a sensible value for input values that lie outside the representable range of integers.
+before python 2.4, an integer couldn't hold the full range of truncated real numbers.

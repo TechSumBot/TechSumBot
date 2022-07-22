@@ -1,0 +1,5 @@
+"In the error message, instead of telling you that you can't concatenate two objects by showing their values (a string and None in this example), the Python interpreter tells you this by showing the types of the objects that you tried to concatenate.
+"In Python, to represent the absence of a value, you can use the None value types.NoneType.None
+The sole value of the type NoneType.
+"NoneType is the type for the None object, which is an object that indicates no value.
+None is the "null" of Python, and NoneType is its type.

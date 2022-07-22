@@ -1,0 +1,5 @@
+"the count() method returns the number of occurrences of a substring in the given string.
+"every string1 can be thought of as:
+"how much nothing is contained in something?
+"this answer tries to explain the convention used by python and does not intend to suggest that this is the way all languages do it \ should be doing it; it is just how python does it.
+"it get's philosophical:

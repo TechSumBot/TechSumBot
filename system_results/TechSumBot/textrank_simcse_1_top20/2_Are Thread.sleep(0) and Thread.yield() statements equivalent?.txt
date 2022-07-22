@@ -1,0 +1,5 @@
+"The semantics of Thread.yield and Thread.sleep(0) are undefined [JLS17.9]; the JVM is free to implement them as no-ops or treat them as scheduling hints.
+"Thread.Sleep(0) might have an optimization to just call yield.
+"In particular, they are not required to have the semantics of sleep(0) on Unix systems — put the current thread at the end of the run queue for that priority, yielding to other threads of the same priority — though some JVMs implement yield in this way.
+"Thread.Yield can give up CPU resource to threads with lower priorities, while Thread.Sleep(0) gives up CPU only to threads with equal or higher priorities.
+Yield adds the current thread to the ready queue and allows other threads to run.

@@ -1,0 +1,5 @@
+C and C++ compile to native code- that is, they run directly on the CPU.
+"In python, the interpreter is interpreting the byte-code one line at a time in software.
+The difference between python and C is the usual difference between an interpreted (bytecode) and compiled (to native) language.
+Python is a higher level language than C, which means it abstracts the details of the computer from you - memory management, pointers, etc, and allows you to write programs in a way which is closer to how humans think.
+"Simply because Python is a more high level language and has to do more different things on every iteration (like acquiring locks, resolving variables etc.)

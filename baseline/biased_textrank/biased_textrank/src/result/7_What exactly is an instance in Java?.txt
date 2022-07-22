@@ -1,0 +1,5 @@
+The types of the Java programming language are divided into two categories: primitive types and reference types.
+"Reference is, in the Java context, a variable* - it is something pointing to an object/instance.
+"It is an important distinction about how Java works when you invoke a method - pass-by-value.
+"step 1: javac A.class (.class file is generated which is byte code)
+"step 2: java A (.class file is converted into executable code)

@@ -1,0 +1,79 @@
+
+Query:  "Why is 'True == not False' a syntax error in Python?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/6100328)
+ [1] #0: "It has to do with [operator precedence in Python (hyper-link)] (the interpreter thinks you're comparing True to not, since == has a higher precedence than not)."
+ [1] #1: "You need some parentheses to clarify the order of operations:"
+         [code snippet]
+ [1] #2: "In general, you can't use not on the right side of a comparison without parentheses."
+ [0] #3: "However, I can't think of a situation in which you'd ever need to use a not on the right side of a comparison."
+
+Answer:  #1 (https://stackoverflow.com/a/6100331)
+ [1] #4: "It's just a matter of operator precedence."
+ [0] #5: "Try:"
+         [code snippet]
+ [1] #6: "Have a look in [this table of operator precedences (hyper-link)], you'll find that == binds tigher than not, and thus True == not False is parsed as (True == not) False which is clearly an error."
+
+Answer:  #2 (https://stackoverflow.com/a/20985345)
+ [0] #7: "I think what you are looking for is "and not"."
+ [0] #8: "This gives you the results you are looking towards."
+ [0] #9: "If your comparing booleans what you have is a compound boolean expression, here is an example website [Compound Boolean Expression (hyper-link)]."
+         [code snippet]
+
+Answer:  #3 (https://stackoverflow.com/a/68400827)
+ [1] #10: "Answers claiming that the reason for True == not False constituting a syntax error had to do with operator precedence are mistaken."
+ [1] #11: "If that were the case, the expression 2 ** - 1 would yield a syntax error as well, which of course it doesn't."
+ [1] #12: "Precedence never causes an operator to be drawn in in place of an operand."
+ [1] #13: "The true reason for True == not False being a syntax error is that there exists no syntax rule that would produce a [comparison (hyper-link)] therefrom, since"
+ [1] #14: "comparison ::= or_expr (comp_operator or_expr)*"
+ [?] #15: "- i. e. after the comp_operator == an [or_expr (hyper-link)] must follow, which includes an xor_expr, an and_expr, a [shift_expr (hyper-link)], an a_expr, an [m_expr (hyper-link)], an [u_expr (hyper-link)], a [power (hyper-link)]…, but no [not_test (hyper-link)]."
+ [0] #16: "By comparison, the precedence-wise similar construct 2 ** - 1 in accordance with the power rule"
+ [0] #17: "power ::= (await_expr | primary) ["**" u_expr]"
+ [0] #18: "has u_expr following the power operator **, thus allowing - x on the right hand side."
+
+Answer:  #4 (https://stackoverflow.com/a/21485454)
+ [0] #19: "is not not doesn't work."
+ [0] #20: "This is not a very bad thing, as it's never needed."
+ [1] #21: "is not has the same operator precedence as is, which makes sense."
+ [1] #22: "is has a higher operator precedence than not, otherwise x is not y would mean x is (not y), when it needs to mean x is not (y)."
+ [1] #23: "But you can't figure out if a is not not b because you can't get the answer for is not before you do not b."
+
+Answer:  #5 (https://stackoverflow.com/a/21485684)
+ [1] #24: "Another thing to remember is that is, not and is not are actually three separate operators."
+ [1] #25: "In other words, is not is not (no pun intended) a combination of is and not."
+ [0] #26: "In the case of your example"
+         [code snippet]
+ [1] #27: "Python tries to pass False and not to the is not operator."
+ [1] #28: "Since not is not a valid operand, a syntax error results."
+
+Answer:  #6 (https://stackoverflow.com/a/46832640)
+ [0] #29: "The problem is the use of == where you need =."
+ [0] #30: "This normally wouldn't cause a syntax error, but in your case, you have:"
+         [code snippet]
+ [0] #31: "which is the same as:"
+         [code snippet]
+ [0] #32: "This groups as:"
+         [code snippet]
+ [0] #33: "and that causes the syntax error."
+ [1] #34: "An assignment operator, on the other hand, has lower precedence, so:"
+         [code snippet]
+ [0] #35: "groups as:"
+         [code snippet]
+ [0] #36: "which is fine."
+
+Answer:  #7 (https://stackoverflow.com/a/62864227)
+ [1] #37: "The syntax error seems to be caused by the not keyword, not (pun intended) the equality operator:"
+         [code snippet]
+         [code snippet]
+ [0] #38: "The explanation can be found in the [docs (hyper-link)]:"
+ [1] #39: "not has a lower priority than non-Boolean operators, so not a == b is interpreted as not (a == b), and a == not b is a syntax error."
+ [1] #40: "Basically, the interpreter thinks you're comparing True to not."
+
+Answer:  #8 (https://stackoverflow.com/a/68813712)
+ [0] #41: "You have to use the below code:"
+         [code snippet]
+ [1] #42: "Because the code runs from left to right, so it would first run False == not which is a SyntaxError."
+         [code snippet]

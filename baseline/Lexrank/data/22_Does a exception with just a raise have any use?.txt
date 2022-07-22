@@ -1,0 +1,69 @@
+None at all, that I can think of, except if you're debugging that source code and set a breakpoint on the raise statement.
+Strictly speaking, it's unneeded.
+Some possibilities:
+For documentation purposes - just to make it explicit which exceptions are expected
+As a placeholder for a future (or past) more serious handling before re-raising
+In the code you linked to is another additional exception handler:
+Since [UnicodeDecodeError (hyper-link)] is a subclass of ValueError, the second exception handler would cause any UnicodeDecodeError to be ignored.
+It looks like this would not be the intended effect and to avoid it the UnicodeDecodeError is processed explicitly by the first handler.
+So with both handlers together a ValueError is only ignored if it's not a UnicodeDecodeError.
+The most common use is to propagate some one particular exception and handle all the rest.
+"You can find a lot of examples for propagating KeyboardInterrupt and SystemExit (e.g.
+"look at asyncore source): it's convenient for servers to log and continue in case of error in request handler, but you shouldn't catch KeyboardInterrupt to exit on SIGINT.
+"I am not able to come up with something useful, other than to keep it as a placeholder for later insertion to catch useful exceptions.
+"It kind of avoids re-indenting the code, when you want to include the "try .. except.." blocks later on.
+"Yes, this is usually a bad practice.
+"The only (somewhat) correct usage I've seen of this pattern was before VB.NET had a Using construct available.
+"Usage looked something like:
+"Other than that, I really can't think of a good use case for this sort of thing.
+"I've seen similar code before in a (set of) horrible VB.NET projects.
+"Either the intent was to catch and log exceptions, without ever coming back to finish the logging, or they heard "you must catch exceptions", implemented this functionality, and someone else decided it should just re-raise.
+"There is no benefit to the above code.
+"Example built on [this question (hyper-link)].
+"If there's some other except's in the try block, it can be used to filter the exceptions, but alone it's pointless.
+None at all, that I can think of, except if you're debugging that source code and set a breakpoint on the raise statement.
+Strictly speaking, it's unneeded.
+Some possibilities:
+For documentation purposes - just to make it explicit which exceptions are expected
+As a placeholder for a future (or past) more serious handling before re-raising
+In the code you linked to is another additional exception handler:
+Since [UnicodeDecodeError (hyper-link)] is a subclass of ValueError, the second exception handler would cause any UnicodeDecodeError to be ignored.
+It looks like this would not be the intended effect and to avoid it the UnicodeDecodeError is processed explicitly by the first handler.
+So with both handlers together a ValueError is only ignored if it's not a UnicodeDecodeError.
+The most common use is to propagate some one particular exception and handle all the rest.
+"You can find a lot of examples for propagating KeyboardInterrupt and SystemExit (e.g.
+"look at asyncore source): it's convenient for servers to log and continue in case of error in request handler, but you shouldn't catch KeyboardInterrupt to exit on SIGINT.
+"I am not able to come up with something useful, other than to keep it as a placeholder for later insertion to catch useful exceptions.
+"It kind of avoids re-indenting the code, when you want to include the "try .. except.." blocks later on.
+"Yes, this is usually a bad practice.
+"The only (somewhat) correct usage I've seen of this pattern was before VB.NET had a Using construct available.
+"Usage looked something like:
+"Other than that, I really can't think of a good use case for this sort of thing.
+"I've seen similar code before in a (set of) horrible VB.NET projects.
+"Either the intent was to catch and log exceptions, without ever coming back to finish the logging, or they heard "you must catch exceptions", implemented this functionality, and someone else decided it should just re-raise.
+"There is no benefit to the above code.
+"Example built on [this question (hyper-link)].
+"If there's some other except's in the try block, it can be used to filter the exceptions, but alone it's pointless.
+None at all, that I can think of, except if you're debugging that source code and set a breakpoint on the raise statement.
+Strictly speaking, it's unneeded.
+Some possibilities:
+For documentation purposes - just to make it explicit which exceptions are expected
+As a placeholder for a future (or past) more serious handling before re-raising
+In the code you linked to is another additional exception handler:
+Since [UnicodeDecodeError (hyper-link)] is a subclass of ValueError, the second exception handler would cause any UnicodeDecodeError to be ignored.
+It looks like this would not be the intended effect and to avoid it the UnicodeDecodeError is processed explicitly by the first handler.
+So with both handlers together a ValueError is only ignored if it's not a UnicodeDecodeError.
+The most common use is to propagate some one particular exception and handle all the rest.
+"You can find a lot of examples for propagating KeyboardInterrupt and SystemExit (e.g.
+"look at asyncore source): it's convenient for servers to log and continue in case of error in request handler, but you shouldn't catch KeyboardInterrupt to exit on SIGINT.
+"I am not able to come up with something useful, other than to keep it as a placeholder for later insertion to catch useful exceptions.
+"It kind of avoids re-indenting the code, when you want to include the "try .. except.." blocks later on.
+"Yes, this is usually a bad practice.
+"The only (somewhat) correct usage I've seen of this pattern was before VB.NET had a Using construct available.
+"Usage looked something like:
+"Other than that, I really can't think of a good use case for this sort of thing.
+"I've seen similar code before in a (set of) horrible VB.NET projects.
+"Either the intent was to catch and log exceptions, without ever coming back to finish the logging, or they heard "you must catch exceptions", implemented this functionality, and someone else decided it should just re-raise.
+"There is no benefit to the above code.
+"Example built on [this question (hyper-link)].
+"If there's some other except's in the try block, it can be used to filter the exceptions, but alone it's pointless.

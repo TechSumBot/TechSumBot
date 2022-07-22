@@ -1,0 +1,5 @@
+You're talking about running Python in the console by simply typing "python"?
+"The fastest way to do this is to just do it in the Python interpreter.
+"The building Python debugger pdb also uses the intrepeter functionality, so you can not only see what a variable is when debugging, but you can also manipulate or even change it without halting debugging.
+"As already mentioned, the Python interactive interpreter gives a quick and dirty way to test simple Python functions and/or code snippets.
+"Show them how they can use Python as a neat scientific calculator, and for simple mathematical prototyping.

@@ -1,0 +1,196 @@
+Because it appends; it doesn't push.
+"Appending" adds to the end of a list, "pushing" adds to the front.
+Think of a queue vs. a stack.
+[http://docs.python.org/tutorial/datastructures.html (hyper-link)]
+Where a new element gets added when it's "pushed" is less clear.
+Pushing onto a stack is putting something on "top," but where it actually goes in the underlying data structure completely depends on implementation.
+On the other hand, pushing onto a queue implies adding it to the end.
+Because it appends an element to a list?
+Push is usually used when referring to stacks.
+Because "append" intuitively means "add at the end of the list".
+"If it was called "push", then it would be unclear whether we're adding stuff at the tail or at head of the list.
+"Push is a defined [stack (hyper-link)] behaviour; if you pushed A on to stack (B,C,D) you would get (A,B,C,D).
+"If you used python append, the resulting dataset would look like (B,C,D,A)
+"I would assume that it would be clear from my example which part of the list is the top, and which part is the bottom.
+"Assuming that most of us here read from left to right, the first element of any list is always going to be on the left.
+"Not an official answer by any means (just a guess based on using the language), but Python allows you to use lists as stacks (e.g., [section 5.1.1 of the tutorial (hyper-link)]).
+"However, a list is still first of all a list, so the operations that are common to both use list terms (i.e., append) rather than stack terms (i.e., push).
+"Since a pop operation isn't that common in lists (though 'removeLast' could have been used), they defined a pop() but not a push().
+"Ok, personal opinion here, but Append and Prepend imply precise positions in a set.
+"Push and Pop are really concepts that can be applied to either end of a set... Just as long as you're consistent... For some reason, to me, Push() seems like it should apply to the front of a set...
+"FYI, it's not terribly difficult to make a list that has a push method:
+"A stack is a somewhat abstract datatype.
+"The idea of "pushing" and "popping" are largely independent of how the stack is actually implemented.
+"For example, you could theoretically implement a stack like this (although I don't know why you would):
+"...and I haven't gotten into using linked lists to implement a stack.
+"Because "append" existed long before "pop" was thought of.
+"[Python 0.9.1 (hyper-link)] supported list.append in early 1991.
+"By comparison, here's part of a [discussion on comp.lang.python (hyper-link)] about adding pop in 1997.
+"Guido wrote:
+"To implement a stack, one would need to add a list.pop() primitive (and no, I'm not against this particular one on the basis of any principle).
+"list.push() could be added for symmetry with list.pop() but I'm not a big fan of multiple names for the same operation -- sooner or later you're going to read code that uses the other one, so you need to learn both, which is more cognitive load.
+"You can also see he discusses the idea of if push/pop/put/pull should be at element [0] or after element [-1] where he posts a reference to Icon's list:
+"I stil think that all this is best left out of the list object implementation -- if you need a stack, or a queue, with particular semantics, write a little class that uses a lists
+"In other words, for stacks implemented directly as Python lists, which already supports fast append(), and del list[-1], it makes sense that list.pop() work by default on the last element.
+"Even if other languages do it differently.
+"Implicit here is that most people need to append to a list, but many fewer have occasion to treat lists as stacks, which is why list.append came in so much earlier.
+"Push and Pop make sense in terms of the metaphor of a stack of plates or trays in a cafeteria or buffet, specifically the ones in type of holder that has a spring underneath so the top plate is (more or less... in theory) in the same place no matter how many plates are under it.
+"If you remove a tray, the weight on the spring is a little less and the stack "pops" up a little, if you put the plate back, it "push"es the stack down.
+"So if you think about the list as a stack and the last element as being on top, then you shouldn't have much confusion.
+"What about append()?
+"That's the equivalent to push.
+"The whole purpose is a quick way to use a list as a stack when convenient.
+"It can also be used as a queue with the combination of methods pop(0) and append() .
+"Although for this specific cases the best choice is deque from collections.
+"They did implement push, but they split the functionality into list.insert() and list.append() instead.
+"list.append() is the equivalent of pushing a value onto the end.
+"list.insert() is the inverse of list.pop() with an index; inserting the given value at the given index.
+"The list.pop() method is an alternative to del listobject[index] in that it returns the value at the index you are removing.
+"Note that Python lists are not limited to being used as a stack or queue, and list.pop() is a later addition to the list type to make removing-and-returning more efficient.
+Because it appends; it doesn't push.
+"Appending" adds to the end of a list, "pushing" adds to the front.
+Think of a queue vs. a stack.
+[http://docs.python.org/tutorial/datastructures.html (hyper-link)]
+Where a new element gets added when it's "pushed" is less clear.
+Pushing onto a stack is putting something on "top," but where it actually goes in the underlying data structure completely depends on implementation.
+On the other hand, pushing onto a queue implies adding it to the end.
+Because it appends an element to a list?
+Push is usually used when referring to stacks.
+Because "append" intuitively means "add at the end of the list".
+"If it was called "push", then it would be unclear whether we're adding stuff at the tail or at head of the list.
+"Push is a defined [stack (hyper-link)] behaviour; if you pushed A on to stack (B,C,D) you would get (A,B,C,D).
+"If you used python append, the resulting dataset would look like (B,C,D,A)
+"I would assume that it would be clear from my example which part of the list is the top, and which part is the bottom.
+"Assuming that most of us here read from left to right, the first element of any list is always going to be on the left.
+"Not an official answer by any means (just a guess based on using the language), but Python allows you to use lists as stacks (e.g., [section 5.1.1 of the tutorial (hyper-link)]).
+"However, a list is still first of all a list, so the operations that are common to both use list terms (i.e., append) rather than stack terms (i.e., push).
+"Since a pop operation isn't that common in lists (though 'removeLast' could have been used), they defined a pop() but not a push().
+"Ok, personal opinion here, but Append and Prepend imply precise positions in a set.
+"Push and Pop are really concepts that can be applied to either end of a set... Just as long as you're consistent... For some reason, to me, Push() seems like it should apply to the front of a set...
+"FYI, it's not terribly difficult to make a list that has a push method:
+"A stack is a somewhat abstract datatype.
+"The idea of "pushing" and "popping" are largely independent of how the stack is actually implemented.
+"For example, you could theoretically implement a stack like this (although I don't know why you would):
+"...and I haven't gotten into using linked lists to implement a stack.
+"Because "append" existed long before "pop" was thought of.
+"[Python 0.9.1 (hyper-link)] supported list.append in early 1991.
+"By comparison, here's part of a [discussion on comp.lang.python (hyper-link)] about adding pop in 1997.
+"Guido wrote:
+"To implement a stack, one would need to add a list.pop() primitive (and no, I'm not against this particular one on the basis of any principle).
+"list.push() could be added for symmetry with list.pop() but I'm not a big fan of multiple names for the same operation -- sooner or later you're going to read code that uses the other one, so you need to learn both, which is more cognitive load.
+"You can also see he discusses the idea of if push/pop/put/pull should be at element [0] or after element [-1] where he posts a reference to Icon's list:
+"I stil think that all this is best left out of the list object implementation -- if you need a stack, or a queue, with particular semantics, write a little class that uses a lists
+"In other words, for stacks implemented directly as Python lists, which already supports fast append(), and del list[-1], it makes sense that list.pop() work by default on the last element.
+"Even if other languages do it differently.
+"Implicit here is that most people need to append to a list, but many fewer have occasion to treat lists as stacks, which is why list.append came in so much earlier.
+"Push and Pop make sense in terms of the metaphor of a stack of plates or trays in a cafeteria or buffet, specifically the ones in type of holder that has a spring underneath so the top plate is (more or less... in theory) in the same place no matter how many plates are under it.
+"If you remove a tray, the weight on the spring is a little less and the stack "pops" up a little, if you put the plate back, it "push"es the stack down.
+"So if you think about the list as a stack and the last element as being on top, then you shouldn't have much confusion.
+"What about append()?
+"That's the equivalent to push.
+"The whole purpose is a quick way to use a list as a stack when convenient.
+"It can also be used as a queue with the combination of methods pop(0) and append() .
+"Although for this specific cases the best choice is deque from collections.
+"They did implement push, but they split the functionality into list.insert() and list.append() instead.
+"list.append() is the equivalent of pushing a value onto the end.
+"list.insert() is the inverse of list.pop() with an index; inserting the given value at the given index.
+"The list.pop() method is an alternative to del listobject[index] in that it returns the value at the index you are removing.
+"Note that Python lists are not limited to being used as a stack or queue, and list.pop() is a later addition to the list type to make removing-and-returning more efficient.
+Because it appends; it doesn't push.
+"Appending" adds to the end of a list, "pushing" adds to the front.
+Think of a queue vs. a stack.
+[http://docs.python.org/tutorial/datastructures.html (hyper-link)]
+Where a new element gets added when it's "pushed" is less clear.
+Pushing onto a stack is putting something on "top," but where it actually goes in the underlying data structure completely depends on implementation.
+On the other hand, pushing onto a queue implies adding it to the end.
+Because it appends an element to a list?
+Push is usually used when referring to stacks.
+Because "append" intuitively means "add at the end of the list".
+"If it was called "push", then it would be unclear whether we're adding stuff at the tail or at head of the list.
+"Push is a defined [stack (hyper-link)] behaviour; if you pushed A on to stack (B,C,D) you would get (A,B,C,D).
+"If you used python append, the resulting dataset would look like (B,C,D,A)
+"I would assume that it would be clear from my example which part of the list is the top, and which part is the bottom.
+"Assuming that most of us here read from left to right, the first element of any list is always going to be on the left.
+"Not an official answer by any means (just a guess based on using the language), but Python allows you to use lists as stacks (e.g., [section 5.1.1 of the tutorial (hyper-link)]).
+"However, a list is still first of all a list, so the operations that are common to both use list terms (i.e., append) rather than stack terms (i.e., push).
+"Since a pop operation isn't that common in lists (though 'removeLast' could have been used), they defined a pop() but not a push().
+"Ok, personal opinion here, but Append and Prepend imply precise positions in a set.
+"Push and Pop are really concepts that can be applied to either end of a set... Just as long as you're consistent... For some reason, to me, Push() seems like it should apply to the front of a set...
+"FYI, it's not terribly difficult to make a list that has a push method:
+"A stack is a somewhat abstract datatype.
+"The idea of "pushing" and "popping" are largely independent of how the stack is actually implemented.
+"For example, you could theoretically implement a stack like this (although I don't know why you would):
+"...and I haven't gotten into using linked lists to implement a stack.
+"Because "append" existed long before "pop" was thought of.
+"[Python 0.9.1 (hyper-link)] supported list.append in early 1991.
+"By comparison, here's part of a [discussion on comp.lang.python (hyper-link)] about adding pop in 1997.
+"Guido wrote:
+"To implement a stack, one would need to add a list.pop() primitive (and no, I'm not against this particular one on the basis of any principle).
+"list.push() could be added for symmetry with list.pop() but I'm not a big fan of multiple names for the same operation -- sooner or later you're going to read code that uses the other one, so you need to learn both, which is more cognitive load.
+"You can also see he discusses the idea of if push/pop/put/pull should be at element [0] or after element [-1] where he posts a reference to Icon's list:
+"I stil think that all this is best left out of the list object implementation -- if you need a stack, or a queue, with particular semantics, write a little class that uses a lists
+"In other words, for stacks implemented directly as Python lists, which already supports fast append(), and del list[-1], it makes sense that list.pop() work by default on the last element.
+"Even if other languages do it differently.
+"Implicit here is that most people need to append to a list, but many fewer have occasion to treat lists as stacks, which is why list.append came in so much earlier.
+"Push and Pop make sense in terms of the metaphor of a stack of plates or trays in a cafeteria or buffet, specifically the ones in type of holder that has a spring underneath so the top plate is (more or less... in theory) in the same place no matter how many plates are under it.
+"If you remove a tray, the weight on the spring is a little less and the stack "pops" up a little, if you put the plate back, it "push"es the stack down.
+"So if you think about the list as a stack and the last element as being on top, then you shouldn't have much confusion.
+"What about append()?
+"That's the equivalent to push.
+"The whole purpose is a quick way to use a list as a stack when convenient.
+"It can also be used as a queue with the combination of methods pop(0) and append() .
+"Although for this specific cases the best choice is deque from collections.
+"They did implement push, but they split the functionality into list.insert() and list.append() instead.
+"list.append() is the equivalent of pushing a value onto the end.
+"list.insert() is the inverse of list.pop() with an index; inserting the given value at the given index.
+"The list.pop() method is an alternative to del listobject[index] in that it returns the value at the index you are removing.
+"Note that Python lists are not limited to being used as a stack or queue, and list.pop() is a later addition to the list type to make removing-and-returning more efficient.
+Because it appends; it doesn't push.
+"Appending" adds to the end of a list, "pushing" adds to the front.
+Think of a queue vs. a stack.
+[http://docs.python.org/tutorial/datastructures.html (hyper-link)]
+Where a new element gets added when it's "pushed" is less clear.
+Pushing onto a stack is putting something on "top," but where it actually goes in the underlying data structure completely depends on implementation.
+On the other hand, pushing onto a queue implies adding it to the end.
+Because it appends an element to a list?
+Push is usually used when referring to stacks.
+Because "append" intuitively means "add at the end of the list".
+"If it was called "push", then it would be unclear whether we're adding stuff at the tail or at head of the list.
+"Push is a defined [stack (hyper-link)] behaviour; if you pushed A on to stack (B,C,D) you would get (A,B,C,D).
+"If you used python append, the resulting dataset would look like (B,C,D,A)
+"I would assume that it would be clear from my example which part of the list is the top, and which part is the bottom.
+"Assuming that most of us here read from left to right, the first element of any list is always going to be on the left.
+"Not an official answer by any means (just a guess based on using the language), but Python allows you to use lists as stacks (e.g., [section 5.1.1 of the tutorial (hyper-link)]).
+"However, a list is still first of all a list, so the operations that are common to both use list terms (i.e., append) rather than stack terms (i.e., push).
+"Since a pop operation isn't that common in lists (though 'removeLast' could have been used), they defined a pop() but not a push().
+"Ok, personal opinion here, but Append and Prepend imply precise positions in a set.
+"Push and Pop are really concepts that can be applied to either end of a set... Just as long as you're consistent... For some reason, to me, Push() seems like it should apply to the front of a set...
+"FYI, it's not terribly difficult to make a list that has a push method:
+"A stack is a somewhat abstract datatype.
+"The idea of "pushing" and "popping" are largely independent of how the stack is actually implemented.
+"For example, you could theoretically implement a stack like this (although I don't know why you would):
+"...and I haven't gotten into using linked lists to implement a stack.
+"Because "append" existed long before "pop" was thought of.
+"[Python 0.9.1 (hyper-link)] supported list.append in early 1991.
+"By comparison, here's part of a [discussion on comp.lang.python (hyper-link)] about adding pop in 1997.
+"Guido wrote:
+"To implement a stack, one would need to add a list.pop() primitive (and no, I'm not against this particular one on the basis of any principle).
+"list.push() could be added for symmetry with list.pop() but I'm not a big fan of multiple names for the same operation -- sooner or later you're going to read code that uses the other one, so you need to learn both, which is more cognitive load.
+"You can also see he discusses the idea of if push/pop/put/pull should be at element [0] or after element [-1] where he posts a reference to Icon's list:
+"I stil think that all this is best left out of the list object implementation -- if you need a stack, or a queue, with particular semantics, write a little class that uses a lists
+"In other words, for stacks implemented directly as Python lists, which already supports fast append(), and del list[-1], it makes sense that list.pop() work by default on the last element.
+"Even if other languages do it differently.
+"Implicit here is that most people need to append to a list, but many fewer have occasion to treat lists as stacks, which is why list.append came in so much earlier.
+"Push and Pop make sense in terms of the metaphor of a stack of plates or trays in a cafeteria or buffet, specifically the ones in type of holder that has a spring underneath so the top plate is (more or less... in theory) in the same place no matter how many plates are under it.
+"If you remove a tray, the weight on the spring is a little less and the stack "pops" up a little, if you put the plate back, it "push"es the stack down.
+"So if you think about the list as a stack and the last element as being on top, then you shouldn't have much confusion.
+"What about append()?
+"That's the equivalent to push.
+"The whole purpose is a quick way to use a list as a stack when convenient.
+"It can also be used as a queue with the combination of methods pop(0) and append() .
+"Although for this specific cases the best choice is deque from collections.
+"They did implement push, but they split the functionality into list.insert() and list.append() instead.
+"list.append() is the equivalent of pushing a value onto the end.
+"list.insert() is the inverse of list.pop() with an index; inserting the given value at the given index.
+"The list.pop() method is an alternative to del listobject[index] in that it returns the value at the index you are removing.
+"Note that Python lists are not limited to being used as a stack or queue, and list.pop() is a later addition to the list type to make removing-and-returning more efficient.

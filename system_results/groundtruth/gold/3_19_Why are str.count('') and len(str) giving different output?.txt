@@ -1,0 +1,5 @@
+.count('') counts the number of locations of zero-length strings.
+'' doesn't mean any string, it means no string (aka, the empty string, or the 0-length string).
+That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+The count() method returns the number of occurrences of a substring in the given string.
+Therefore, if the empty string is a substring of every character, and of the empty string, then count should return the number of characters plus one.

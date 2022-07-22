@@ -1,0 +1,5 @@
+Overhead typically reffers to the amount of extra resources (memory, processor, time, etc.)
+In computer science, overhead is generally considered any combination of excess or indirect computation time, memory, bandwidth, or other resources that are required to attain a particular goal.
+For a programmer overhead refers to those system resources which are consumed by your code when it's running on a giving platform on a given set of input data.
+It's the resources required to set up an operation.
+In general, it's resources (most often memory and CPU time) that are used, which do not contribute directly to the intended result, but are required by the technology or method that is being used.

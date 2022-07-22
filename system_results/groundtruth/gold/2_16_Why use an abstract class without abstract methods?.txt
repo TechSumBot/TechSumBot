@@ -1,0 +1,5 @@
+To prevent instantiation of that class and use it only as a base class.
+A common reason to do this is to have the abstract class provide exploding implementations of the abstract methods as a convenience to subclasses who don't have to implement all the abstract methods, just those they want to - the remaining ones will still explode but it won't matter if those execution paths aren't exercised.
+So code is not repeated and it reflects in all child classes by including it in just one place.
+Abstract class without abstract method means you can create object of that abstract class.
+"This can be useful since it allows the author of an abstract class to introduce abstract functions at a later date.

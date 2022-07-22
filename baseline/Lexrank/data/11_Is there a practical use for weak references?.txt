@@ -1,0 +1,159 @@
+If you want to keep a reference to something as long as it is used elsewhere e.g.
+a Listener, you can use a weak reference.
+WeakHashMap can be used as a short lived cache of keys to derived data.
+It can also be used to keep information about objects used else where and you don't know when those objects are discarded.
+BTW Soft References are like Weak references, but they will not always be cleaned up immediately.
+The GC will always discard weak references when it can and retain Soft References when it can.
+There is another kind of reference called a Phantom Reference.
+This is used in the GC clean up process and refers to an object which isn't accessible to "normal" code because its in the process of being cleaned up.
+To prevent memory leaks, see this [article (hyper-link)] for details.
+We use it for that reason - in our example, we have a variety of listeners that must register with a service.
+"The service keeps weak references to the listeners, while the instantiated classes keep strong references.
+"If the classes at any time get GC'ed, the weak reference is all that remains of the listeners, which will then be GC'ed as well.
+"It makes keeping track of the intermediary classes much easier.
+"The most common usage of weak references is for values in "lookup" Maps.
+"With normal (hard) value references, if the value in the map no longer has references to it elsewhere, you often don't need the lookup any more.
+"With weakly referenced map values, once there are no other references to it, the object becomes a candidate for garbage collection
+"The fact that the map itself has a (the only) reference to the object does not stop it from being garbage collected because the reference is a weak reference
+"A weak reference is a reference that does not protect the referent object from collection by a garbage collector.
+"An object referenced only by weak references is considered unreachable (or "weakly reachable") and so may be collected at any time.
+"Weak references are used to avoid keeping memory referenced by unneeded objects.
+"Some garbage-collected languages feature or support various levels of weak references, such as Java, C#, Python, Perl, PHP or Lisp.
+"Garbage collection is used to reduce the potential for memory leaks and data corruption.
+"There are two main types of garbage collection: tracing and reference counting.
+"Reference counting schemes record the number of references to a given object and collect the object when the reference count becomes zero.
+"Reference-counting cannot collect cyclic (or circular) references because only one object may be collected at a time.
+"Groups of mutually referencing objects which are not directly referenced by other objects and are unreachable can thus become permanently resident; if an application continually generates such unreachable groups of unreachable objects this will have the effect of a memory leak.
+"Weak references may be used to solve the problem of circular references if the reference cycles are avoided by using weak references for some of the references within the group.
+"Weak references are also used to minimize the number of unnecessary objects in memory by allowing the program to indicate which objects are not critical by only weakly referencing them.
+"I use it generally for some type of cache.
+"Recently accessed items are available immediately and in the case of cache miss you reload the item (DB, FS, whatever).
+"Since weak reference can be claimed by garbage collector at any time, is there any practical reason to use it?
+"Of course there are practical reasons to use it.
+"It would be awfully strange if the framework designers went to the enormous expense of building a weak reference system that was impractical, don't you think?
+"I think the question you intended to ask was:
+"What are realistic situations in which people use weak references?
+"There are many.
+"A common one is to achieve a performance goal.
+"When performance tuning an application one often must make a tradeoff between more memory usage and more time usage.
+"Suppose for example there is a complex calculation that you must perform many times, but the computation is "pure" -- the answer depends only on the arguments, not upon exogenous state.
+"You can build a cache -- a map from the arguments to the result -- but that then uses memory.
+"You might never ask the question again, and that memory is would then be wasted.
+"Weak references possibly solve this problem; the cache can get quite large, and therefore time is saved if the same question is asked many times.
+"But if the cache gets large enough that the garbage collector needs to reclaim space, it can do so safely.
+"The downside is of course that the cleanup policy of the garbage collector is tuned to meet the goals of the whole system, not your specific cache problem.
+"If the GC policy and your desired cache policy are sufficiently aligned then weak references are a highly pragmatic solution to this problem.
+"If a [WeakReference (hyper-link)] is the only reference to an object, and you want the object to hang around, you should probably be using a [SoftReference (hyper-link)] instead.
+"WeakReferences are best used in cases where there will be other references to the object, but you can't (or don't want to have to) detect when those other references are no longer used.
+"Then, the other reference will prevent the object from being garbage collected, and the WeakReference will just be another way of getting to the same object.
+"Two common use cases are:
+"For holding additional (often expensively calculated but reproducible) information about specific objects that you cannot modify directly, and whose lifecycle you have little control over.
+"[WeakHashMap (hyper-link)] is a perfect way of holding these references: the key in the WeakHashMap is only weakly held, and so when the key is garbage collected, the value can be removed from the Map too, and hence be garbage collected.
+"For implementing some kind of eventing or notification system, where "listeners" are registered with some kind of coordinator, so they can be informed when something occurs – but where you don't want to prevent these listeners from being garbage collected when they come to the end of their life.
+"A WeakReference will point to the object while it is still alive, but point to "null" once the original object has been garbage collected.
+If you want to keep a reference to something as long as it is used elsewhere e.g.
+a Listener, you can use a weak reference.
+WeakHashMap can be used as a short lived cache of keys to derived data.
+It can also be used to keep information about objects used else where and you don't know when those objects are discarded.
+BTW Soft References are like Weak references, but they will not always be cleaned up immediately.
+The GC will always discard weak references when it can and retain Soft References when it can.
+There is another kind of reference called a Phantom Reference.
+This is used in the GC clean up process and refers to an object which isn't accessible to "normal" code because its in the process of being cleaned up.
+To prevent memory leaks, see this [article (hyper-link)] for details.
+We use it for that reason - in our example, we have a variety of listeners that must register with a service.
+"The service keeps weak references to the listeners, while the instantiated classes keep strong references.
+"If the classes at any time get GC'ed, the weak reference is all that remains of the listeners, which will then be GC'ed as well.
+"It makes keeping track of the intermediary classes much easier.
+"The most common usage of weak references is for values in "lookup" Maps.
+"With normal (hard) value references, if the value in the map no longer has references to it elsewhere, you often don't need the lookup any more.
+"With weakly referenced map values, once there are no other references to it, the object becomes a candidate for garbage collection
+"The fact that the map itself has a (the only) reference to the object does not stop it from being garbage collected because the reference is a weak reference
+"A weak reference is a reference that does not protect the referent object from collection by a garbage collector.
+"An object referenced only by weak references is considered unreachable (or "weakly reachable") and so may be collected at any time.
+"Weak references are used to avoid keeping memory referenced by unneeded objects.
+"Some garbage-collected languages feature or support various levels of weak references, such as Java, C#, Python, Perl, PHP or Lisp.
+"Garbage collection is used to reduce the potential for memory leaks and data corruption.
+"There are two main types of garbage collection: tracing and reference counting.
+"Reference counting schemes record the number of references to a given object and collect the object when the reference count becomes zero.
+"Reference-counting cannot collect cyclic (or circular) references because only one object may be collected at a time.
+"Groups of mutually referencing objects which are not directly referenced by other objects and are unreachable can thus become permanently resident; if an application continually generates such unreachable groups of unreachable objects this will have the effect of a memory leak.
+"Weak references may be used to solve the problem of circular references if the reference cycles are avoided by using weak references for some of the references within the group.
+"Weak references are also used to minimize the number of unnecessary objects in memory by allowing the program to indicate which objects are not critical by only weakly referencing them.
+"I use it generally for some type of cache.
+"Recently accessed items are available immediately and in the case of cache miss you reload the item (DB, FS, whatever).
+"Since weak reference can be claimed by garbage collector at any time, is there any practical reason to use it?
+"Of course there are practical reasons to use it.
+"It would be awfully strange if the framework designers went to the enormous expense of building a weak reference system that was impractical, don't you think?
+"I think the question you intended to ask was:
+"What are realistic situations in which people use weak references?
+"There are many.
+"A common one is to achieve a performance goal.
+"When performance tuning an application one often must make a tradeoff between more memory usage and more time usage.
+"Suppose for example there is a complex calculation that you must perform many times, but the computation is "pure" -- the answer depends only on the arguments, not upon exogenous state.
+"You can build a cache -- a map from the arguments to the result -- but that then uses memory.
+"You might never ask the question again, and that memory is would then be wasted.
+"Weak references possibly solve this problem; the cache can get quite large, and therefore time is saved if the same question is asked many times.
+"But if the cache gets large enough that the garbage collector needs to reclaim space, it can do so safely.
+"The downside is of course that the cleanup policy of the garbage collector is tuned to meet the goals of the whole system, not your specific cache problem.
+"If the GC policy and your desired cache policy are sufficiently aligned then weak references are a highly pragmatic solution to this problem.
+"If a [WeakReference (hyper-link)] is the only reference to an object, and you want the object to hang around, you should probably be using a [SoftReference (hyper-link)] instead.
+"WeakReferences are best used in cases where there will be other references to the object, but you can't (or don't want to have to) detect when those other references are no longer used.
+"Then, the other reference will prevent the object from being garbage collected, and the WeakReference will just be another way of getting to the same object.
+"Two common use cases are:
+"For holding additional (often expensively calculated but reproducible) information about specific objects that you cannot modify directly, and whose lifecycle you have little control over.
+"[WeakHashMap (hyper-link)] is a perfect way of holding these references: the key in the WeakHashMap is only weakly held, and so when the key is garbage collected, the value can be removed from the Map too, and hence be garbage collected.
+"For implementing some kind of eventing or notification system, where "listeners" are registered with some kind of coordinator, so they can be informed when something occurs – but where you don't want to prevent these listeners from being garbage collected when they come to the end of their life.
+"A WeakReference will point to the object while it is still alive, but point to "null" once the original object has been garbage collected.
+If you want to keep a reference to something as long as it is used elsewhere e.g.
+a Listener, you can use a weak reference.
+WeakHashMap can be used as a short lived cache of keys to derived data.
+It can also be used to keep information about objects used else where and you don't know when those objects are discarded.
+BTW Soft References are like Weak references, but they will not always be cleaned up immediately.
+The GC will always discard weak references when it can and retain Soft References when it can.
+There is another kind of reference called a Phantom Reference.
+This is used in the GC clean up process and refers to an object which isn't accessible to "normal" code because its in the process of being cleaned up.
+To prevent memory leaks, see this [article (hyper-link)] for details.
+We use it for that reason - in our example, we have a variety of listeners that must register with a service.
+"The service keeps weak references to the listeners, while the instantiated classes keep strong references.
+"If the classes at any time get GC'ed, the weak reference is all that remains of the listeners, which will then be GC'ed as well.
+"It makes keeping track of the intermediary classes much easier.
+"The most common usage of weak references is for values in "lookup" Maps.
+"With normal (hard) value references, if the value in the map no longer has references to it elsewhere, you often don't need the lookup any more.
+"With weakly referenced map values, once there are no other references to it, the object becomes a candidate for garbage collection
+"The fact that the map itself has a (the only) reference to the object does not stop it from being garbage collected because the reference is a weak reference
+"A weak reference is a reference that does not protect the referent object from collection by a garbage collector.
+"An object referenced only by weak references is considered unreachable (or "weakly reachable") and so may be collected at any time.
+"Weak references are used to avoid keeping memory referenced by unneeded objects.
+"Some garbage-collected languages feature or support various levels of weak references, such as Java, C#, Python, Perl, PHP or Lisp.
+"Garbage collection is used to reduce the potential for memory leaks and data corruption.
+"There are two main types of garbage collection: tracing and reference counting.
+"Reference counting schemes record the number of references to a given object and collect the object when the reference count becomes zero.
+"Reference-counting cannot collect cyclic (or circular) references because only one object may be collected at a time.
+"Groups of mutually referencing objects which are not directly referenced by other objects and are unreachable can thus become permanently resident; if an application continually generates such unreachable groups of unreachable objects this will have the effect of a memory leak.
+"Weak references may be used to solve the problem of circular references if the reference cycles are avoided by using weak references for some of the references within the group.
+"Weak references are also used to minimize the number of unnecessary objects in memory by allowing the program to indicate which objects are not critical by only weakly referencing them.
+"I use it generally for some type of cache.
+"Recently accessed items are available immediately and in the case of cache miss you reload the item (DB, FS, whatever).
+"Since weak reference can be claimed by garbage collector at any time, is there any practical reason to use it?
+"Of course there are practical reasons to use it.
+"It would be awfully strange if the framework designers went to the enormous expense of building a weak reference system that was impractical, don't you think?
+"I think the question you intended to ask was:
+"What are realistic situations in which people use weak references?
+"There are many.
+"A common one is to achieve a performance goal.
+"When performance tuning an application one often must make a tradeoff between more memory usage and more time usage.
+"Suppose for example there is a complex calculation that you must perform many times, but the computation is "pure" -- the answer depends only on the arguments, not upon exogenous state.
+"You can build a cache -- a map from the arguments to the result -- but that then uses memory.
+"You might never ask the question again, and that memory is would then be wasted.
+"Weak references possibly solve this problem; the cache can get quite large, and therefore time is saved if the same question is asked many times.
+"But if the cache gets large enough that the garbage collector needs to reclaim space, it can do so safely.
+"The downside is of course that the cleanup policy of the garbage collector is tuned to meet the goals of the whole system, not your specific cache problem.
+"If the GC policy and your desired cache policy are sufficiently aligned then weak references are a highly pragmatic solution to this problem.
+"If a [WeakReference (hyper-link)] is the only reference to an object, and you want the object to hang around, you should probably be using a [SoftReference (hyper-link)] instead.
+"WeakReferences are best used in cases where there will be other references to the object, but you can't (or don't want to have to) detect when those other references are no longer used.
+"Then, the other reference will prevent the object from being garbage collected, and the WeakReference will just be another way of getting to the same object.
+"Two common use cases are:
+"For holding additional (often expensively calculated but reproducible) information about specific objects that you cannot modify directly, and whose lifecycle you have little control over.
+"[WeakHashMap (hyper-link)] is a perfect way of holding these references: the key in the WeakHashMap is only weakly held, and so when the key is garbage collected, the value can be removed from the Map too, and hence be garbage collected.
+"For implementing some kind of eventing or notification system, where "listeners" are registered with some kind of coordinator, so they can be informed when something occurs – but where you don't want to prevent these listeners from being garbage collected when they come to the end of their life.
+"A WeakReference will point to the object while it is still alive, but point to "null" once the original object has been garbage collected.

@@ -1,0 +1,5 @@
+apply() was added in 2.3, it commits without returning a boolean indicating success or failure.
+Unlike commit(), which writes its preferences out to persistent storage synchronously, apply() commits its changes to the in-memory SharedPreferences immediately but starts an asynchronous commit to disk and you won't be notified of any failures.
+"It writes the changes to the RAM immediately and waits and writes it to the internal storage(the actual preference file) after.
+"commit() returns true if the new values were successfully written to persistent storage.
+"apply() is faster.

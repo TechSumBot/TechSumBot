@@ -1,0 +1,5 @@
+The if statement evaluates everything in a Boolean context, it is like there is an implicit call to the [bool() (hyper-link)] built-in function.
+See the documentation on [Truth Value Testing (hyper-link)], empty lists are considered false, but this doesn't mean they are equivalent to False.
+The most convincing aspect to me is that == is generally transitive, so a == b and b == c implies a == c. So if it were the way you expected and [] == False were true and '' == False were true, one might assume that [] == '' should be true (even though it obviously should not be in a language without implicit type conversion).
+If empty containers were literally equal to False, by the way, then any empty container would be equal to any other empty container: for example, {} == "" would be True.
+The empty list, [], is not equal to None.

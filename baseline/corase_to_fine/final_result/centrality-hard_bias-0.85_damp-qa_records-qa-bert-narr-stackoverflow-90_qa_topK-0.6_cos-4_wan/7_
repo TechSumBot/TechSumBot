@@ -1,0 +1,5 @@
+An object is a dynamically created instance of a class type or a dynamically created array.
+"Reference is, in the Java context, a variable* - it is something pointing to an object/instance.
+"A class is template for an object and an object is an instance of a class.
+"Personally I prefer to use the word "instance" when referring to a specific object of a specific type, for example "an instance of type Foo".
+"For example, String s = null; - s is a reference, that currently references no instance, but can reference an instance of the String class.

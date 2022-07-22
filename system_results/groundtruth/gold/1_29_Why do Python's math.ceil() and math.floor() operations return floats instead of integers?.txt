@@ -1,0 +1,5 @@
+Because python's math library is a thin wrapper around the C math library which returns floats.
+By returning a floating point value, the functions can return a sensible value for input values that lie outside the representable range of integers.
+Because the range for floats is greater than that of integers -- returning an integer could overflow
+Before Python 2.4, an integer couldn't hold the full range of truncated real numbers.
+"The python functions are wrappers of the C function and so this is really a deficiency of the C functions where they should have returned an integer and forced the programer to do the range/NaN/Inf check before calling ceil/floor.

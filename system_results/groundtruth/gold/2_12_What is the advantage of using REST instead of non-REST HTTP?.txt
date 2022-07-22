@@ -1,0 +1,5 @@
+Simply put, REST means using HTTP the way it's meant to be.
+You can make good use of HTTP cache and proxy server to help you handle high load.
+It helps you organize even a very complex application into simple resources.
+"There are other more in depth benefits of REST which revolve around evolve-ability via loose coupling and hypertext, but caching mechanisms are the main reason you should care about RESTful HTTP.
+"decoupled client and server (due to stateless and uniform interface constraints) reusable clients (client can use general REST browsers and RDF semantics to decide which link to follow and how to display the results) non breaking clients (clients break only by application specific semantics changes, because they use the semantics instead of some API specific knowledge)

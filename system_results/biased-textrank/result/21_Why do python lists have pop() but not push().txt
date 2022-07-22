@@ -1,0 +1,5 @@
+"Not an official answer by any means (just a guess based on using the language), but Python allows you to use lists as stacks (e.g., [section 5.1.1 of the tutorial (hyper-link)]).
+"Since a pop operation isn't that common in lists (though 'removeLast' could have been used), they defined a pop() but not a push().
+"The idea of "pushing" and "popping" are largely independent of how the stack is actually implemented.
+"...and I haven't gotten into using linked lists to implement a stack.
+"To implement a stack, one would need to add a list.pop() primitive (and no, I'm not against this particular one on the basis of any principle).

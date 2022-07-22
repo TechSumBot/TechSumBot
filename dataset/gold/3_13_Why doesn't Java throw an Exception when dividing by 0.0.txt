@@ -1,0 +1,5 @@
+"Doubles in Java (and some but not all other languages) support values that are NaN (Not a number).
+"The result of a floating-point division is determined by the rules of IEEE 754 arithmetic:
+The simple answer to this question is that it will not throw ArithmeticException and return Double.INFINITY.
+"This has a special value (NaN) that denotes the "indefinite value" that you get when zero is divided by zero.
+"Yes, double can represent infinity (as can float), whereas int can't.

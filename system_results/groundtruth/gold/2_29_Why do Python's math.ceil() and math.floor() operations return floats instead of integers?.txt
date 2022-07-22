@@ -1,0 +1,5 @@
+The range of floating point numbers usually exceeds the range of integers.
+Before Python 2.4, an integer couldn't hold the full range of truncated real numbers.
+As pointed out by other answers, in python they return floats probably because of historical reasons to prevent overflow problems.
+"The python functions are wrappers of the C function and so this is really a deficiency of the C functions where they should have returned an integer and forced the programer to do the range/NaN/Inf check before calling ceil/floor.
+"This is an oddity that is present in all math libraries.

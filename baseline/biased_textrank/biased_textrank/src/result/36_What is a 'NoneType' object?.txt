@@ -1,0 +1,5 @@
+[NoneType (hyper-link)] is simply the type of the [None (hyper-link)] singleton:
+The sole value of the type NoneType.
+"NoneType is the type for the None object, which is an object that indicates no value.
+"None is the return value of functions that "don't return anything".
+"The sole value of the type NoneType.

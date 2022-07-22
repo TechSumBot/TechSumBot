@@ -1,0 +1,5 @@
+"This compilation and execution are what make Python slower than other low-level languages such as C/C++.
+Python is an interpreted language, which means that the Python code you write must go through many, many stages of abstraction before it can become executable machine code.
+It is true that C code usually runs 10 to 100 times faster than Python code if you measure only the execution time.
+"The python source code is first compiled into [Byte Code (hyper-link)].
+"Other interpreted languages such as Java bytecode and .NET bytecode run faster than Python because the standard distributions include a [JIT compiler (hyper-link)] that compiles bytecode to native code at runtime.

@@ -1,0 +1,5 @@
+"iirc i named it after the dir command in dos.
+i am learning python and just this morning was thinking about the builtin constants and functions that are available in the language.
+"directions: supplies maps for traversing the python landscape.
+"it gives you an alphabetical listing of valid names (attributes) in the scope (object).
+you're retrieving a "directory", a list of all of the stuff that's available in some resource.

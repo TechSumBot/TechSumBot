@@ -1,0 +1,130 @@
+
+Query:  "Why does the default parameterless constructor go away when you create one with parameters"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/11792280)
+ [0] #0: "There's no reason that the compiler couldn't add the constructor if you've added your own - the compiler could do pretty much whatever it wants!"
+ [0] #1: "However, you have to look at what makes most sense:"
+ [0] #2: "If I haven't defined any constructor for a non-static class, I most likely want to be able to instantiate that class."
+ [0] #3: "In order to allow that, the compiler must add a parameterless constructor, which will have no effect but to allow instantiation."
+ [0] #4: "This means that I don't have to include an empty constructor in my code just to make it work."
+ [1] #5: "If I've defined a constructor of my own, especially one with parameters, then I most likely have logic of my own that must be executed on creating the class."
+ [1] #6: "If the compiler were to create an empty, parameterless constructor in this case, it would allow someone to skip the logic that I had written, which might lead to my code breaking in all number of ways."
+ [0] #7: "If I want a default empty constructor in this case, I need to say so explicitly."
+ [0] #8: "So, in each case, you can see that the behaviour of current compilers makes the most sense in terms of preserving the likely intent of the code."
+
+Answer:  #1 (https://stackoverflow.com/a/11792283)
+ [1] #9: "The default, parameterless constructor is added if you don't do anything yourself to take control over object creation."
+ [1] #10: "Once you've created a single constructor to take control, the compiler "backs off" and let you have the full control."
+ [0] #11: "If it wouldn't be this way, you would need some explicit way of disabling the default constructor if you only want objects to be constructable through a constructor with parameters."
+
+Answer:  #2 (https://stackoverflow.com/a/11792284)
+ [0] #12: "There's certainly no technical reason why the language has to be designed this way."
+ [0] #13: "There are four somewhat-realistic options that I can see:"
+ [0] #14: "No default constructors at all"
+ [0] #15: "The current scenario"
+ [0] #16: "Always providing a default constructor by default, but allowing it to be explicitly suppressed"
+ [0] #17: "Always providing a default constructor without allowing it to be suppressed"
+ [0] #18: "Option 1 is somewhat attractive, in that the more I code the less often I really want a parameterless constructor."
+ [0] #19: "Some day I should count just how often I actually end up using a default constructor..."
+ [0] #20: "Option 2 I'm fine with."
+ [0] #21: "Option 3 goes against the flow of both Java and C#, for the rest of the language."
+ [0] #22: "There's never anything that you explicitly "remove", unless you count explicitly making things more private than they would be by default in Java."
+ [0] #23: "Option 4 is horrible - you absolutely want to be able to force construction with certain parameters."
+ [0] #24: "What would new FileStream() even mean?"
+ [0] #25: "So basically, if you accept the premise that providing a default constructor makes sense at all, I believe it makes a lot of sense to suppress it as soon as you provide your own constructor."
+
+Answer:  #3 (https://stackoverflow.com/a/11792307)
+ [0] #26: "I think the question should be the other way around: Why don't you need to declare a default constructor if you haven't defined any other constructors?"
+ [0] #27: "A constructor is mandatory for non-static classes."
+ [0] #28: "So i think if you haven't defined any constructors, the generated default constructor is just a convenient feature of the C# compiler, also your class wouldn't be valid without a constructor."
+ [0] #29: "So nothing wrong with implicitly generating a constructor that does nothing."
+ [0] #30: "It certainly looks cleaner than having empty constructors all around."
+ [1] #31: "If you have already defined a constructor, your class is valid, so why should the compiler assume you want a default constructor?"
+ [0] #32: "What if you don't want one?"
+ [0] #33: "Implement an attribute to tell the compiler to not generate that default constructor?"
+ [0] #34: "I don't think that would be a good idea."
+
+Answer:  #4 (https://stackoverflow.com/a/11792318)
+ [0] #35: "It's a convenience function of the compiler."
+ [1] #36: "If you define a Constructor with parameters but don't define a parameterless constructor, the possibility that you don't want to allow a parameterless constructor is much higher."
+ [0] #37: "This is the case for many objects that just don't make sense to initialize with an empty constructor."
+ [0] #38: "Otherwise you'd have to declare a private parameterless constructor for each class that you want to restrict."
+ [0] #39: "In my opinion it's not good style to allow a parameterless constructor for a class that needs parameters to function."
+
+Answer:  #5 (https://stackoverflow.com/a/11799074)
+ [0] #40: "Actually, while what I say in my first answer is valid, this is the real reason."
+ [0] #41: ":"
+ [0] #42: "In the beginning there was C. C is not object-oriented (you can take an OO approach, but it doesn't help you or enforce anything)."
+ [0] #43: "Then there was C With Classes, that was later renamed C++."
+ [0] #44: "C++ is object-oriented, and therefore encourages encapsulation, and ensuring an object's invariant - upon construction and at the beginning and end of any method, the object is in a valid state."
+ [?] #45: "The natural thing to do with this, is to enforce that a class must always have a constructor to ensure it starts in a valid state - if the constructor doesn't have to do anything to ensure this, then the empty constructor will document this fact."
+ [0] #46: "But a goal with C++ was to be compatible with C to the point that as much as possible, all valid C programs were also valid C++ programs (no longer as active a goal, and the evolution of C separate to C++ means it no longer holds)."
+ [0] #47: "One effect of this was the duplication in functionality between struct and class."
+ [0] #48: "The former doing things the C way (everything public by default) and the latter doing things in a good OO way (everything private by default, developer actively makes public what they want public)."
+ [0] #49: "Another is that in order for a C struct, which couldn't have a constructor because C doesn't have constructors, to be valid in C++, then there had to be a meaning for this to the C++ way of looking at it."
+ [0] #50: "And so, while not having a constructor would go against the OO practice of actively ensuring an invariant, C++ took this to mean that there was a default parameterless constructor that acted like it had an empty body."
+ [0] #51: "All C structs were now valid C++ structs, (which meant they were the same as C++ classes with everything - members and inheritance - public) treated from the outside as if it had a single, parameterless constructor."
+ [0] #52: "If however you did put a constructor in a class or struct, then you were doing things the C++/OO way rather than the C way, and there was no need for a default constructor."
+ [0] #53: "Since it served as a shorthand, people kept using it even when compatibility wasn't possible otherwise (it used other C++ features not in C)."
+ [0] #54: "Hence when Java came along (based on C++ in many ways) and later C# (based on C++ and Java in different ways), they kept this approach as something coders may already be used to."
+ [0] #55: "Stroustrup writes about this in his The C++ Programming Language and even more so, with more focus upon the "whys" of the language in The Design and Evolution of C++."
+ [0] #56: "=== Original Answer ==="
+ [0] #57: "Let's say this didn't happen."
+ [0] #58: "Let's say I don't want a parameterless constructor, because I can't put my class into a meaningful state without one."
+ [0] #59: "Indeed, this is something that can happen with struct in C# (but if you can't make meaningful use of an all-zeros-and-nulls struct in C# you're at best using a non-publicly-visible optimisation, and otherwise have a design flaw in using struct)."
+ [0] #60: "To make my class able to protect its invariants, I need a special removeDefaultConstructor keyword."
+ [0] #61: "At the very least, I'd need to create a private parameterless constructor to make sure no calling code calls the default."
+ [0] #62: "Which complicates the language some more."
+ [0] #63: "Better not to do it."
+ [0] #64: "In all, it's best not to think of adding a constructor as removing the default, better to think of having no constructor at all as syntactic sugar for adding a parameterless constructor that doesn't do anything."
+
+Answer:  #6 (https://stackoverflow.com/a/11802632)
+ [1] #65: "The default constructor can be constructed only when the class doesn't have a constructor."
+ [0] #66: "Compilers are written in such a way as to provide this only as a backup mechanism."
+ [1] #67: "If you have a parameterized constructor, you may not want an object to be created using the default constructor."
+ [0] #68: "Had the compiler provided a default constructor, you would have had to write a no-arg constructor and make it private in order to prevent objects being created using no arguments."
+ [0] #69: "Also, there would be higher chances of you forgetting disabling, or 'privatising' the default constructor, and thereby causing a potential functional error hard to catch."
+ [0] #70: "And now you have to explicitly define a no-arg constructor if you'd like an object to be created either the default way or by passing parameters."
+ [0] #71: "This is strongly checked, and the compiler complains otherwise, thereby ensuring no loophole here."
+
+Answer:  #7 (https://stackoverflow.com/a/12126629)
+ [0] #72: "Premise"
+ [0] #73: "This behaviour can be seen as a natural extension of the decision for classes to have a default public parameterless constructor."
+ [0] #74: "Based on the question that's been asked we take this decision as a premise and assume that we are not questioning it in this instance."
+ [0] #75: "Ways to Remove Default Constructor"
+ [0] #76: "It follows that there must be a way to remove the default public parameterless constructor."
+ [0] #77: "This removal could be accomplished in the following ways:"
+ [0] #78: "Declare a non-public parameterless constructor"
+ [0] #79: "Automatically remove the parameterless constructor when a constructor with parameters is declared"
+ [0] #80: "Some keyword / attribute to indicate to the compiler to remove the parameterless constructor (awkward enough that it is easy to rule out)"
+ [0] #81: "Selecting the Best Solution"
+ [0] #82: "Now we ask ourselves: If there is no parameterless constructor, what must it be replaced by?"
+ [0] #83: "and Under what types of scenarios would we want to remove the default public parameterless constructor?"
+ [0] #84: "Things start to fall in place."
+ [0] #85: "Firstly, it must either be replaced with a constructor with parameters, or with a non-public constructor."
+ [0] #86: "Secondly, the scenarios under which you do not want a parameterless constructor are:"
+ [0] #87: "We do not want the class to be instantiated at all, or we want to control the visibility of the constructor: declare a non-public constructor"
+ [0] #88: "We want to force parameters to be provided on construction: declare a constructor with parameters"
+ [0] #89: "Conclusion"
+ [0] #90: "There we have it -- exactly the two ways that C#, C++ and Java allow the removal of the default public parameterless constructor."
+
+Answer:  #8 (https://stackoverflow.com/a/12146774)
+ [0] #91: "I think this is handled by the compiler."
+ [0] #92: "If you open the .net assembly in ILDASM you will see the default constructor, even if it is not in the code."
+ [0] #93: "If you define a parameterized constructor the default constructor will not bee seen."
+ [1] #94: "Actually when you define the class (non static), the compiler provides this feature thinking that you will be just creating an instance."
+ [0] #95: "And if you want any specific operation to perform you surely will be having your own constructor."
+
+Answer:  #9 (https://stackoverflow.com/a/22883522)
+ [1] #96: "Because if you explicitly define a constructor, then you're saying something about how a class instance should be instantiated."
+ [0] #97: "You want this to be rigidly defined, and a default constructor would work around this."
+ [0] #98: "Java provides a default constructor when none other is defined as a convenience."
+ [1] #99: "But if you start defining your own, it has no purpose and is removed."
+
+Answer:  #10 (https://stackoverflow.com/a/63350985)
+ [1] #100: "If you supply no constructor, the compiler will generate a default, zero-argument constructor."
+ [1] #101: "If you supply any constructors, the compiler will not generate any others."
+ [1] #102: "In this case, the single-argument constructor is supplied by you, so the compiler does not generate a default constructor."

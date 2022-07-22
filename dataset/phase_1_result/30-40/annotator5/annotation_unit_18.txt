@@ -1,0 +1,100 @@
+
+Query:  "Why does "[] == False" evaluate to False when "if not []" succeeds?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/10440825)
+ [1] #0: "The if statement evaluates everything in a Boolean context, it is like there is an implicit call to the [bool() (hyper-link)] built-in function."
+ [0] #1: "Here is how you would actually check how things will be evaluated by an if statement:"
+         [code snippet]
+ [1] #2: "See the documentation on [Truth Value Testing (hyper-link)], empty lists are considered false, but this doesn't mean they are equivalent to False."
+ [0] #3: "[PEP 285 (hyper-link)] also has some excellent information on why it was implemented this way, see the very last bullet in the Resolved Issues section for the part that deals with x == True and x == False specifically."
+ [1] #4: "The most convincing aspect to me is that == is generally transitive, so a == b and b == c implies a == c. So if it were the way you expected and [] == False were true and '' == False were true, one might assume that [] == '' should be true (even though it obviously should not be in a language without implicit type conversion)."
+
+Answer:  #1 (https://stackoverflow.com/a/10440830)
+ [1] #5: "Empty containers are "falsy," that is, they evaluate to False in a Boolean context."
+ [1] #6: "That doesn't mean they are literally equal to the constant False."
+ [0] #7: "In other words, the following is True:"
+         [code snippet]
+ [0] #8: "The truth value of an object is determined by its __nonzero__() or its __len__() method."
+ [0] #9: "(In Python 3, __nonzero__() has been renamed to __bool__().)"
+ [0] #10: "Containers have a __len__() method, so they are truthy when they have anything in them and falsy when they are empty."
+ [1] #11: "If empty containers were literally equal to False, by the way, then any empty container would be equal to any other empty container: for example, {} == "" would be True."
+ [1] #12: "And that just wouldn't make any sense at all!"
+ [0] #13: "However, just to blow your mind, the following is True:"
+         [code snippet]
+ [0] #14: "This is because Booleans are a subclass of integers in Python, and False is basically just a zero that gets printed a little differently."
+
+Answer:  #2 (https://stackoverflow.com/a/10440835)
+ [1] #15: "Built-in types in Python have a truth value which allows you to test them for truthfulness."
+ [0] #16: "See [Truth Value Testing (hyper-link)]."
+ [1] #17: "This is different than saying object == False which is doing an actual value test (equality test)."
+ [1] #18: "It is using the objects __eq__() method to determine if their values are equal."
+
+Answer:  #3 (https://stackoverflow.com/a/10440861)
+ [1] #19: "In your example, the not operator is causing your list to be converted to a boolean."
+ [0] #20: "Try this:"
+         [code snippet]
+ [0] #21: ""is" and "==" don't do that conversion."
+
+Answer:  #4 (https://stackoverflow.com/a/13806069)
+ [1] #22: "The empty list, [], is not equal to None."
+ [1] #23: "However, it can evaluate to False--that is to say, its "truthiness" value is False."
+ [0] #24: "(See the sources in the comments left on the OP.)"
+ [0] #25: "Because of this,"
+         [code snippet]
+
+Answer:  #5 (https://stackoverflow.com/a/13806569)
+ [1] #26: "None is the sole instance of the NoneType and is usually used to signify absence of value."
+ [1] #27: "What happens in your example is that the empty list, taken in boolean context, evaluates to False, the condition fails, so the else branch gets executed."
+ [0] #28: "The interpreter does something along the lines of:"
+         [code snippet]
+ [1] #29: "Here is another useful discussion regarding None: [not None test in Python (hyper-link)]"
+
+Answer:  #6 (https://stackoverflow.com/a/14060772)
+ [1] #30: "An if statement doesn't depend on whether the value is equal to true."
+ [1] #31: "It depends on whether bool(a) is equal to True, which in this case it is."
+ [1] #32: "Nonempty strings are considered true in a boolean context."
+ [0] #33: "See [the documentation (hyper-link)]."
+
+Answer:  #7 (https://stackoverflow.com/a/42867943)
+ [1] #34: "if statement: evaluates to true as long as statement is truthy (an int not equal to '0', True, a list with at least one element, a dict with one key, value pair ..etc)."
+ [1] #35: "if statement == True: only evaluates to true if statement is True, i.e"
+         [code snippet]
+
+Answer:  #8 (https://stackoverflow.com/a/42867949)
+ [0] #36: "Those are not equal."
+ [0] #37: "Python allows you to define if statements over a large range of elements."
+ [0] #38: "You can for instance write:"
+         [code snippet]
+ [1] #39: "Basically if you write if <expr>, Python will evaluate the [truthness (hyper-link)] of the expression."
+ [1] #40: "This is predefined for numbers (int, float, complex, not being equal to zero), some builtin collections (list, dict, not being empty), and you can define a __bool__ or __len__ on an arbitrary object yourself."
+ [1] #41: "You can get the truthness of an object by calling bool(..) on it."
+ [0] #42: "For example bool([]) == False."
+ [0] #43: "Example where if x is not equal to if x == True:"
+ [0] #44: "For instance:"
+         [code snippet]
+ [0] #45: "will take the if branch, whereas:"
+         [code snippet]
+ [0] #46: "will not take the if branch."
+ [0] #47: "This is because a number is equal to True if it is one (1, 1L, 1+0j,...)."
+ [0] #48: "Whereas bool(x) for a number is True if x is non-zero."
+ [0] #49: "It is also possible to define an object where == will raise an exception."
+ [0] #50: "Like:"
+         [code snippet]
+ [0] #51: "Now calling Foo() == True will result in:"
+         [code snippet]
+ [0] #52: "It is however not advisable to raise exceptions in the __eq__ function (well I strongly advice against it anyway)."
+ [0] #53: "It however holds that: if <expr>: is equivalent to if bool(<expr>):."
+ [0] #54: "Given the two are equal, evidently the <expr> == True will be slower since you do an extra call to __eq__, etc."
+ [0] #55: "Furthermore it is usually more idiomatic to check if a collection is empty with:"
+         [code snippet]
+ [0] #56: "This is also more safe since if it possible that some_list is None (or another kind of collection), you still check whether it holds at least one element, so changing your mind a bit will not have dramatic impact."
+ [0] #57: "So if you have to write if x == True, there is usually something weird with the truthness of the x itself."
+ [0] #58: "As is specified in the documentation ([Python-2.x (hyper-link)]/[Python-3.x (hyper-link)])."
+ [0] #59: "There is a way to resolve truthness."
+ [0] #60: "In [python-2.x (hyper-link)], it is evaluated like (over-simplified version, more "pseudo Python" code to explain how it works):"
+         [code snippet]
+ [0] #61: "and an over-simplified version for [python-3.x (hyper-link)]:"
+         [code snippet]

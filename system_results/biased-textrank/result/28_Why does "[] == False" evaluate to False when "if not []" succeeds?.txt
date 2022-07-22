@@ -1,0 +1,5 @@
+See the documentation on [Truth Value Testing (hyper-link)], empty lists are considered false, but this doesn't mean they are equivalent to False.
+"This is different than saying object == False which is doing an actual value test (equality test).
+"However, it can evaluate to False--that is to say, its "truthiness" value is False.
+"It depends on whether bool(a) is equal to True, which in this case it is.
+"if statement == True: only evaluates to true if statement is True, i.e

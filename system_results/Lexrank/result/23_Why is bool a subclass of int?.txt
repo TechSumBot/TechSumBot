@@ -1,0 +1,1 @@
+"With second set 1 == True so True isn't added to the set."First set has 0 and None because 0 == False but 0 != None."False and True are equal to 0 and 1, respectively."The reason that you are losing boolean values from a set if they already contain 0 or 1 is because the following behavior..."Basically True is equal to the integer 1 and False is equal to the integer 0.

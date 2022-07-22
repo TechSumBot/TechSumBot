@@ -1,0 +1,5 @@
+Yield adds the current thread to the ready queue and allows other threads to run.
+Neither sleep() nor yield() change anything about the status of synchronization locks.
+Thread.Yield can give up CPU resource to threads with lower priorities, while Thread.Sleep(0) gives up CPU only to threads with equal or higher priorities.
+"Thread.sleep() will just pause the thread and not give away control.
+"Thread.Sleep() has a slightly larger overhead because it creates a system that includes some kind of timer that will wake the process.

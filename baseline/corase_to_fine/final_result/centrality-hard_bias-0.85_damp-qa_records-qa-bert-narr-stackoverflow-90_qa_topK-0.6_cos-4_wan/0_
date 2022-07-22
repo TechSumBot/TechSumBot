@@ -1,0 +1,5 @@
+"According to me it also helps in keeping the entire source code consistent rather than half of the folks using isEmpty() and the rest using size()==0.
+"For this class, you'd certainly want to use isEmpty() rather than size() == 0.
+For other implementations of List — for example, a naïve linked list* — counting the size might take a very long time, while you only actually care whether it is greater than zero.
+"Most likely calling l.size() has loaded the size of your list into your cpu cache and calling l.isEmpty() is a lot faster as a result.
+"You can find the PMD ruleset here.

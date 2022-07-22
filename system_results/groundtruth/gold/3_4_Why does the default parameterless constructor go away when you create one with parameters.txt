@@ -1,0 +1,5 @@
+If I've defined a constructor of my own, especially one with parameters, then I most likely have logic of my own that must be executed on creating the class.
+If the compiler were to create an empty, parameterless constructor in this case, it would allow someone to skip the logic that I had written, which might lead to my code breaking in all number of ways.
+The default, parameterless constructor is added if you don't do anything yourself to take control over object creation.
+Once you've created a single constructor to take control, the compiler "backs off" and let you have the full control.
+If you have a parameterized constructor, you may not want an object to be created using the default constructor.

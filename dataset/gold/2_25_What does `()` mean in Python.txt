@@ -1,0 +1,5 @@
+It is an old way of specifying !=, that was removed in Python 3.
+The forms () and != are equivalent; for consistency with C, != is preferred; where != is mentioned below () is also accepted.
+In Python 2.X, () is same as != but the usage is obsolete and is discouraged in favour of the newer usage which is !=
+So, return self.commands () [ ] is same as return self.commands != [ ] which means the self.commands is not an empty list which as per your docstring
+It's the inequality operator, synonymous to !=.

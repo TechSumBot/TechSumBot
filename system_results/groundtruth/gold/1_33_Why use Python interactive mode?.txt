@@ -1,0 +1,5 @@
+I find the interactive interpreter very, very good for testing quick code, or to show others the Power of Python.
+"You can use it as a calculator.
+"That's way faster than looking stuff up in documentation or even in code.
+"As already mentioned, the Python interactive interpreter gives a quick and dirty way to test simple Python functions and/or code snippets.
+"One thing I use interactive mode for that others haven't mentioned: To see if a module is installed.

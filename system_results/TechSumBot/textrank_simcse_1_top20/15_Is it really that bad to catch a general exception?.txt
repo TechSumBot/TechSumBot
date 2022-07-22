@@ -1,0 +1,5 @@
+"Catching Exception or SystemException means that you will catch problems like IO errors, network errors, out-of-memory errors, missing-code errors, null-pointer-dereferencing and the likes.
+"So you should wrap the main body of a thread in a generic try...catch block and pass any exceptions caught there to your global exception handling code.)
+"The problem with catching all exceptions is that you may be catching ones that you don't expect, or indeed ones that you should not be catching.
+"The first is the one most people are thinking about, putting a try/catch around some operation that requires a checked exception.
+My basic rule of thumb is to catch all the exceptions you expect and anything else is a bug.

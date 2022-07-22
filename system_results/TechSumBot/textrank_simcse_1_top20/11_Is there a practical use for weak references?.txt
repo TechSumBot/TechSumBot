@@ -1,0 +1,5 @@
+"An object referenced only by weak references is considered unreachable (or "weakly reachable") and so may be collected at any time.
+"A weak reference is a reference that does not protect the referent object from collection by a garbage collector.
+"Weak references are used to avoid keeping memory referenced by unneeded objects.
+"Then, the other reference will prevent the object from being garbage collected, and the WeakReference will just be another way of getting to the same object.
+"[WeakHashMap (hyper-link)] is a perfect way of holding these references: the key in the WeakHashMap is only weakly held, and so when the key is garbage collected, the value can be removed from the Map too, and hence be garbage collected.

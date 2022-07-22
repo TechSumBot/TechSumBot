@@ -1,0 +1,5 @@
+"There we have it -- exactly the two ways that C#, C++ and Java allow the removal of the default public parameterless constructor.
+"And now you have to explicitly define a no-arg constructor if you'd like an object to be created either the default way or by passing parameters.
+"Had the compiler provided a default constructor, you would have had to write a no-arg constructor and make it private in order to prevent objects being created using no arguments.
+If the compiler were to create an empty, parameterless constructor in this case, it would allow someone to skip the logic that I had written, which might lead to my code breaking in all number of ways.
+"And so, while not having a constructor would go against the OO practice of actively ensuring an invariant, C++ took this to mean that there was a default parameterless constructor that acted like it had an empty body.

@@ -1,0 +1,5 @@
+"Because of the above restriction, the bytecode the two versions compile to is different in Python 2 as there's an optimisation for constant integers that it can't use for True.
+"The [builtin boolean type didn't exist till Python 2.3 (hyper-link)] so code that was intended to run on ancient versions tends to use the while 1: form.
+"So, while True: is a little easier to read, and while 1: is a bit kinder to old versions of Python.
+"The True and False builtins are [not reserved words prior to Python 3 (hyper-link)] so could be assigned to, changing their value.
+"Neither is hard to read or understand, though personally I'd always use while True, which is a bit more explicit.

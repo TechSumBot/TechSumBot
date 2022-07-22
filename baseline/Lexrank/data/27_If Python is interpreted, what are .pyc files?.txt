@@ -1,0 +1,417 @@
+They contain [byte code (hyper-link)], which is what the Python interpreter compiles the source to.
+This code is then executed by Python's virtual machine.
+[Python's documentation (hyper-link)] explains the definition like this:
+Python is an interpreted language, as opposed to a compiled one, though the distinction can be blurry because of the presence of the bytecode compiler.
+This means that source files can be run directly without explicitly creating an executable which is then run.
+These are created by the Python interpreter when a .py file is imported, and they contain the "compiled bytecode" of the imported module/program, the idea being that the "translation" from source code to bytecode (which only needs to be done once) can be skipped on subsequent imports if the .pyc is newer than the corresponding .py file, thus speeding startup a little.
+But it's still interpreted.
+I've been given to understand that Python is an interpreted language...
+This popular meme is incorrect, or, rather, constructed upon a misunderstanding of (natural) language levels: a similar mistake would be to say "the Bible is a hardcover book".
+Let me explain that simile...
+""The Bible" is "a book" in the sense of being a class of (actual, physical objects identified as) books; the books identified as "copies of the Bible" are supposed to have something fundamental in common (the contents, although even those can be in different languages, with different acceptable translations, levels of footnotes and other annotations) -- however, those books are perfectly well allowed to differ in a myriad of aspects that are not considered fundamental -- kind of binding, color of binding, font(s) used in the printing, illustrations if any, wide writable margins or not, numbers and kinds of builtin bookmarks, and so on, and so forth.
+"It's quite possible that a typical printing of the Bible would indeed be in hardcover binding -- after all, it's a book that's typically meant to be read over and over, bookmarked at several places, thumbed through looking for given chapter-and-verse pointers, etc, etc, and a good hardcover binding can make a given copy last longer under such use.
+"However, these are mundane (practical) issues that cannot be used to determine whether a given actual book object is a copy of the Bible or not: paperback printings are perfectly possible!
+"Similarly, Python is "a language" in the sense of defining a class of language implementations which must all be similar in some fundamental respects (syntax, most semantics except those parts of those where they're explicitly allowed to differ) but are fully allowed to differ in just about every "implementation" detail -- including how they deal with the source files they're given, whether they compile the sources to some lower level forms (and, if so, which form -- and whether they save such compiled forms, to disk or elsewhere), how they execute said forms, and so forth.
+"The classical implementation, CPython, is often called just "Python" for short -- but it's just one of several production-quality implementations, side by side with Microsoft's IronPython (which compiles to CLR codes, i.e., ".NET"), Jython (which compiles to JVM codes), PyPy (which is written in Python itself and can compile to a huge variety of "back-end" forms including "just-in-time" generated machine language).
+"They're all Python (=="implementations of the Python language") just like many superficially different book objects can all be Bibles (=="copies of The Bible").
+"If you're interested in CPython specifically: it compiles the source files into a Python-specific lower-level form (known as "bytecode"), does so automatically when needed (when there is no bytecode file corresponding to a source file, or the bytecode file is older than the source or compiled by a different Python version), usually saves the bytecode files to disk (to avoid recompiling them in the future).
+"OTOH IronPython will typically compile to CLR codes (saving them to disk or not, depending) and Jython to JVM codes (saving them to disk or not -- it will use the .class extension if it does save them).
+"These lower level forms are then executed by appropriate "virtual machines" also known as "interpreters" -- the CPython VM, the .Net runtime, the Java VM (aka JVM), as appropriate.
+"So, in this sense (what do typical implementations do), Python is an "interpreted language" if and only if C# and Java are: all of them have a typical implementation strategy of producing bytecode first, then executing it via a VM/interpreter.
+"More likely the focus is on how "heavy", slow, and high-ceremony the compilation process is.
+"CPython is designed to compile as fast as possible, as lightweight as possible, with as little ceremony as feasible -- the compiler does very little error checking and optimization, so it can run fast and in small amounts of memory, which in turns lets it be run automatically and transparently whenever needed, without the user even needing to be aware that there is a compilation going on, most of the time.
+"Java and C# typically accept more work during compilation (and therefore don't perform automatic compilation) in order to check errors more thoroughly and perform more optimizations.
+"It's a continuum of gray scales, not a black or white situation, and it would be utterly arbitrary to put a threshold at some given level and say that only above that level you call it "compilation"!-)
+"Python (at least the most common implementation of it) follows a pattern of compiling the original source to byte codes, then interpreting the byte codes on a virtual machine.
+"This means (again, the most common implementation) is neither a pure interpreter nor a pure compiler.
+"The other side of this is, however, that the compilation process is mostly hidden -- the .pyc files are basically treated like a cache; they speed things up, but you normally don't have to be aware of them at all.
+"It automatically invalidates and re-loads them (re-compiles the source code) when necessary based on file time/date stamps.
+"About the only time I've seen a problem with this was when a compiled bytecode file somehow got a timestamp well into the future, which meant it always looked newer than the source file.
+"Since it looked newer, the source file was never recompiled, so no matter what changes you made, they were ignored...
+"There is no such thing as an interpreted language.
+"Whether an interpreter or a compiler is used is purely a trait of the implementation and has absolutely nothing whatsoever to do with the language.
+"Every language can be implemented by either an interpreter or a compiler.
+"The vast majority of languages have at least one implementation of each type.
+"(For example, there are interpreters for C and C++ and there are compilers for JavaScript, PHP, Perl, Python and Ruby.)
+"Besides, the majority of modern language implementations actually combine both an interpreter and a compiler (or even multiple compilers).
+"A language is just a set of abstract mathematical rules.
+"An interpreter is one of several concrete implementation strategies for a language.
+"Those two live on completely different abstraction levels.
+"If English were a typed language, the term "interpreted language" would be a type error.
+"The statement "Python is an interpreted language" is not just false (because being false would imply that the statement even makes sense, even if it is wrong), it just plain doesn't make sense, because a language can never be defined as "interpreted."
+"In particular, if you look at the currently existing Python implementations, these are the implementation strategies they are using:
+"IronPython: compiles to DLR trees which the DLR then compiles to CIL bytecode.
+"What happens to the CIL bytecode depends upon which CLI VES you are running on, but Microsoft .NET, GNU Portable.NET and Novell Mono will eventually compile it to native machine code.
+"Jython: interprets Python sourcecode until it identifies the hot code paths, which it then compiles to JVML bytecode.
+"What happens to the JVML bytecode depends upon which JVM you are running on.
+"Maxine will directly compile it to un-optimized native code until it identifies the hot code paths, which it then recompiles to optimized native code.
+"HotSpot will first interpret the JVML bytecode and then eventually compile the hot code paths to optimized machine code.
+"PyPy: compiles to PyPy bytecode, which then gets interpreted by the PyPy VM until it identifies the hot code paths which it then compiles into native code, JVML bytecode or CIL bytecode depending on which platform you are running on.
+"CPython: compiles to CPython bytecode which it then interprets.
+"Stackless Python: compiles to CPython bytecode which it then interprets.
+"Unladen Swallow: compiles to CPython bytecode which it then interprets until it identifies the hot code paths which it then compiles to LLVM IR which the LLVM compiler then compiles to native machine code.
+"Cython: compiles Python code to portable C code, which is then compiled with a standard C compiler
+"Nuitka: compiles Python code to machine-dependent C++ code, which is then compiled with a standard C compiler
+"You might notice that every single one of the implementations in that list (plus some others I didn't mention, like tinypy, Shedskin or Psyco) has a compiler.
+"In fact, as far as I know, there is currently no Python implementation which is purely interpreted, there is no such implementation planned and there never has been such an implementation.
+"Not only does the term "interpreted language" not make sense, even if you interpret it as meaning "language with interpreted implementation", it is clearly not true.
+"Whoever told you that, obviously doesn't know what he is talking about.
+"In particular, the .pyc files you are seeing are cached bytecode files produced by CPython, Stackless Python or Unladen Swallow.
+"Python code goes through 2 stages.
+"First step compiles the code into .pyc files which is actually a bytecode.
+"Then this .pyc file(bytecode) is interpreted using CPython interpreter.
+"Please refer to [this (hyper-link)] link.
+"Here process of code compilation and execution is explained in easy terms.
+"Python's *.py file is just a text file in which you write some lines of code.
+"When you try to execute this file using say "python filename.py"
+"This command invokes Python Virtual Machine.
+"Python Virtual Machine has 2 components: "compiler" and "interpreter".
+"Interpreter cannot directly read the text in *.py file, so this text is first converted into a byte code which is targeted to the PVM (not hardware but PVM).
+"PVM executes this byte code.
+"*.pyc file is also generated, as part of running it which performs your import operation on file in shell or in some other file.
+"If this *.pyc file is already generated then every next time you run/execute your *.py file, system directly loads your *.pyc file which won't need any compilation(This will save you some machine cycles of processor).
+"Once the *.pyc file is generated, there is no need of *.py file, unless you edit it.
+"THIS IS FOR BEGINNERS,
+"Python automatically compiles your script to compiled code, so called byte code, before running it.
+"Running a script is not considered an import and no .pyc will be created.
+"For example, if you have a script file abc.py that imports another module xyz.py, when you run abc.py, xyz.pyc will be created since xyz is imported, but no abc.pyc file will be created since abc.py isn’t being imported.
+"If you need to create a .pyc file for a module that is not imported, you can use the py_compile and compileall modules.
+"The py_compile module can manually compile any module.
+"One way is to use the py_compile.compile function in that module interactively:
+"This will write the .pyc to the same location as abc.py (you can override that with the optional parameter cfile).
+"You can also automatically compile all files in a directory or directories using the compileall module.
+"If the directory name (the current directory in this example) is omitted, the module compiles everything found on sys.path
+"To speed up loading modules, Python caches the compiled content of modules in .pyc.
+"CPython compiles its source code into "byte code", and for performance reasons, it caches this byte code on the file system whenever the source file has changes.
+"This makes loading of Python modules much faster because the compilation phase can be bypassed.
+"When your source file is foo.py , CPython caches the byte code in a foo.pyc file right next to the source.
+"In python3, Python's import machinery is extended to write and search for byte code cache files in a single directory inside every Python package directory.
+"This directory will be called __pycache__ .
+"Here is a flow chart describing how modules are loaded:
+"[ (hyper-link)]
+"For more information:
+"ref:[PEP3147 (hyper-link)] ref:[“Compiled” Python files (hyper-link)]
+"tldr; it's a converted code form the source code, which the python VM interprets for execution.
+"Bottom-up understanding: the final stage of any program is to run/execute the program's instructions on the hardware/machine.
+"So here are the stages preceding execution:
+"Executing/running on CPU
+"Converting bytcode to machine code.
+"Machine code is the final stage of conversion.
+"Instructions to be executed on CPU are given in machine code.
+ "Machine code can be executed directly by CPU.
+ "Converting Bytecode to machine code.
+ "Bytecode is a medium stage.
+ "It could be skipped for efficiency, but sacrificing portability.
+ "Converting Source code to bytcode.
+ "Source code is a human readable code.
+ "This is what is used when working on IDEs (code editors) such as Pycharm.
+ "Now the actual plot.
+ "There are two approaches when carrying any of these stages: convert [or execute] a code all at once (aka compile) and convert [or execute] the code line by line (aka interpret).
+ "For example, we could compile a source code to bytcoe, compile bytecode to machine code, interpret machine code for execution.
+ "Some implementations of languages skip stage 3 for efficiency, i.e.
+ "compile source code into machine code and then interpret machine code for execution.
+ "Some implementations skip all middle steps and interpret the source code directly for execution.
+ "Modern languages often involve both compiling an interpreting.
+ "JAVA for example, compile source code to bytcode [that is how JAVA source is stored, as a bytcode], compile bytcode to machine code [using JVM], and interpret machine code for execution.
+ "[Thus JVM is implemented differently for different OSs, but the same JAVA source code could be executed on different OS that have JVM installed.]
+ "Python for example, compile source code to bytcode [usually found as .pyc files accompanying the .py source codes], compile bytocde to machine code [done by a virtual machine such as PVM and the result is an executable file], interpret the machine code/executable for execution.
+ "When we can say that a language is interpreted or compiled?
+ "The answer is by looking into the approach used in execution.
+ "If it executes the machine code all at once (== compile), then it's a compiled language.
+ "On the other hand, if it executes the machine code line-by-line (==interpret) then it's an interpreted language.
+ "Therefore, JAVA and Python are interpreted languages.
+ "A confusion might occur because of the third stage, that's converting bytcode to machine code.
+ "Often this is done using a software called a virtual machine.
+ "The confusion occurs because a virtual machine acts like a machine, but it's actually not!
+ "Virtual machines are introduced for portability, having a VM on any REAL machine will allow us to execute the same source code.
+ "The approach used in most VMs [that's the third stage] is compiling, thus some people would say it's a compiled language.
+ "For the importance of VMs, we often say that such languages are both compiled and interpreted.
+ "Machines don't understand English or any other languages, they understand only byte code, which they have to be compiled (e.g., C/C++, Java) or interpreted (e.g., Ruby, Python), the .pyc is a cached version of the byte code.
+ "[https://www.geeksforgeeks.org/difference-between-compiled-and-interpreted-language/ (hyper-link)] Here is a quick read on what is the difference between compiled language vs interpreted language, TLDR is interpreted language does not require you to compile all the code before run time and thus most of the time they are not strict on typing etc.
+ "When you execute your code, python creates a compiled pyc file.
+ "This file is the one executed in posterior runs if you do not modify your code
+ "From [here (hyper-link)]:
+ "As an important speed-up of the start-up time for short programs that use a lot of standard modules, if a file called "spam.pyc" exists in the directory where "spam.py" is found, this is assumed to contain an already-``byte-compiled'' version of the module spam.
+ "The modification time of the version of "spam.py" used to create "spam.pyc" is recorded in "spam.pyc", and the file is ignored if these don't match.
+ "Normally, you don't need to do anything to create the "spam.pyc" file.
+ "Whenever "spam.py" is successfully compiled, an attempt is made to write the compiled version to "spam.pyc".
+ "It is not an error if this attempt fails; if for any reason the file is not written completely, the resulting "spam.pyc" file will be recognized as invalid and thus ignored later.
+ "The contents of the "spam.pyc" file is platform independent, so a Python module directory can be shared by machines of different architectures.
+They contain [byte code (hyper-link)], which is what the Python interpreter compiles the source to.
+This code is then executed by Python's virtual machine.
+[Python's documentation (hyper-link)] explains the definition like this:
+Python is an interpreted language, as opposed to a compiled one, though the distinction can be blurry because of the presence of the bytecode compiler.
+This means that source files can be run directly without explicitly creating an executable which is then run.
+These are created by the Python interpreter when a .py file is imported, and they contain the "compiled bytecode" of the imported module/program, the idea being that the "translation" from source code to bytecode (which only needs to be done once) can be skipped on subsequent imports if the .pyc is newer than the corresponding .py file, thus speeding startup a little.
+But it's still interpreted.
+I've been given to understand that Python is an interpreted language...
+This popular meme is incorrect, or, rather, constructed upon a misunderstanding of (natural) language levels: a similar mistake would be to say "the Bible is a hardcover book".
+Let me explain that simile...
+""The Bible" is "a book" in the sense of being a class of (actual, physical objects identified as) books; the books identified as "copies of the Bible" are supposed to have something fundamental in common (the contents, although even those can be in different languages, with different acceptable translations, levels of footnotes and other annotations) -- however, those books are perfectly well allowed to differ in a myriad of aspects that are not considered fundamental -- kind of binding, color of binding, font(s) used in the printing, illustrations if any, wide writable margins or not, numbers and kinds of builtin bookmarks, and so on, and so forth.
+"It's quite possible that a typical printing of the Bible would indeed be in hardcover binding -- after all, it's a book that's typically meant to be read over and over, bookmarked at several places, thumbed through looking for given chapter-and-verse pointers, etc, etc, and a good hardcover binding can make a given copy last longer under such use.
+"However, these are mundane (practical) issues that cannot be used to determine whether a given actual book object is a copy of the Bible or not: paperback printings are perfectly possible!
+"Similarly, Python is "a language" in the sense of defining a class of language implementations which must all be similar in some fundamental respects (syntax, most semantics except those parts of those where they're explicitly allowed to differ) but are fully allowed to differ in just about every "implementation" detail -- including how they deal with the source files they're given, whether they compile the sources to some lower level forms (and, if so, which form -- and whether they save such compiled forms, to disk or elsewhere), how they execute said forms, and so forth.
+"The classical implementation, CPython, is often called just "Python" for short -- but it's just one of several production-quality implementations, side by side with Microsoft's IronPython (which compiles to CLR codes, i.e., ".NET"), Jython (which compiles to JVM codes), PyPy (which is written in Python itself and can compile to a huge variety of "back-end" forms including "just-in-time" generated machine language).
+"They're all Python (=="implementations of the Python language") just like many superficially different book objects can all be Bibles (=="copies of The Bible").
+"If you're interested in CPython specifically: it compiles the source files into a Python-specific lower-level form (known as "bytecode"), does so automatically when needed (when there is no bytecode file corresponding to a source file, or the bytecode file is older than the source or compiled by a different Python version), usually saves the bytecode files to disk (to avoid recompiling them in the future).
+"OTOH IronPython will typically compile to CLR codes (saving them to disk or not, depending) and Jython to JVM codes (saving them to disk or not -- it will use the .class extension if it does save them).
+"These lower level forms are then executed by appropriate "virtual machines" also known as "interpreters" -- the CPython VM, the .Net runtime, the Java VM (aka JVM), as appropriate.
+"So, in this sense (what do typical implementations do), Python is an "interpreted language" if and only if C# and Java are: all of them have a typical implementation strategy of producing bytecode first, then executing it via a VM/interpreter.
+"More likely the focus is on how "heavy", slow, and high-ceremony the compilation process is.
+"CPython is designed to compile as fast as possible, as lightweight as possible, with as little ceremony as feasible -- the compiler does very little error checking and optimization, so it can run fast and in small amounts of memory, which in turns lets it be run automatically and transparently whenever needed, without the user even needing to be aware that there is a compilation going on, most of the time.
+"Java and C# typically accept more work during compilation (and therefore don't perform automatic compilation) in order to check errors more thoroughly and perform more optimizations.
+"It's a continuum of gray scales, not a black or white situation, and it would be utterly arbitrary to put a threshold at some given level and say that only above that level you call it "compilation"!-)
+"Python (at least the most common implementation of it) follows a pattern of compiling the original source to byte codes, then interpreting the byte codes on a virtual machine.
+"This means (again, the most common implementation) is neither a pure interpreter nor a pure compiler.
+"The other side of this is, however, that the compilation process is mostly hidden -- the .pyc files are basically treated like a cache; they speed things up, but you normally don't have to be aware of them at all.
+"It automatically invalidates and re-loads them (re-compiles the source code) when necessary based on file time/date stamps.
+"About the only time I've seen a problem with this was when a compiled bytecode file somehow got a timestamp well into the future, which meant it always looked newer than the source file.
+"Since it looked newer, the source file was never recompiled, so no matter what changes you made, they were ignored...
+"There is no such thing as an interpreted language.
+"Whether an interpreter or a compiler is used is purely a trait of the implementation and has absolutely nothing whatsoever to do with the language.
+"Every language can be implemented by either an interpreter or a compiler.
+"The vast majority of languages have at least one implementation of each type.
+"(For example, there are interpreters for C and C++ and there are compilers for JavaScript, PHP, Perl, Python and Ruby.)
+"Besides, the majority of modern language implementations actually combine both an interpreter and a compiler (or even multiple compilers).
+"A language is just a set of abstract mathematical rules.
+"An interpreter is one of several concrete implementation strategies for a language.
+"Those two live on completely different abstraction levels.
+"If English were a typed language, the term "interpreted language" would be a type error.
+"The statement "Python is an interpreted language" is not just false (because being false would imply that the statement even makes sense, even if it is wrong), it just plain doesn't make sense, because a language can never be defined as "interpreted."
+"In particular, if you look at the currently existing Python implementations, these are the implementation strategies they are using:
+"IronPython: compiles to DLR trees which the DLR then compiles to CIL bytecode.
+"What happens to the CIL bytecode depends upon which CLI VES you are running on, but Microsoft .NET, GNU Portable.NET and Novell Mono will eventually compile it to native machine code.
+"Jython: interprets Python sourcecode until it identifies the hot code paths, which it then compiles to JVML bytecode.
+"What happens to the JVML bytecode depends upon which JVM you are running on.
+"Maxine will directly compile it to un-optimized native code until it identifies the hot code paths, which it then recompiles to optimized native code.
+"HotSpot will first interpret the JVML bytecode and then eventually compile the hot code paths to optimized machine code.
+"PyPy: compiles to PyPy bytecode, which then gets interpreted by the PyPy VM until it identifies the hot code paths which it then compiles into native code, JVML bytecode or CIL bytecode depending on which platform you are running on.
+"CPython: compiles to CPython bytecode which it then interprets.
+"Stackless Python: compiles to CPython bytecode which it then interprets.
+"Unladen Swallow: compiles to CPython bytecode which it then interprets until it identifies the hot code paths which it then compiles to LLVM IR which the LLVM compiler then compiles to native machine code.
+"Cython: compiles Python code to portable C code, which is then compiled with a standard C compiler
+"Nuitka: compiles Python code to machine-dependent C++ code, which is then compiled with a standard C compiler
+"You might notice that every single one of the implementations in that list (plus some others I didn't mention, like tinypy, Shedskin or Psyco) has a compiler.
+"In fact, as far as I know, there is currently no Python implementation which is purely interpreted, there is no such implementation planned and there never has been such an implementation.
+"Not only does the term "interpreted language" not make sense, even if you interpret it as meaning "language with interpreted implementation", it is clearly not true.
+"Whoever told you that, obviously doesn't know what he is talking about.
+"In particular, the .pyc files you are seeing are cached bytecode files produced by CPython, Stackless Python or Unladen Swallow.
+"Python code goes through 2 stages.
+"First step compiles the code into .pyc files which is actually a bytecode.
+"Then this .pyc file(bytecode) is interpreted using CPython interpreter.
+"Please refer to [this (hyper-link)] link.
+"Here process of code compilation and execution is explained in easy terms.
+"Python's *.py file is just a text file in which you write some lines of code.
+"When you try to execute this file using say "python filename.py"
+"This command invokes Python Virtual Machine.
+"Python Virtual Machine has 2 components: "compiler" and "interpreter".
+"Interpreter cannot directly read the text in *.py file, so this text is first converted into a byte code which is targeted to the PVM (not hardware but PVM).
+"PVM executes this byte code.
+"*.pyc file is also generated, as part of running it which performs your import operation on file in shell or in some other file.
+"If this *.pyc file is already generated then every next time you run/execute your *.py file, system directly loads your *.pyc file which won't need any compilation(This will save you some machine cycles of processor).
+"Once the *.pyc file is generated, there is no need of *.py file, unless you edit it.
+"THIS IS FOR BEGINNERS,
+"Python automatically compiles your script to compiled code, so called byte code, before running it.
+"Running a script is not considered an import and no .pyc will be created.
+"For example, if you have a script file abc.py that imports another module xyz.py, when you run abc.py, xyz.pyc will be created since xyz is imported, but no abc.pyc file will be created since abc.py isn’t being imported.
+"If you need to create a .pyc file for a module that is not imported, you can use the py_compile and compileall modules.
+"The py_compile module can manually compile any module.
+"One way is to use the py_compile.compile function in that module interactively:
+"This will write the .pyc to the same location as abc.py (you can override that with the optional parameter cfile).
+"You can also automatically compile all files in a directory or directories using the compileall module.
+"If the directory name (the current directory in this example) is omitted, the module compiles everything found on sys.path
+"To speed up loading modules, Python caches the compiled content of modules in .pyc.
+"CPython compiles its source code into "byte code", and for performance reasons, it caches this byte code on the file system whenever the source file has changes.
+"This makes loading of Python modules much faster because the compilation phase can be bypassed.
+"When your source file is foo.py , CPython caches the byte code in a foo.pyc file right next to the source.
+"In python3, Python's import machinery is extended to write and search for byte code cache files in a single directory inside every Python package directory.
+"This directory will be called __pycache__ .
+"Here is a flow chart describing how modules are loaded:
+"[ (hyper-link)]
+"For more information:
+"ref:[PEP3147 (hyper-link)] ref:[“Compiled” Python files (hyper-link)]
+"tldr; it's a converted code form the source code, which the python VM interprets for execution.
+"Bottom-up understanding: the final stage of any program is to run/execute the program's instructions on the hardware/machine.
+"So here are the stages preceding execution:
+"Executing/running on CPU
+"Converting bytcode to machine code.
+"Machine code is the final stage of conversion.
+"Instructions to be executed on CPU are given in machine code.
+ "Machine code can be executed directly by CPU.
+ "Converting Bytecode to machine code.
+ "Bytecode is a medium stage.
+ "It could be skipped for efficiency, but sacrificing portability.
+ "Converting Source code to bytcode.
+ "Source code is a human readable code.
+ "This is what is used when working on IDEs (code editors) such as Pycharm.
+ "Now the actual plot.
+ "There are two approaches when carrying any of these stages: convert [or execute] a code all at once (aka compile) and convert [or execute] the code line by line (aka interpret).
+ "For example, we could compile a source code to bytcoe, compile bytecode to machine code, interpret machine code for execution.
+ "Some implementations of languages skip stage 3 for efficiency, i.e.
+ "compile source code into machine code and then interpret machine code for execution.
+ "Some implementations skip all middle steps and interpret the source code directly for execution.
+ "Modern languages often involve both compiling an interpreting.
+ "JAVA for example, compile source code to bytcode [that is how JAVA source is stored, as a bytcode], compile bytcode to machine code [using JVM], and interpret machine code for execution.
+ "[Thus JVM is implemented differently for different OSs, but the same JAVA source code could be executed on different OS that have JVM installed.]
+ "Python for example, compile source code to bytcode [usually found as .pyc files accompanying the .py source codes], compile bytocde to machine code [done by a virtual machine such as PVM and the result is an executable file], interpret the machine code/executable for execution.
+ "When we can say that a language is interpreted or compiled?
+ "The answer is by looking into the approach used in execution.
+ "If it executes the machine code all at once (== compile), then it's a compiled language.
+ "On the other hand, if it executes the machine code line-by-line (==interpret) then it's an interpreted language.
+ "Therefore, JAVA and Python are interpreted languages.
+ "A confusion might occur because of the third stage, that's converting bytcode to machine code.
+ "Often this is done using a software called a virtual machine.
+ "The confusion occurs because a virtual machine acts like a machine, but it's actually not!
+ "Virtual machines are introduced for portability, having a VM on any REAL machine will allow us to execute the same source code.
+ "The approach used in most VMs [that's the third stage] is compiling, thus some people would say it's a compiled language.
+ "For the importance of VMs, we often say that such languages are both compiled and interpreted.
+ "Machines don't understand English or any other languages, they understand only byte code, which they have to be compiled (e.g., C/C++, Java) or interpreted (e.g., Ruby, Python), the .pyc is a cached version of the byte code.
+ "[https://www.geeksforgeeks.org/difference-between-compiled-and-interpreted-language/ (hyper-link)] Here is a quick read on what is the difference between compiled language vs interpreted language, TLDR is interpreted language does not require you to compile all the code before run time and thus most of the time they are not strict on typing etc.
+ "When you execute your code, python creates a compiled pyc file.
+ "This file is the one executed in posterior runs if you do not modify your code
+ "From [here (hyper-link)]:
+ "As an important speed-up of the start-up time for short programs that use a lot of standard modules, if a file called "spam.pyc" exists in the directory where "spam.py" is found, this is assumed to contain an already-``byte-compiled'' version of the module spam.
+ "The modification time of the version of "spam.py" used to create "spam.pyc" is recorded in "spam.pyc", and the file is ignored if these don't match.
+ "Normally, you don't need to do anything to create the "spam.pyc" file.
+ "Whenever "spam.py" is successfully compiled, an attempt is made to write the compiled version to "spam.pyc".
+ "It is not an error if this attempt fails; if for any reason the file is not written completely, the resulting "spam.pyc" file will be recognized as invalid and thus ignored later.
+ "The contents of the "spam.pyc" file is platform independent, so a Python module directory can be shared by machines of different architectures.
+They contain [byte code (hyper-link)], which is what the Python interpreter compiles the source to.
+This code is then executed by Python's virtual machine.
+[Python's documentation (hyper-link)] explains the definition like this:
+Python is an interpreted language, as opposed to a compiled one, though the distinction can be blurry because of the presence of the bytecode compiler.
+This means that source files can be run directly without explicitly creating an executable which is then run.
+These are created by the Python interpreter when a .py file is imported, and they contain the "compiled bytecode" of the imported module/program, the idea being that the "translation" from source code to bytecode (which only needs to be done once) can be skipped on subsequent imports if the .pyc is newer than the corresponding .py file, thus speeding startup a little.
+But it's still interpreted.
+I've been given to understand that Python is an interpreted language...
+This popular meme is incorrect, or, rather, constructed upon a misunderstanding of (natural) language levels: a similar mistake would be to say "the Bible is a hardcover book".
+Let me explain that simile...
+""The Bible" is "a book" in the sense of being a class of (actual, physical objects identified as) books; the books identified as "copies of the Bible" are supposed to have something fundamental in common (the contents, although even those can be in different languages, with different acceptable translations, levels of footnotes and other annotations) -- however, those books are perfectly well allowed to differ in a myriad of aspects that are not considered fundamental -- kind of binding, color of binding, font(s) used in the printing, illustrations if any, wide writable margins or not, numbers and kinds of builtin bookmarks, and so on, and so forth.
+"It's quite possible that a typical printing of the Bible would indeed be in hardcover binding -- after all, it's a book that's typically meant to be read over and over, bookmarked at several places, thumbed through looking for given chapter-and-verse pointers, etc, etc, and a good hardcover binding can make a given copy last longer under such use.
+"However, these are mundane (practical) issues that cannot be used to determine whether a given actual book object is a copy of the Bible or not: paperback printings are perfectly possible!
+"Similarly, Python is "a language" in the sense of defining a class of language implementations which must all be similar in some fundamental respects (syntax, most semantics except those parts of those where they're explicitly allowed to differ) but are fully allowed to differ in just about every "implementation" detail -- including how they deal with the source files they're given, whether they compile the sources to some lower level forms (and, if so, which form -- and whether they save such compiled forms, to disk or elsewhere), how they execute said forms, and so forth.
+"The classical implementation, CPython, is often called just "Python" for short -- but it's just one of several production-quality implementations, side by side with Microsoft's IronPython (which compiles to CLR codes, i.e., ".NET"), Jython (which compiles to JVM codes), PyPy (which is written in Python itself and can compile to a huge variety of "back-end" forms including "just-in-time" generated machine language).
+"They're all Python (=="implementations of the Python language") just like many superficially different book objects can all be Bibles (=="copies of The Bible").
+"If you're interested in CPython specifically: it compiles the source files into a Python-specific lower-level form (known as "bytecode"), does so automatically when needed (when there is no bytecode file corresponding to a source file, or the bytecode file is older than the source or compiled by a different Python version), usually saves the bytecode files to disk (to avoid recompiling them in the future).
+"OTOH IronPython will typically compile to CLR codes (saving them to disk or not, depending) and Jython to JVM codes (saving them to disk or not -- it will use the .class extension if it does save them).
+"These lower level forms are then executed by appropriate "virtual machines" also known as "interpreters" -- the CPython VM, the .Net runtime, the Java VM (aka JVM), as appropriate.
+"So, in this sense (what do typical implementations do), Python is an "interpreted language" if and only if C# and Java are: all of them have a typical implementation strategy of producing bytecode first, then executing it via a VM/interpreter.
+"More likely the focus is on how "heavy", slow, and high-ceremony the compilation process is.
+"CPython is designed to compile as fast as possible, as lightweight as possible, with as little ceremony as feasible -- the compiler does very little error checking and optimization, so it can run fast and in small amounts of memory, which in turns lets it be run automatically and transparently whenever needed, without the user even needing to be aware that there is a compilation going on, most of the time.
+"Java and C# typically accept more work during compilation (and therefore don't perform automatic compilation) in order to check errors more thoroughly and perform more optimizations.
+"It's a continuum of gray scales, not a black or white situation, and it would be utterly arbitrary to put a threshold at some given level and say that only above that level you call it "compilation"!-)
+"Python (at least the most common implementation of it) follows a pattern of compiling the original source to byte codes, then interpreting the byte codes on a virtual machine.
+"This means (again, the most common implementation) is neither a pure interpreter nor a pure compiler.
+"The other side of this is, however, that the compilation process is mostly hidden -- the .pyc files are basically treated like a cache; they speed things up, but you normally don't have to be aware of them at all.
+"It automatically invalidates and re-loads them (re-compiles the source code) when necessary based on file time/date stamps.
+"About the only time I've seen a problem with this was when a compiled bytecode file somehow got a timestamp well into the future, which meant it always looked newer than the source file.
+"Since it looked newer, the source file was never recompiled, so no matter what changes you made, they were ignored...
+"There is no such thing as an interpreted language.
+"Whether an interpreter or a compiler is used is purely a trait of the implementation and has absolutely nothing whatsoever to do with the language.
+"Every language can be implemented by either an interpreter or a compiler.
+"The vast majority of languages have at least one implementation of each type.
+"(For example, there are interpreters for C and C++ and there are compilers for JavaScript, PHP, Perl, Python and Ruby.)
+"Besides, the majority of modern language implementations actually combine both an interpreter and a compiler (or even multiple compilers).
+"A language is just a set of abstract mathematical rules.
+"An interpreter is one of several concrete implementation strategies for a language.
+"Those two live on completely different abstraction levels.
+"If English were a typed language, the term "interpreted language" would be a type error.
+"The statement "Python is an interpreted language" is not just false (because being false would imply that the statement even makes sense, even if it is wrong), it just plain doesn't make sense, because a language can never be defined as "interpreted."
+"In particular, if you look at the currently existing Python implementations, these are the implementation strategies they are using:
+"IronPython: compiles to DLR trees which the DLR then compiles to CIL bytecode.
+"What happens to the CIL bytecode depends upon which CLI VES you are running on, but Microsoft .NET, GNU Portable.NET and Novell Mono will eventually compile it to native machine code.
+"Jython: interprets Python sourcecode until it identifies the hot code paths, which it then compiles to JVML bytecode.
+"What happens to the JVML bytecode depends upon which JVM you are running on.
+"Maxine will directly compile it to un-optimized native code until it identifies the hot code paths, which it then recompiles to optimized native code.
+"HotSpot will first interpret the JVML bytecode and then eventually compile the hot code paths to optimized machine code.
+"PyPy: compiles to PyPy bytecode, which then gets interpreted by the PyPy VM until it identifies the hot code paths which it then compiles into native code, JVML bytecode or CIL bytecode depending on which platform you are running on.
+"CPython: compiles to CPython bytecode which it then interprets.
+"Stackless Python: compiles to CPython bytecode which it then interprets.
+"Unladen Swallow: compiles to CPython bytecode which it then interprets until it identifies the hot code paths which it then compiles to LLVM IR which the LLVM compiler then compiles to native machine code.
+"Cython: compiles Python code to portable C code, which is then compiled with a standard C compiler
+"Nuitka: compiles Python code to machine-dependent C++ code, which is then compiled with a standard C compiler
+"You might notice that every single one of the implementations in that list (plus some others I didn't mention, like tinypy, Shedskin or Psyco) has a compiler.
+"In fact, as far as I know, there is currently no Python implementation which is purely interpreted, there is no such implementation planned and there never has been such an implementation.
+"Not only does the term "interpreted language" not make sense, even if you interpret it as meaning "language with interpreted implementation", it is clearly not true.
+"Whoever told you that, obviously doesn't know what he is talking about.
+"In particular, the .pyc files you are seeing are cached bytecode files produced by CPython, Stackless Python or Unladen Swallow.
+"Python code goes through 2 stages.
+"First step compiles the code into .pyc files which is actually a bytecode.
+"Then this .pyc file(bytecode) is interpreted using CPython interpreter.
+"Please refer to [this (hyper-link)] link.
+"Here process of code compilation and execution is explained in easy terms.
+"Python's *.py file is just a text file in which you write some lines of code.
+"When you try to execute this file using say "python filename.py"
+"This command invokes Python Virtual Machine.
+"Python Virtual Machine has 2 components: "compiler" and "interpreter".
+"Interpreter cannot directly read the text in *.py file, so this text is first converted into a byte code which is targeted to the PVM (not hardware but PVM).
+"PVM executes this byte code.
+"*.pyc file is also generated, as part of running it which performs your import operation on file in shell or in some other file.
+"If this *.pyc file is already generated then every next time you run/execute your *.py file, system directly loads your *.pyc file which won't need any compilation(This will save you some machine cycles of processor).
+"Once the *.pyc file is generated, there is no need of *.py file, unless you edit it.
+"THIS IS FOR BEGINNERS,
+"Python automatically compiles your script to compiled code, so called byte code, before running it.
+"Running a script is not considered an import and no .pyc will be created.
+"For example, if you have a script file abc.py that imports another module xyz.py, when you run abc.py, xyz.pyc will be created since xyz is imported, but no abc.pyc file will be created since abc.py isn’t being imported.
+"If you need to create a .pyc file for a module that is not imported, you can use the py_compile and compileall modules.
+"The py_compile module can manually compile any module.
+"One way is to use the py_compile.compile function in that module interactively:
+"This will write the .pyc to the same location as abc.py (you can override that with the optional parameter cfile).
+"You can also automatically compile all files in a directory or directories using the compileall module.
+"If the directory name (the current directory in this example) is omitted, the module compiles everything found on sys.path
+"To speed up loading modules, Python caches the compiled content of modules in .pyc.
+"CPython compiles its source code into "byte code", and for performance reasons, it caches this byte code on the file system whenever the source file has changes.
+"This makes loading of Python modules much faster because the compilation phase can be bypassed.
+"When your source file is foo.py , CPython caches the byte code in a foo.pyc file right next to the source.
+"In python3, Python's import machinery is extended to write and search for byte code cache files in a single directory inside every Python package directory.
+"This directory will be called __pycache__ .
+"Here is a flow chart describing how modules are loaded:
+"[ (hyper-link)]
+"For more information:
+"ref:[PEP3147 (hyper-link)] ref:[“Compiled” Python files (hyper-link)]
+"tldr; it's a converted code form the source code, which the python VM interprets for execution.
+"Bottom-up understanding: the final stage of any program is to run/execute the program's instructions on the hardware/machine.
+"So here are the stages preceding execution:
+"Executing/running on CPU
+"Converting bytcode to machine code.
+"Machine code is the final stage of conversion.
+"Instructions to be executed on CPU are given in machine code.
+ "Machine code can be executed directly by CPU.
+ "Converting Bytecode to machine code.
+ "Bytecode is a medium stage.
+ "It could be skipped for efficiency, but sacrificing portability.
+ "Converting Source code to bytcode.
+ "Source code is a human readable code.
+ "This is what is used when working on IDEs (code editors) such as Pycharm.
+ "Now the actual plot.
+ "There are two approaches when carrying any of these stages: convert [or execute] a code all at once (aka compile) and convert [or execute] the code line by line (aka interpret).
+ "For example, we could compile a source code to bytcoe, compile bytecode to machine code, interpret machine code for execution.
+ "Some implementations of languages skip stage 3 for efficiency, i.e.
+ "compile source code into machine code and then interpret machine code for execution.
+ "Some implementations skip all middle steps and interpret the source code directly for execution.
+ "Modern languages often involve both compiling an interpreting.
+ "JAVA for example, compile source code to bytcode [that is how JAVA source is stored, as a bytcode], compile bytcode to machine code [using JVM], and interpret machine code for execution.
+ "[Thus JVM is implemented differently for different OSs, but the same JAVA source code could be executed on different OS that have JVM installed.]
+ "Python for example, compile source code to bytcode [usually found as .pyc files accompanying the .py source codes], compile bytocde to machine code [done by a virtual machine such as PVM and the result is an executable file], interpret the machine code/executable for execution.
+ "When we can say that a language is interpreted or compiled?
+ "The answer is by looking into the approach used in execution.
+ "If it executes the machine code all at once (== compile), then it's a compiled language.
+ "On the other hand, if it executes the machine code line-by-line (==interpret) then it's an interpreted language.
+ "Therefore, JAVA and Python are interpreted languages.
+ "A confusion might occur because of the third stage, that's converting bytcode to machine code.
+ "Often this is done using a software called a virtual machine.
+ "The confusion occurs because a virtual machine acts like a machine, but it's actually not!
+ "Virtual machines are introduced for portability, having a VM on any REAL machine will allow us to execute the same source code.
+ "The approach used in most VMs [that's the third stage] is compiling, thus some people would say it's a compiled language.
+ "For the importance of VMs, we often say that such languages are both compiled and interpreted.
+ "Machines don't understand English or any other languages, they understand only byte code, which they have to be compiled (e.g., C/C++, Java) or interpreted (e.g., Ruby, Python), the .pyc is a cached version of the byte code.
+ "[https://www.geeksforgeeks.org/difference-between-compiled-and-interpreted-language/ (hyper-link)] Here is a quick read on what is the difference between compiled language vs interpreted language, TLDR is interpreted language does not require you to compile all the code before run time and thus most of the time they are not strict on typing etc.
+ "When you execute your code, python creates a compiled pyc file.
+ "This file is the one executed in posterior runs if you do not modify your code
+ "From [here (hyper-link)]:
+ "As an important speed-up of the start-up time for short programs that use a lot of standard modules, if a file called "spam.pyc" exists in the directory where "spam.py" is found, this is assumed to contain an already-``byte-compiled'' version of the module spam.
+ "The modification time of the version of "spam.py" used to create "spam.pyc" is recorded in "spam.pyc", and the file is ignored if these don't match.
+ "Normally, you don't need to do anything to create the "spam.pyc" file.
+ "Whenever "spam.py" is successfully compiled, an attempt is made to write the compiled version to "spam.pyc".
+ "It is not an error if this attempt fails; if for any reason the file is not written completely, the resulting "spam.pyc" file will be recognized as invalid and thus ignored later.
+ "The contents of the "spam.pyc" file is platform independent, so a Python module directory can be shared by machines of different architectures.

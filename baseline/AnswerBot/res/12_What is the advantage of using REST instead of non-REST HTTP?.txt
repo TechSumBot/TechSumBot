@@ -1,0 +1,5 @@
+"there are other more in depth benefits of rest which revolve around evolve-ability via loose coupling and hypertext, but caching mechanisms are the main reason you should care about restful http.
+simply put, rest means using http the way it's meant to be.
+"so in conclusion i would say: unless you really want to go to the extra effort, or if your service maps really well to crud operations, save rest for the second version of your api.
+"i don't think you will get a good answer to this, partly because nobody really agrees on what rest is.
+"instead of having randomly named setter and getter urls and using get for all the getters and post for all the setters, we try to have the urls identify resources, and then use the http actions get, post, put and delete to do stuff to them.

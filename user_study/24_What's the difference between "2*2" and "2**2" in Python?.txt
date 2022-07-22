@@ -1,0 +1,5 @@
+the ** operator in python is really "power;" that is, 2**3 = 8.
+"to specifically answer your question why is the code1 used if we can use code2?
+try:
+and
+"a double asterisk means to the power of.

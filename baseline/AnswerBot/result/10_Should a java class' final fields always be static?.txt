@@ -1,0 +1,5 @@
+"final fields do not need to be static, and sometimes it can be useful to have a non-static final instance variable.
+immutable objects, for example, have final properties, that can be set only once, by the constructor.
+"fields that are marked both static and final are usually used for constants, like this:
+static means that it belongs to the actual class, not an instance of it.
+"static final is seen often because it means application1-wide constant.

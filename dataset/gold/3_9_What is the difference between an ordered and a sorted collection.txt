@@ -1,0 +1,5 @@
+"An ordered collection is a collection that keep track of a consecutive index which every element is inserted in.
+A sorted collection keeps the elements sorted based on a sort criteria.
+So the difference is whether the ordering depends on the values ("sorted"), or is a property that elements have independently of their value ("ordered").
+"Order collection is sorting a collection by specifying the order-by clause in query for sorting this collection when retrieval.
+"Ordered doesn't mean sorted, it means that the items will show up in the order you put them in.

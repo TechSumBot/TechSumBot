@@ -1,0 +1,5 @@
+str.count() counts non-overlapping occurrences of the substring:
+.count('') counts the number of locations of zero-length strings.
+'' doesn't mean any string, it means no string (aka, the empty string, or the 0-length string).
+There are, strictly speaking, an infinite number of 0-length strings in a string, but practically, len(string) + 1 is returned - one for just before first character, and one each for after every character.
+That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.

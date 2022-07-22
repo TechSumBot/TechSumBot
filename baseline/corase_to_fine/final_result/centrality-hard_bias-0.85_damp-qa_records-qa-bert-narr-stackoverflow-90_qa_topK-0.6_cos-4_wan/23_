@@ -1,0 +1,5 @@
+"boolean is a subclass of int.
+"This behavior is not guaranteed in Python 2.x, for the simple reason that True and False are not reserved keywords (this change was [introduced in 3.x (hyper-link)]).
+"When the bool type was added, it was made a subclass of ints to simplify the use of existing code in new Pythons.
+"The main takeaway is that equal objects with the same hash cannot be contained in the same set, and in Python 3.x, 1 and True, and 0 and False, will always have the same hash, and will always be equal.
+"False and True are equal to 0 and 1, respectively.

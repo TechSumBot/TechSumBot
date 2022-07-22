@@ -1,0 +1,5 @@
+In Java, the static keyword typically flags a method or field as existing not once per instance of a class, but once ever.
+"Outer classes are already effectively static A static nested class means it has no reference to the outer class.
+"We need a class name to access its static members because these members are part of class while an outer class is part of package and we can directly access the class by just writing package_name.class_name (similar to class_name.static_field_name), So again there is no need to do which is already there by default.
+"Read more on [Why An Outer Java Class Can’t Be Static (hyper-link)]
+"And by definition, a class is a blueprint for its objects and we create a class to create objects from it (exception will always be there e.g.

@@ -1,0 +1,145 @@
+
+Query:  "Why are Python Programs often slower than the Equivalent Program Written in C or C++?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/3033341)
+ [1] #0: "C and C++ compile to native code- that is, they run directly on the CPU."
+ [1] #1: "Python is an interpreted language, which means that the Python code you write must go through many, many stages of abstraction before it can become executable machine code."
+
+Answer:  #1 (https://stackoverflow.com/a/3033355)
+ [1] #2: "The difference between python and C is the usual difference between an interpreted (bytecode) and compiled (to native) language."
+ [1] #3: "Personally, I don't really see python as slow, it manages just fine."
+ [0] #4: "If you try to use it outside of its realm, of course, it will be slower."
+ [0] #5: "But for that, you can write C extensions for python, which puts time-critical algorithms in native code, making it way faster."
+
+Answer:  #2 (https://stackoverflow.com/a/3033379)
+ [1] #6: "Python is a higher level language than C, which means it abstracts the details of the computer from you - memory management, pointers, etc, and allows you to write programs in a way which is closer to how humans think."
+ [1] #7: "It is true that C code usually runs 10 to 100 times faster than Python code if you measure only the execution time."
+ [1] #8: "However if you also include the development time Python often beats C. For many projects the development time is far more critical than the run time performance."
+ [0] #9: "Longer development time converts directly into extra costs, fewer features and slower time to market."
+ [1] #10: "Internally the reason that Python code executes more slowly is because code is interpreted at runtime instead of being compiled to native code at compile time."
+ [1] #11: "Other interpreted languages such as Java bytecode and .NET bytecode run faster than Python because the standard distributions include a [JIT compiler (hyper-link)] that compiles bytecode to native code at runtime."
+ [1] #12: "The reason why CPython doesn't have a JIT compiler already is because the dynamic nature of Python makes it difficult to write one."
+ [0] #13: "There is [work (hyper-link)] in [progress (hyper-link)] to write a faster Python runtime so you should expect the performance gap to be reduced in the future, but it will probably be a while before the standard Python distribution includes a powerful JIT compiler."
+
+Answer:  #3 (https://stackoverflow.com/a/3033384)
+ [1] #14: "Other than the answers already posted, one thing is pythons ability to change things in runtime that you can't change in for example C. You can add member functions to classes as you go."
+ [1] #15: "Also, pythons dynamic nature makes it impossible to say what type of parameters will be passed to a function, which in turn makes optimizing a whole lot harder."
+ [0] #16: "[RPython (hyper-link)] seems to be a way of getting around the optimization problem."
+ [0] #17: "Still, it'll probably won't be near the performance of C for numbercrunching and the like."
+
+Answer:  #4 (https://stackoverflow.com/a/3033387)
+ [1] #18: "CPython is particularly slow because it has no Just in Time optimizer (since it's the reference implementation and chooses simplicity over performance in certain cases)."
+ [0] #19: "[Unladen Swallow (hyper-link)] is a project to add an LLVM-backed JIT into CPython, and achieves massive speedups."
+ [1] #20: "It's possible that Jython and IronPython are much faster than CPython as well as they are backed by heavily optimized virtual machines (JVM and .NET CLR)."
+ [1] #21: "One thing that will arguably leave Python slower however, is that it's dynamically typed, and there is tons of lookup for each attribute access."
+ [0] #22: "For instance calling f on an object A will cause possible lookups in __dict__, calls to __getattr__, etc, then finally call __call__ on the callable object f."
+ [0] #23: "With respect to dynamic typing, there are many optimizations that can be done if you know what type of data you are dealing with."
+ [0] #24: "For example in Java or C, if you have a straight array of integers you want to sum, the final assembly code can be as simple as fetching the value at the index i, adding it to the accumulator, and then incrementing i."
+ [0] #25: "In Python, this is very hard to make code this optimal."
+ [0] #26: "Say you have a list subclass object containing ints."
+ [0] #27: "Before even adding any, Python must call list.__getitem__(i), then add that to the "accumulator" by calling accumulator.__add__(n), then repeat."
+ [0] #28: "Tons of alternative lookups can happen here because another thread may have altered for example the __getitem__ method, the dict of the list instance, or the dict of the class, between calls to add or getitem."
+ [0] #29: "Even finding the accumulator and list (and any variable you're using) in the local namespace causes a dict lookup."
+ [0] #30: "This same overhead applies when using any user defined object, although for some built-in types, it's somewhat mitigated."
+ [0] #31: "It's also worth noting, that the primitive types such as bigint (int in Python 3, long in Python 2.x), list, set, dict, etc, etc, are what people use a lot in Python."
+ [0] #32: "There are tons of built in operations on these objects that are already optimized enough."
+ [0] #33: "For example, for the example above, you'd just call sum(list) instead of using an accumulator and index."
+ [0] #34: "Sticking to these, and a bit of number crunching with int/float/complex, you will generally not have speed issues, and if you do, there is probably a small time critical unit (a SHA2 digest function, for example) that you can simply move out to C (or Java code, in Jython)."
+ [0] #35: "The fact is, that when you code C or C++, you are going to waste lots of time doing things that you can do in a few seconds/lines of Python code."
+ [0] #36: "I'd say the tradeoff is always worth it except for cases where you are doing something like embedded or real time programming and can't afford it."
+
+Answer:  #5 (https://stackoverflow.com/a/3033491)
+ [1] #37: "Comparing C/C++ to Python is not a fair comparison."
+ [0] #38: "Like comparing a F1 race car with a utility truck."
+ [0] #39: "What is surprising is how fast Python is in comparison to its peers of other dynamic languages."
+ [0] #40: "While the methodology is often considered flawed, look at [The Computer Language Benchmark Game (hyper-link)] to see relative language speed on similar algorithms."
+ [0] #41: "The comparison to Perl, Ruby, and C# are more 'fair'"
+
+Answer:  #6 (https://stackoverflow.com/a/3033545)
+ [1] #42: "Compilation vs interpretation isn't important here: Python is compiled, and it's a tiny part of the runtime cost for any non-trivial program."
+ [0 #43: "The primary costs are: the lack of an integer type which corresponds to native integers (making all integer operations vastly more expensive), the lack of static typing (which makes resolution of methods more difficult, and means that the types of values must be checked at runtime), and the lack of unboxed values (which reduce memory usage, and can avoid a level of indirection)."
+ [0] #44: "Not that any of these things aren't possible or can't be made more efficient in Python, but the choice has been made to favor programmer convenience and flexibility, and language cleanness over runtime speed."
+ [0] #45: "Some of these costs may be overcome by clever JIT compilation, but the benefits Python provides will always come at some cost."
+
+Answer:  #7 (https://stackoverflow.com/a/3115539)
+ [1] #46: "Python is typically implemented as a scripting language."
+ [0] #47: "That means it goes through an interpreter which means it translates code on the fly to the machine language rather than having the executable all in machine language from the beginning."
+ [0] #48: "As a result, it has to pay the cost of translating code in addition to executing it."
+ [0] #49: "This is true even of CPython even though it compiles to bytecode which is closer to the machine language and therefore can be translated faster."
+ [1] #50: "With Python also comes some very useful runtime features like dynamic typing, but such things typically cannot be implemented even on the most efficient implementations without heavy runtime costs."
+ [1] #51: "If you are doing very processor-intensive work like writing shaders, it's not uncommon for Python to be somewhere around 200 times slower than C++."
+ [1] #52: "If you use CPython, that time can be cut in half but it's still nowhere near as fast."
+ [0] #53: "With all those runtmie goodies comes a price."
+ [0] #54: "There are plenty of benchmarks to show this and [here's (hyper-link)] a particularly good one."
+ [0] #55: "As admitted on the front page, the benchmarks are flawed."
+ [0] #56: "They are all submitted by users trying their best to write efficient code in the language of their choice, but it gives you a good general idea."
+ [0] #57: "I recommend you try mixing the two together if you are concerned about efficiency: then you can get the best of both worlds."
+ [0] #58: "I'm primarily a C++ programmer but I think a lot of people tend to code too much of the mundane, high-level code in C++ when it's just a nuisance to do so (compile times as just one example)."
+ [0] #59: "Mixing a scripting language with an efficient language like C/C++ which is closer to the metal is really the way to go to balance programmer efficiency (productivity) with processing efficiency."
+
+Answer:  #8 (https://stackoverflow.com/a/61053489)
+ [1] #60: "python is interpreted language is not complied and its not get combined with CPU hardware"
+ [0] #61: "but I have a solutions for increase python as a faster programing language"
+         [code snippet]
+ [0] #62: "so using this thing then get your code much more faster yes so using this python not a slow programing language"
+
+Answer:  #9 (https://stackoverflow.com/a/66653950)
+ [1] #63: "Python is a high-level programming language."
+ [0] #64: "Here is how a python script runs:"
+ [0] #65: "[ (hyper-link)]"
+ [1] #66: "The python source code is first compiled into [Byte Code (hyper-link)]."
+ [0] #67: "Yes, you heard me right!"
+ [1] #68: "Though Python is an interpreted language, it first gets compiled into byte code."
+ [0] #69: "This byte code is then interpreted and executed by the [Python Virtual Machine (hyper-link)](PVM)."
+ [1] #70: "This compilation and execution are what make Python slower than other low-level languages such as C/C++."
+ [1] #71: "In languages such as C/C++, the source code is compiled into [binary code (hyper-link)] which can be directly executed by the CPU thus making their execution efficient than that of Python."
+ [0] #72: "[ (hyper-link)]"
+
+Answer:  #10 (https://stackoverflow.com/a/69037597)
+ [0] #73: "This answer applies to python3."
+ [0] #74: "Most people do not know that a JIT-like compile occurs whenever you use the import statement."
+ [1] #75: "CPython will search for the imported source file (.py), take notice of the modification date, then look for compiled-to-bytecode file (.pyc) in a subfolder named "_ _ pycache _ _" (dunder pycache dunder)."
+ [0] #76: "If everything matches then your program will use that bytecode file until something changes (you change the source file or upgrade Python)"
+ [0] #77: "But this never happens with the main program which is usually started from a BASH shell, interactively or via."
+ [0] #78: "Here is an example:"
+         [code snippet]
+ [0] #79: "Once executed, the compiled output code will be discarded."
+ [0] #80: "However, your main python program will be compiled if you start up via an import statement like so:"
+         [code snippet]
+ [0] #81: "And now for the caveats:"
+ [0] #82: "if you were testing code interactively in the Apache area, your compiled file might be saved with privs that Apache can't read (or write on a recompile)"
+ [0] #83: "some claim that the subfolder "_ _ pycache _ _" (dunder pycache dunder) needs to be available in the Apache config"
+ [0] #84: "will SELinux allow CPython to write to subfolder (this was a problem in CentOS-7.5 but I believe a patch has been made available)"
+ [0] #85: "One last point."
+ [0] #86: "You can access the compiler yourself, generate the pyc files, then change the protection bits as a workaround to any of the caveats I've listed."
+ [0] #87: "Here are two examples:"
+         [code snippet]
+
+Answer:  #11 (https://stackoverflow.com/a/16899384)
+ [1] #88: "Simply because Python is a more high level language and has to do more different things on every iteration (like acquiring locks, resolving variables etc.)"
+ [0] #89: "“How to optimise” is a very vague question."
+ [0] #90: "There is no “general” way to optimise any Python program (everythng possible was already done by the developers of Python)."
+ [0] #91: "Your particular example can be optimsed this way:"
+         [code snippet]
+ [0] #92: "That's what any C compiler will do, by the way."
+ [0] #93: "If your program works with numeric data, then using numpy and its vectorised routines often gives you a great performance boost, as it does everything in pure C (using C loops, not Python ones) and doesn't have to take interpreter lock and all this stuff."
+
+Answer:  #12 (https://stackoverflow.com/a/16899406)
+ [1] #94: "A smart C compiler can probably optimize your loop away by recognizing that at the end, a will always be 1."
+ [0] #95: "Python can't do that because when iterating over xrange, it needs to call __next__ on the xrange object until it raises StopIteration."
+ [0] #96: "python can't know if __next__ will have side-effect until it calls it, so there is no way to optimize the loop away."
+ [0] #97: "The take-away message from this paragraph is that it is MUCH HARDER to optimize a Python "compiler" than a C compiler because python is such a dynamic language and requires the compiler to know how the object will behave in certain circumstances."
+ [1] #98: "In C, that's much easier because C knows exactly what type every object is ahead of time."
+ [0] #99: "Of course, compiler aside, python needs to do a lot more work."
+ [1] #100: "In C, you're working with base types using operations supported in hardware instructions."
+ [1] #101: "In python, the interpreter is interpreting the byte-code one line at a time in software."
+ [0] #102: "Clearly that is going to take longer than machine level instructions."
+ [0] #103: "And the data model (e.g."
+ [0] #104: "calling __next__ over and over again) can also lead to a lot of function calls which the C doesn't need to do."
+ [1] #105: "Of course, python does this stuff to make it much more flexible than you can have in a compiled language."
+ [1] #106: "The typical way to speed up python code is to use libraries or intrinsic functions which provide a high level interface to low-level compiled code."
+ [0] #107: "scipy and numpy are excellent examples this kind of library."
+ [0] #108: "Other things you can look into are using [pypy (hyper-link)] which includes a JIT compiler -- you probably won't reach native speeds, but it'll probably beat Cpython (the most common implementation), or writing extensions in C/fortran using the Cpython-API, cython or f2py for performance critical sections of code."

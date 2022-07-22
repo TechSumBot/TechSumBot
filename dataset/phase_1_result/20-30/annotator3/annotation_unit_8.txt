@@ -1,0 +1,70 @@
+
+Query:  "Why does Python not perform type conversion when concatenating strings?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/6380524)
+ [0] #0: "There's a very large degree of ambiguity with such operations."
+ [0] #1: "Suppose that case instead:"
+         [code snippet]
+ [0] #2: "It's not clear if a should be coerced to an integer (resulting in 5), or if b should be coerced to a string (resulting in '41')."
+ [1] #3: "Since type juggling rules are transitive, passing a numeric string to a function expecting numbers could get you in trouble, especially since almost all arithmetic operators have overloaded operations for strings too."
+ [0] #4: "For instance, in Javascript, to make sure you deal with integers and not strings, a common practice is to multiply a variable by one; in Python, the multiplication operator repeats strings, so '41' * 1 is a no-op."
+ [0] #5: "It's probably better to just ask the developer to clarify."
+
+Answer:  #1 (https://stackoverflow.com/a/6380529)
+ [1] #6: "The problem is that the conversion is ambiguous, because + means both string concatenation and numeric addition."
+ [0] #7: "The following question would be equally valid:"
+ [0] #8: "Why does the Python interpreter not automatically try using the int() function when it encounters addition of these types?"
+ [1] #9: "This is exactly the loose-typing problem that unfortunately afflicts Javascript."
+
+Answer:  #2 (https://stackoverflow.com/a/6380530)
+ [0] #10: "Because Python does not perform type conversion when concatenating strings."
+ [1] #11: "This behavior is by design, and you should get in the habit of performing explicit type conversions when you need to coerce objects into strings or numbers."
+ [0] #12: "Change your code to:"
+         [code snippet]
+ [0] #13: "And you'll see the desired result."
+
+Answer:  #3 (https://stackoverflow.com/a/6380534)
+ [1] #14: "Python would have to know what's in the string to do it correctly."
+ [0] #15: "There's an ambiguous case: what should '5' + 5 generate?"
+ [0] #16: "A number or a string?"
+ [0] #17: "That should certainly throw an error."
+ [0] #18: "Now to determine whether that situation holds, python would have to examine the string to tell."
+ [0] #19: "Should it do that every time you try to concatenate or add two things?"
+ [1] #20: "Better to just let the programmer convert the string explicitly."
+ [1] #21: "More generally, implicit conversions like that are just plain confusing!"
+ [1] #22: "They're hard to predict, hard to read, and hard to debug."
+
+Answer:  #4 (https://stackoverflow.com/a/6380547)
+ [1] #23: "That's just how they decided to design the language."
+ [1] #24: "Probably the rationale is that requiring explicit conversions to string reduces the likelihood of unintended behavior (e.g."
+ [0] #25: "integer addition if both operands happen to be ints instead of strings)."
+
+Answer:  #5 (https://stackoverflow.com/a/6380617)
+ [0] #26: "The other answers have provided pretty good explanations, but have failed to mention that this feature is known a Strong Typing."
+ [0] #27: "Languages that perform implicit conversions are Weakly Typed."
+
+Answer:  #6 (https://stackoverflow.com/a/6380622)
+ [1] #28: "The short answer would be because Python is a strongly typed language."
+ [1] #29: "This was a design decision made by Guido."
+ [0] #30: "It could have been one way or another really, concatenating str and int to str or int."
+ [0] #31: "The best explanation, is still the one given by guido, you can check it [here (hyper-link)]"
+
+Answer:  #7 (https://stackoverflow.com/a/27011124)
+ [0] #32: "tell python that the int is a list to disambiguate the '+' operation."
+         [code snippet]
+ [0] #33: "this returns: ['foo', 'bar', 5]"
+
+Answer:  #8 (https://stackoverflow.com/a/12161484)
+         [code snippet]
+ [1] #34: "The reason concatenation doesn't work is that string objects don't have any code in them to perform type conversion as part of their __add__() method."
+ [0] #35: "As for why, presumably Guido thought it would be a bad idea."
+ [0] #36: "The Zen of Python says "explicit is better than implicit.""
+ [0] #37: "You could write a string subclass that works this way, however:"
+         [code snippet]
+ [0] #38: "Of course, there's no way to get Python to use that class for string literals or for user input, so you end up having to convert strings constantly:"
+         [code snippet]
+ [0] #39: "At which point you might as well just write:"
+         [code snippet]

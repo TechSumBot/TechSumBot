@@ -1,0 +1,5 @@
+In conclusion, you will catch both IOException and NullPointerException with a generic Exception, but the way your program should react is probably different.
+The main thing it depends on is where your are catching the exception.
+"Yes!
+"Catch all of the errors you can meaningfully recover from.
+"Unpopular opinion: Not really.

@@ -1,0 +1,5 @@
+"Because Python does not perform type conversion when concatenating strings.
+It's not clear if a should be coerced to an integer (resulting in 5), or if b should be coerced to a string (resulting in '41').
+"A number or a string?
+"This was a design decision made by Guido.
+Suppose that case instead:

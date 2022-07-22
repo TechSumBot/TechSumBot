@@ -1,0 +1,5 @@
+A common reason to do this is to have the abstract class provide exploding implementations of the abstract methods as a convenience to subclasses who don't have to implement all the abstract methods, just those they want to - the remaining ones will still explode but it won't matter if those execution paths aren't exercised.
+It has default implementations for all methods that handle the different request types, but they all throw an exception.
+Abstract class without abstract method means you can create object of that abstract class.
+"By nature, the methods of this creator classes are all static and they can be seen as utility classes as well.Obviously, instatntation of this classes is futile and hence the abstractkeyword.
+"When you make a class abstract (either with or without abstract methods), you are forcing the users of this class to create concrete sub-classes of it, since they can't instantiate it.

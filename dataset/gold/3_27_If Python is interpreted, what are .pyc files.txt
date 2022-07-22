@@ -1,0 +1,5 @@
+".pyc files are compiled Python files written by the Python interpreter.
+The other side of this is, however, that the compilation process is mostly hidden -- the .pyc files are basically treated like a cache; they speed things up, but you normally don't have to be aware of them at all.
+In particular, the .pyc files you are seeing are cached bytecode files produced by CPython, Stackless Python or Unladen Swallow.
+*.pyc file is also generated, as part of running it which performs your import operation on file in shell or in some other file.
+"To speed up loading modules, Python caches the compiled content of modules in .pyc.

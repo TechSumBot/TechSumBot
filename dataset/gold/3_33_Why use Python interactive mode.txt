@@ -1,0 +1,5 @@
+That's just for little tests and for practicing with the language.
+you use the interactive interpreter to test snippets of your code before you put them into your script.
+"You can use it as a calculator.
+"That's way faster than looking stuff up in documentation or even in code.
+"You don't need to put selective print statements in code to see what variables are when you write it in the interpreter.

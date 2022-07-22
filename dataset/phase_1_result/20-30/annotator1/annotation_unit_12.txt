@@ -1,0 +1,62 @@
+
+Query:  "What does `<>` mean in Python?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/16749125)
+ [1] #0: "It means NOT EQUAL, but it is deprecated, use != instead."
+
+Answer:  #1 (https://stackoverflow.com/a/16749135)
+ [1] #1: "It means not equal to."
+ [0] #2: "It was taken from ABC (python's predecessor) see [here (hyper-link)]:"
+ [0] #3: "x < y, x <= y, x >= y, x > y, x = y, x <> y, 0 <= d < 10"
+ [1] #4: "Order tests (<> means 'not equals')"
+ [0] #5: "I believe ABC took it from Pascal, a language Guido began programming with."
+ [1] #6: "It has now been removed in Python 3."
+ [1] #7: "Use != instead."
+ [0] #8: "If you are CRAZY you can scrap != and allow only <> in Py3K using [this easter egg (hyper-link)]:"
+         [code snippet]
+
+Answer:  #2 (https://stackoverflow.com/a/16749171)
+ [1] #9: "It is an old way of specifying !=, that was removed in Python 3."
+ [1] #10: "A library old enough to use it likely runs into various other incompatibilities with Python 3 as well: it is probably a good idea to run it through [2to3 (hyper-link)], which automatically changes this, among many other things."
+
+Answer:  #3 (https://stackoverflow.com/a/16775211)
+ [0] #11: "It's worth knowing that you can use Python itself to find documentation, even for punctuation mark operators that Google can't cope with."
+         [code snippet]
+ [0] #12: "Unlike C, all comparison operations in Python have the same priority, which is lower than that of any arithmetic, shifting or bitwise operation."
+ [0] #13: "Also unlike C, expressions like a < b < c have the interpretation that is conventional in mathematics:"
+ [0] #14: "Comparisons yield boolean values: True or False."
+ [0] #15: "Comparisons can be chained arbitrarily, e.g., x < y <= z is equivalent to x < y and y <= z, except that y is evaluated only once (but in both cases z is not evaluated at all when x < y is found to be false)."
+ [1] #16: "The forms <> and != are equivalent; for consistency with C, != is preferred; where != is mentioned below <> is also accepted."
+ [1] #17: "The <> spelling is considered obsolescent."
+ [0] #18: "See [http://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]"
+
+Answer:  #4 (https://stackoverflow.com/a/17409981)
+ [1] #19: "<> is deprecated."
+ [0] #20: "Other than that, no."
+
+Answer:  #5 (https://stackoverflow.com/a/17410005)
+ [1] #21: "As described in [the documentation (hyper-link)], they are the same."
+ [1] #22: "<> is deprecated and was removed in Python 3, so you should use !=."
+
+Answer:  #6 (https://stackoverflow.com/a/19445917)
+ [1] #23: "It's the inequality operator, synonymous to !=."
+ [0] #24: "From the [documentation (hyper-link)]:"
+ [1] #25: "The forms <> and != are equivalent; for consistency with C, != is preferred; where != is mentioned below <> is also accepted."
+ [1] #26: "The <> spelling is considered obsolescent."
+ [1] #27: "The <> spelling has been removed in Python 3."
+
+Answer:  #7 (https://stackoverflow.com/a/19445926)
+ [1] #28: "it looks like it's the same as !="
+
+Answer:  #8 (https://stackoverflow.com/a/25714041)
+ [1] #29: "The <> operator is considered obsolete:"
+ [0] #30: "[https://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]"
+
+Answer:  #9 (https://stackoverflow.com/a/40093090)
+ [1] #31: "In Python 2.X, <> is same as != but the usage is obsolete and is discouraged in favour of the newer usage which is !="
+ [0] #32: "Refer the manual for the [Comparision (hyper-link)] section"
+ [1] #33: "So, return self.commands <> [ ] is same as return self.commands != [ ] which means the self.commands is not an empty list which as per your docstring"
+ [1] #34: "Return True if more commands to parse else return False"

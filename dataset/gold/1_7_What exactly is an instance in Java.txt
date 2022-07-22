@@ -1,0 +1,5 @@
+When you create an object, you are creating an "instance" of a class, therefore "instantiating" a class.
+An object and an instance are the same thing.
+The main differnece is when you say ClassName obj = null; you are just creating an object for that class.
+"creating an instance of a class" how about, "you are taking a class and making a new variable of that class that WILL change depending on an input that changes"
+"A class is template for an object and an object is an instance of a class.

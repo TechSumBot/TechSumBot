@@ -1,0 +1,5 @@
+"In other words, for stacks implemented directly as Python lists, which already supports fast append(), and del list[-1], it makes sense that list.pop() work by default on the last element.
+"However, a list is still first of all a list, so the operations that are common to both use list terms (i.e., append) rather than stack terms (i.e., push).
+"list.append() is the equivalent of pushing a value onto the end.
+"They did implement push, but they split the functionality into list.insert() and list.append() instead.
+"Since a pop operation isn't that common in lists (though 'removeLast' could have been used), they defined a pop() but not a push().

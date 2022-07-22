@@ -1,0 +1,5 @@
+The difference between python and C is the usual difference between an interpreted (bytecode) and compiled (to native) language.
+Python is a higher level language than C, which means it abstracts the details of the computer from you - memory management, pointers, etc, and allows you to write programs in a way which is closer to how humans think.
+CPython is particularly slow because it has no Just in Time optimizer (since it's the reference implementation and chooses simplicity over performance in certain cases).
+One thing that will arguably leave Python slower however, is that it's dynamically typed, and there is tons of lookup for each attribute access.
+"This compilation and execution are what make Python slower than other low-level languages such as C/C++.

@@ -1,0 +1,83 @@
+
+Query:  "Why use Python interactive mode?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/2664795)
+ [ ] #0: "You're talking about running Python in the console by simply typing "python"?"
+ [ ] #1: "That's just for little tests and for practicing with the language."
+ [ ] #2: "It's very useful when learning the language and testing out other modules."
+ [ ] #3: "Of course any real software project is written in .py files and later executed by the interpreter!"
+
+Answer:  #1 (https://stackoverflow.com/a/2664798)
+ [ ] #4: "[REPL Loops (hyper-link)] (like Python's interactive mode) provide immediate feedback to the programmer."
+ [ ] #5: "As such, you can rapidly write and test small pieces of code, and assemble those pieces into a larger program."
+
+Answer:  #2 (https://stackoverflow.com/a/2664814)
+ [ ] #6: "The Python interpreter is a least common denominator: you can run it on multiple platforms, and it acts the same way (modulo platform-specific modules), so it's pretty easy to get a newbie going with."
+ [ ] #7: "It's a lot easier to tell a newbie to launch the interpreter and "do this" than to have them open a file, type in some code, save it, make it executable, make sure python is in your PATH, or use a #!"
+ [ ] #8: "line, etc etc."
+ [ ] #9: "Scrap all of that and just launch the interpreter."
+ [ ] #10: "For simple examples, you can't beat it."
+ [ ] #11: "It was never meant for long programs, so if you were using it for that, you probably missed the part of the tutorial that told you "longer scripts go in a file"."
+ [ ] #12: ":)"
+
+Answer:  #3 (https://stackoverflow.com/a/2664824)
+ [ ] #13: "you use the interactive interpreter to test snippets of your code before you put them into your script."
+
+Answer:  #4 (https://stackoverflow.com/a/2664850)
+ [ ] #14: "I find the interactive interpreter very, very good for testing quick code, or to show others the Power of Python."
+ [ ] #15: "Sometimes I use the interpreter as a handy calculator, too."
+ [ ] #16: "It's amazing what you can do in a very short amount of time."
+ [ ] #17: "Aside from the built-in console, I also have to recommend [Pyshell (hyper-link)]."
+ [ ] #18: "It has auto-completion, and a decent syntax highlighting."
+ [ ] #19: "You can also edit multiple lines of code at once."
+ [ ] #20: "Of course, it's not perfect, but certainly better than the default python console."
+
+Answer:  #5 (https://stackoverflow.com/a/2665037)
+ [ ] #21: "When coding in Java, you almost always will have the API open in some browser window."
+ [ ] #22: "However with the python interpreter, you can always import any module that you are thinking about using and check what it offers."
+ [ ] #23: "You can also test the behavior of new methods that you are unsure of, to eliminate the "Oh!"
+ [ ] #24: "so THAT's how it works" as a source of bugs."
+
+Answer:  #6 (https://stackoverflow.com/a/2665150)
+ [ ] #25: "Let's see:"
+ [ ] #26: "If you want to know how something works, you can just try it."
+ [ ] #27: "There is no need to write up a file."
+ [ ] #28: "I almost always scratch write my programs in the interpreter before coding them."
+ [ ] #29: "It's not just for things that you don't know how they work in the programming language."
+ [ ] #30: "I never remember what the correct arguments to range are to create, for example, [-2, -1, 0, 1]."
+ [ ] #31: "I don't need to."
+ [ ] #32: "I just have to fire up the interpreter and try stuff until I figure out it is range(-2, 2) (did that just now, actually)."
+ [ ] #33: "You can use it as a calculator."
+ [ ] #34: "Python is a very introspective programming language."
+ [ ] #35: "If you want to know anything about an object, you can just do dir(object)."
+ [ ] #36: "If you use IPython, you can even do object.<TAB> and it will tab-complete the methods and attributes of that object."
+ [ ] #37: "That's way faster than looking stuff up in documentation or even in code."
+ [ ] #38: "help(anything) for documentation."
+ [ ] #39: "It's way faster than any web interface."
+ [ ] #40: "Again, you have to use IPython (highly recommended), but you can time stuff."
+ [ ] #41: "%timeit func1() and %timeit func2() is a common idiom to determine what is faster."
+ [ ] #42: "How often have you wanted to write a program to use once, and then never again."
+ [ ] #43: "The fastest way to do this is to just do it in the Python interpreter."
+ [ ] #44: "Sure, you have to be careful writing loops or functions (they must have the correct syntax the first time), but most stuff is just line by line, and you can play around with it."
+ [ ] #45: "Debugging."
+ [ ] #46: "You don't need to put selective print statements in code to see what variables are when you write it in the interpreter."
+ [ ] #47: "You just have to type >>> a, and it will show what a is."
+ [ ] #48: "Nice again to see if you constructed something correctly."
+ [ ] #49: "The building Python debugger pdb also uses the intrepeter functionality, so you can not only see what a variable is when debugging, but you can also manipulate or even change it without halting debugging."
+ [ ] #50: "When people say that Python is faster to develop in, I guarantee that this is a big part of what they are talking about."
+ [ ] #51: "Commenters: anything I am forgetting?"
+
+Answer:  #7 (https://stackoverflow.com/a/2665204)
+ [ ] #52: "As already mentioned, the Python interactive interpreter gives a quick and dirty way to test simple Python functions and/or code snippets."
+ [ ] #53: "I personally use the Python shell as a very quick way to perform simple Numerical operations (provided by the math module)."
+ [ ] #54: "I have my environment setup, so that the math module is automatically imported whenever I start a Python shell."
+ [ ] #55: "In fact, its a good way to "market" Python to non-Pythoniasts."
+ [ ] #56: "Show them how they can use Python as a neat scientific calculator, and for simple mathematical prototyping."
+
+Answer:  #8 (https://stackoverflow.com/a/2665274)
+ [ ] #57: "One thing I use interactive mode for that others haven't mentioned: To see if a module is installed."
+ [ ] #58: "Just fire up Python and try to import the module; if it dies, then your PYTHONPATH is broke or the module is not installed."
+ [ ] #59: "This is a great first step for "Hey, it's not working on my machine" or "Which Python did that get installed in, anyway" bugs."

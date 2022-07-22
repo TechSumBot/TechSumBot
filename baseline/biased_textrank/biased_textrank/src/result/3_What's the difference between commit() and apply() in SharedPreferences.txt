@@ -1,0 +1,5 @@
+"commit() is synchronously, apply() is asynchronous
+"If you dont use value returned from commit() and you're using commit() from main thread, use apply() instead of commit()
+"The difference between commit() and apply()
+"We might be confused by those two terms, when we are using SharedPreference.
+"apply(): Asynchronous commit(): Synchronous

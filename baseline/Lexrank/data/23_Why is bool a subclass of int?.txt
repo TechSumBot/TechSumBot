@@ -1,0 +1,188 @@
+From a comment on [http://www.peterbe.com/plog/bool-is-int (hyper-link)]
+It is perfectly logical, if you were around when the bool type was added to python (sometime around 2.2 or 2.3).
+Prior to introduction of an actual bool type, 0 and 1 were the official representation for truth value, similar to C89.
+To avoid unnecessarily breaking non-ideal but working code, the new bool type needed to work just like 0 and 1.
+This goes beyond merely truth value, but all integral operations.
+No one would recommend using a boolean result in a numeric context, nor would most people recommend testing equality to determine truth value, no one wanted to find out the hard way just how much existing code is that way.
+Thus the decision to make True and False masquerade as 1 and 0, respectively.
+This is merely a historical artifact of the linguistic evolution.
+Credit goes to dman13 for this nice explanation.
+See [PEP 285 -- Adding a bool type (hyper-link)].
+"Relevent passage:
+"6) Should bool inherit from int?
+"=> Yes.
+"In an ideal world, bool might be better implemented as a separate integer type that knows how to perform mixed-mode arithmetic.
+"However, inheriting bool from int eases the implementation enormously (in part since all C code that calls PyInt_Check() will continue to work -- this returns true for subclasses of int).
+"Early Python (before 2.2?)
+"didn't have a separate boolean type: people used 0 and 1 instead.
+"When the bool type was added, it was made a subclass of ints to simplify the use of existing code in new Pythons.
+"Basically True is equal to the integer 1 and False is equal to the integer 0.
+"This is because Boolean is a subclass of int.
+"You can get these values by converting the bools into ints:
+"boolean is a subclass of int.
+"False and True have resp.
+"0 and 1 values.
+"When performing an addition, the addition method of int is used, boolean doesn't redefine either __add__ or __sub__ (or mul or div...) so the result is of int type, even if False + True or False + False could fit in a boolean type (an addition method which would return an integer or a boolean depending on the range would be a bit weird).
+"and type(a / a) is float because of python 3 floating point division even between integers.
+"If you need int, do type(a // a)
+"Because in Python 1 == True (and hash(1) == hash(True)) and you have 1 in your set already.
+"Imagine this example:
+"Will output:
+"First set has 0 and None because 0 == False but 0 != None.
+"With second set 1 == True so True isn't added to the set.
+"False and True are equal to 0 and 1, respectively.
+"They are distinct entities, yet the two equal values cannot both be in a set.
+"This is clearly undesired behavior, yet it is not clear it can be fixed and still allow multiplying by a boolean value to work as documented.
+"Notice that depending on the order of putting them into the set, 1 will not be in the set if True is already in it, and True will not be in the set if 1 is already in it.
+"The reason that you are losing boolean values from a set if they already contain 0 or 1 is because the following behavior...
+"...[is guaranteed in Python 3.x (hyper-link)].
+"Which means that you cannot have both in a set:
+"The hashes being equal is just as important as the objects being equal, because objects that are "equal" can produce different hashes and vice versa:
+"You can also have a set that contains items with the same hashes, if those items are not equal:
+"This behavior is not guaranteed in Python 2.x, for the simple reason that True and False are not reserved keywords (this change was [introduced in 3.x (hyper-link)]).
+"You may reassign them (although better not to), so there is no reason that the same behavior must hold in Python 2.x:
+"But don't let the fact that True was replaced with 5 discourage you!
+"We can abuse the representation of a class to make it appear as though True really is in the set:
+"Obviously the last couple code snippets are bad practice, and are only for demonstration.
+"The main takeaway is that equal objects with the same hash cannot be contained in the same set, and in Python 3.x, 1 and True, and 0 and False, will always have the same hash, and will always be equal.
+From a comment on [http://www.peterbe.com/plog/bool-is-int (hyper-link)]
+It is perfectly logical, if you were around when the bool type was added to python (sometime around 2.2 or 2.3).
+Prior to introduction of an actual bool type, 0 and 1 were the official representation for truth value, similar to C89.
+To avoid unnecessarily breaking non-ideal but working code, the new bool type needed to work just like 0 and 1.
+This goes beyond merely truth value, but all integral operations.
+No one would recommend using a boolean result in a numeric context, nor would most people recommend testing equality to determine truth value, no one wanted to find out the hard way just how much existing code is that way.
+Thus the decision to make True and False masquerade as 1 and 0, respectively.
+This is merely a historical artifact of the linguistic evolution.
+Credit goes to dman13 for this nice explanation.
+See [PEP 285 -- Adding a bool type (hyper-link)].
+"Relevent passage:
+"6) Should bool inherit from int?
+"=> Yes.
+"In an ideal world, bool might be better implemented as a separate integer type that knows how to perform mixed-mode arithmetic.
+"However, inheriting bool from int eases the implementation enormously (in part since all C code that calls PyInt_Check() will continue to work -- this returns true for subclasses of int).
+"Early Python (before 2.2?)
+"didn't have a separate boolean type: people used 0 and 1 instead.
+"When the bool type was added, it was made a subclass of ints to simplify the use of existing code in new Pythons.
+"Basically True is equal to the integer 1 and False is equal to the integer 0.
+"This is because Boolean is a subclass of int.
+"You can get these values by converting the bools into ints:
+"boolean is a subclass of int.
+"False and True have resp.
+"0 and 1 values.
+"When performing an addition, the addition method of int is used, boolean doesn't redefine either __add__ or __sub__ (or mul or div...) so the result is of int type, even if False + True or False + False could fit in a boolean type (an addition method which would return an integer or a boolean depending on the range would be a bit weird).
+"and type(a / a) is float because of python 3 floating point division even between integers.
+"If you need int, do type(a // a)
+"Because in Python 1 == True (and hash(1) == hash(True)) and you have 1 in your set already.
+"Imagine this example:
+"Will output:
+"First set has 0 and None because 0 == False but 0 != None.
+"With second set 1 == True so True isn't added to the set.
+"False and True are equal to 0 and 1, respectively.
+"They are distinct entities, yet the two equal values cannot both be in a set.
+"This is clearly undesired behavior, yet it is not clear it can be fixed and still allow multiplying by a boolean value to work as documented.
+"Notice that depending on the order of putting them into the set, 1 will not be in the set if True is already in it, and True will not be in the set if 1 is already in it.
+"The reason that you are losing boolean values from a set if they already contain 0 or 1 is because the following behavior...
+"...[is guaranteed in Python 3.x (hyper-link)].
+"Which means that you cannot have both in a set:
+"The hashes being equal is just as important as the objects being equal, because objects that are "equal" can produce different hashes and vice versa:
+"You can also have a set that contains items with the same hashes, if those items are not equal:
+"This behavior is not guaranteed in Python 2.x, for the simple reason that True and False are not reserved keywords (this change was [introduced in 3.x (hyper-link)]).
+"You may reassign them (although better not to), so there is no reason that the same behavior must hold in Python 2.x:
+"But don't let the fact that True was replaced with 5 discourage you!
+"We can abuse the representation of a class to make it appear as though True really is in the set:
+"Obviously the last couple code snippets are bad practice, and are only for demonstration.
+"The main takeaway is that equal objects with the same hash cannot be contained in the same set, and in Python 3.x, 1 and True, and 0 and False, will always have the same hash, and will always be equal.
+From a comment on [http://www.peterbe.com/plog/bool-is-int (hyper-link)]
+It is perfectly logical, if you were around when the bool type was added to python (sometime around 2.2 or 2.3).
+Prior to introduction of an actual bool type, 0 and 1 were the official representation for truth value, similar to C89.
+To avoid unnecessarily breaking non-ideal but working code, the new bool type needed to work just like 0 and 1.
+This goes beyond merely truth value, but all integral operations.
+No one would recommend using a boolean result in a numeric context, nor would most people recommend testing equality to determine truth value, no one wanted to find out the hard way just how much existing code is that way.
+Thus the decision to make True and False masquerade as 1 and 0, respectively.
+This is merely a historical artifact of the linguistic evolution.
+Credit goes to dman13 for this nice explanation.
+See [PEP 285 -- Adding a bool type (hyper-link)].
+"Relevent passage:
+"6) Should bool inherit from int?
+"=> Yes.
+"In an ideal world, bool might be better implemented as a separate integer type that knows how to perform mixed-mode arithmetic.
+"However, inheriting bool from int eases the implementation enormously (in part since all C code that calls PyInt_Check() will continue to work -- this returns true for subclasses of int).
+"Early Python (before 2.2?)
+"didn't have a separate boolean type: people used 0 and 1 instead.
+"When the bool type was added, it was made a subclass of ints to simplify the use of existing code in new Pythons.
+"Basically True is equal to the integer 1 and False is equal to the integer 0.
+"This is because Boolean is a subclass of int.
+"You can get these values by converting the bools into ints:
+"boolean is a subclass of int.
+"False and True have resp.
+"0 and 1 values.
+"When performing an addition, the addition method of int is used, boolean doesn't redefine either __add__ or __sub__ (or mul or div...) so the result is of int type, even if False + True or False + False could fit in a boolean type (an addition method which would return an integer or a boolean depending on the range would be a bit weird).
+"and type(a / a) is float because of python 3 floating point division even between integers.
+"If you need int, do type(a // a)
+"Because in Python 1 == True (and hash(1) == hash(True)) and you have 1 in your set already.
+"Imagine this example:
+"Will output:
+"First set has 0 and None because 0 == False but 0 != None.
+"With second set 1 == True so True isn't added to the set.
+"False and True are equal to 0 and 1, respectively.
+"They are distinct entities, yet the two equal values cannot both be in a set.
+"This is clearly undesired behavior, yet it is not clear it can be fixed and still allow multiplying by a boolean value to work as documented.
+"Notice that depending on the order of putting them into the set, 1 will not be in the set if True is already in it, and True will not be in the set if 1 is already in it.
+"The reason that you are losing boolean values from a set if they already contain 0 or 1 is because the following behavior...
+"...[is guaranteed in Python 3.x (hyper-link)].
+"Which means that you cannot have both in a set:
+"The hashes being equal is just as important as the objects being equal, because objects that are "equal" can produce different hashes and vice versa:
+"You can also have a set that contains items with the same hashes, if those items are not equal:
+"This behavior is not guaranteed in Python 2.x, for the simple reason that True and False are not reserved keywords (this change was [introduced in 3.x (hyper-link)]).
+"You may reassign them (although better not to), so there is no reason that the same behavior must hold in Python 2.x:
+"But don't let the fact that True was replaced with 5 discourage you!
+"We can abuse the representation of a class to make it appear as though True really is in the set:
+"Obviously the last couple code snippets are bad practice, and are only for demonstration.
+"The main takeaway is that equal objects with the same hash cannot be contained in the same set, and in Python 3.x, 1 and True, and 0 and False, will always have the same hash, and will always be equal.
+From a comment on [http://www.peterbe.com/plog/bool-is-int (hyper-link)]
+It is perfectly logical, if you were around when the bool type was added to python (sometime around 2.2 or 2.3).
+Prior to introduction of an actual bool type, 0 and 1 were the official representation for truth value, similar to C89.
+To avoid unnecessarily breaking non-ideal but working code, the new bool type needed to work just like 0 and 1.
+This goes beyond merely truth value, but all integral operations.
+No one would recommend using a boolean result in a numeric context, nor would most people recommend testing equality to determine truth value, no one wanted to find out the hard way just how much existing code is that way.
+Thus the decision to make True and False masquerade as 1 and 0, respectively.
+This is merely a historical artifact of the linguistic evolution.
+Credit goes to dman13 for this nice explanation.
+See [PEP 285 -- Adding a bool type (hyper-link)].
+"Relevent passage:
+"6) Should bool inherit from int?
+"=> Yes.
+"In an ideal world, bool might be better implemented as a separate integer type that knows how to perform mixed-mode arithmetic.
+"However, inheriting bool from int eases the implementation enormously (in part since all C code that calls PyInt_Check() will continue to work -- this returns true for subclasses of int).
+"Early Python (before 2.2?)
+"didn't have a separate boolean type: people used 0 and 1 instead.
+"When the bool type was added, it was made a subclass of ints to simplify the use of existing code in new Pythons.
+"Basically True is equal to the integer 1 and False is equal to the integer 0.
+"This is because Boolean is a subclass of int.
+"You can get these values by converting the bools into ints:
+"boolean is a subclass of int.
+"False and True have resp.
+"0 and 1 values.
+"When performing an addition, the addition method of int is used, boolean doesn't redefine either __add__ or __sub__ (or mul or div...) so the result is of int type, even if False + True or False + False could fit in a boolean type (an addition method which would return an integer or a boolean depending on the range would be a bit weird).
+"and type(a / a) is float because of python 3 floating point division even between integers.
+"If you need int, do type(a // a)
+"Because in Python 1 == True (and hash(1) == hash(True)) and you have 1 in your set already.
+"Imagine this example:
+"Will output:
+"First set has 0 and None because 0 == False but 0 != None.
+"With second set 1 == True so True isn't added to the set.
+"False and True are equal to 0 and 1, respectively.
+"They are distinct entities, yet the two equal values cannot both be in a set.
+"This is clearly undesired behavior, yet it is not clear it can be fixed and still allow multiplying by a boolean value to work as documented.
+"Notice that depending on the order of putting them into the set, 1 will not be in the set if True is already in it, and True will not be in the set if 1 is already in it.
+"The reason that you are losing boolean values from a set if they already contain 0 or 1 is because the following behavior...
+"...[is guaranteed in Python 3.x (hyper-link)].
+"Which means that you cannot have both in a set:
+"The hashes being equal is just as important as the objects being equal, because objects that are "equal" can produce different hashes and vice versa:
+"You can also have a set that contains items with the same hashes, if those items are not equal:
+"This behavior is not guaranteed in Python 2.x, for the simple reason that True and False are not reserved keywords (this change was [introduced in 3.x (hyper-link)]).
+"You may reassign them (although better not to), so there is no reason that the same behavior must hold in Python 2.x:
+"But don't let the fact that True was replaced with 5 discourage you!
+"We can abuse the representation of a class to make it appear as though True really is in the set:
+"Obviously the last couple code snippets are bad practice, and are only for demonstration.
+"The main takeaway is that equal objects with the same hash cannot be contained in the same set, and in Python 3.x, 1 and True, and 0 and False, will always have the same hash, and will always be equal.

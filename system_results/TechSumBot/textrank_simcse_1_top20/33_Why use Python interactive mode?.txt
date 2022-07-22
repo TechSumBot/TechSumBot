@@ -1,0 +1,5 @@
+It's a lot easier to tell a newbie to launch the interpreter and "do this" than to have them open a file, type in some code, save it, make it executable, make sure python is in your PATH, or use a #!
+"As already mentioned, the Python interactive interpreter gives a quick and dirty way to test simple Python functions and/or code snippets.
+The Python interpreter is a least common denominator: you can run it on multiple platforms, and it acts the same way (modulo platform-specific modules), so it's pretty easy to get a newbie going with.
+"The building Python debugger pdb also uses the intrepeter functionality, so you can not only see what a variable is when debugging, but you can also manipulate or even change it without halting debugging.
+[REPL Loops (hyper-link)] (like Python's interactive mode) provide immediate feedback to the programmer.

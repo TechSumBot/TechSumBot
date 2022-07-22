@@ -1,0 +1,5 @@
+"For example, Python web applications can take advantage of [mod_wsgi (hyper-link)] to talk to web servers, which is faster than any of the typical ways that PHP talks to web servers (even mod_php ends up being slower if you're using Apache, because Apache can only use the Prefork MPM with mod_php rather than multi-threaded MPM like Worker).
+"Similarly, the PHP-web community is much larger than the Python-web community; Website hosting services are more likely to offer PHP support than Python support; etc.
+If a site built on technology B costs 20% more in developer time for maintenance over a set period (say, 3 years), it would likely be cheaper to add another webserver to the system running technology A to bridge the performance gap.
+"There's no point in attempting to convince your employer to port from PHP to Python, especially not for an existing system, which is what I think you implied in your question.
+Since Python is far less ubiquitous than PHP, I wouldn't be surprised if hosting, developer, and other maintenance costs for it (long term) would have it fit this scenario.

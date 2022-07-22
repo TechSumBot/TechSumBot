@@ -1,0 +1,108 @@
+To prevent instantiation of that class and use it only as a base class.
+Child classes can use the general methods defined in the abstract class.
+For example it doesn't make sense to create an instance of AbstractVehicle.
+But All vehicles can reuse a common registerMileage(int) method.
+I can't think of any good reason to use it.
+It could be used as "marker" but an interface would be a better choice.
+If this class extends another abstract class and don't have implementation of inherited abstract methods.
+This class contains some common logic for all its inheritors, but itself does not represent usable entity (in terms of particular application)
+A common reason to do this is to have the abstract class provide exploding implementations of the abstract methods as a convenience to subclasses who don't have to implement all the abstract methods, just those they want to - the remaining ones will still explode but it won't matter if those execution paths aren't exercised.
+[HttpServlet (hyper-link)] is an example of this pattern in action.
+"It has default implementations for all methods that handle the different request types, but they all throw an exception.
+"The subclass must override these if they want to do something meaningful.
+"It's OK to leave some handler methods not overridden as long as they are never called.
+"Say you have a set of related classes, but no related (shared) code, yet.
+"If we make all of these classes extend a base class with no abstract methods, that then if we wan't all of these classes to have an identical method/feature in the future, that can be done in one shot by putting it in the base class.
+"So code is not repeated and it reflects in all child classes by including it in just one place.
+"Abstract class without abstract method means you can create object of that abstract class.
+"See my Example.
+"If you write one abstract method inside abstract class then it will not compile.
+"Which means if you create abstract class without abstract method then you can create Object of that Abstract Class.
+"Yes, we can have abstract class without any abstract method.
+"Best example of abstract class without any abstract method is HttpServlet
+"Another example for having such class is when you implement creation helpers.
+"These classes are used to ease the client in the creation of objects, which are related in topic but decoupled depending on the need.
+"By nature, the methods of this creator classes are all static and they can be seen as utility classes as well.Obviously, instatntation of this classes is futile and hence the abstractkeyword.
+"To mention a recent example I met was the Sftpclass from org.springframework.integration.dsl.sftp which is basically an easy way to require objects (e.g: adapters, gateways) from the sftp api.
+"When you make a class abstract (either with or without abstract methods), you are forcing the users of this class to create concrete sub-classes of it, since they can't instantiate it.
+To prevent instantiation of that class and use it only as a base class.
+Child classes can use the general methods defined in the abstract class.
+For example it doesn't make sense to create an instance of AbstractVehicle.
+But All vehicles can reuse a common registerMileage(int) method.
+I can't think of any good reason to use it.
+It could be used as "marker" but an interface would be a better choice.
+If this class extends another abstract class and don't have implementation of inherited abstract methods.
+This class contains some common logic for all its inheritors, but itself does not represent usable entity (in terms of particular application)
+A common reason to do this is to have the abstract class provide exploding implementations of the abstract methods as a convenience to subclasses who don't have to implement all the abstract methods, just those they want to - the remaining ones will still explode but it won't matter if those execution paths aren't exercised.
+[HttpServlet (hyper-link)] is an example of this pattern in action.
+"It has default implementations for all methods that handle the different request types, but they all throw an exception.
+"The subclass must override these if they want to do something meaningful.
+"It's OK to leave some handler methods not overridden as long as they are never called.
+"Say you have a set of related classes, but no related (shared) code, yet.
+"If we make all of these classes extend a base class with no abstract methods, that then if we wan't all of these classes to have an identical method/feature in the future, that can be done in one shot by putting it in the base class.
+"So code is not repeated and it reflects in all child classes by including it in just one place.
+"Abstract class without abstract method means you can create object of that abstract class.
+"See my Example.
+"If you write one abstract method inside abstract class then it will not compile.
+"Which means if you create abstract class without abstract method then you can create Object of that Abstract Class.
+"Yes, we can have abstract class without any abstract method.
+"Best example of abstract class without any abstract method is HttpServlet
+"Another example for having such class is when you implement creation helpers.
+"These classes are used to ease the client in the creation of objects, which are related in topic but decoupled depending on the need.
+"By nature, the methods of this creator classes are all static and they can be seen as utility classes as well.Obviously, instatntation of this classes is futile and hence the abstractkeyword.
+"To mention a recent example I met was the Sftpclass from org.springframework.integration.dsl.sftp which is basically an easy way to require objects (e.g: adapters, gateways) from the sftp api.
+"When you make a class abstract (either with or without abstract methods), you are forcing the users of this class to create concrete sub-classes of it, since they can't instantiate it.
+To prevent instantiation of that class and use it only as a base class.
+Child classes can use the general methods defined in the abstract class.
+For example it doesn't make sense to create an instance of AbstractVehicle.
+But All vehicles can reuse a common registerMileage(int) method.
+I can't think of any good reason to use it.
+It could be used as "marker" but an interface would be a better choice.
+If this class extends another abstract class and don't have implementation of inherited abstract methods.
+This class contains some common logic for all its inheritors, but itself does not represent usable entity (in terms of particular application)
+A common reason to do this is to have the abstract class provide exploding implementations of the abstract methods as a convenience to subclasses who don't have to implement all the abstract methods, just those they want to - the remaining ones will still explode but it won't matter if those execution paths aren't exercised.
+[HttpServlet (hyper-link)] is an example of this pattern in action.
+"It has default implementations for all methods that handle the different request types, but they all throw an exception.
+"The subclass must override these if they want to do something meaningful.
+"It's OK to leave some handler methods not overridden as long as they are never called.
+"Say you have a set of related classes, but no related (shared) code, yet.
+"If we make all of these classes extend a base class with no abstract methods, that then if we wan't all of these classes to have an identical method/feature in the future, that can be done in one shot by putting it in the base class.
+"So code is not repeated and it reflects in all child classes by including it in just one place.
+"Abstract class without abstract method means you can create object of that abstract class.
+"See my Example.
+"If you write one abstract method inside abstract class then it will not compile.
+"Which means if you create abstract class without abstract method then you can create Object of that Abstract Class.
+"Yes, we can have abstract class without any abstract method.
+"Best example of abstract class without any abstract method is HttpServlet
+"Another example for having such class is when you implement creation helpers.
+"These classes are used to ease the client in the creation of objects, which are related in topic but decoupled depending on the need.
+"By nature, the methods of this creator classes are all static and they can be seen as utility classes as well.Obviously, instatntation of this classes is futile and hence the abstractkeyword.
+"To mention a recent example I met was the Sftpclass from org.springframework.integration.dsl.sftp which is basically an easy way to require objects (e.g: adapters, gateways) from the sftp api.
+"When you make a class abstract (either with or without abstract methods), you are forcing the users of this class to create concrete sub-classes of it, since they can't instantiate it.
+To prevent instantiation of that class and use it only as a base class.
+Child classes can use the general methods defined in the abstract class.
+For example it doesn't make sense to create an instance of AbstractVehicle.
+But All vehicles can reuse a common registerMileage(int) method.
+I can't think of any good reason to use it.
+It could be used as "marker" but an interface would be a better choice.
+If this class extends another abstract class and don't have implementation of inherited abstract methods.
+This class contains some common logic for all its inheritors, but itself does not represent usable entity (in terms of particular application)
+A common reason to do this is to have the abstract class provide exploding implementations of the abstract methods as a convenience to subclasses who don't have to implement all the abstract methods, just those they want to - the remaining ones will still explode but it won't matter if those execution paths aren't exercised.
+[HttpServlet (hyper-link)] is an example of this pattern in action.
+"It has default implementations for all methods that handle the different request types, but they all throw an exception.
+"The subclass must override these if they want to do something meaningful.
+"It's OK to leave some handler methods not overridden as long as they are never called.
+"Say you have a set of related classes, but no related (shared) code, yet.
+"If we make all of these classes extend a base class with no abstract methods, that then if we wan't all of these classes to have an identical method/feature in the future, that can be done in one shot by putting it in the base class.
+"So code is not repeated and it reflects in all child classes by including it in just one place.
+"Abstract class without abstract method means you can create object of that abstract class.
+"See my Example.
+"If you write one abstract method inside abstract class then it will not compile.
+"Which means if you create abstract class without abstract method then you can create Object of that Abstract Class.
+"Yes, we can have abstract class without any abstract method.
+"Best example of abstract class without any abstract method is HttpServlet
+"Another example for having such class is when you implement creation helpers.
+"These classes are used to ease the client in the creation of objects, which are related in topic but decoupled depending on the need.
+"By nature, the methods of this creator classes are all static and they can be seen as utility classes as well.Obviously, instatntation of this classes is futile and hence the abstractkeyword.
+"To mention a recent example I met was the Sftpclass from org.springframework.integration.dsl.sftp which is basically an easy way to require objects (e.g: adapters, gateways) from the sftp api.
+"When you make a class abstract (either with or without abstract methods), you are forcing the users of this class to create concrete sub-classes of it, since they can't instantiate it.

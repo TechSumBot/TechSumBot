@@ -1,0 +1,5 @@
+"an object and an instance are the same thing.
+when you use the keyword new for example jframe j = new jframe(); you are creating an instance of the class jframe.
+"for all intents and purposes, object and instance can be used interchangeably, but the accepted answer at this link will give you a good understanding of how you should use the two: [difference between object and instance (hyper-link)]
+"they say that they have to create an instance to their application.
+"the literal meaning of instance is "an example or single occurrence of something."

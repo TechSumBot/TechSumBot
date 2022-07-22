@@ -1,0 +1,5 @@
+"In Python, any immutable object (such as an integer, boolean, string, tuple) is hashable, meaning its value does not change during its lifetime.
+"A hashing function is a function which takes an object, say a string such as “Python,” and returns a fixed-size code.
+Hashability makes an object usable as a dictionary key and a set member, because these data structures use the hash value internally.
+"List of mutable types:
+"So based on this has value, the comparison between two tuples is done.

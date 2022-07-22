@@ -1,0 +1,5 @@
+An ordered collection maintains the order of the elements based on the sequence you put stuff into/remove them from the collection.
+A sorted collection means that not only does the collection have order, but the order depends on the value of the element.
+The order is independent of the value.
+"A sorted collection is an ordered collection when the order additionally depends on the value of the element to be inserted in, throughout the use of the Comparable interface which provides you with a method to define the sorting criteria.
+"A sorted collection is always implicitly ordered (i.e.

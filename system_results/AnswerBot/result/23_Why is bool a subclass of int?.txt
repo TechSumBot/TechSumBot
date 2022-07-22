@@ -1,0 +1,5 @@
+"boolean is a subclass of int.
+it is perfectly logical, if you were around when the bool type was added to python (sometime around 2.2 or 2.3).
+prior to introduction of an actual bool type, 0 and 1 were the official representation for truth value, similar to c89.
+"however, inheriting bool from int eases the implementation enormously (in part since all c code that calls pyint_check() will continue to work -- this returns true for subclasses of int).
+to avoid unnecessarily breaking non-ideal but working code, the new bool type needed to work just like 0 and 1.

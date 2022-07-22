@@ -1,0 +1,5 @@
+"For example, Python web applications can take advantage of [mod_wsgi (hyper-link)] to talk to web servers, which is faster than any of the typical ways that PHP talks to web servers (even mod_php ends up being slower if you're using Apache, because Apache can only use the Prefork MPM with mod_php rather than multi-threaded MPM like Worker).
+"The reason for this is that you already have a (presumably) working system, with an existing investment of time and effort (and experience).
+"Of course, as others have mentioned, there's more than just speed involved in the business case to switch languages.
+"The website still is and will be PHP, but we are developing other applications, including web, in Python.
+It's about the same.

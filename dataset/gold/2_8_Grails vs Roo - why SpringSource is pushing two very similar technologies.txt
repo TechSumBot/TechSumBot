@@ -1,0 +1,5 @@
+"While you can write Groovy code like traditional Java code you still need the Groovy dependencies to run Grails applications.
+"Another difference is the philosophy the frameworks take to generating code.
+"We have both [Grails (hyper-link)] and [Spring Roo (hyper-link)] because we deeply care about developer productivity and unquestionably both of these tools deliver a serious boost to what teams can achieve on top of Spring.
+"Each technology approaches its primary language (Java or Groovy) and operating model (dev-time or runtime) with the philosophy of "how do we make the value proposition unbelievably good using this language and operating model combination?".
+"I think the main difference is between dynamic and statically typed languages - to me this is huge.

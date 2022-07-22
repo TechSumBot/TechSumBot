@@ -1,0 +1,1 @@
+Roo is very similar to Grails' command line system (e.g.Grails is a Web framework, Roo is not"Grails and Roo are very different."However I am personally considering a possible switch from Grails to Roo.If anything, I think Grails has a brighter future than Roo.

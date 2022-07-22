@@ -1,0 +1,5 @@
+If it was called "push", then it would be unclear whether we're adding stuff at the tail or at head of the list.
+Push is a defined [stack (hyper-link)] behaviour; if you pushed A on to stack (B,C,D) you would get (A,B,C,D).
+Since a pop operation isn't that common in lists (though 'removeLast' could have been used), they defined a pop() but not a push().
+Because "append" existed long before "pop" was thought of.
+Implicit here is that most people need to append to a list, but many fewer have occasion to treat lists as stacks, which is why list.append came in so much earlier.

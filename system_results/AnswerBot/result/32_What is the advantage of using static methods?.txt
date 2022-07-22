@@ -1,0 +1,5 @@
+static methods have almost no reason-to-be in python.
+"in my estimation, there is no single performance benefit of using @staticmethods compared to just defining the function outside of and separate from the class it would otherwise be a @staticmethod of.
+"if you don't need access to the attributes or methods of the class or instance, a staticmethod is better than a classmethod or instancemethod.
+static methods are great because you don't have to declare an instance of the object to which the method belongs.
+"see [this article (hyper-link)] for detailed explanation.

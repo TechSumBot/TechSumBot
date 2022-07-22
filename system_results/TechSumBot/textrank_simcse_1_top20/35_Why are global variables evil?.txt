@@ -1,0 +1,5 @@
+The reason global variables are bad is that they enable functions to have hidden (non-obvious, surprising, hard to detect, hard to diagnose) side effects, leading to an increase in complexity, potentially leading to [Spaghetti code (hyper-link)].
+[Global Variables Are Bad - Wiki Wiki Web (hyper-link)]
+This has nothing to do with Python; global variables are bad in any programming language.
+"Global variable are considered bad in almost every programming language.
+"[Functional programming - Wikipedia (hyper-link)]

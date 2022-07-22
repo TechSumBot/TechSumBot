@@ -1,0 +1,5 @@
+[Why is Global State so Evil?
+"[Are global variables bad?
+"[Why are side-effects considered evil in functional programming?
+"Yes, in theory, globals (and "state" in general) are evil.
+"Hence, global vars arise the fear of high development costs possible by the consequences for which themselves are considered evil.

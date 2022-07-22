@@ -1,0 +1,288 @@
+Am example of when wrappers are used would be in Collections, you can have an ArrayList<Integer>, but not an ArrayList<int> same with HashMaps etc.
+To get type safety we use generics and generics need objects not primitives.
+Several possible reasons:
+So that a null value is possible
+To include in a Collection
+To treat generically / polymorphically as an Object along with other Objects
+Wrapper classes are used instead of primitive types when an Object is expected.
+In Collections for example, an ArrayList may contain instances of any subclass of Object, but because primitive types are not Objects, they could not be contained in the ArrayList.
+Java is an object oriented programming language.
+I think you could also ask - why do we have primitives and why is everything not just an object?
+"Java designers kept the two separate to keep things simple.
+"You use the wrappers when you need types that fit in the object oriented world - like polymorphism, collections etc.
+"You use the primitives when you need efficiency.
+"Java is an object-oriented language and as said everything in java is an object.
+"But what about the primitives?
+"They are sort of left out in the world of objects, that is, they cannot participate in the object activities, such as being returned from a method as an object, and being added to a Collection of objects, etc.
+"As a solution to this problem, Java allows you to include the primitives in the family of objects by using what are called wrapper classes.
+"Java uses primitive types, such as int, char, double to hold the basic data types supported by the language.
+"Sometimes it is required to create an object representation of these primitive types.
+"These are collection classes that deal only with such objects.
+"One needs to wrap the primitive type in a class.
+"To satisfy this need, java provides classes that correspond to each of the primitive types.
+"Basically, these classes encapsulate, or wrap, the primitive types within a class.
+"Thus, they are commonly referred to as type wrapper.
+"Type wrapper are classes that encapsulate a primitive type within an object.
+"The wrapper types are Byte, Short, Integer, Long, Character, Boolean, Double, Float.
+"Wrapper classes are used to convert any primitive type into an object.The primitive data types are not objects, they do not belong to any class, they are defined in the language itself.
+"While storing in data structures which support only objects, it is required to convert the primitive type to object first, so we go for wrapper class.
+"There are three reasons that you might use a Number object rather than a primitive:
+"As an argument of a method that expects an object (often used when manipulating collections of numbers).
+"To use constants defined by the class, such as MIN_VALUE and MAX_VALUE, that provide the upper and lower bounds of the data type.
+"To use class methods for converting values to and from other primitive types, for converting to and from strings, and for converting between number systems (decimal, octal, hexadecimal, binary).
+"Source from:
+"[The Numbers Classes ](https://docs.oracle.com/javase/tutorial/java/data/numberclasses.html)
+"Java is an object-oriented language and can view everything as an object.
+"A simple file can be treated as an object , an address of a system can be seen as an object , an image can be treated as an object (with java.awt.Image) and a simple data type can be converted into an object (with wrapper classes).
+"This tutorial discusses wrapper classes.
+"Wrapper classes are used to convert any data type into an object.
+"The primitive data types are not objects; they do not belong to any class; they are defined in the language itself.
+"Sometimes, it is required to convert data types into objects in Java language.
+"For example, upto JDK1.4, the data structures accept only objects to store.
+"A data type is to be converted into an object and then added to a Stack or Vector etc.
+"For this conversion, the designers introduced wrapper classes.
+"What are Wrapper classes?
+"As the name says, a wrapper class wraps (encloses) around a data type and gives it an object appearance.
+"Wherever, the data type is required as an object, this object can be used.
+"Wrapper classes include methods to unwrap the object and give back the data type.
+"It can be compared with a chocolate.
+"The manufacturer wraps the chocolate with some foil or paper to prevent from pollution.
+"The user takes the chocolate, removes and throws the wrapper and eats it.
+"Observe the following conversion.
+"The int data type k is converted into an object, it1 using Integer class.
+"The it1 object can be used in Java programming wherever k is required an object.
+"The following code can be used to unwrap (getting back int from Integer object) the object it1.
+"intValue() is a method of Integer class that returns an int data type.
+"Importance of Wrapper classes
+"There are mainly two uses with wrapper classes.
+"1) To convert simple data types into objects, that is, to give object form to a data type; here constructors are used.
+"2) To convert strings into data types (known as parsing operations), here methods of type parseXXX() are used.
+"Features of the Java wrapper Classes.
+"1) Wrapper classes convert numeric strings into numeric values.
+"2) The way to store primitive data in an object.
+"3) The valueOf() method is available in all wrapper classes except Character
+"4) All wrapper classes have typeValue() method.
+"This method returns the value of the object as its primitive type.
+"When the Java language was "invented" people thought that having primitive types int, long, ... would avoid performance issues.
+"15+ years back, there were no efficient JIT compilers; so it made a huge difference if you had to create an array for 10000 ints ... or for 10 000 Integer objects.
+"On the other hand, Java wants to be a object-oriented language.
+"Therefore those primitive types came with accompanying classes.
+"You are correct in the sense: if there would be no primitive tpyes, just Integer, Long, ... and so on, the Java type system would be more consistent, much simpler ... but back in 1997 this simple type system would have been to "expensive" regarding performance.
+"And unfortunately people didn't think about allowing primitive types in bytecode ... but not having them in the Java language itself (and the compiler converting Integer to int internally).
+"The main usage nowadays is the fact that the Java compiler does autoboxing (automated conversion between primitive and "object based" types); so you can write stuff like:
+Am example of when wrappers are used would be in Collections, you can have an ArrayList<Integer>, but not an ArrayList<int> same with HashMaps etc.
+To get type safety we use generics and generics need objects not primitives.
+Several possible reasons:
+So that a null value is possible
+To include in a Collection
+To treat generically / polymorphically as an Object along with other Objects
+Wrapper classes are used instead of primitive types when an Object is expected.
+In Collections for example, an ArrayList may contain instances of any subclass of Object, but because primitive types are not Objects, they could not be contained in the ArrayList.
+Java is an object oriented programming language.
+I think you could also ask - why do we have primitives and why is everything not just an object?
+"Java designers kept the two separate to keep things simple.
+"You use the wrappers when you need types that fit in the object oriented world - like polymorphism, collections etc.
+"You use the primitives when you need efficiency.
+"Java is an object-oriented language and as said everything in java is an object.
+"But what about the primitives?
+"They are sort of left out in the world of objects, that is, they cannot participate in the object activities, such as being returned from a method as an object, and being added to a Collection of objects, etc.
+"As a solution to this problem, Java allows you to include the primitives in the family of objects by using what are called wrapper classes.
+"Java uses primitive types, such as int, char, double to hold the basic data types supported by the language.
+"Sometimes it is required to create an object representation of these primitive types.
+"These are collection classes that deal only with such objects.
+"One needs to wrap the primitive type in a class.
+"To satisfy this need, java provides classes that correspond to each of the primitive types.
+"Basically, these classes encapsulate, or wrap, the primitive types within a class.
+"Thus, they are commonly referred to as type wrapper.
+"Type wrapper are classes that encapsulate a primitive type within an object.
+"The wrapper types are Byte, Short, Integer, Long, Character, Boolean, Double, Float.
+"Wrapper classes are used to convert any primitive type into an object.The primitive data types are not objects, they do not belong to any class, they are defined in the language itself.
+"While storing in data structures which support only objects, it is required to convert the primitive type to object first, so we go for wrapper class.
+"There are three reasons that you might use a Number object rather than a primitive:
+"As an argument of a method that expects an object (often used when manipulating collections of numbers).
+"To use constants defined by the class, such as MIN_VALUE and MAX_VALUE, that provide the upper and lower bounds of the data type.
+"To use class methods for converting values to and from other primitive types, for converting to and from strings, and for converting between number systems (decimal, octal, hexadecimal, binary).
+"Source from:
+"[The Numbers Classes ](https://docs.oracle.com/javase/tutorial/java/data/numberclasses.html)
+"Java is an object-oriented language and can view everything as an object.
+"A simple file can be treated as an object , an address of a system can be seen as an object , an image can be treated as an object (with java.awt.Image) and a simple data type can be converted into an object (with wrapper classes).
+"This tutorial discusses wrapper classes.
+"Wrapper classes are used to convert any data type into an object.
+"The primitive data types are not objects; they do not belong to any class; they are defined in the language itself.
+"Sometimes, it is required to convert data types into objects in Java language.
+"For example, upto JDK1.4, the data structures accept only objects to store.
+"A data type is to be converted into an object and then added to a Stack or Vector etc.
+"For this conversion, the designers introduced wrapper classes.
+"What are Wrapper classes?
+"As the name says, a wrapper class wraps (encloses) around a data type and gives it an object appearance.
+"Wherever, the data type is required as an object, this object can be used.
+"Wrapper classes include methods to unwrap the object and give back the data type.
+"It can be compared with a chocolate.
+"The manufacturer wraps the chocolate with some foil or paper to prevent from pollution.
+"The user takes the chocolate, removes and throws the wrapper and eats it.
+"Observe the following conversion.
+"The int data type k is converted into an object, it1 using Integer class.
+"The it1 object can be used in Java programming wherever k is required an object.
+"The following code can be used to unwrap (getting back int from Integer object) the object it1.
+"intValue() is a method of Integer class that returns an int data type.
+"Importance of Wrapper classes
+"There are mainly two uses with wrapper classes.
+"1) To convert simple data types into objects, that is, to give object form to a data type; here constructors are used.
+"2) To convert strings into data types (known as parsing operations), here methods of type parseXXX() are used.
+"Features of the Java wrapper Classes.
+"1) Wrapper classes convert numeric strings into numeric values.
+"2) The way to store primitive data in an object.
+"3) The valueOf() method is available in all wrapper classes except Character
+"4) All wrapper classes have typeValue() method.
+"This method returns the value of the object as its primitive type.
+"When the Java language was "invented" people thought that having primitive types int, long, ... would avoid performance issues.
+"15+ years back, there were no efficient JIT compilers; so it made a huge difference if you had to create an array for 10000 ints ... or for 10 000 Integer objects.
+"On the other hand, Java wants to be a object-oriented language.
+"Therefore those primitive types came with accompanying classes.
+"You are correct in the sense: if there would be no primitive tpyes, just Integer, Long, ... and so on, the Java type system would be more consistent, much simpler ... but back in 1997 this simple type system would have been to "expensive" regarding performance.
+"And unfortunately people didn't think about allowing primitive types in bytecode ... but not having them in the Java language itself (and the compiler converting Integer to int internally).
+"The main usage nowadays is the fact that the Java compiler does autoboxing (automated conversion between primitive and "object based" types); so you can write stuff like:
+Am example of when wrappers are used would be in Collections, you can have an ArrayList<Integer>, but not an ArrayList<int> same with HashMaps etc.
+To get type safety we use generics and generics need objects not primitives.
+Several possible reasons:
+So that a null value is possible
+To include in a Collection
+To treat generically / polymorphically as an Object along with other Objects
+Wrapper classes are used instead of primitive types when an Object is expected.
+In Collections for example, an ArrayList may contain instances of any subclass of Object, but because primitive types are not Objects, they could not be contained in the ArrayList.
+Java is an object oriented programming language.
+I think you could also ask - why do we have primitives and why is everything not just an object?
+"Java designers kept the two separate to keep things simple.
+"You use the wrappers when you need types that fit in the object oriented world - like polymorphism, collections etc.
+"You use the primitives when you need efficiency.
+"Java is an object-oriented language and as said everything in java is an object.
+"But what about the primitives?
+"They are sort of left out in the world of objects, that is, they cannot participate in the object activities, such as being returned from a method as an object, and being added to a Collection of objects, etc.
+"As a solution to this problem, Java allows you to include the primitives in the family of objects by using what are called wrapper classes.
+"Java uses primitive types, such as int, char, double to hold the basic data types supported by the language.
+"Sometimes it is required to create an object representation of these primitive types.
+"These are collection classes that deal only with such objects.
+"One needs to wrap the primitive type in a class.
+"To satisfy this need, java provides classes that correspond to each of the primitive types.
+"Basically, these classes encapsulate, or wrap, the primitive types within a class.
+"Thus, they are commonly referred to as type wrapper.
+"Type wrapper are classes that encapsulate a primitive type within an object.
+"The wrapper types are Byte, Short, Integer, Long, Character, Boolean, Double, Float.
+"Wrapper classes are used to convert any primitive type into an object.The primitive data types are not objects, they do not belong to any class, they are defined in the language itself.
+"While storing in data structures which support only objects, it is required to convert the primitive type to object first, so we go for wrapper class.
+"There are three reasons that you might use a Number object rather than a primitive:
+"As an argument of a method that expects an object (often used when manipulating collections of numbers).
+"To use constants defined by the class, such as MIN_VALUE and MAX_VALUE, that provide the upper and lower bounds of the data type.
+"To use class methods for converting values to and from other primitive types, for converting to and from strings, and for converting between number systems (decimal, octal, hexadecimal, binary).
+"Source from:
+"[The Numbers Classes ](https://docs.oracle.com/javase/tutorial/java/data/numberclasses.html)
+"Java is an object-oriented language and can view everything as an object.
+"A simple file can be treated as an object , an address of a system can be seen as an object , an image can be treated as an object (with java.awt.Image) and a simple data type can be converted into an object (with wrapper classes).
+"This tutorial discusses wrapper classes.
+"Wrapper classes are used to convert any data type into an object.
+"The primitive data types are not objects; they do not belong to any class; they are defined in the language itself.
+"Sometimes, it is required to convert data types into objects in Java language.
+"For example, upto JDK1.4, the data structures accept only objects to store.
+"A data type is to be converted into an object and then added to a Stack or Vector etc.
+"For this conversion, the designers introduced wrapper classes.
+"What are Wrapper classes?
+"As the name says, a wrapper class wraps (encloses) around a data type and gives it an object appearance.
+"Wherever, the data type is required as an object, this object can be used.
+"Wrapper classes include methods to unwrap the object and give back the data type.
+"It can be compared with a chocolate.
+"The manufacturer wraps the chocolate with some foil or paper to prevent from pollution.
+"The user takes the chocolate, removes and throws the wrapper and eats it.
+"Observe the following conversion.
+"The int data type k is converted into an object, it1 using Integer class.
+"The it1 object can be used in Java programming wherever k is required an object.
+"The following code can be used to unwrap (getting back int from Integer object) the object it1.
+"intValue() is a method of Integer class that returns an int data type.
+"Importance of Wrapper classes
+"There are mainly two uses with wrapper classes.
+"1) To convert simple data types into objects, that is, to give object form to a data type; here constructors are used.
+"2) To convert strings into data types (known as parsing operations), here methods of type parseXXX() are used.
+"Features of the Java wrapper Classes.
+"1) Wrapper classes convert numeric strings into numeric values.
+"2) The way to store primitive data in an object.
+"3) The valueOf() method is available in all wrapper classes except Character
+"4) All wrapper classes have typeValue() method.
+"This method returns the value of the object as its primitive type.
+"When the Java language was "invented" people thought that having primitive types int, long, ... would avoid performance issues.
+"15+ years back, there were no efficient JIT compilers; so it made a huge difference if you had to create an array for 10000 ints ... or for 10 000 Integer objects.
+"On the other hand, Java wants to be a object-oriented language.
+"Therefore those primitive types came with accompanying classes.
+"You are correct in the sense: if there would be no primitive tpyes, just Integer, Long, ... and so on, the Java type system would be more consistent, much simpler ... but back in 1997 this simple type system would have been to "expensive" regarding performance.
+"And unfortunately people didn't think about allowing primitive types in bytecode ... but not having them in the Java language itself (and the compiler converting Integer to int internally).
+"The main usage nowadays is the fact that the Java compiler does autoboxing (automated conversion between primitive and "object based" types); so you can write stuff like:
+Am example of when wrappers are used would be in Collections, you can have an ArrayList<Integer>, but not an ArrayList<int> same with HashMaps etc.
+To get type safety we use generics and generics need objects not primitives.
+Several possible reasons:
+So that a null value is possible
+To include in a Collection
+To treat generically / polymorphically as an Object along with other Objects
+Wrapper classes are used instead of primitive types when an Object is expected.
+In Collections for example, an ArrayList may contain instances of any subclass of Object, but because primitive types are not Objects, they could not be contained in the ArrayList.
+Java is an object oriented programming language.
+I think you could also ask - why do we have primitives and why is everything not just an object?
+"Java designers kept the two separate to keep things simple.
+"You use the wrappers when you need types that fit in the object oriented world - like polymorphism, collections etc.
+"You use the primitives when you need efficiency.
+"Java is an object-oriented language and as said everything in java is an object.
+"But what about the primitives?
+"They are sort of left out in the world of objects, that is, they cannot participate in the object activities, such as being returned from a method as an object, and being added to a Collection of objects, etc.
+"As a solution to this problem, Java allows you to include the primitives in the family of objects by using what are called wrapper classes.
+"Java uses primitive types, such as int, char, double to hold the basic data types supported by the language.
+"Sometimes it is required to create an object representation of these primitive types.
+"These are collection classes that deal only with such objects.
+"One needs to wrap the primitive type in a class.
+"To satisfy this need, java provides classes that correspond to each of the primitive types.
+"Basically, these classes encapsulate, or wrap, the primitive types within a class.
+"Thus, they are commonly referred to as type wrapper.
+"Type wrapper are classes that encapsulate a primitive type within an object.
+"The wrapper types are Byte, Short, Integer, Long, Character, Boolean, Double, Float.
+"Wrapper classes are used to convert any primitive type into an object.The primitive data types are not objects, they do not belong to any class, they are defined in the language itself.
+"While storing in data structures which support only objects, it is required to convert the primitive type to object first, so we go for wrapper class.
+"There are three reasons that you might use a Number object rather than a primitive:
+"As an argument of a method that expects an object (often used when manipulating collections of numbers).
+"To use constants defined by the class, such as MIN_VALUE and MAX_VALUE, that provide the upper and lower bounds of the data type.
+"To use class methods for converting values to and from other primitive types, for converting to and from strings, and for converting between number systems (decimal, octal, hexadecimal, binary).
+"Source from:
+"[The Numbers Classes ](https://docs.oracle.com/javase/tutorial/java/data/numberclasses.html)
+"Java is an object-oriented language and can view everything as an object.
+"A simple file can be treated as an object , an address of a system can be seen as an object , an image can be treated as an object (with java.awt.Image) and a simple data type can be converted into an object (with wrapper classes).
+"This tutorial discusses wrapper classes.
+"Wrapper classes are used to convert any data type into an object.
+"The primitive data types are not objects; they do not belong to any class; they are defined in the language itself.
+"Sometimes, it is required to convert data types into objects in Java language.
+"For example, upto JDK1.4, the data structures accept only objects to store.
+"A data type is to be converted into an object and then added to a Stack or Vector etc.
+"For this conversion, the designers introduced wrapper classes.
+"What are Wrapper classes?
+"As the name says, a wrapper class wraps (encloses) around a data type and gives it an object appearance.
+"Wherever, the data type is required as an object, this object can be used.
+"Wrapper classes include methods to unwrap the object and give back the data type.
+"It can be compared with a chocolate.
+"The manufacturer wraps the chocolate with some foil or paper to prevent from pollution.
+"The user takes the chocolate, removes and throws the wrapper and eats it.
+"Observe the following conversion.
+"The int data type k is converted into an object, it1 using Integer class.
+"The it1 object can be used in Java programming wherever k is required an object.
+"The following code can be used to unwrap (getting back int from Integer object) the object it1.
+"intValue() is a method of Integer class that returns an int data type.
+"Importance of Wrapper classes
+"There are mainly two uses with wrapper classes.
+"1) To convert simple data types into objects, that is, to give object form to a data type; here constructors are used.
+"2) To convert strings into data types (known as parsing operations), here methods of type parseXXX() are used.
+"Features of the Java wrapper Classes.
+"1) Wrapper classes convert numeric strings into numeric values.
+"2) The way to store primitive data in an object.
+"3) The valueOf() method is available in all wrapper classes except Character
+"4) All wrapper classes have typeValue() method.
+"This method returns the value of the object as its primitive type.
+"When the Java language was "invented" people thought that having primitive types int, long, ... would avoid performance issues.
+"15+ years back, there were no efficient JIT compilers; so it made a huge difference if you had to create an array for 10000 ints ... or for 10 000 Integer objects.
+"On the other hand, Java wants to be a object-oriented language.
+"Therefore those primitive types came with accompanying classes.
+"You are correct in the sense: if there would be no primitive tpyes, just Integer, Long, ... and so on, the Java type system would be more consistent, much simpler ... but back in 1997 this simple type system would have been to "expensive" regarding performance.
+"And unfortunately people didn't think about allowing primitive types in bytecode ... but not having them in the Java language itself (and the compiler converting Integer to int internally).
+"The main usage nowadays is the fact that the Java compiler does autoboxing (automated conversion between primitive and "object based" types); so you can write stuff like:

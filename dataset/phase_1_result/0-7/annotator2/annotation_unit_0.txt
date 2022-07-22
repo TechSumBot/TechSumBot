@@ -1,0 +1,75 @@
+
+Query:  "Are Thread.sleep(0) and Thread.yield() statements equivalent?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/1600603)
+ [1] #0: "Yield adds the current thread to the ready queue and allows other threads to run."
+ [1] #1: "Sleep is not guaranteed to relinquish the cpu."
+
+Answer:  #1 (https://stackoverflow.com/a/1600627)
+ [1] #2: "yield() tells the JVM Thread Scheduler that it's OK to give other threads time slices."
+ [1] #3: "Usually the JVM uses this call to activate another thread of the same thread priority."
+ [1] #4: "In a good preemptive multithreading environment, yield() is a no-op."
+ [1] #5: "However, it is important in a cooperative multithreading environment, since without yield(), one thread can eat up all of the CPU."
+ [1] #6: "sleep(x) tells the JVM Thread Scheduler to actively put this thread to sleep and not run it again until at least x milliseconds have elapsed."
+ [1] #7: "Neither sleep() nor yield() change anything about the status of synchronization locks."
+ [1] #8: "If your thread has a lock, and you call sleep(1000), then at least a second will elapse before your thread wakes up."
+ [0] #9: "When it wakes up it may decide to release the lock -- or it may hold on to it longer."
+ [0] #10: "SOURCE: [http://www.jguru.com/faq/view.jsp?EID=425624](http://www.jguru.com/faq/view.jsp?EID=425624)"
+
+Answer:  #2 (https://stackoverflow.com/a/1600638)
+ [0] #11: "No."
+ [1] #12: "The most obvious difference is that sleep() throws the (checked) InterruptedException."
+ [0] #13: "In practice, the effect may be almost the same, but it's entirely implementation-dependant."
+ [0] #14: "I'd wager that doing each a million times in a row would take much longer for sleep(), since system timer granularity probably often causes it to actually sleep for a non-negligible amount of time."
+
+Answer:  #3 (https://stackoverflow.com/a/1600679)
+ [1] #15: "Thread.Yield can give up CPU resource to threads with lower priorities, while Thread.Sleep(0) gives up CPU only to threads with equal or higher priorities."
+ [0] #16: "At least on Windows platform :)"
+
+Answer:  #4 (https://stackoverflow.com/a/1600960)
+ [1] #17: "This really depends on the platform and version of the JVM."
+ [1] #18: "For example, under Windows in JDK 5 (Hotspot), yield() is literally implemented as Sleep(0)-- although a sleep of 0 is treated slightly specially by Windows as I recall."
+ [1] #19: "But in JDK 6, yield() is implemented as SwitchToThread()."
+ [0] #20: "I put together some information a while ago on [Thread.yield()](http://www.javamex.com/tutorials/threads/yield.shtml), including some implementational details that may be of interest."
+ [0] #21: "(You might also want to see the stuff on [Thread.sleep()](http://www.javamex.com/tutorials/threads/sleep.shtml) I put together on the same site.)"
+
+Answer:  #5 (https://stackoverflow.com/a/17494898)
+ [1] #22: "OpenJDK source (Java SE 7) have the following implementation for Thread.sleep(0) in JVM_Sleep function of jvm.cpp:"
+         [code snippet]
+ [1] #23: "And implemtation of Thread.yield() have the following code:"
+         [code snippet]
+ [1] #24: "So Thread.sleep(0) and Thread.yield() may call same system calls in some platforms."
+ [1] #25: "os::sleep and os::yield are platform specific stuff."
+ [1] #26: "On both Linux and Windows: os::yield seems to be much simplier than os::sleep."
+ [0] #27: "For example: os::yield of Linux calls only [sched_yield()](http://man7.org/linux/man-pages/man2/sched_yield.2.html)."
+ [0] #28: "And os::sleep have about 70 lines of code."
+
+Answer:  #6 (https://stackoverflow.com/a/32825852)
+ [0] #29: "The famous Brian Goetz's book "Java Concurrency in Practice" (published in 2006 but still fundamentally valid) says the following on this question."
+ [1] #30: "The semantics of Thread.yield and Thread.sleep(0) are undefined [JLS17.9]; the JVM is free to implement them as no-ops or treat them as scheduling hints."
+ [1] #31: "In particular, they are not required to have the semantics of sleep(0) on Unix systems — put the current thread at the end of the run queue for that priority, yielding to other threads of the same priority — though some JVMs implement yield in this way."
+ [0] #32: "The rest one can find in the Javadoc pages."
+
+Answer:  #7 (https://stackoverflow.com/a/4827470)
+ [1] #33: "Thread.sleep() will just pause the thread and not give away control."
+ [1] #34: "Thread.yield() will pause the thread and allow other threads to run."
+ [0] #35: "If no threads need to, the original thread will resume immediately."
+
+Answer:  #8 (https://stackoverflow.com/a/4827480)
+ [1] #36: "Thread.Sleep() has a slightly larger overhead because it creates a system that includes some kind of timer that will wake the process."
+ [0] #37: "(Depends on implementation basically) Bottom line it will call a Yield() in the end."
+ [1] #38: "Thread.Yield() Will just give-up the thread's turn, and gain it in the next round."
+ [1] #39: "Thread.Sleep(0) might have an optimization to just call yield."
+ [0] #40: "(Again, implementation)"
+
+Answer:  #9 (https://stackoverflow.com/a/29773627)
+ [1] #41: "Thread.yield() is a relic from thirty or so years ago when threads were implemented on single-CPU computers with no support from the operating system, by a technique called "cooperative multitasking"."
+ [0] #42: "Back in those days, the only way a thread ever got to run is when some other thread "yielded" the CPU by calling some function in the thread library."
+ [0] #43: "Usually this would happen at points where one thread needed to wait for something, and so naturally, that was a good time to let other threads run."
+ [1] #44: "The yield() call was for the special case where a thread was doing a long computation, and it didn't want to wait for anything."
+ [0] #45: "The programmer would sprinkle a few yield() calls at strategic places in the algorithm to make sure that other threads could respond to events in a timely fashion."
+ [1] #46: "Let me say that again, because it's important: A thread would call yield() at points where it did not want to wait."
+ [1] #47: "Some form of yield() has survived in just about every threading library since, but it no longer serves any purpose unless you are re-implementing the lowest-level synchronization primitives as a learning exercise."

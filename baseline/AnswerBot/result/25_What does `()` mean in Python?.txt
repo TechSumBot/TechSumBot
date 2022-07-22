@@ -1,0 +1,5 @@
+it has now been removed in python 3.
+"unlike c, all comparison operations in python have the same priority, which is lower than that of any arithmetic, shifting or bitwise operation.
+"it's worth knowing that you can use python itself to find documentation, even for punctuation mark operators that google can't cope with.
+"a library old enough to use it likely runs into various other incompatibilities with python 3 as well: it is probably a good idea to run it through [2to3 (hyper-link)], which automatically changes this, among many other things.
+if you are crazy you can scrap != and allow only () in py3k using [this easter egg (hyper-link)]:

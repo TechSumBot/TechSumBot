@@ -1,0 +1,5 @@
+"Final fields do not need to be static, and sometimes it can be useful to have a non-static final instance variable.
+"static final fields are usually for constants - whereas instance fields which are final are usually used when creating immutable types.
+"Usually, non-static final fields are still marked private for the usual reasons, though, so it's more of an extra check so the compiler can make sure you're never setting the property again.
+Static means that it belongs to the actual class, not an instance of it.
+"static means that the field relates to the type rather than any particular instance of the type.

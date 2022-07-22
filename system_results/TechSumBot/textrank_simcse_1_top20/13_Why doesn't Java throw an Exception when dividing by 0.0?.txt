@@ -1,0 +1,5 @@
+Java's float and double types, like pretty much any other language out there (and pretty much any hardware FP unit), implement the [IEEE 754 (hyper-link)] standard for floating point math, which mandates division by zero to return a special "infinity" value.
+Integer arithmetic (implemented as [two's complement (hyper-link)] representation by Java and most other languages and hardware) is different and has no special infinity or NaN values, thus throwing exceptions is a useful behaviour there.
+"Division of a nonzero finite value by a zero results in a signed infinity.
+The result of division by zero is, mathematically speaking, undefined, which can be expressed with a float/double (as NaN - not a number), it isn't, however, wrong in any fundamental sense.
+"Doubles in Java (and some but not all other languages) support values that are NaN (Not a number).

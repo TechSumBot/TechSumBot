@@ -1,0 +1,164 @@
+It has to do with [operator precedence in Python (hyper-link)] (the interpreter thinks you're comparing True to not, since == has a higher precedence than not).
+You need some parentheses to clarify the order of operations:
+In general, you can't use not on the right side of a comparison without parentheses.
+However, I can't think of a situation in which you'd ever need to use a not on the right side of a comparison.
+It's just a matter of operator precedence.
+Try:
+Have a look in [this table of operator precedences (hyper-link)], you'll find that == binds tigher than not, and thus True == not False is parsed as (True == not) False which is clearly an error.
+I think what you are looking for is "and not".
+This gives you the results you are looking towards.
+If your comparing booleans what you have is a compound boolean expression, here is an example website [Compound Boolean Expression (hyper-link)].
+"Answers claiming that the reason for True == not False constituting a syntax error had to do with operator precedence are mistaken.
+"If that were the case, the expression 2 ** - 1 would yield a syntax error as well, which of course it doesn't.
+"Precedence never causes an operator to be drawn in in place of an operand.
+"The true reason for True == not False being a syntax error is that there exists no syntax rule that would produce a [comparison (hyper-link)] therefrom, since
+"comparison ::= or_expr (comp_operator or_expr)*
+"- i. e. after the comp_operator == an [or_expr (hyper-link)] must follow, which includes an xor_expr, an and_expr, a [shift_expr (hyper-link)], an a_expr, an [m_expr (hyper-link)], an [u_expr (hyper-link)], a [power (hyper-link)]…, but no [not_test (hyper-link)].
+"By comparison, the precedence-wise similar construct 2 ** - 1 in accordance with the power rule
+"power ::= (await_expr | primary) ["**" u_expr]
+"has u_expr following the power operator **, thus allowing - x on the right hand side.
+"is not not doesn't work.
+"This is not a very bad thing, as it's never needed.
+"is not has the same operator precedence as is, which makes sense.
+"is has a higher operator precedence than not, otherwise x is not y would mean x is (not y), when it needs to mean x is not (y).
+"But you can't figure out if a is not not b because you can't get the answer for is not before you do not b.
+"Another thing to remember is that is, not and is not are actually three separate operators.
+"In other words, is not is not (no pun intended) a combination of is and not.
+"In the case of your example
+"Python tries to pass False and not to the is not operator.
+"Since not is not a valid operand, a syntax error results.
+"The problem is the use of == where you need =.
+"This normally wouldn't cause a syntax error, but in your case, you have:
+"which is the same as:
+"This groups as:
+"and that causes the syntax error.
+"An assignment operator, on the other hand, has lower precedence, so:
+"groups as:
+"which is fine.
+"The syntax error seems to be caused by the not keyword, not (pun intended) the equality operator:
+"The explanation can be found in the [docs (hyper-link)]:
+"not has a lower priority than non-Boolean operators, so not a == b is interpreted as not (a == b), and a == not b is a syntax error.
+"Basically, the interpreter thinks you're comparing True to not.
+It has to do with [operator precedence in Python (hyper-link)] (the interpreter thinks you're comparing True to not, since == has a higher precedence than not).
+You need some parentheses to clarify the order of operations:
+In general, you can't use not on the right side of a comparison without parentheses.
+However, I can't think of a situation in which you'd ever need to use a not on the right side of a comparison.
+It's just a matter of operator precedence.
+Try:
+Have a look in [this table of operator precedences (hyper-link)], you'll find that == binds tigher than not, and thus True == not False is parsed as (True == not) False which is clearly an error.
+I think what you are looking for is "and not".
+This gives you the results you are looking towards.
+If your comparing booleans what you have is a compound boolean expression, here is an example website [Compound Boolean Expression (hyper-link)].
+"Answers claiming that the reason for True == not False constituting a syntax error had to do with operator precedence are mistaken.
+"If that were the case, the expression 2 ** - 1 would yield a syntax error as well, which of course it doesn't.
+"Precedence never causes an operator to be drawn in in place of an operand.
+"The true reason for True == not False being a syntax error is that there exists no syntax rule that would produce a [comparison (hyper-link)] therefrom, since
+"comparison ::= or_expr (comp_operator or_expr)*
+"- i. e. after the comp_operator == an [or_expr (hyper-link)] must follow, which includes an xor_expr, an and_expr, a [shift_expr (hyper-link)], an a_expr, an [m_expr (hyper-link)], an [u_expr (hyper-link)], a [power (hyper-link)]…, but no [not_test (hyper-link)].
+"By comparison, the precedence-wise similar construct 2 ** - 1 in accordance with the power rule
+"power ::= (await_expr | primary) ["**" u_expr]
+"has u_expr following the power operator **, thus allowing - x on the right hand side.
+"is not not doesn't work.
+"This is not a very bad thing, as it's never needed.
+"is not has the same operator precedence as is, which makes sense.
+"is has a higher operator precedence than not, otherwise x is not y would mean x is (not y), when it needs to mean x is not (y).
+"But you can't figure out if a is not not b because you can't get the answer for is not before you do not b.
+"Another thing to remember is that is, not and is not are actually three separate operators.
+"In other words, is not is not (no pun intended) a combination of is and not.
+"In the case of your example
+"Python tries to pass False and not to the is not operator.
+"Since not is not a valid operand, a syntax error results.
+"The problem is the use of == where you need =.
+"This normally wouldn't cause a syntax error, but in your case, you have:
+"which is the same as:
+"This groups as:
+"and that causes the syntax error.
+"An assignment operator, on the other hand, has lower precedence, so:
+"groups as:
+"which is fine.
+"The syntax error seems to be caused by the not keyword, not (pun intended) the equality operator:
+"The explanation can be found in the [docs (hyper-link)]:
+"not has a lower priority than non-Boolean operators, so not a == b is interpreted as not (a == b), and a == not b is a syntax error.
+"Basically, the interpreter thinks you're comparing True to not.
+It has to do with [operator precedence in Python (hyper-link)] (the interpreter thinks you're comparing True to not, since == has a higher precedence than not).
+You need some parentheses to clarify the order of operations:
+In general, you can't use not on the right side of a comparison without parentheses.
+However, I can't think of a situation in which you'd ever need to use a not on the right side of a comparison.
+It's just a matter of operator precedence.
+Try:
+Have a look in [this table of operator precedences (hyper-link)], you'll find that == binds tigher than not, and thus True == not False is parsed as (True == not) False which is clearly an error.
+I think what you are looking for is "and not".
+This gives you the results you are looking towards.
+If your comparing booleans what you have is a compound boolean expression, here is an example website [Compound Boolean Expression (hyper-link)].
+"Answers claiming that the reason for True == not False constituting a syntax error had to do with operator precedence are mistaken.
+"If that were the case, the expression 2 ** - 1 would yield a syntax error as well, which of course it doesn't.
+"Precedence never causes an operator to be drawn in in place of an operand.
+"The true reason for True == not False being a syntax error is that there exists no syntax rule that would produce a [comparison (hyper-link)] therefrom, since
+"comparison ::= or_expr (comp_operator or_expr)*
+"- i. e. after the comp_operator == an [or_expr (hyper-link)] must follow, which includes an xor_expr, an and_expr, a [shift_expr (hyper-link)], an a_expr, an [m_expr (hyper-link)], an [u_expr (hyper-link)], a [power (hyper-link)]…, but no [not_test (hyper-link)].
+"By comparison, the precedence-wise similar construct 2 ** - 1 in accordance with the power rule
+"power ::= (await_expr | primary) ["**" u_expr]
+"has u_expr following the power operator **, thus allowing - x on the right hand side.
+"is not not doesn't work.
+"This is not a very bad thing, as it's never needed.
+"is not has the same operator precedence as is, which makes sense.
+"is has a higher operator precedence than not, otherwise x is not y would mean x is (not y), when it needs to mean x is not (y).
+"But you can't figure out if a is not not b because you can't get the answer for is not before you do not b.
+"Another thing to remember is that is, not and is not are actually three separate operators.
+"In other words, is not is not (no pun intended) a combination of is and not.
+"In the case of your example
+"Python tries to pass False and not to the is not operator.
+"Since not is not a valid operand, a syntax error results.
+"The problem is the use of == where you need =.
+"This normally wouldn't cause a syntax error, but in your case, you have:
+"which is the same as:
+"This groups as:
+"and that causes the syntax error.
+"An assignment operator, on the other hand, has lower precedence, so:
+"groups as:
+"which is fine.
+"The syntax error seems to be caused by the not keyword, not (pun intended) the equality operator:
+"The explanation can be found in the [docs (hyper-link)]:
+"not has a lower priority than non-Boolean operators, so not a == b is interpreted as not (a == b), and a == not b is a syntax error.
+"Basically, the interpreter thinks you're comparing True to not.
+It has to do with [operator precedence in Python (hyper-link)] (the interpreter thinks you're comparing True to not, since == has a higher precedence than not).
+You need some parentheses to clarify the order of operations:
+In general, you can't use not on the right side of a comparison without parentheses.
+However, I can't think of a situation in which you'd ever need to use a not on the right side of a comparison.
+It's just a matter of operator precedence.
+Try:
+Have a look in [this table of operator precedences (hyper-link)], you'll find that == binds tigher than not, and thus True == not False is parsed as (True == not) False which is clearly an error.
+I think what you are looking for is "and not".
+This gives you the results you are looking towards.
+If your comparing booleans what you have is a compound boolean expression, here is an example website [Compound Boolean Expression (hyper-link)].
+"Answers claiming that the reason for True == not False constituting a syntax error had to do with operator precedence are mistaken.
+"If that were the case, the expression 2 ** - 1 would yield a syntax error as well, which of course it doesn't.
+"Precedence never causes an operator to be drawn in in place of an operand.
+"The true reason for True == not False being a syntax error is that there exists no syntax rule that would produce a [comparison (hyper-link)] therefrom, since
+"comparison ::= or_expr (comp_operator or_expr)*
+"- i. e. after the comp_operator == an [or_expr (hyper-link)] must follow, which includes an xor_expr, an and_expr, a [shift_expr (hyper-link)], an a_expr, an [m_expr (hyper-link)], an [u_expr (hyper-link)], a [power (hyper-link)]…, but no [not_test (hyper-link)].
+"By comparison, the precedence-wise similar construct 2 ** - 1 in accordance with the power rule
+"power ::= (await_expr | primary) ["**" u_expr]
+"has u_expr following the power operator **, thus allowing - x on the right hand side.
+"is not not doesn't work.
+"This is not a very bad thing, as it's never needed.
+"is not has the same operator precedence as is, which makes sense.
+"is has a higher operator precedence than not, otherwise x is not y would mean x is (not y), when it needs to mean x is not (y).
+"But you can't figure out if a is not not b because you can't get the answer for is not before you do not b.
+"Another thing to remember is that is, not and is not are actually three separate operators.
+"In other words, is not is not (no pun intended) a combination of is and not.
+"In the case of your example
+"Python tries to pass False and not to the is not operator.
+"Since not is not a valid operand, a syntax error results.
+"The problem is the use of == where you need =.
+"This normally wouldn't cause a syntax error, but in your case, you have:
+"which is the same as:
+"This groups as:
+"and that causes the syntax error.
+"An assignment operator, on the other hand, has lower precedence, so:
+"groups as:
+"which is fine.
+"The syntax error seems to be caused by the not keyword, not (pun intended) the equality operator:
+"The explanation can be found in the [docs (hyper-link)]:
+"not has a lower priority than non-Boolean operators, so not a == b is interpreted as not (a == b), and a == not b is a syntax error.
+"Basically, the interpreter thinks you're comparing True to not.

@@ -1,0 +1,124 @@
+It means NOT EQUAL, but it is deprecated, use != instead.
+It means not equal to.
+It was taken from ABC (python's predecessor) see [here (hyper-link)]:
+x ( y, x (= y, x )= y, x ) y, x = y, x () y, 0 (= d ( 10
+Order tests (() means 'not equals')
+I believe ABC took it from Pascal, a language Guido began programming with.
+It has now been removed in Python 3.
+Use != instead.
+If you are CRAZY you can scrap != and allow only () in Py3K using [this easter egg (hyper-link)]:
+It is an old way of specifying !=, that was removed in Python 3.
+"A library old enough to use it likely runs into various other incompatibilities with Python 3 as well: it is probably a good idea to run it through [2to3 (hyper-link)], which automatically changes this, among many other things.
+"It's worth knowing that you can use Python itself to find documentation, even for punctuation mark operators that Google can't cope with.
+"Unlike C, all comparison operations in Python have the same priority, which is lower than that of any arithmetic, shifting or bitwise operation.
+"Also unlike C, expressions like a ( b ( c have the interpretation that is conventional in mathematics:
+"Comparisons yield boolean values: True or False.
+"Comparisons can be chained arbitrarily, e.g., x ( y (= z is equivalent to x ( y and y (= z, except that y is evaluated only once (but in both cases z is not evaluated at all when x ( y is found to be false).
+"The forms () and != are equivalent; for consistency with C, != is preferred; where != is mentioned below () is also accepted.
+"The () spelling is considered obsolescent.
+"See [http://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]
+"() is deprecated.
+"Other than that, no.
+"As described in [the documentation (hyper-link)], they are the same.
+"() is deprecated and was removed in Python 3, so you should use !=.
+"It's the inequality operator, synonymous to !=.
+"From the [documentation (hyper-link)]:
+"The forms () and != are equivalent; for consistency with C, != is preferred; where != is mentioned below () is also accepted.
+"The () spelling is considered obsolescent.
+"The () spelling has been removed in Python 3.
+"it looks like it's the same as !=
+"The () operator is considered obsolete:
+"[https://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]
+It means NOT EQUAL, but it is deprecated, use != instead.
+It means not equal to.
+It was taken from ABC (python's predecessor) see [here (hyper-link)]:
+x ( y, x (= y, x )= y, x ) y, x = y, x () y, 0 (= d ( 10
+Order tests (() means 'not equals')
+I believe ABC took it from Pascal, a language Guido began programming with.
+It has now been removed in Python 3.
+Use != instead.
+If you are CRAZY you can scrap != and allow only () in Py3K using [this easter egg (hyper-link)]:
+It is an old way of specifying !=, that was removed in Python 3.
+"A library old enough to use it likely runs into various other incompatibilities with Python 3 as well: it is probably a good idea to run it through [2to3 (hyper-link)], which automatically changes this, among many other things.
+"It's worth knowing that you can use Python itself to find documentation, even for punctuation mark operators that Google can't cope with.
+"Unlike C, all comparison operations in Python have the same priority, which is lower than that of any arithmetic, shifting or bitwise operation.
+"Also unlike C, expressions like a ( b ( c have the interpretation that is conventional in mathematics:
+"Comparisons yield boolean values: True or False.
+"Comparisons can be chained arbitrarily, e.g., x ( y (= z is equivalent to x ( y and y (= z, except that y is evaluated only once (but in both cases z is not evaluated at all when x ( y is found to be false).
+"The forms () and != are equivalent; for consistency with C, != is preferred; where != is mentioned below () is also accepted.
+"The () spelling is considered obsolescent.
+"See [http://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]
+"() is deprecated.
+"Other than that, no.
+"As described in [the documentation (hyper-link)], they are the same.
+"() is deprecated and was removed in Python 3, so you should use !=.
+"It's the inequality operator, synonymous to !=.
+"From the [documentation (hyper-link)]:
+"The forms () and != are equivalent; for consistency with C, != is preferred; where != is mentioned below () is also accepted.
+"The () spelling is considered obsolescent.
+"The () spelling has been removed in Python 3.
+"it looks like it's the same as !=
+"The () operator is considered obsolete:
+"[https://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]
+It means NOT EQUAL, but it is deprecated, use != instead.
+It means not equal to.
+It was taken from ABC (python's predecessor) see [here (hyper-link)]:
+x ( y, x (= y, x )= y, x ) y, x = y, x () y, 0 (= d ( 10
+Order tests (() means 'not equals')
+I believe ABC took it from Pascal, a language Guido began programming with.
+It has now been removed in Python 3.
+Use != instead.
+If you are CRAZY you can scrap != and allow only () in Py3K using [this easter egg (hyper-link)]:
+It is an old way of specifying !=, that was removed in Python 3.
+"A library old enough to use it likely runs into various other incompatibilities with Python 3 as well: it is probably a good idea to run it through [2to3 (hyper-link)], which automatically changes this, among many other things.
+"It's worth knowing that you can use Python itself to find documentation, even for punctuation mark operators that Google can't cope with.
+"Unlike C, all comparison operations in Python have the same priority, which is lower than that of any arithmetic, shifting or bitwise operation.
+"Also unlike C, expressions like a ( b ( c have the interpretation that is conventional in mathematics:
+"Comparisons yield boolean values: True or False.
+"Comparisons can be chained arbitrarily, e.g., x ( y (= z is equivalent to x ( y and y (= z, except that y is evaluated only once (but in both cases z is not evaluated at all when x ( y is found to be false).
+"The forms () and != are equivalent; for consistency with C, != is preferred; where != is mentioned below () is also accepted.
+"The () spelling is considered obsolescent.
+"See [http://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]
+"() is deprecated.
+"Other than that, no.
+"As described in [the documentation (hyper-link)], they are the same.
+"() is deprecated and was removed in Python 3, so you should use !=.
+"It's the inequality operator, synonymous to !=.
+"From the [documentation (hyper-link)]:
+"The forms () and != are equivalent; for consistency with C, != is preferred; where != is mentioned below () is also accepted.
+"The () spelling is considered obsolescent.
+"The () spelling has been removed in Python 3.
+"it looks like it's the same as !=
+"The () operator is considered obsolete:
+"[https://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]
+It means NOT EQUAL, but it is deprecated, use != instead.
+It means not equal to.
+It was taken from ABC (python's predecessor) see [here (hyper-link)]:
+x ( y, x (= y, x )= y, x ) y, x = y, x () y, 0 (= d ( 10
+Order tests (() means 'not equals')
+I believe ABC took it from Pascal, a language Guido began programming with.
+It has now been removed in Python 3.
+Use != instead.
+If you are CRAZY you can scrap != and allow only () in Py3K using [this easter egg (hyper-link)]:
+It is an old way of specifying !=, that was removed in Python 3.
+"A library old enough to use it likely runs into various other incompatibilities with Python 3 as well: it is probably a good idea to run it through [2to3 (hyper-link)], which automatically changes this, among many other things.
+"It's worth knowing that you can use Python itself to find documentation, even for punctuation mark operators that Google can't cope with.
+"Unlike C, all comparison operations in Python have the same priority, which is lower than that of any arithmetic, shifting or bitwise operation.
+"Also unlike C, expressions like a ( b ( c have the interpretation that is conventional in mathematics:
+"Comparisons yield boolean values: True or False.
+"Comparisons can be chained arbitrarily, e.g., x ( y (= z is equivalent to x ( y and y (= z, except that y is evaluated only once (but in both cases z is not evaluated at all when x ( y is found to be false).
+"The forms () and != are equivalent; for consistency with C, != is preferred; where != is mentioned below () is also accepted.
+"The () spelling is considered obsolescent.
+"See [http://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]
+"() is deprecated.
+"Other than that, no.
+"As described in [the documentation (hyper-link)], they are the same.
+"() is deprecated and was removed in Python 3, so you should use !=.
+"It's the inequality operator, synonymous to !=.
+"From the [documentation (hyper-link)]:
+"The forms () and != are equivalent; for consistency with C, != is preferred; where != is mentioned below () is also accepted.
+"The () spelling is considered obsolescent.
+"The () spelling has been removed in Python 3.
+"it looks like it's the same as !=
+"The () operator is considered obsolete:
+"[https://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]

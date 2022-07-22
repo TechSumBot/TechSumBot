@@ -1,0 +1,84 @@
+
+Query:  "Grails vs Roo - why SpringSource is pushing two very similar technologies?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/2005240)
+ [1] #0: "The main difference is that Roo is a pure Java framework whereas Grails leverages Groovy as well as Java."
+ [1] #1: "Both are built on the core Spring libraries and make use of popular Java open source libraries."
+ [1] #2: "This question was asked back when Roo was announced and Graeme Rocher (Grails lead) says that both frameworks have a place within Spring and are supported equally."
+ [1] #3: "If anything, I think Grails has a brighter future than Roo."
+ [0] #4: "I love developing with it and don't see any downsides to it not being pure Java."
+
+Answer:  #1 (https://stackoverflow.com/a/2005247)
+ [1] #5: "IMO the two are not very similar."
+ [1] #6: "Even though there are similarities the following are significant differences:"
+ [1] #7: "Roo uses "Stock-Standard Java", Grails is based on Groovy"
+ [1] #8: "Grails is a Web framework, Roo is not"
+ [1] #9: "Roo is very similar to Grails' command line system (e.g."
+ [1] #10: "the create-app, create-domain-class, test-app type commands found in Grails)."
+ [1] #11: "I would not be surprised to see some "cross-pollination" between this part of the Grails framework and Roo."
+
+Answer:  #2 (https://stackoverflow.com/a/2005281)
+ [0] #12: "Ben Alex from SpringSource talks about Roo in [this interview (hyper-link)] and he is asked about Grails vs Roo."
+ [1] #13: "The main difference besides using different languages (Groovy vs Java as others mentioned) is that Roo is mainly a development time tool and Grails is more involved in runtime."
+
+Answer:  #3 (https://stackoverflow.com/a/2005838)
+ [1] #14: "They're actually not that similar."
+ [1] #15: "Roo does it's magic at compile time, where Grails is does it runtime."
+ [1] #16: "Because of that Roo projects does not take any performance hits at runtime."
+ [1] #17: "I can't see how they could be merged as Grails is built upon Groovy and Roo on Java."
+
+Answer:  #4 (https://stackoverflow.com/a/2006234)
+ [1] #18: "Grails and Roo are very different."
+ [1] #19: "The first major difference is the language used."
+ [1] #20: "While you can write Groovy code like traditional Java code you still need the Groovy dependencies to run Grails applications."
+ [1] #21: "To be as productive as possible in Grails you also need to have a grasp of features in Groovy that are not currently part of Java such as Closures."
+ [1] #22: "Another difference is the philosophy the frameworks take to generating code."
+ [1] #23: "Grails generates a lot of methods at runtime while Roo generates them on request during the development process."
+ [1] #24: "Roo has no behind the scenes magic accept for the usage of aspect oriented programming, and you can view all the code that Roo generates."
+ [1] #25: "For example in Roo you must use a command to have it generate dynamic finder methods such as findByBook() and then view the generated code in the .aj files."
+ [1] #26: "In Grails the findByBook() method is created at runtime, and you can’t view the generated code."
+ [1] #27: "Roo also allows you to stop using the framework if you chose while continuing to have a running application by merging all the generated code into normal .java files."
+ [1] #28: "You then have no dependencies on any Roo libraries at either runtime or design time."
+ [1] #29: "If you decide you don’t like Grails there’s no way to stop using the framework while continuing to have a functioning application."
+
+Answer:  #5 (https://stackoverflow.com/a/2030835)
+ [1] #30: "[SpringSource (hyper-link)]'s goal is to make it as fast and easy as possible for people to build, run and manage Spring-based solutions."
+ [1] #31: "We have both [Grails (hyper-link)] and [Spring Roo (hyper-link)] because we deeply care about developer productivity and unquestionably both of these tools deliver a serious boost to what teams can achieve on top of Spring."
+ [1] #32: "We have both technologies because Roo and Grails are very different at philosophical and implementation levels (as already noted in the other replies)."
+ [1] #33: "Each technology approaches its primary language (Java or Groovy) and operating model (dev-time or runtime) with the philosophy of "how do we make the value proposition unbelievably good using this language and operating model combination?"."
+ [1] #34: "As such you'll see each technology adopting a different style that maximises that combination (Roo's Java+Dev-time or Grail's Groovy+Runtime) and the commensurate benefits."
+ [0] #35: "These differences are actually very positive, because they mean the Spring community can chose which "flavour" of productivity solution they prefer."
+ [1] #36: "While these initial differences around language choice and runtime/dev-time operation are immediately apparent, the choice of Grails or Roo also extends to more subtle considerations such as the default technologies used, user interaction model, IDE support, dependencies, standards, roadmap, extensions etc."
+ [0] #37: "Nearly all of these differences are a natural consequence of pursuing a best-of-breed solution for a particular language style."
+ [0] #38: "Our best advice is to consider both solutions."
+ [0] #39: "Each have their sweet spots, but there are differences between the two which will make your overall experience better with one technology or the other in a given context."
+ [1] #40: "Both reference guides detail the [respective benefits (hyper-link)] of [each solution (hyper-link)]."
+ [0] #41: "Of course, remember the time investment is minimal in trying both out."
+ [0] #42: "In 10 minutes you can build a project in Roo or Grails, so give them a try and see what feels more natural for you given your specific background and project needs."
+
+Answer:  #6 (https://stackoverflow.com/a/2244604)
+ [1] #43: "I saw some comments on the Grails mailing lists which indicated that the authors believed that Roo exists only as a stepping-stone to Grails!"
+ [0] #44: "However I am personally considering a possible switch from Grails to Roo."
+ [1] #45: "I think the main difference is between dynamic and statically typed languages - to me this is huge."
+ [1] #46: "I love many features of Grails but I prefer the IDE support and compile-time checking of a statically typed language."
+ [0] #47: "Some others feel exactly the opposite, hence horses for courses."
+ [0] #48: "That said, static groovy is currently under heavy development so who knows what the future holds."
+
+Answer:  #7 (https://stackoverflow.com/a/6458273)
+ [1] #49: "take a look on this: already discussed big time [Grails vs Roo - why SpringSource is pushing two very similar technologies?"
+ [0] #50: "(hyper-link)]"
+
+Answer:  #8 (https://stackoverflow.com/a/6458389)
+ [1] #51: "There are some big differences in the basic concepts of the two frameworks:"
+ [1] #52: "Grails uses the Groovy language, which is a dynamic language very similar to Java but more powerful."
+ [1] #53: "If you like dynamic languages, this is a big plus, but it's something new to learn."
+ [1] #54: "While it's very easy to use Java classes from Groovy and vice versa, the core classes (model, controller, services) have to be Groovy code because they rely on language features not available in Java."
+ [1] #55: "Roo, on the other hand, is pure Java."
+ [1] #56: "Roo generates code up front, which can be modified and used independent of the Roo framework (there are no mandatory runtime Roo components."
+ [1] #57: "Grails projects, on the other hand, cannot work without a pretty heavy Grails runtime."
+ [1] #58: "There are also some major similarities:"
+ [1] #59: "Both frameworks create application skeletons, package and run the application through a command line"
+ [1] #60: "Both have a plugin API that allows easy integration with other frameworks, tools or libraries"

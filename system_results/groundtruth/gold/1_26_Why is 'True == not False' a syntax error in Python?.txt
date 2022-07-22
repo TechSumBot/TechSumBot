@@ -1,0 +1,5 @@
+It has to do with [operator precedence in Python (hyper-link)] (the interpreter thinks you're comparing True to not, since == has a higher precedence than not).
+The true reason for True == not False being a syntax error is that there exists no syntax rule that would produce a [comparison (hyper-link)] therefrom, since
+Another thing to remember is that is, not and is not are actually three separate operators.
+not has a lower priority than non-Boolean operators, so not a == b is interpreted as not (a == b), and a == not b is a syntax error.
+Because the code runs from left to right, so it would first run False == not which is a SyntaxError.

@@ -1,0 +1,5 @@
+"Best example of abstract class without any abstract method is HttpServlet
+"Which means if you create abstract class without abstract method then you can create Object of that Abstract Class.
+Child classes can use the general methods defined in the abstract class.
+A common reason to do this is to have the abstract class provide exploding implementations of the abstract methods as a convenience to subclasses who don't have to implement all the abstract methods, just those they want to - the remaining ones will still explode but it won't matter if those execution paths aren't exercised.
+"If you write one abstract method inside abstract class then it will not compile.

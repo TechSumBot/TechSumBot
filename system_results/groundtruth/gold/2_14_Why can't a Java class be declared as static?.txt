@@ -1,0 +1,5 @@
+A class exists once anyway so in effect, all classes are "static" in this way and all objects are instances of classes.
+From above points, we can say Java creators had not allowed an outer class to be static because there is no need to make it static.
+Allowing to make the outer class static will only increase complications, ambiguity and duplicity.
+Because this is pointless and useless.
+"Hence, no static keyword is required since the class is already global within the package and through-out the application if public.

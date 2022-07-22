@@ -1,0 +1,58 @@
+
+Query:  "Why use an abstract class without abstract methods?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/6856157)
+ [1] #0: "To prevent instantiation of that class and use it only as a base class."
+ [1] #1: "Child classes can use the general methods defined in the abstract class."
+ [0] #2: "For example it doesn't make sense to create an instance of AbstractVehicle."
+ [0] #3: "But All vehicles can reuse a common registerMileage(int) method."
+
+Answer:  #1 (https://stackoverflow.com/a/6856168)
+ [0] #4: "I can't think of any good reason to use it."
+ [0] #5: "It could be used as "marker" but an interface would be a better choice."
+
+Answer:  #2 (https://stackoverflow.com/a/6856180)
+ [1] #6: "If this class extends another abstract class and don't have implementation of inherited abstract methods."
+
+Answer:  #3 (https://stackoverflow.com/a/6856225)
+ [1] #7: "This class contains some common logic for all its inheritors, but itself does not represent usable entity (in terms of particular application)"
+
+Answer:  #4 (https://stackoverflow.com/a/6856268)
+ [1] #8: "A common reason to do this is to have the abstract class provide exploding implementations of the abstract methods as a convenience to subclasses who don't have to implement all the abstract methods, just those they want to - the remaining ones will still explode but it won't matter if those execution paths aren't exercised."
+ [0] #9: "[HttpServlet (hyper-link)] is an example of this pattern in action."
+ [1] #10: "It has default implementations for all methods that handle the different request types, but they all throw an exception."
+ [0] #11: "The subclass must override these if they want to do something meaningful."
+ [1] #12: "It's OK to leave some handler methods not overridden as long as they are never called."
+
+Answer:  #5 (https://stackoverflow.com/a/9618490)
+ [0] #13: "Say you have a set of related classes, but no related (shared) code, yet."
+ [0] #14: "If we make all of these classes extend a base class with no abstract methods, that then if we wan't all of these classes to have an identical method/feature in the future, that can be done in one shot by putting it in the base class."
+ [1] #15: "So code is not repeated and it reflects in all child classes by including it in just one place."
+
+Answer:  #6 (https://stackoverflow.com/a/20717454)
+ [1] #16: "Abstract class without abstract method means you can create object of that abstract class."
+ [0] #17: "See my Example."
+         [code snippet]
+ [1] #18: "If you write one abstract method inside abstract class then it will not compile."
+ [1] #19: "Which means if you create abstract class without abstract method then you can create Object of that Abstract Class."
+
+Answer:  #7 (https://stackoverflow.com/a/38832718)
+ [1] #20: "Yes, we can have abstract class without any abstract method."
+ [1] #21: "Best example of abstract class without any abstract method is HttpServlet"
+
+Answer:  #8 (https://stackoverflow.com/a/49008404)
+ [0] #22: "Another example for having such class is when you implement creation helpers."
+ [1] #23: "These classes are used to ease the client in the creation of objects, which are related in topic but decoupled depending on the need."
+ [1] #24: "By nature, the methods of this creator classes are all static and they can be seen as utility classes as well.Obviously, instatntation of this classes is futile and hence the abstractkeyword."
+ [0] #25: "To mention a recent example I met was the Sftpclass from org.springframework.integration.dsl.sftp which is basically an easy way to require objects (e.g: adapters, gateways) from the sftp api."
+
+Answer:  #9 (https://stackoverflow.com/a/31512204)
+ [1] #26: "When you make a class abstract (either with or without abstract methods), you are forcing the users of this class to create concrete sub-classes of it, since they can't instantiate it."
+
+Answer:  #10 (https://stackoverflow.com/a/31512278)
+ [1] #27: "A user of an abstract class must create a concrete derived class."
+ [1] #28: "This can be useful since it allows the author of an abstract class to introduce abstract functions at a later date."
+ [1] #29: "The amount of refactoring necessary at that time is then significantly reduced."

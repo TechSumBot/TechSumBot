@@ -1,0 +1,5 @@
+[repl loops (hyper-link)] (like python's interactive mode) provide immediate feedback to the programmer.
+"as already mentioned, the python interactive interpreter gives a quick and dirty way to test simple python functions and/or code snippets.
+"the building python debugger pdb also uses the intrepeter functionality, so you can not only see what a variable is when debugging, but you can also manipulate or even change it without halting debugging.
+"when people say that python is faster to develop in, i guarantee that this is a big part of what they are talking about.
+the python interpreter is a least common denominator: you can run it on multiple platforms, and it acts the same way (modulo platform-specific modules), so it's pretty easy to get a newbie going with.

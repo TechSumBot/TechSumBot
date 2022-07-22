@@ -1,0 +1,62 @@
+
+Query:  "What is a 'NoneType' object?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/21095690)
+ [0] #0: "It means you're trying to concatenate a string with something that is None."
+ [1] #1: "None is the "null" of Python, and NoneType is its type."
+ [0] #2: "This code will raise the same kind of error:"
+         [code snippet]
+
+Answer:  #1 (https://stackoverflow.com/a/21095702)
+ [1] #3: "[NoneType (hyper-link)] is simply the type of the [None (hyper-link)] singleton:"
+         [code snippet]
+ [0] #4: "From the latter link above:"
+ [0] #5: "None"
+ [1] #6: "The sole value of the type NoneType."
+ [1] #7: "None is frequently used to represent the absence of a value, as when default arguments are not passed to a function."
+ [1] #8: "Assignments to None are illegal and raise a SyntaxError."
+ [0] #9: "In your case, it looks like one of the items you are trying to concatenate is None, hence your error."
+
+Answer:  #2 (https://stackoverflow.com/a/21095714)
+ [1] #10: "In Python, to represent the absence of a value, you can use the None value types.NoneType.None"
+
+Answer:  #3 (https://stackoverflow.com/a/21095731)
+ [1] #11: "NoneType is the type for the None object, which is an object that indicates no value."
+ [1] #12: "None is the return value of functions that "don't return anything"."
+ [1] #13: "It is also a common default return value for functions that search for something and may or may not find it; for example, it's returned by re.search when the regex doesn't match, or dict.get when the key has no entry in the dict."
+ [0] #14: "You cannot add None to strings or other objects."
+ [0] #15: "One of your variables is None, not a string."
+ [0] #16: "Maybe you forgot to return in one of your functions, or maybe the user didn't provide a command-line option and optparse gave you None for that option's value."
+ [0] #17: "When you try to add None to a string, you get that exception:"
+         [code snippet]
+ [0] #18: "One of group or SNMPGROUPCMD or V3PRIVCMD has None as its value."
+
+Answer:  #4 (https://stackoverflow.com/a/21095747)
+ [0] #19: "Your error's occurring due to something like this: >>> None + "hello world" Traceback (most recent call last): File "<stdin>", line 1, in <module> TypeError: unsupported operand type(s) for +: 'NoneType' and 'str' >>>"
+ [1] #20: "Python's None object is roughly equivalent to null, nil, etc."
+ [0] #21: "in other languages."
+
+Answer:  #5 (https://stackoverflow.com/a/21095769)
+ [1] #22: "In the error message, instead of telling you that you can't concatenate two objects by showing their values (a string and None in this example), the Python interpreter tells you this by showing the types of the objects that you tried to concatenate."
+ [1] #23: "The type of every string is str while the type of the single None instance is called NoneType."
+ [0] #24: "You normally do not need to concern yourself with NoneType, but in this example it is necessary to know that type(None) == NoneType."
+
+Answer:  #6 (https://stackoverflow.com/a/34570099)
+ [1] #25: "For the sake of defensive programming, objects should be checked against nullity before using."
+         [code snippet]
+ [0] #26: "or"
+         [code snippet]
+
+Answer:  #7 (https://stackoverflow.com/a/45827710)
+ [0] #27: "From the docs, [None (hyper-link)] is:"
+ [1] #28: "The sole value of the type NoneType."
+
+Answer:  #8 (https://stackoverflow.com/a/45827728)
+ [1] #29: "None is the only NoneType , however in your case of"
+         [code snippet]
+ [0] #30: "You could do something like"
+         [code snippet]
+ [1] #31: "Meaning, any variable that holds None will obviously also return NoneType as its type since they are None."

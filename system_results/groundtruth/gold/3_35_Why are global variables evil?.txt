@@ -1,0 +1,5 @@
+(1) Global variables can be altered by any part of the code, making it difficult to remember or reason about every possible use.
+(2) A global variable can have no access control.
+(3) Using global variables causes very tight coupling of code.
+"(5) Testing in programs using global variables can be a huge pain as it is difficult to decouple them during testing.
+(4) Using global variables causes namespace pollution.

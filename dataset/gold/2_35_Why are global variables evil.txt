@@ -1,0 +1,5 @@
+The reason global variables are bad is that they enable functions to have hidden (non-obvious, surprising, hard to detect, hard to diagnose) side effects, leading to an increase in complexity, potentially leading to [Spaghetti code (hyper-link)].
+Furthermore, if you consider other people reading your code (open-source community, colleagues etc) they will have a hard time trying to understand where the global variable is being set, where has been changed and what to expect from this global variable as opposed to an isolated function that its functionality can be determined by reading the function definition itself.
+(3) Using global variables causes very tight coupling of code.
+(4) Using global variables causes namespace pollution.
+"This may lead to unnecessarily reassigning a global value.

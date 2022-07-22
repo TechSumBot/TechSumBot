@@ -1,0 +1,5 @@
+a Listener, you can use a weak reference.
+The most common usage of weak references is for values in "lookup" Maps.
+"Weak references are used to avoid keeping memory referenced by unneeded objects.
+"I use it generally for some type of cache.
+"Weak references possibly solve this problem; the cache can get quite large, and therefore time is saved if the same question is asked many times.

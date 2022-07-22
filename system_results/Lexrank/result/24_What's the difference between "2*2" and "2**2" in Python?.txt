@@ -1,0 +1,1 @@
+"A double asterisk means to the power of."The top one is a "power" operator, so in this case it is the same as 2 * 2 equal to is 2 to the power of 2.So "2 times 2" and "2 to the power 2" are the same.** is the operator for "power of".The ** operator in Python is really "power;" that is, 2**3 = 8.

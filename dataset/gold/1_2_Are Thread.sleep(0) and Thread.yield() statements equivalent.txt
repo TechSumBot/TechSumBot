@@ -1,0 +1,5 @@
+sleep(x) tells the JVM Thread Scheduler to actively put this thread to sleep and not run it again until at least x milliseconds have elapsed.
+The most obvious difference is that sleep() throws the (checked) InterruptedException.
+Thread.Yield can give up CPU resource to threads with lower priorities, while Thread.Sleep(0) gives up CPU only to threads with equal or higher priorities.
+"Thread.yield() will pause the thread and allow other threads to run.
+"Thread.Sleep() has a slightly larger overhead because it creates a system that includes some kind of timer that will wake the process.

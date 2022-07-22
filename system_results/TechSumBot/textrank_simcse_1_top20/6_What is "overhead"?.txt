@@ -1,0 +1,5 @@
+"Data structure memory overhead: A linked list requires at least one pointer for each element it contains.
+In computer science, overhead is generally considered any combination of excess or indirect computation time, memory, bandwidth, or other resources that are required to attain a particular goal.
+Overhead typically reffers to the amount of extra resources (memory, processor, time, etc.)
+This memory allocation takes time, and is not directly related to the work being done, therefore is overhead.
+"(Note that the remote server may or may not have any particular memory overhead associated with this task --- it might shove all the values immediately out to storage, for example).

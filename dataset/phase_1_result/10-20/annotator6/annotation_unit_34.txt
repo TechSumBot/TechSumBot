@@ -1,0 +1,99 @@
+
+Query:  "What exactly is an instance in Java?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/5126095)
+ [1] #0: "When you use the keyword new for example JFrame j = new JFrame(); you are creating an instance of the class JFrame."
+ [1] #1: "The new operator instantiates a class by allocating memory for a new object and returning a reference to that memory."
+ [0] #2: "Note: The phrase "instantiating a class" means the same thing as "creating an object.""
+ [1] #3: "When you create an object, you are creating an "instance" of a class, therefore "instantiating" a class."
+ [1] #4: "Take a look here [Creating Objects (hyper-link)]"
+ [0] #5: "The types of the Java programming language are divided into two categories: primitive types and reference types."
+ [0] #6: "The reference types are class types, interface types, and array types."
+ [0] #7: "There is also a special null type."
+ [0] #8: "An object is a dynamically created instance of a class type or a dynamically created array."
+ [0] #9: "The values of a reference type are references to objects."
+ [0] #10: "Refer [Types, Values, and Variables (hyper-link)] for more information"
+
+Answer:  #1 (https://stackoverflow.com/a/5126096)
+ [1] #11: "An object and an instance are the same thing."
+ [0] #12: "Personally I prefer to use the word "instance" when referring to a specific object of a specific type, for example "an instance of type Foo"."
+ [0] #13: "But when talking about objects in general I would say "objects" rather than "instances"."
+ [0] #14: "A reference either refers to a specific object or else it can be a null reference."
+ [0] #15: "They say that they have to create an instance to their application."
+ [0] #16: "What does it mean?"
+ [0] #17: "They probably mean you have to write something like this:"
+         [code snippet]
+ [0] #18: "If you are unsure what type you should instantiate you should contact the developers of the application and ask for a more complete example."
+
+Answer:  #2 (https://stackoverflow.com/a/5126098)
+ [0] #19: ""instance to an application" means nothing."
+ [1] #20: ""object" and "instance" are the same thing."
+ [1] #21: "There is a "class" that defines structure, and instances of that class (obtained with new ClassName())."
+ [0] #22: "For example there is the class Car, and there are instance with different properties like mileage, max speed, horse-power, brand, etc."
+ [0] #23: "Reference is, in the Java context, a variable* - it is something pointing to an object/instance."
+ [0] #24: "For example, String s = null; - s is a reference, that currently references no instance, but can reference an instance of the String class."
+ [0] #25: "*Jon Skeet made a note about the difference between a variable and a reference."
+ [0] #26: "See his comment."
+ [0] #27: "It is an important distinction about how Java works when you invoke a method - pass-by-value."
+ [0] #28: "The value of s is a reference."
+ [0] #29: "It's very important to distinguish between variables and values, and objects and references."
+
+Answer:  #3 (https://stackoverflow.com/a/5126102)
+ [1] #30: "I think that Object = Instance."
+ [1] #31: "Reference is a "link" to an Object."
+         [code snippet]
+ [0] #32: "variable c stores a reference to an object of type Car."
+
+Answer:  #4 (https://stackoverflow.com/a/10630359)
+ [1] #33: "The main differnece is when you say ClassName obj = null; you are just creating an object for that class."
+ [1] #34: "It's not an instance of that class."
+ [1] #35: "This statement will just allot memory for the static meber variables, not for the normal member variables."
+ [1] #36: "But when you say ClassName obj = new ClassName(); you are creating an instance of the class."
+ [1] #37: "This staement will allot memory all member variables."
+
+Answer:  #5 (https://stackoverflow.com/a/12568108)
+         [code snippet]
+ [0] #38: "Here an object is created from the Computer class."
+ [0] #39: "A reference named c allows the programmer to access the object."
+
+Answer:  #6 (https://stackoverflow.com/a/17904422)
+ [1] #40: ""creating an instance of a class" how about, "you are taking a class and making a new variable of that class that WILL change depending on an input that changes""
+ [0] #41: "Class in the library called Nacho"
+ [0] #42: "variable Libre to hold the "instance" that will change"
+ [0] #43: "Nacho Libre = new Nacho(Variable, Scanner Input, or whatever goes here, This is the place that accepts the changes then puts the value in "Libre" on the left side of the equals sign (you know "Nacho Libre = new Nacho(Scanner.in)" "Nacho Libre" is on the left of the = (that's not tech talk, that's my way of explaining it)"
+ [0] #44: "I think that is better than saying "instance of type" or "instance of class"."
+ [0] #45: "Really the point is it just needs to be detailed out more.... "instance of type or class" is not good enough for the beginner..... wow, its like a tongue twister and your brain cannot focus on tongue twisters very well.... that "instance" word is very annoying and the mere sound of it drives me nuts.... it begs for more detail.....it begs to be broken down better."
+ [0] #46: "I had to google what "instance" meant just to get my bearings straight..... try saying "instance of class" to your grandma.... yikes!"
+
+Answer:  #7 (https://stackoverflow.com/a/31285481)
+ [1] #47: "basically object and instance are the two words used interchangeably."
+ [1] #48: "A class is template for an object and an object is an instance of a class."
+
+Answer:  #8 (https://stackoverflow.com/a/37854588)
+ [1] #49: "The Literal meaning of instance is "an example or single occurrence of something.""
+ [1] #50: "which is very closer to the Instance in Java terminology."
+ [0] #51: "Java follows dynamic loading, which is not like C language where the all code is copied into the RAM at runtime."
+ [0] #52: "Lets capture this with an example."
+         [code snippet]
+ [0] #53: "Let us compile and run this code."
+ [0] #54: "step 1: javac A.class (.class file is generated which is byte code)"
+ [0] #55: "step 2: java A (.class file is converted into executable code)"
+ [0] #56: "During the step 2,The main method and the static elements are loaded into the RAM for execution."
+ [0] #57: "In the above scenario, No issue until the line y=y+1."
+ [0] #58: "But whenever x=x+1 is executed, the run time error will be thrown as the JVM does not know what the x is which is declared outside the main method(non-static)."
+ [0] #59: "So If by some means the content of .class file is available in the memory for CPU to execute, there is no more issue."
+ [0] #60: "This is done through creating the Object and the keyword NEW does this Job."
+ [0] #61: ""The concept of reserving memory in the RAM for the contents of hard disk (here .class file) at runtime is called Instance ""
+ [1] #62: "The Object is also called the instance of the class."
+
+Answer:  #9 (https://stackoverflow.com/a/25535424)
+ [1] #63: "For all intents and purposes, object and instance can be used interchangeably, but the accepted answer at this link will give you a good understanding of how you should use the two: [Difference between object and instance (hyper-link)]"
+
+Answer:  #10 (https://stackoverflow.com/a/47326718)
+ [1] #64: "Creating an instance of a class is creating an object of that class type."
+ [0] #65: "Example"
+         [code snippet]
+ [0] #66: "Type of variable a is A."

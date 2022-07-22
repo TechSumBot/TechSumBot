@@ -1,0 +1,5 @@
+I am learning Python and just this morning was thinking about the builtin constants and functions that are available in the language.
+dir(__builtins__) outputs a view of 'Python's builtin world'.
+"directions: supplies maps for traversing the Python Landscape.
+"[dir(): Display a namespace's names (hyper-link)]
+"IIRC I named it after the DIR command in DOS.

@@ -1,0 +1,5 @@
+From the [Python glossary (hyper-link)]:
+"Let me give you a working example to understand the hashable objects in python.
+"In my understanding according to Python glossary, when you create an instance of objects that are hashable, an unchangeable value is also calculated according to the members or values of the instance.
+"A hashing function is a function which takes an object, say a string such as “Python,” and returns a fixed-size code.
+"This allows Python to create a unique hash value to identify it, which can be used by dictionaries to track unique keys and sets to track unique values.

@@ -1,0 +1,126 @@
+
+Query:  "Why are global variables evil?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/19158418)
+ [0] #0: "This has nothing to do with Python; global variables are bad in any programming language."
+ [1] #1: "However, global constants are not conceptually the same as global variables; global constants are perfectly harmless."
+ [0] #2: "In Python the distinction between the two is purely by convention: CONSTANTS_ARE_CAPITALIZED and globals_are_not."
+ [1] #3: "The reason global variables are bad is that they enable functions to have hidden (non-obvious, surprising, hard to detect, hard to diagnose) side effects, leading to an increase in complexity, potentially leading to [Spaghetti code (hyper-link)]."
+ [1] #4: "However, sane use of global state is acceptable (as is local state and mutability) even in functional programming, either for algorithm optimization, reduced complexity, caching and memoization, or the practicality of porting structures originating in a predominantly imperative codebase."
+ [0] #5: "All in all, your question can be answered in many ways, so your best bet is to just google "why are global variables bad"."
+ [0] #6: "Some examples:"
+ [0] #7: "[Global Variables Are Bad - Wiki Wiki Web (hyper-link)]"
+ [0] #8: "[Why is Global State so Evil?"
+ [0] #9: "- Software Engineering Stack Exchange (hyper-link)]"
+ [0] #10: "[Are global variables bad?"
+ [0] #11: "(hyper-link)]"
+ [0] #12: "If you want to go deeper and find out why side effects are all about, and many other enlightening things, you should learn Functional Programming:"
+ [0] #13: "[Side effect (computer science) - Wikipedia (hyper-link)]"
+ [0] #14: "[Why are side-effects considered evil in functional programming?"
+ [0] #15: "- Software Engineering Stack Exchange (hyper-link)]"
+ [0] #16: "[Functional programming - Wikipedia (hyper-link)]"
+
+Answer:  #1 (https://stackoverflow.com/a/19158896)
+ [0] #17: "Yes, in theory, globals (and "state" in general) are evil."
+ [1] #18: "In practice, if you look into your python's packages directory you'll find that most modules there start with a bunch of global declarations."
+ [0] #19: "Obviously, people have no problem with them."
+ [1] #20: "Specifically to python, globals' visibility is limited to a module, therefore there are no "true" globals that affect the whole program - that makes them a way less harmful."
+ [1] #21: "Another point: there are no const, so when you need a constant you have to use a global."
+ [1] #22: "In my practice, if I happen to modify a global in a function, I always declare it with global, even if there technically no need for that, as in:"
+         [code snippet]
+ [1] #23: "This makes globals' manipulations easier to track down."
+
+Answer:  #2 (https://stackoverflow.com/a/49088850)
+ [1] #24: "A personal opinion on the topic is that having global variables being used in a function logic means that some other code can alter the logic and the expected output of that function which will make debugging very hard (especially in big projects) and will make testing harder as well."
+ [1] #25: "Furthermore, if you consider other people reading your code (open-source community, colleagues etc) they will have a hard time trying to understand where the global variable is being set, where has been changed and what to expect from this global variable as opposed to an isolated function that its functionality can be determined by reading the function definition itself."
+ [0] #26: "I believe that a clean and (nearly) bug-free code should have functions that are as pure as possible (see [pure functions (hyper-link)])."
+ [0] #27: "A pure function is the one that has the following conditions:"
+ [0] #28: "The function always evaluates the same result value given the same argument value(s)."
+ [0] #29: "The function result value cannot depend on any hidden information or state that may change while program execution proceeds or between different executions of the program, nor can it depend on any external input from I/O devices (usually—see below)."
+ [0] #30: "Evaluation of the result does not cause any semantically observable side effect or output, such as mutation of mutable objects or output to I/O devices."
+ [1] #31: "Having global variables is violating at least one of the above if not both as an external code can probably cause unexpected results."
+ [0] #32: "Another clear definition of pure functions: "Pure function is a function that takes all of its inputs as explicit arguments and produces all of its outputs as explicit results.""
+ [0] #33: "[[1] (hyper-link)]."
+ [1] #34: "Having global variables violates the idea of pure functions since an input and maybe one of the outputs (the global variable) is not explicitly being given or returned."
+ [1] #35: "Further on that, if you consider unit-testing and the F.I.R.S.T principle (Fast tests, Independent tests, Repeatable, Self-Validating and Timely) will probably violate the Independent tests principle (which means that tests don't depend on each other)."
+ [1] #36: "Having a global variable (not always) but in most of the cases (at least of what I have seen so far) is to prepare and pass results to other functions."
+ [0] #37: "This violates this principle as well."
+ [1] #38: "If the global variable has been used in that way (i.e the global variable used in function X has to be set in a function Y first) it means that to unit test function X you have to run test/run function Y first."
+ [1] #39: "On the other hand and as other people have already mentioned, if the global variable is used as a "constant" variable can be slightly better since the language does not support constants."
+ [0] #40: "However, I always prefer working with classes and having the "constants" as a class member and not use a global variable at all."
+ [1] #41: "If you have a code that two different classes require to share a global variable then you probably need to refactor your solution and make your classes independent."
+ [0] #42: "I don't believe that globals shouldn't be used."
+ [1] #43: "But if they are used the authors should consider some principles (the ones mentioned above perhaps and other software engineering principles and good practices) for a cleaner and nearly bug-free code."
+
+Answer:  #3 (https://stackoverflow.com/a/49894327)
+ [1] #44: "They are essential, the screen being a good example."
+ [1] #45: "However, in a multithreaded environment or with many developers involved, in practice often the question arises: who did (erraneously) set or clear it?"
+ [1] #46: "Depending on the architecture, analysis can be costly and be required often."
+ [1] #47: "While reading the global var can be ok, writing to it must be controlled, for example by a single thread or threadsafe class."
+ [1] #48: "Hence, global vars arise the fear of high development costs possible by the consequences for which themselves are considered evil."
+ [1] #49: "Therefore in general, it's good practice to keep the number of global vars low."
+
+Answer:  #4 (https://stackoverflow.com/a/25784037)
+ [0] #50: "Global variable are considered bad in almost every programming language."
+ [0] #51: "You may check this: [Why Global Variables Should Be Avoided When Unnecessary (hyper-link)]"
+ [1] #52: "Also to add the biggest problem to use global variables is that every function has access to these variables, and it is really hard sometimes to figure out which functions actually read and write these variables."
+
+Answer:  #5 (https://stackoverflow.com/a/27824552)
+ [1] #53: "It depends on the context."
+ [0] #54: "But why would you want to declare a global variable and then change it in this way?"
+ [0] #55: "If your goal is: 'Add 1 to a number x', then the first one is much better."
+ [0] #56: "Also consider information hiding:"
+         [code snippet]
+ [0] #57: "With this solution you as a programmer now exactly what the function does (but not how --> that's the principle of information hiding)."
+ [0] #58: "In the second example it's totally not clear and you have to first define a variable (with a specific name) and then execute the methode."
+ [0] #59: "I don't see the purpose of the second variant."
+
+Answer:  #6 (https://stackoverflow.com/a/27824625)
+ [0] #60: "First part has local code, which makes it easier to understand."
+ [0] #61: "If I cut the function and let you see it - you'll likely to understand what it does:"
+         [code snippet]
+ [0] #62: "It is also generic, since I can apply it to a range of values, this keeps the code [DRY (hyper-link)]:"
+         [code snippet]
+ [0] #63: "Second part is specific to anothervariable."
+ [1] #64: "This creates an object-like behaviour, where a function affects a state variable (in this case anothervariable)."
+ [1] #65: "Also, anothervariable is defined outside the function's scope, which makes it harder to read/understand."
+ [0] #66: "When you encounter such code, you probably should have had a class instead, capturing the state of anothervariable and manipulating it."
+ [1] #67: "Or, you could have a generic function to do what you need without depending on a specific variable defined elsewhere."
+ [1] #68: "If you wanted to achieve the same behaviour for another variable you had to write the same code twice, which defeats the purpose of having functions in the first place!"
+ [0] #69: "You would end up with:"
+         [code snippet]
+ [0] #70: "And so on..."
+
+Answer:  #7 (https://stackoverflow.com/a/59003900)
+ [0] #71: "*Hi,"
+ [0] #72: "I might be oversimplifying this but passing the dict and list with even a very high volume then what you have there would not cause any issues."
+ [0] #73: "Python passes parameters by object reference so there is no memory operation and performance should be same in both cases."
+ [0] #74: "Having said that you still need to reconsider why you want to have global variables in the first place."
+ [0] #75: "Kaya has already linked a discussion around global variables in the comments."
+ [0] #76: "Worth having a quick read*"
+
+Answer:  #8 (https://stackoverflow.com/a/59884262)
+ [0] #77: "To give a simple answer: because it's hard to read."
+ [0] #78: "For example:"
+ [0] #79: "I have three functions:"
+         [code snippet]
+ [0] #80: "Also, A is 2 originally"
+ [0] #81: "Now, imagine these functions are split up over multiple files."
+ [0] #82: "One day you want to do a task A times but A has a differentvalue than you expect!"
+ [0] #83: "Now, how would you ever figure out why A has a different value?"
+ [0] #84: "Where do you start debugging?"
+ [0] #85: "If instead all these functions needed A as input and returned it as well, it would instantly be clear where yourvariables are used and whenthey change, much easier to debug!"
+
+Answer:  #9 (https://stackoverflow.com/a/60439889)
+ [0] #86: "Not only in Python, But We should also avoid using global variables in any language."
+ [0] #87: "These are some of the reasons why global variables are considered bad −"
+ [1] #88: "(1) Global variables can be altered by any part of the code, making it difficult to remember or reason about every possible use."
+ [1] #89: "(2) A global variable can have no access control."
+ [1] #90: "It can not be limited to some parts of the program."
+ [1] #91: "(3) Using global variables causes very tight coupling of code."
+ [1] #92: "(4) Using global variables causes namespace pollution."
+ [1] #93: "This may lead to unnecessarily reassigning a global value."
+ [1] #94: "(5) Testing in programs using global variables can be a huge pain as it is difficult to decouple them during testing."

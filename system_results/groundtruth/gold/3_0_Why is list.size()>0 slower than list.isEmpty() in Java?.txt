@@ -1,0 +1,5 @@
+For other implementations of List — for example, a naïve linked list* — counting the size might take a very long time, while you only actually care whether it is greater than zero.
+A primitive linked list (one that doesn't store the size separately) for example could answer isEmpty() much faster than a size() call.
+This is due to class loading, caching, etc.
+.size() has to look at the entire list, while .isEmpty() can stop at the first one.
+Basically I had found that .size() can be O(1) or O(N), depending on the data structure; .isEmpty() is never O(N).

@@ -1,0 +1,5 @@
+well, i don't see any difference between catching a general exception or a specific one, except that when having multiple catch blocks, you can react differently depending on what the exception is.
+"a good rule of thumb is that you should only catch exceptions that you can properly deal with yourself.
+"on the other hand, if you are talking about catching exceptions inside your main() method which catches the exception, displays it and then exits... well, it's probably safe to catch just about any exception here.
+"if you cannot handle the exception completely then you should let it bubble up to someone who can.
+"so you should wrap the main body of a thread in a generic try...catch block and pass any exceptions caught there to your global exception handling code.)

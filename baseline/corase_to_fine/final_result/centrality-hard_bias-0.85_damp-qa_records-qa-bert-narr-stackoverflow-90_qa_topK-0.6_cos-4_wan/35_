@@ -1,0 +1,5 @@
+[Global Variables Are Bad - Wiki Wiki Web (hyper-link)]
+This has nothing to do with Python; global variables are bad in any programming language.
+"If the global variable has been used in that way (i.e the global variable used in function X has to be set in a function Y first) it means that to unit test function X you have to run test/run function Y first.
+"Having a global variable (not always) but in most of the cases (at least of what I have seen so far) is to prepare and pass results to other functions.
+"Yes, in theory, globals (and "state" in general) are evil.

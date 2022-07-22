@@ -1,0 +1,5 @@
+With weakly referenced map values, once there are no other references to it, the object becomes a candidate for garbage collection
+"Weak references may be used to solve the problem of circular references if the reference cycles are avoided by using weak references for some of the references within the group.
+"Weak references are also used to minimize the number of unnecessary objects in memory by allowing the program to indicate which objects are not critical by only weakly referencing them.
+"WeakReferences are best used in cases where there will be other references to the object, but you can't (or don't want to have to) detect when those other references are no longer used.
+"A WeakReference will point to the object while it is still alive, but point to "null" once the original object has been garbage collected.

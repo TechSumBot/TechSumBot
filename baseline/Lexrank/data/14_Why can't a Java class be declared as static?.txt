@@ -1,0 +1,148 @@
+In Java, the static keyword typically flags a method or field as existing not once per instance of a class, but once ever.
+A class exists once anyway so in effect, all classes are "static" in this way and all objects are instances of classes.
+static does have a meaning for inner classes, which is entirely different: Usually an inner class instance can access the members of an outer class instance that it's tied to, but if the inner class is static, it does not have such a reference and can be instantiated without an instance of the outer class.
+Maybe you saw that someplace, then tried to use it on a top-level class, where it isn't meaningful.
+Or maybe you saw it in other languages like C#, whose syntax is an awful lot like Java's.
+(One time I couldn't figure out why an outer class instance wasn't being garbage-collected -- it was because I was keeping a reference to one of its inner class instances elsewhere, and the inner class was not static and so had a reference to the outer class instance.
+So by default, I make inner classes static now.)
+To prevent a particular class being instantiated you should add a private Constructor.
+This stops 'any other' Class from being able to create an object of type Qwert.
+for example:
+"To prevent any class from creating an instance of Qwert, either by inheritance or by using [reflection (hyper-link)], you make the constructor fail by placing a poison pill:
+"its because when we use static keyword for a component, that component becomes a class level component and its memory is taken by its class.
+"We should define members as static which
+"Should be common to all objects of the class.
+"Should belong to the class and accessible by class name.
+"Should not need an object of class to access them.
+"Now suppose we are defining an outer class as static and suppose we are allowed to do so.
+"Will this serve any purpose or provide any advantage to a developer or it will create ambiguity and complications for both developers and language creators?
+"Let’s check, defining an outer class as static will serve purposes which we have defined above or not?
+"Every class is already common to all of its objects and there is no need to make it static to become available to all of its objects.
+"We need a class name to access its static members because these members are part of class while an outer class is part of package and we can directly access the class by just writing package_name.class_name (similar to class_name.static_field_name), So again there is no need to do which is already there by default.
+"We do not need any object to access a class if it is visible, we can simply write package_name.class_name to access it.
+"And by definition, a class is a blueprint for its objects and we create a class to create objects from it (exception will always be there e.g.
+"java.lang.Math), again there is no need to define an outer class as static.
+"From above points, we can say Java creators had not allowed an outer class to be static because there is no need to make it static.
+"Allowing to make the outer class static will only increase complications, ambiguity and duplicity.
+"Read more on [Why An Outer Java Class Can’t Be Static (hyper-link)]
+"Outer classes are already effectively static A static nested class means it has no reference to the outer class.
+"An outer class already has no implicit reference to another class.
+"What exactly would a static class do?
+"Would it be the "Exact same implementation across all instances"?
+"Think about it :)
+"Because this is pointless and useless.
+"If you want to have static object, just make static instance of class.
+"And if you want to invoke class methods without reference to it's object, just make this method static.
+"And then you will have:
+"You can invoke this method by A.display();.
+In Java, the static keyword typically flags a method or field as existing not once per instance of a class, but once ever.
+A class exists once anyway so in effect, all classes are "static" in this way and all objects are instances of classes.
+static does have a meaning for inner classes, which is entirely different: Usually an inner class instance can access the members of an outer class instance that it's tied to, but if the inner class is static, it does not have such a reference and can be instantiated without an instance of the outer class.
+Maybe you saw that someplace, then tried to use it on a top-level class, where it isn't meaningful.
+Or maybe you saw it in other languages like C#, whose syntax is an awful lot like Java's.
+(One time I couldn't figure out why an outer class instance wasn't being garbage-collected -- it was because I was keeping a reference to one of its inner class instances elsewhere, and the inner class was not static and so had a reference to the outer class instance.
+So by default, I make inner classes static now.)
+To prevent a particular class being instantiated you should add a private Constructor.
+This stops 'any other' Class from being able to create an object of type Qwert.
+for example:
+"To prevent any class from creating an instance of Qwert, either by inheritance or by using [reflection (hyper-link)], you make the constructor fail by placing a poison pill:
+"its because when we use static keyword for a component, that component becomes a class level component and its memory is taken by its class.
+"We should define members as static which
+"Should be common to all objects of the class.
+"Should belong to the class and accessible by class name.
+"Should not need an object of class to access them.
+"Now suppose we are defining an outer class as static and suppose we are allowed to do so.
+"Will this serve any purpose or provide any advantage to a developer or it will create ambiguity and complications for both developers and language creators?
+"Let’s check, defining an outer class as static will serve purposes which we have defined above or not?
+"Every class is already common to all of its objects and there is no need to make it static to become available to all of its objects.
+"We need a class name to access its static members because these members are part of class while an outer class is part of package and we can directly access the class by just writing package_name.class_name (similar to class_name.static_field_name), So again there is no need to do which is already there by default.
+"We do not need any object to access a class if it is visible, we can simply write package_name.class_name to access it.
+"And by definition, a class is a blueprint for its objects and we create a class to create objects from it (exception will always be there e.g.
+"java.lang.Math), again there is no need to define an outer class as static.
+"From above points, we can say Java creators had not allowed an outer class to be static because there is no need to make it static.
+"Allowing to make the outer class static will only increase complications, ambiguity and duplicity.
+"Read more on [Why An Outer Java Class Can’t Be Static (hyper-link)]
+"Outer classes are already effectively static A static nested class means it has no reference to the outer class.
+"An outer class already has no implicit reference to another class.
+"What exactly would a static class do?
+"Would it be the "Exact same implementation across all instances"?
+"Think about it :)
+"Because this is pointless and useless.
+"If you want to have static object, just make static instance of class.
+"And if you want to invoke class methods without reference to it's object, just make this method static.
+"And then you will have:
+"You can invoke this method by A.display();.
+In Java, the static keyword typically flags a method or field as existing not once per instance of a class, but once ever.
+A class exists once anyway so in effect, all classes are "static" in this way and all objects are instances of classes.
+static does have a meaning for inner classes, which is entirely different: Usually an inner class instance can access the members of an outer class instance that it's tied to, but if the inner class is static, it does not have such a reference and can be instantiated without an instance of the outer class.
+Maybe you saw that someplace, then tried to use it on a top-level class, where it isn't meaningful.
+Or maybe you saw it in other languages like C#, whose syntax is an awful lot like Java's.
+(One time I couldn't figure out why an outer class instance wasn't being garbage-collected -- it was because I was keeping a reference to one of its inner class instances elsewhere, and the inner class was not static and so had a reference to the outer class instance.
+So by default, I make inner classes static now.)
+To prevent a particular class being instantiated you should add a private Constructor.
+This stops 'any other' Class from being able to create an object of type Qwert.
+for example:
+"To prevent any class from creating an instance of Qwert, either by inheritance or by using [reflection (hyper-link)], you make the constructor fail by placing a poison pill:
+"its because when we use static keyword for a component, that component becomes a class level component and its memory is taken by its class.
+"We should define members as static which
+"Should be common to all objects of the class.
+"Should belong to the class and accessible by class name.
+"Should not need an object of class to access them.
+"Now suppose we are defining an outer class as static and suppose we are allowed to do so.
+"Will this serve any purpose or provide any advantage to a developer or it will create ambiguity and complications for both developers and language creators?
+"Let’s check, defining an outer class as static will serve purposes which we have defined above or not?
+"Every class is already common to all of its objects and there is no need to make it static to become available to all of its objects.
+"We need a class name to access its static members because these members are part of class while an outer class is part of package and we can directly access the class by just writing package_name.class_name (similar to class_name.static_field_name), So again there is no need to do which is already there by default.
+"We do not need any object to access a class if it is visible, we can simply write package_name.class_name to access it.
+"And by definition, a class is a blueprint for its objects and we create a class to create objects from it (exception will always be there e.g.
+"java.lang.Math), again there is no need to define an outer class as static.
+"From above points, we can say Java creators had not allowed an outer class to be static because there is no need to make it static.
+"Allowing to make the outer class static will only increase complications, ambiguity and duplicity.
+"Read more on [Why An Outer Java Class Can’t Be Static (hyper-link)]
+"Outer classes are already effectively static A static nested class means it has no reference to the outer class.
+"An outer class already has no implicit reference to another class.
+"What exactly would a static class do?
+"Would it be the "Exact same implementation across all instances"?
+"Think about it :)
+"Because this is pointless and useless.
+"If you want to have static object, just make static instance of class.
+"And if you want to invoke class methods without reference to it's object, just make this method static.
+"And then you will have:
+"You can invoke this method by A.display();.
+In Java, the static keyword typically flags a method or field as existing not once per instance of a class, but once ever.
+A class exists once anyway so in effect, all classes are "static" in this way and all objects are instances of classes.
+static does have a meaning for inner classes, which is entirely different: Usually an inner class instance can access the members of an outer class instance that it's tied to, but if the inner class is static, it does not have such a reference and can be instantiated without an instance of the outer class.
+Maybe you saw that someplace, then tried to use it on a top-level class, where it isn't meaningful.
+Or maybe you saw it in other languages like C#, whose syntax is an awful lot like Java's.
+(One time I couldn't figure out why an outer class instance wasn't being garbage-collected -- it was because I was keeping a reference to one of its inner class instances elsewhere, and the inner class was not static and so had a reference to the outer class instance.
+So by default, I make inner classes static now.)
+To prevent a particular class being instantiated you should add a private Constructor.
+This stops 'any other' Class from being able to create an object of type Qwert.
+for example:
+"To prevent any class from creating an instance of Qwert, either by inheritance or by using [reflection (hyper-link)], you make the constructor fail by placing a poison pill:
+"its because when we use static keyword for a component, that component becomes a class level component and its memory is taken by its class.
+"We should define members as static which
+"Should be common to all objects of the class.
+"Should belong to the class and accessible by class name.
+"Should not need an object of class to access them.
+"Now suppose we are defining an outer class as static and suppose we are allowed to do so.
+"Will this serve any purpose or provide any advantage to a developer or it will create ambiguity and complications for both developers and language creators?
+"Let’s check, defining an outer class as static will serve purposes which we have defined above or not?
+"Every class is already common to all of its objects and there is no need to make it static to become available to all of its objects.
+"We need a class name to access its static members because these members are part of class while an outer class is part of package and we can directly access the class by just writing package_name.class_name (similar to class_name.static_field_name), So again there is no need to do which is already there by default.
+"We do not need any object to access a class if it is visible, we can simply write package_name.class_name to access it.
+"And by definition, a class is a blueprint for its objects and we create a class to create objects from it (exception will always be there e.g.
+"java.lang.Math), again there is no need to define an outer class as static.
+"From above points, we can say Java creators had not allowed an outer class to be static because there is no need to make it static.
+"Allowing to make the outer class static will only increase complications, ambiguity and duplicity.
+"Read more on [Why An Outer Java Class Can’t Be Static (hyper-link)]
+"Outer classes are already effectively static A static nested class means it has no reference to the outer class.
+"An outer class already has no implicit reference to another class.
+"What exactly would a static class do?
+"Would it be the "Exact same implementation across all instances"?
+"Think about it :)
+"Because this is pointless and useless.
+"If you want to have static object, just make static instance of class.
+"And if you want to invoke class methods without reference to it's object, just make this method static.
+"And then you will have:
+"You can invoke this method by A.display();.

@@ -1,0 +1,5 @@
+These are created by the Python interpreter when a .py file is imported, and they contain the "compiled bytecode" of the imported module/program, the idea being that the "translation" from source code to bytecode (which only needs to be done once) can be skipped on subsequent imports if the .pyc is newer than the corresponding .py file, thus speeding startup a little.
+Then this .pyc file(bytecode) is interpreted using CPython interpreter.
+*.pyc file is also generated, as part of running it which performs your import operation on file in shell or in some other file.
+"To speed up loading modules, Python caches the compiled content of modules in .pyc.
+"This file is the one executed in posterior runs if you do not modify your code

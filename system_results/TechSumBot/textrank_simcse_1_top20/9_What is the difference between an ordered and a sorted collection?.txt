@@ -1,0 +1,5 @@
+"Java uses "sorted collection" to mean a collection such as SortedSet, where (unlike List), the order that the iterator traverses the collection is in accordance with a specified Comparator or the natural order of the elements.
+A sorted collection means that not only does the collection have order, but the order depends on the value of the element.
+"So the difference is whether the ordering depends on the values ("sorted"), or is a property that elements have independently of their value ("ordered").
+"A sorted collection is always implicitly ordered (i.e.
+"By ordered, it means that each element is assigned an index and can be referenced by that index.

@@ -1,0 +1,5 @@
+"The docs give a pretty good explanation of the difference between [apply()](http://developer.android.com/reference/android/content/SharedPreferences.Editor.html#apply%28%29) and [commit()](http://developer.android.com/reference/android/content/SharedPreferences.Editor.html#commit%28%29):
+"Unlike commit(), which writes its preferences out to persistent storage synchronously, apply() commits its changes to the in-memory SharedPreferences immediately but starts an asynchronous commit to disk and you won't be notified of any failures.
+"apply() commits without returning a boolean indicating success or failure.
+"As SharedPreferences instances are singletons within a process, it's safe to replace any instance of commit() with apply() if you were already ignoring the return value.
+"Error notification:

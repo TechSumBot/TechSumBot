@@ -1,0 +1,5 @@
+"() is deprecated and was removed in Python 3, so you should use !=.
+"[https://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]
+"A library old enough to use it likely runs into various other incompatibilities with Python 3 as well: it is probably a good idea to run it through [2to3 (hyper-link)], which automatically changes this, among many other things.
+It means NOT EQUAL, but it is deprecated, use != instead.
+It was taken from ABC (python's predecessor) see [here (hyper-link)]:

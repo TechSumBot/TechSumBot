@@ -1,0 +1,5 @@
+"It is a special case of engineering overhead.
+"Examples:
+"A concrete example of overhead is the difference between a "local" procedure call and a "remote" procedure call.
+"For example:
+"Is that a normal method, or a remote method?

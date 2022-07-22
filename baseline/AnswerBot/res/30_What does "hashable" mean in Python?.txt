@@ -1,0 +1,5 @@
+"in python, any immutable object (such as an integer, boolean, string, tuple) is hashable, meaning its value does not change during its lifetime.
+from the [python glossary (hyper-link)]:
+"in my understanding according to python glossary, when you create an instance of objects that are hashable, an unchangeable value is also calculated according to the members or values of the instance.
+objects which are instances of user-defined classes are hashable by default; they all compare unequal, and their hash value is their id().
+"well, python dictionaries, for example, require the keys to be immutable.

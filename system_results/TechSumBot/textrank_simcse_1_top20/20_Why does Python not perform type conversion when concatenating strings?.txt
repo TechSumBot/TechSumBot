@@ -1,0 +1,5 @@
+"Because Python does not perform type conversion when concatenating strings.
+The problem is that the conversion is ambiguous, because + means both string concatenation and numeric addition.
+"This behavior is by design, and you should get in the habit of performing explicit type conversions when you need to coerce objects into strings or numbers.
+Since type juggling rules are transitive, passing a numeric string to a function expecting numbers could get you in trouble, especially since almost all arithmetic operators have overloaded operations for strings too.
+"Languages that perform implicit conversions are Weakly Typed.

@@ -1,0 +1,5 @@
+Because python's math library is a thin wrapper around the C math library which returns floats.
+"[http://docs.python.org/whatsnew/2.4.html#pep-237-unifying-long-integers-and-integers (hyper-link)]
+"However, they return integers in python 3.
+"This makes the discussion of integer range versus float range moot because these functions will simply return the original number whenever the number is outside the range of the integer type.
+"The python functions are wrappers of the C function and so this is really a deficiency of the C functions where they should have returned an integer and forced the programer to do the range/NaN/Inf check before calling ceil/floor.

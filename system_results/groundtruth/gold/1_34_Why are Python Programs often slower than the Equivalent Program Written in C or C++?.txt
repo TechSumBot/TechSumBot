@@ -1,0 +1,5 @@
+Python is an interpreted language, which means that the Python code you write must go through many, many stages of abstraction before it can become executable machine code.
+The difference between python and C is the usual difference between an interpreted (bytecode) and compiled (to native) language.
+Python is a higher level language than C, which means it abstracts the details of the computer from you - memory management, pointers, etc, and allows you to write programs in a way which is closer to how humans think.
+Also, pythons dynamic nature makes it impossible to say what type of parameters will be passed to a function, which in turn makes optimizing a whole lot harder.
+"In languages such as C/C++, the source code is compiled into [binary code (hyper-link)] which can be directly executed by the CPU thus making their execution efficient than that of Python.

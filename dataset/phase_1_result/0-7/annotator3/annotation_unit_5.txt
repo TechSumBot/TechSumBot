@@ -1,0 +1,109 @@
+
+Query:  "What is "overhead"?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/2860256)
+ [1] #0: "Overhead typically reffers to the amount of extra resources (memory, processor, time, etc.)"
+ [0] #1: "that different programming algorithms take."
+ [0] #2: "For example, the overhead of inserting into a balanced Binary Tree could be much larger than the same insert into a simple Linked List (the insert will take longer, use more processing power to balance the Tree, which results in a longer percieved operation time by the user)."
+
+Answer:  #1 (https://stackoverflow.com/a/2860259)
+ [0] #3: "You could use a dictionary."
+ [0] #4: "The definition is the same."
+ [0] #5: "But to save you time, Overhead is work required to do the productive work."
+ [1] #6: "For instance, an algorithm runs and does useful work, but requires memory to do its work."
+ [1] #7: "This memory allocation takes time, and is not directly related to the work being done, therefore is overhead."
+
+Answer:  #2 (https://stackoverflow.com/a/2860261)
+ [0] #8: "Wikipedia [has us covered](http://en.wikipedia.org/wiki/Computational_overhead):"
+ [1] #9: "In computer science, overhead is generally considered any combination of excess or indirect computation time, memory, bandwidth, or other resources that are required to attain a particular goal."
+ [0] #10: "It is a special case of engineering overhead."
+
+Answer:  #3 (https://stackoverflow.com/a/2860263)
+ [1] #11: "It's the resources required to set up an operation."
+ [0] #12: "It might seem unrelated, but necessary."
+ [0] #13: "It's like when you need to go somewhere, you might need a car."
+ [0] #14: "But, it would be a lot of overhead to get a car to drive down the street, so you might want to walk."
+ [0] #15: "However, the overhead would be worth it if you were going across the country."
+ [0] #16: "In computer science, sometimes we use cars to go down the street because we don't have a better way, or it's not worth our time to "learn how to walk"."
+
+Answer:  #4 (https://stackoverflow.com/a/2860283)
+ [0] #17: "You can check [Wikipedia](http://en.wikipedia.org/wiki/Overhead)."
+ [?] #18: "But mainly when more actions or resources are used."
+ [0] #19: "Like if you are familiar with .NET there you can have value types and reference types."
+ [0] #20: "Reference types have memory overhead as they require more memory than value types."
+
+Answer:  #5 (https://stackoverflow.com/a/2860365)
+ [1] #21: "For a programmer overhead refers to those system resources which are consumed by your code when it's running on a giving platform on a given set of input data."
+ [0] #22: "Usually the term is used in the context of comparing different implementations or possible implementations."
+ [0] #23: "For example we might say that a particular approach might incur considerable CPU overhead while another might incur more memory overhead and yet another might weighted to network overhead (and entail an external dependency, for example)."
+ [0] #24: "Let's give a specific example: Compute the average (arithmetic mean) of a set of numbers."
+ [0] #25: "The obvious approach is to loop over the inputs, keeping a running total and a count."
+ [0] #26: "When the last number is encountered (signaled by "end of file" EOF, or some sentinel value, or some GUI buttom, whatever) then we simply divide the total by the number of inputs and we're done."
+ [0] #27: "This approach incurs almost no overhead in terms of CPU, memory or other resources."
+ [0] #28: "(It's a trivial task)."
+ [0] #29: "Another possible approach is to "slurp" the input into a list."
+ [0] #30: "iterate over the list to calculate the sum, then divide that by the number of valid items from the list."
+ [0] #31: "By comparison this approach might incur arbitrary amounts of memory overhead."
+ [0] #32: "In a particular bad implementation we might perform the sum operation using recursion but without tail-elimination."
+ [0] #33: "Now, in addition to the memory overhead for our list we're also introducing stack overhead (which is a different sort of memory and is often a more limited resource than other forms of memory)."
+ [0] #34: "Yet another (arguably more absurd) approach would be to post all of the inputs to some SQL table in an RDBMS."
+ [0] #35: "Then simply calling the SQL SUM function on that column of that table."
+ [0] #36: "This shifts our local memory overhead to some other server, and incurs network overhead and external dependencies on our execution."
+ [0] #37: "(Note that the remote server may or may not have any particular memory overhead associated with this task --- it might shove all the values immediately out to storage, for example)."
+ [0] #38: "Hypothetically might consider an implementation over some sort of cluster (possibly to make the averaging of trillions of values feasible)."
+ [0] #39: "In this case any necessary encoding and distribution of the values (mapping them out to the nodes) and the collection/collation of the results (reduction) would count as overhead."
+ [0] #40: "We can also talk about the overhead incurred by factors beyond the programmer's own code."
+ [0] #41: "For example compilation of some code for 32 or 64 bit processors might entail greater overhead than one would see for an old 8-bit or 16-bit architecture."
+ [0] #42: "This might involve larger memory overhead (alignment issues) or CPU overhead (where the CPU is forced to adjust bit ordering or used non-aligned instructions, etc) or both."
+ [0] #43: "Note that the disk space taken up by your code and it's libraries, etc."
+ [0] #44: "is not usually referred to as "overhead" but rather is called "footprint.""
+ [0] #45: "Also the base memory your program consumes (without regard to any data set that it's processing) is called its "footprint" as well."
+
+Answer:  #6 (https://stackoverflow.com/a/2860543)
+ [0] #46: "The meaning of the word can differ a lot with context."
+ [1] #47: "In general, it's resources (most often memory and CPU time) that are used, which do not contribute directly to the intended result, but are required by the technology or method that is being used."
+ [0] #48: "Examples:"
+ [0] #49: "Protocol overhead: Ethernet frames, IP packets and TCP segments all have headers, TCP connections require handshake packets."
+ [0] #50: "Thus, you cannot use the entire bandwidth the hardware is capable of for your actual data."
+ [0] #51: "You can reduce the overhead by using larger packet sizes and UDP has a smaller header and no handshake."
+ [0] #52: "Data structure memory overhead: A linked list requires at least one pointer for each element it contains."
+ [0] #53: "If the elements are the same size as a pointer, this means a 50% memory overhead, whereas an array can potentially have 0% overhead."
+ [0] #54: "Method call overhead: A well-designed program is broken down into lots of short methods."
+ [0] #55: "But each method call requires setting up a stack frame, copying parameters and a return address."
+ [0] #56: "This represents CPU overhead compared to a program that does everything in a single monolithic function."
+ [0] #57: "Of course, the added maintainability makes it very much worth it, but in some cases, excessive method calls can have a significant performance impact."
+
+Answer:  #7 (https://stackoverflow.com/a/2860544)
+ [0] #58: "You're tired and cant do any more work."
+ [0] #59: "You eat food."
+ [0] #60: "The energy spent looking for food, getting it and actually eating it consumes energy and is overhead!"
+ [1] #61: "Overhead is something wasted in order to accomplish a task."
+ [0] #62: "The goal is to make overhead very very small."
+ [0] #63: "In computer science lets say you want to print a number, thats your task."
+ [0] #64: "But storing the number, the setting up the display to print it and calling routines to print it, then accessing the number from variable are all overhead."
+
+Answer:  #8 (https://stackoverflow.com/a/2860667)
+ [?] #65: "A concrete example of overhead is the difference between a "local" procedure call and a "remote" procedure call."
+ [0] #66: "For example, with classic RPC (and many other remote frameworks, like EJB), a function or method call looks the same to a coder whether its a local, in memory call, or a distributed, network call."
+ [0] #67: "For example:"
+         [code snippet]
+ [0] #68: "Is that a normal method, or a remote method?"
+ [0] #69: "From what you see here you can't tell."
+ [0] #70: "But you can imagine that the difference in execution times between the two calls are dramatic."
+ [0] #71: "So, while the core implementation will "cost the same", the "overhead" involved is quite different."
+
+Answer:  #9 (https://stackoverflow.com/a/28256374)
+ [1] #72: "Think about the overhead as the time required to manage the threads and coordinate among them."
+ [0] #73: "It is a burden if the thread does not have enough task to do."
+ [0] #74: "In such a case the overhead cost over come the saved time through using threading and the code takes more time than the sequential one."
+
+Answer:  #10 (https://stackoverflow.com/a/51283870)
+ [1] #75: "its anything other than the data itself, ie tcp flags, headers, crc, fcs etc.."
+
+Answer:  #11 (https://stackoverflow.com/a/55507876)
+ [1] #76: "Overhead is simply the more time consumption in program execution."
+ [0] #77: "Example ; when we call a function and its control is passed where it is defined and then its body is executed, this means that we make our CPU to run through a long process( first passing the control to other place in memory and then executing there and then passing the control back to the former position) , consequently it takes alot performance time, hence Overhead."
+ [0] #78: "Our goals are to reduce this overhead by using the inline during function definition and calling time, which copies the content of the function at the function call hence we dont pass the control to some other location, but continue our program in a line, hence inline."

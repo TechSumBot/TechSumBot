@@ -1,0 +1,5 @@
+1.It eliminates the use of self argument.
+2.It reduces memory usage because Python doesn't have to instantiate a [bound-method (hyper-link)] for each object instiantiated:
+3.It improves code readability, signifying that the method does not depend on state of the object itself.
+"The only thing I would say justifies their existence is convenience.
+"A staticmethod can be used instead of a function to make clear that it subjectively belongs to a class and to prevent namespace conflicts.

@@ -1,0 +1,5 @@
+An ordered collection maintains the order of the elements based on the sequence you put stuff into/remove them from the collection.
+A sorted collection keeps the elements sorted based on a sort criteria.
+So the difference is whether the ordering depends on the values ("sorted"), or is a property that elements have independently of their value ("ordered").
+"By ordered, it means that each element is assigned an index and can be referenced by that index.
+"Ordered doesn't mean sorted, it means that the items will show up in the order you put them in.

@@ -1,0 +1,144 @@
+The if statement evaluates everything in a Boolean context, it is like there is an implicit call to the [bool() (hyper-link)] built-in function.
+Here is how you would actually check how things will be evaluated by an if statement:
+See the documentation on [Truth Value Testing (hyper-link)], empty lists are considered false, but this doesn't mean they are equivalent to False.
+[PEP 285 (hyper-link)] also has some excellent information on why it was implemented this way, see the very last bullet in the Resolved Issues section for the part that deals with x == True and x == False specifically.
+The most convincing aspect to me is that == is generally transitive, so a == b and b == c implies a == c. So if it were the way you expected and [] == False were true and '' == False were true, one might assume that [] == '' should be true (even though it obviously should not be in a language without implicit type conversion).
+Empty containers are "falsy," that is, they evaluate to False in a Boolean context.
+That doesn't mean they are literally equal to the constant False.
+In other words, the following is True:
+The truth value of an object is determined by its __nonzero__() or its __len__() method.
+(In Python 3, __nonzero__() has been renamed to __bool__().)
+"Containers have a __len__() method, so they are truthy when they have anything in them and falsy when they are empty.
+"If empty containers were literally equal to False, by the way, then any empty container would be equal to any other empty container: for example, {} == "" would be True.
+"And that just wouldn't make any sense at all!
+"However, just to blow your mind, the following is True:
+"This is because Booleans are a subclass of integers in Python, and False is basically just a zero that gets printed a little differently.
+"Built-in types in Python have a truth value which allows you to test them for truthfulness.
+"See [Truth Value Testing (hyper-link)].
+"This is different than saying object == False which is doing an actual value test (equality test).
+"It is using the objects __eq__() method to determine if their values are equal.
+"In your example, the not operator is causing your list to be converted to a boolean.
+"Try this:
+""is" and "==" don't do that conversion.
+"The empty list, [], is not equal to None.
+"However, it can evaluate to False--that is to say, its "truthiness" value is False.
+"(See the sources in the comments left on the OP.)
+"Because of this,
+"None is the sole instance of the NoneType and is usually used to signify absence of value.
+"What happens in your example is that the empty list, taken in boolean context, evaluates to False, the condition fails, so the else branch gets executed.
+"The interpreter does something along the lines of:
+"Here is another useful discussion regarding None: [not None test in Python (hyper-link)]
+"An if statement doesn't depend on whether the value is equal to true.
+"It depends on whether bool(a) is equal to True, which in this case it is.
+"Nonempty strings are considered true in a boolean context.
+"See [the documentation (hyper-link)].
+"if statement: evaluates to true as long as statement is truthy (an int not equal to '0', True, a list with at least one element, a dict with one key, value pair ..etc).
+"if statement == True: only evaluates to true if statement is True, i.e
+The if statement evaluates everything in a Boolean context, it is like there is an implicit call to the [bool() (hyper-link)] built-in function.
+Here is how you would actually check how things will be evaluated by an if statement:
+See the documentation on [Truth Value Testing (hyper-link)], empty lists are considered false, but this doesn't mean they are equivalent to False.
+[PEP 285 (hyper-link)] also has some excellent information on why it was implemented this way, see the very last bullet in the Resolved Issues section for the part that deals with x == True and x == False specifically.
+The most convincing aspect to me is that == is generally transitive, so a == b and b == c implies a == c. So if it were the way you expected and [] == False were true and '' == False were true, one might assume that [] == '' should be true (even though it obviously should not be in a language without implicit type conversion).
+Empty containers are "falsy," that is, they evaluate to False in a Boolean context.
+That doesn't mean they are literally equal to the constant False.
+In other words, the following is True:
+The truth value of an object is determined by its __nonzero__() or its __len__() method.
+(In Python 3, __nonzero__() has been renamed to __bool__().)
+"Containers have a __len__() method, so they are truthy when they have anything in them and falsy when they are empty.
+"If empty containers were literally equal to False, by the way, then any empty container would be equal to any other empty container: for example, {} == "" would be True.
+"And that just wouldn't make any sense at all!
+"However, just to blow your mind, the following is True:
+"This is because Booleans are a subclass of integers in Python, and False is basically just a zero that gets printed a little differently.
+"Built-in types in Python have a truth value which allows you to test them for truthfulness.
+"See [Truth Value Testing (hyper-link)].
+"This is different than saying object == False which is doing an actual value test (equality test).
+"It is using the objects __eq__() method to determine if their values are equal.
+"In your example, the not operator is causing your list to be converted to a boolean.
+"Try this:
+""is" and "==" don't do that conversion.
+"The empty list, [], is not equal to None.
+"However, it can evaluate to False--that is to say, its "truthiness" value is False.
+"(See the sources in the comments left on the OP.)
+"Because of this,
+"None is the sole instance of the NoneType and is usually used to signify absence of value.
+"What happens in your example is that the empty list, taken in boolean context, evaluates to False, the condition fails, so the else branch gets executed.
+"The interpreter does something along the lines of:
+"Here is another useful discussion regarding None: [not None test in Python (hyper-link)]
+"An if statement doesn't depend on whether the value is equal to true.
+"It depends on whether bool(a) is equal to True, which in this case it is.
+"Nonempty strings are considered true in a boolean context.
+"See [the documentation (hyper-link)].
+"if statement: evaluates to true as long as statement is truthy (an int not equal to '0', True, a list with at least one element, a dict with one key, value pair ..etc).
+"if statement == True: only evaluates to true if statement is True, i.e
+The if statement evaluates everything in a Boolean context, it is like there is an implicit call to the [bool() (hyper-link)] built-in function.
+Here is how you would actually check how things will be evaluated by an if statement:
+See the documentation on [Truth Value Testing (hyper-link)], empty lists are considered false, but this doesn't mean they are equivalent to False.
+[PEP 285 (hyper-link)] also has some excellent information on why it was implemented this way, see the very last bullet in the Resolved Issues section for the part that deals with x == True and x == False specifically.
+The most convincing aspect to me is that == is generally transitive, so a == b and b == c implies a == c. So if it were the way you expected and [] == False were true and '' == False were true, one might assume that [] == '' should be true (even though it obviously should not be in a language without implicit type conversion).
+Empty containers are "falsy," that is, they evaluate to False in a Boolean context.
+That doesn't mean they are literally equal to the constant False.
+In other words, the following is True:
+The truth value of an object is determined by its __nonzero__() or its __len__() method.
+(In Python 3, __nonzero__() has been renamed to __bool__().)
+"Containers have a __len__() method, so they are truthy when they have anything in them and falsy when they are empty.
+"If empty containers were literally equal to False, by the way, then any empty container would be equal to any other empty container: for example, {} == "" would be True.
+"And that just wouldn't make any sense at all!
+"However, just to blow your mind, the following is True:
+"This is because Booleans are a subclass of integers in Python, and False is basically just a zero that gets printed a little differently.
+"Built-in types in Python have a truth value which allows you to test them for truthfulness.
+"See [Truth Value Testing (hyper-link)].
+"This is different than saying object == False which is doing an actual value test (equality test).
+"It is using the objects __eq__() method to determine if their values are equal.
+"In your example, the not operator is causing your list to be converted to a boolean.
+"Try this:
+""is" and "==" don't do that conversion.
+"The empty list, [], is not equal to None.
+"However, it can evaluate to False--that is to say, its "truthiness" value is False.
+"(See the sources in the comments left on the OP.)
+"Because of this,
+"None is the sole instance of the NoneType and is usually used to signify absence of value.
+"What happens in your example is that the empty list, taken in boolean context, evaluates to False, the condition fails, so the else branch gets executed.
+"The interpreter does something along the lines of:
+"Here is another useful discussion regarding None: [not None test in Python (hyper-link)]
+"An if statement doesn't depend on whether the value is equal to true.
+"It depends on whether bool(a) is equal to True, which in this case it is.
+"Nonempty strings are considered true in a boolean context.
+"See [the documentation (hyper-link)].
+"if statement: evaluates to true as long as statement is truthy (an int not equal to '0', True, a list with at least one element, a dict with one key, value pair ..etc).
+"if statement == True: only evaluates to true if statement is True, i.e
+The if statement evaluates everything in a Boolean context, it is like there is an implicit call to the [bool() (hyper-link)] built-in function.
+Here is how you would actually check how things will be evaluated by an if statement:
+See the documentation on [Truth Value Testing (hyper-link)], empty lists are considered false, but this doesn't mean they are equivalent to False.
+[PEP 285 (hyper-link)] also has some excellent information on why it was implemented this way, see the very last bullet in the Resolved Issues section for the part that deals with x == True and x == False specifically.
+The most convincing aspect to me is that == is generally transitive, so a == b and b == c implies a == c. So if it were the way you expected and [] == False were true and '' == False were true, one might assume that [] == '' should be true (even though it obviously should not be in a language without implicit type conversion).
+Empty containers are "falsy," that is, they evaluate to False in a Boolean context.
+That doesn't mean they are literally equal to the constant False.
+In other words, the following is True:
+The truth value of an object is determined by its __nonzero__() or its __len__() method.
+(In Python 3, __nonzero__() has been renamed to __bool__().)
+"Containers have a __len__() method, so they are truthy when they have anything in them and falsy when they are empty.
+"If empty containers were literally equal to False, by the way, then any empty container would be equal to any other empty container: for example, {} == "" would be True.
+"And that just wouldn't make any sense at all!
+"However, just to blow your mind, the following is True:
+"This is because Booleans are a subclass of integers in Python, and False is basically just a zero that gets printed a little differently.
+"Built-in types in Python have a truth value which allows you to test them for truthfulness.
+"See [Truth Value Testing (hyper-link)].
+"This is different than saying object == False which is doing an actual value test (equality test).
+"It is using the objects __eq__() method to determine if their values are equal.
+"In your example, the not operator is causing your list to be converted to a boolean.
+"Try this:
+""is" and "==" don't do that conversion.
+"The empty list, [], is not equal to None.
+"However, it can evaluate to False--that is to say, its "truthiness" value is False.
+"(See the sources in the comments left on the OP.)
+"Because of this,
+"None is the sole instance of the NoneType and is usually used to signify absence of value.
+"What happens in your example is that the empty list, taken in boolean context, evaluates to False, the condition fails, so the else branch gets executed.
+"The interpreter does something along the lines of:
+"Here is another useful discussion regarding None: [not None test in Python (hyper-link)]
+"An if statement doesn't depend on whether the value is equal to true.
+"It depends on whether bool(a) is equal to True, which in this case it is.
+"Nonempty strings are considered true in a boolean context.
+"See [the documentation (hyper-link)].
+"if statement: evaluates to true as long as statement is truthy (an int not equal to '0', True, a list with at least one element, a dict with one key, value pair ..etc).
+"if statement == True: only evaluates to true if statement is True, i.e

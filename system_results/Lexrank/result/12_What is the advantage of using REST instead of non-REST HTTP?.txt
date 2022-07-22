@@ -1,0 +1,1 @@
+Simply put, REST means using HTTP the way it's meant to be."REST will not magically make your application better."REST does not help you organize things."As far as I can tell however, REST means this:"I have no idea how you'd do something like that with REST, and if you did whether it would still count as REST.

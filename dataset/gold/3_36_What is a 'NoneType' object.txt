@@ -1,0 +1,5 @@
+None is the "null" of Python, and NoneType is its type.
+Python's None object is roughly equivalent to null, nil, etc.
+Assignments to None are illegal and raise a SyntaxError.
+In Python, to represent the absence of a value, you can use the None value types.NoneType.None
+"The sole value of the type NoneType.

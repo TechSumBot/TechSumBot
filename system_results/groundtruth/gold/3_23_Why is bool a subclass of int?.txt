@@ -1,0 +1,5 @@
+To avoid unnecessarily breaking non-ideal but working code, the new bool type needed to work just like 0 and 1.
+No one would recommend using a boolean result in a numeric context, nor would most people recommend testing equality to determine truth value, no one wanted to find out the hard way just how much existing code is that way.
+However, inheriting bool from int eases the implementation enormously (in part since all C code that calls PyInt_Check() will continue to work -- this returns true for subclasses of int).
+When the bool type was added, it was made a subclass of ints to simplify the use of existing code in new Pythons.
+Basically True is equal to the integer 1 and False is equal to the integer 0.

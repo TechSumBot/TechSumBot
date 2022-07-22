@@ -1,0 +1,5 @@
+Why does the Python interpreter not automatically try using the int() function when it encounters addition of these types?
+"Because Python does not perform type conversion when concatenating strings.
+"Python would have to know what's in the string to do it correctly.
+"Now to determine whether that situation holds, python would have to examine the string to tell.
+"tell python that the int is a list to disambiguate the '+' operation.

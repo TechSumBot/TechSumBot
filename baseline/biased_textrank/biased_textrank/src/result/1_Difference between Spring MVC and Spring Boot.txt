@@ -1,0 +1,5 @@
+"You can say that SpringBoot is a wrapper of Spring.
+"Here is some main point which differentiate Spring, Spring MVC and Spring Boot :
+"Spring Boot :
+"Spring MVC and Spring Boot are exist for the different purpose.
+"What is Spring Boot?

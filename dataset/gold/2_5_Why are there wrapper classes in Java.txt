@@ -1,0 +1,5 @@
+Am example of when wrappers are used would be in Collections, you can have an ArrayList<Integer>, but not an ArrayList<int> same with HashMaps etc.
+In Collections for example, an ArrayList may contain instances of any subclass of Object, but because primitive types are not Objects, they could not be contained in the ArrayList.
+Wrapper classes are used to convert any primitive type into an object.The primitive data types are not objects, they do not belong to any class, they are defined in the language itself.
+To use class methods for converting values to and from other primitive types, for converting to and from strings, and for converting between number systems (decimal, octal, hexadecimal, binary).
+"2) To convert strings into data types (known as parsing operations), here methods of type parseXXX() are used.

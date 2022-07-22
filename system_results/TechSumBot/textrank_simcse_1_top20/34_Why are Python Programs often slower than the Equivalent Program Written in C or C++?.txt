@@ -1,0 +1,5 @@
+"In languages such as C/C++, the source code is compiled into [binary code (hyper-link)] which can be directly executed by the CPU thus making their execution efficient than that of Python.
+"Internally the reason that Python code executes more slowly is because code is interpreted at runtime instead of being compiled to native code at compile time.
+"This byte code is then interpreted and executed by the [Python Virtual Machine (hyper-link)](PVM).
+The difference between python and C is the usual difference between an interpreted (bytecode) and compiled (to native) language.
+Python is an interpreted language, which means that the Python code you write must go through many, many stages of abstraction before it can become executable machine code.

@@ -1,0 +1,5 @@
+"the true reason for true == not false being a syntax error is that there exists no syntax rule that would produce a [comparison (hyper-link)] therefrom, since
+it has to do with [operator precedence in python (hyper-link)] (the interpreter thinks you're comparing true to not, since == has a higher precedence than not).
+you need some parentheses to clarify the order of operations:
+"answers claiming that the reason for true == not false constituting a syntax error had to do with operator precedence are mistaken.
+however, i can't think of a situation in which you'd ever need to use a not on the right side of a comparison.

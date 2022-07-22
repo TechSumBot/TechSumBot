@@ -1,0 +1,5 @@
+Yield adds the current thread to the ready queue and allows other threads to run.
+"Thread.sleep() will just pause the thread and not give away control.
+The most obvious difference is that sleep() throws the (checked) InterruptedException.
+Thread.Yield can give up CPU resource to threads with lower priorities, while Thread.Sleep(0) gives up CPU only to threads with equal or higher priorities.
+"Thread.Sleep() has a slightly larger overhead because it creates a system that includes some kind of timer that will wake the process.

@@ -1,0 +1,244 @@
+From the [Python glossary (hyper-link)]:
+An object is hashable if it has a hash value which never changes during its lifetime (it needs a __hash__() method), and can be compared to other objects (it needs an __eq__() or __cmp__() method).
+Hashable objects which compare equal must have the same hash value.
+Hashability makes an object usable as a dictionary key and a set member, because these data structures use the hash value internally.
+All of Python’s immutable built-in objects are hashable, while no mutable containers (such as lists or dictionaries) are.
+Objects which are instances of user-defined classes are hashable by default; they all compare unequal, and their hash value is their id().
+In python it means that the object can be members of sets in order to return a index.
+That is, they have unique identity/ id.
+for example, in python 3.3:
+the data structure Lists are not hashable but the data structure Tuples are hashable.
+"Let me give you a working example to understand the hashable objects in python.
+"I am taking 2 Tuples for this example.Each value in a tuple has a unique Hash Value which never changes during its lifetime.
+"So based on this has value, the comparison between two tuples is done.
+"We can get the hash value of a tuple element using the Id().
+"[image][image]
+"In my understanding according to Python glossary, when you create an instance of objects that are hashable, an unchangeable value is also calculated according to the members or values of the instance.
+"For example, that value could then be used as a key in a dictionary as below:
+"We can find that the hash value of tuple_a and tuple_c are the same since they have the same members.
+"When we use tuple_a as the key in dict_a, we can find that the value for dict_a[tuple_c] is the same, which means that, when they are used as the key in a dictionary, they return the same value because the hash values are the same.
+"For those objects that are not hashable, the method __hash__ is defined as None:
+"I guess this hash value is calculated upon the initialization of the instance, not in a dynamic way, that's why only immutable objects are hashable.
+"Hope this helps.
+"All the answers here have good working explanation of hashable objects in python, but I believe one needs to understand the term Hashing first.
+"Hashing is a concept in computer science which is used to create high performance, pseudo random access data structures where large amount of data is to be stored and accessed quickly.
+"For example, if you have 10,000 phone numbers, and you want to store them in an array (which is a sequential data structure that stores data in contiguous memory locations, and provides random access), but you might not have the required amount of contiguous memory locations.
+"So, you can instead use an array of size 100, and use a hash function to map a set of values to same indices, and these values can be stored in a linked list.
+"This provides a performance similar to an array.
+"Now, a hash function can be as simple as dividing the number with the size of the array and taking the remainder as the index.
+"For more detail refer to [https://en.wikipedia.org/wiki/Hash_function (hyper-link)]
+"Here is another good reference: [http://interactivepython.org/runestone/static/pythonds/SortSearch/Hashing.html (hyper-link)]
+"Anything that is not mutable (mutable means, likely to change) can be hashed.
+"Besides the hash function to look for, if a class has it, by eg.
+"dir(tuple) and looking for the __hash__ method, here are some examples
+"List of immutable types:
+"List of mutable types:
+"For creating a hashing table from scratch, all the values has to set to "None" and modified once a requirement arises.
+"Hashable objects refers to the modifiable datatypes(Dictionary,lists etc).
+"Sets on the other hand cannot be reinitialized once assigned, so sets are non hashable.
+"Whereas, The variant of set() -- frozenset() -- is hashable.
+"Hashable = capable of being hashed.
+"Ok, what is hashing?
+"A hashing function is a function which takes an object, say a string such as “Python,” and returns a fixed-size code.
+"For simplicity, assume the return value is an integer.
+"When I run hash(‘Python’) in Python 3, I get 5952713340227947791 as the result.
+"Different versions of Python are free to change the underlying hash function, so you will likely get a different value.
+"The important thing is that no matter now many times I run hash(‘Python’), I’ll always get the same result with the same version of Python.
+"But hash(‘Java’) returns 1753925553814008565.
+"So if the object I am hashing changes, so does the result.
+"On the other hand, if the object I am hashing does not change, then the result stays the same.
+"Why does this matter?
+"Well, Python dictionaries, for example, require the keys to be immutable.
+"That is, keys must be objects which do not change.
+"Strings are immutable in Python, as are the other basic types (int, float, bool).
+"Tuples and frozensets are also immutable.
+"Lists, on the other hand, are not immutable (i.e., they are mutable) because you can change them.
+"Similarly, dicts are mutable.
+"So when we say something is hashable, we mean it is immutable.
+"If I try to pass a mutable type to the hash() function, it will fail:
+"In Python, any immutable object (such as an integer, boolean, string, tuple) is hashable, meaning its value does not change during its lifetime.
+"This allows Python to create a unique hash value to identify it, which can be used by dictionaries to track unique keys and sets to track unique values.
+"This is why Python requires us to use immutable datatypes for the keys in a dictionary.
+From the [Python glossary (hyper-link)]:
+An object is hashable if it has a hash value which never changes during its lifetime (it needs a __hash__() method), and can be compared to other objects (it needs an __eq__() or __cmp__() method).
+Hashable objects which compare equal must have the same hash value.
+Hashability makes an object usable as a dictionary key and a set member, because these data structures use the hash value internally.
+All of Python’s immutable built-in objects are hashable, while no mutable containers (such as lists or dictionaries) are.
+Objects which are instances of user-defined classes are hashable by default; they all compare unequal, and their hash value is their id().
+In python it means that the object can be members of sets in order to return a index.
+That is, they have unique identity/ id.
+for example, in python 3.3:
+the data structure Lists are not hashable but the data structure Tuples are hashable.
+"Let me give you a working example to understand the hashable objects in python.
+"I am taking 2 Tuples for this example.Each value in a tuple has a unique Hash Value which never changes during its lifetime.
+"So based on this has value, the comparison between two tuples is done.
+"We can get the hash value of a tuple element using the Id().
+"[image][image]
+"In my understanding according to Python glossary, when you create an instance of objects that are hashable, an unchangeable value is also calculated according to the members or values of the instance.
+"For example, that value could then be used as a key in a dictionary as below:
+"We can find that the hash value of tuple_a and tuple_c are the same since they have the same members.
+"When we use tuple_a as the key in dict_a, we can find that the value for dict_a[tuple_c] is the same, which means that, when they are used as the key in a dictionary, they return the same value because the hash values are the same.
+"For those objects that are not hashable, the method __hash__ is defined as None:
+"I guess this hash value is calculated upon the initialization of the instance, not in a dynamic way, that's why only immutable objects are hashable.
+"Hope this helps.
+"All the answers here have good working explanation of hashable objects in python, but I believe one needs to understand the term Hashing first.
+"Hashing is a concept in computer science which is used to create high performance, pseudo random access data structures where large amount of data is to be stored and accessed quickly.
+"For example, if you have 10,000 phone numbers, and you want to store them in an array (which is a sequential data structure that stores data in contiguous memory locations, and provides random access), but you might not have the required amount of contiguous memory locations.
+"So, you can instead use an array of size 100, and use a hash function to map a set of values to same indices, and these values can be stored in a linked list.
+"This provides a performance similar to an array.
+"Now, a hash function can be as simple as dividing the number with the size of the array and taking the remainder as the index.
+"For more detail refer to [https://en.wikipedia.org/wiki/Hash_function (hyper-link)]
+"Here is another good reference: [http://interactivepython.org/runestone/static/pythonds/SortSearch/Hashing.html (hyper-link)]
+"Anything that is not mutable (mutable means, likely to change) can be hashed.
+"Besides the hash function to look for, if a class has it, by eg.
+"dir(tuple) and looking for the __hash__ method, here are some examples
+"List of immutable types:
+"List of mutable types:
+"For creating a hashing table from scratch, all the values has to set to "None" and modified once a requirement arises.
+"Hashable objects refers to the modifiable datatypes(Dictionary,lists etc).
+"Sets on the other hand cannot be reinitialized once assigned, so sets are non hashable.
+"Whereas, The variant of set() -- frozenset() -- is hashable.
+"Hashable = capable of being hashed.
+"Ok, what is hashing?
+"A hashing function is a function which takes an object, say a string such as “Python,” and returns a fixed-size code.
+"For simplicity, assume the return value is an integer.
+"When I run hash(‘Python’) in Python 3, I get 5952713340227947791 as the result.
+"Different versions of Python are free to change the underlying hash function, so you will likely get a different value.
+"The important thing is that no matter now many times I run hash(‘Python’), I’ll always get the same result with the same version of Python.
+"But hash(‘Java’) returns 1753925553814008565.
+"So if the object I am hashing changes, so does the result.
+"On the other hand, if the object I am hashing does not change, then the result stays the same.
+"Why does this matter?
+"Well, Python dictionaries, for example, require the keys to be immutable.
+"That is, keys must be objects which do not change.
+"Strings are immutable in Python, as are the other basic types (int, float, bool).
+"Tuples and frozensets are also immutable.
+"Lists, on the other hand, are not immutable (i.e., they are mutable) because you can change them.
+"Similarly, dicts are mutable.
+"So when we say something is hashable, we mean it is immutable.
+"If I try to pass a mutable type to the hash() function, it will fail:
+"In Python, any immutable object (such as an integer, boolean, string, tuple) is hashable, meaning its value does not change during its lifetime.
+"This allows Python to create a unique hash value to identify it, which can be used by dictionaries to track unique keys and sets to track unique values.
+"This is why Python requires us to use immutable datatypes for the keys in a dictionary.
+From the [Python glossary (hyper-link)]:
+An object is hashable if it has a hash value which never changes during its lifetime (it needs a __hash__() method), and can be compared to other objects (it needs an __eq__() or __cmp__() method).
+Hashable objects which compare equal must have the same hash value.
+Hashability makes an object usable as a dictionary key and a set member, because these data structures use the hash value internally.
+All of Python’s immutable built-in objects are hashable, while no mutable containers (such as lists or dictionaries) are.
+Objects which are instances of user-defined classes are hashable by default; they all compare unequal, and their hash value is their id().
+In python it means that the object can be members of sets in order to return a index.
+That is, they have unique identity/ id.
+for example, in python 3.3:
+the data structure Lists are not hashable but the data structure Tuples are hashable.
+"Let me give you a working example to understand the hashable objects in python.
+"I am taking 2 Tuples for this example.Each value in a tuple has a unique Hash Value which never changes during its lifetime.
+"So based on this has value, the comparison between two tuples is done.
+"We can get the hash value of a tuple element using the Id().
+"[image][image]
+"In my understanding according to Python glossary, when you create an instance of objects that are hashable, an unchangeable value is also calculated according to the members or values of the instance.
+"For example, that value could then be used as a key in a dictionary as below:
+"We can find that the hash value of tuple_a and tuple_c are the same since they have the same members.
+"When we use tuple_a as the key in dict_a, we can find that the value for dict_a[tuple_c] is the same, which means that, when they are used as the key in a dictionary, they return the same value because the hash values are the same.
+"For those objects that are not hashable, the method __hash__ is defined as None:
+"I guess this hash value is calculated upon the initialization of the instance, not in a dynamic way, that's why only immutable objects are hashable.
+"Hope this helps.
+"All the answers here have good working explanation of hashable objects in python, but I believe one needs to understand the term Hashing first.
+"Hashing is a concept in computer science which is used to create high performance, pseudo random access data structures where large amount of data is to be stored and accessed quickly.
+"For example, if you have 10,000 phone numbers, and you want to store them in an array (which is a sequential data structure that stores data in contiguous memory locations, and provides random access), but you might not have the required amount of contiguous memory locations.
+"So, you can instead use an array of size 100, and use a hash function to map a set of values to same indices, and these values can be stored in a linked list.
+"This provides a performance similar to an array.
+"Now, a hash function can be as simple as dividing the number with the size of the array and taking the remainder as the index.
+"For more detail refer to [https://en.wikipedia.org/wiki/Hash_function (hyper-link)]
+"Here is another good reference: [http://interactivepython.org/runestone/static/pythonds/SortSearch/Hashing.html (hyper-link)]
+"Anything that is not mutable (mutable means, likely to change) can be hashed.
+"Besides the hash function to look for, if a class has it, by eg.
+"dir(tuple) and looking for the __hash__ method, here are some examples
+"List of immutable types:
+"List of mutable types:
+"For creating a hashing table from scratch, all the values has to set to "None" and modified once a requirement arises.
+"Hashable objects refers to the modifiable datatypes(Dictionary,lists etc).
+"Sets on the other hand cannot be reinitialized once assigned, so sets are non hashable.
+"Whereas, The variant of set() -- frozenset() -- is hashable.
+"Hashable = capable of being hashed.
+"Ok, what is hashing?
+"A hashing function is a function which takes an object, say a string such as “Python,” and returns a fixed-size code.
+"For simplicity, assume the return value is an integer.
+"When I run hash(‘Python’) in Python 3, I get 5952713340227947791 as the result.
+"Different versions of Python are free to change the underlying hash function, so you will likely get a different value.
+"The important thing is that no matter now many times I run hash(‘Python’), I’ll always get the same result with the same version of Python.
+"But hash(‘Java’) returns 1753925553814008565.
+"So if the object I am hashing changes, so does the result.
+"On the other hand, if the object I am hashing does not change, then the result stays the same.
+"Why does this matter?
+"Well, Python dictionaries, for example, require the keys to be immutable.
+"That is, keys must be objects which do not change.
+"Strings are immutable in Python, as are the other basic types (int, float, bool).
+"Tuples and frozensets are also immutable.
+"Lists, on the other hand, are not immutable (i.e., they are mutable) because you can change them.
+"Similarly, dicts are mutable.
+"So when we say something is hashable, we mean it is immutable.
+"If I try to pass a mutable type to the hash() function, it will fail:
+"In Python, any immutable object (such as an integer, boolean, string, tuple) is hashable, meaning its value does not change during its lifetime.
+"This allows Python to create a unique hash value to identify it, which can be used by dictionaries to track unique keys and sets to track unique values.
+"This is why Python requires us to use immutable datatypes for the keys in a dictionary.
+From the [Python glossary (hyper-link)]:
+An object is hashable if it has a hash value which never changes during its lifetime (it needs a __hash__() method), and can be compared to other objects (it needs an __eq__() or __cmp__() method).
+Hashable objects which compare equal must have the same hash value.
+Hashability makes an object usable as a dictionary key and a set member, because these data structures use the hash value internally.
+All of Python’s immutable built-in objects are hashable, while no mutable containers (such as lists or dictionaries) are.
+Objects which are instances of user-defined classes are hashable by default; they all compare unequal, and their hash value is their id().
+In python it means that the object can be members of sets in order to return a index.
+That is, they have unique identity/ id.
+for example, in python 3.3:
+the data structure Lists are not hashable but the data structure Tuples are hashable.
+"Let me give you a working example to understand the hashable objects in python.
+"I am taking 2 Tuples for this example.Each value in a tuple has a unique Hash Value which never changes during its lifetime.
+"So based on this has value, the comparison between two tuples is done.
+"We can get the hash value of a tuple element using the Id().
+"[image][image]
+"In my understanding according to Python glossary, when you create an instance of objects that are hashable, an unchangeable value is also calculated according to the members or values of the instance.
+"For example, that value could then be used as a key in a dictionary as below:
+"We can find that the hash value of tuple_a and tuple_c are the same since they have the same members.
+"When we use tuple_a as the key in dict_a, we can find that the value for dict_a[tuple_c] is the same, which means that, when they are used as the key in a dictionary, they return the same value because the hash values are the same.
+"For those objects that are not hashable, the method __hash__ is defined as None:
+"I guess this hash value is calculated upon the initialization of the instance, not in a dynamic way, that's why only immutable objects are hashable.
+"Hope this helps.
+"All the answers here have good working explanation of hashable objects in python, but I believe one needs to understand the term Hashing first.
+"Hashing is a concept in computer science which is used to create high performance, pseudo random access data structures where large amount of data is to be stored and accessed quickly.
+"For example, if you have 10,000 phone numbers, and you want to store them in an array (which is a sequential data structure that stores data in contiguous memory locations, and provides random access), but you might not have the required amount of contiguous memory locations.
+"So, you can instead use an array of size 100, and use a hash function to map a set of values to same indices, and these values can be stored in a linked list.
+"This provides a performance similar to an array.
+"Now, a hash function can be as simple as dividing the number with the size of the array and taking the remainder as the index.
+"For more detail refer to [https://en.wikipedia.org/wiki/Hash_function (hyper-link)]
+"Here is another good reference: [http://interactivepython.org/runestone/static/pythonds/SortSearch/Hashing.html (hyper-link)]
+"Anything that is not mutable (mutable means, likely to change) can be hashed.
+"Besides the hash function to look for, if a class has it, by eg.
+"dir(tuple) and looking for the __hash__ method, here are some examples
+"List of immutable types:
+"List of mutable types:
+"For creating a hashing table from scratch, all the values has to set to "None" and modified once a requirement arises.
+"Hashable objects refers to the modifiable datatypes(Dictionary,lists etc).
+"Sets on the other hand cannot be reinitialized once assigned, so sets are non hashable.
+"Whereas, The variant of set() -- frozenset() -- is hashable.
+"Hashable = capable of being hashed.
+"Ok, what is hashing?
+"A hashing function is a function which takes an object, say a string such as “Python,” and returns a fixed-size code.
+"For simplicity, assume the return value is an integer.
+"When I run hash(‘Python’) in Python 3, I get 5952713340227947791 as the result.
+"Different versions of Python are free to change the underlying hash function, so you will likely get a different value.
+"The important thing is that no matter now many times I run hash(‘Python’), I’ll always get the same result with the same version of Python.
+"But hash(‘Java’) returns 1753925553814008565.
+"So if the object I am hashing changes, so does the result.
+"On the other hand, if the object I am hashing does not change, then the result stays the same.
+"Why does this matter?
+"Well, Python dictionaries, for example, require the keys to be immutable.
+"That is, keys must be objects which do not change.
+"Strings are immutable in Python, as are the other basic types (int, float, bool).
+"Tuples and frozensets are also immutable.
+"Lists, on the other hand, are not immutable (i.e., they are mutable) because you can change them.
+"Similarly, dicts are mutable.
+"So when we say something is hashable, we mean it is immutable.
+"If I try to pass a mutable type to the hash() function, it will fail:
+"In Python, any immutable object (such as an integer, boolean, string, tuple) is hashable, meaning its value does not change during its lifetime.
+"This allows Python to create a unique hash value to identify it, which can be used by dictionaries to track unique keys and sets to track unique values.
+"This is why Python requires us to use immutable datatypes for the keys in a dictionary.

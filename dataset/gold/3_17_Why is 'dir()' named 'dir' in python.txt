@@ -1,0 +1,5 @@
+This is not a directory as used in file systems, but the standard usage: a listing of names or data.
+You're retrieving a "directory", a list of all of the stuff that's available in some resource.
+IIRC I named it after the DIR command in DOS.
+It gives you an alphabetical listing of valid names (attributes) in the scope (object).
+The Python [dir (hyper-link)] function is used to list the objects of the current module of any objects like variables, classes, functions…

@@ -1,0 +1,86 @@
+
+Query:  "What's the difference between commit() and apply() in SharedPreferences"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/5960732)
+ [1] #0: "apply() was added in 2.3, it commits without returning a boolean indicating success or failure."
+ [1] #1: "commit() returns true if the save works, false otherwise."
+ [1] #2: "apply() was added as the Android dev team noticed that almost no one took notice of the return value, so apply is faster as it is asynchronous."
+
+Answer:  #1 (https://stackoverflow.com/a/5960741)
+ [0] #3: "From javadoc:"
+ [1] #4: "Unlike commit(), which writes its preferences out to persistent storage synchronously, apply() commits its changes to the in-memory SharedPreferences immediately but starts an asynchronous commit to disk and you won't be notified of any failures."
+ [1] #5: "If another editor on this SharedPreferences does a regular commit() while a > apply() is still outstanding, the commit() will block until all async commits are completed as well as the commit itself"
+
+Answer:  #2 (https://stackoverflow.com/a/5960743)
+ [0] #6: "tl;dr:"
+ [1] #7: "commit() writes the data synchronously (blocking the thread its called from)."
+ [1] #8: "It then informs you about the success of the operation."
+ [1] #9: "apply() schedules the data to be written asynchronously."
+ [1] #10: "It does not inform you about the success of the operation."
+ [1] #11: "If you save with apply() and immediately read via any getX-method, the new value will be returned!"
+ [1] #12: "If you called apply() at some point and it's still executing, any calls to commit() will block until all past apply-calls and the current commit-call are finished."
+ [1] #13: "More in-depth information from the [SharedPreferences.Editor](http://developer.android.com/reference/android/content/SharedPreferences.Editor.html#apply%28%29) Documentation:"
+ [1] #14: "Unlike commit(), which writes its preferences out to persistent storage synchronously, apply() commits its changes to the in-memory SharedPreferences immediately but starts an asynchronous commit to disk and you won't be notified of any failures."
+ [1] #15: "If another editor on this SharedPreferences does a regular commit() while a apply() is still outstanding, the commit() will block until all async commits are completed as well as the commit itself."
+ [1] #16: "As SharedPreferences instances are singletons within a process, it's safe to replace any instance of commit() with apply() if you were already ignoring the return value."
+ [0] #17: "The SharedPreferences.Editor interface isn't expected to be implemented directly."
+ [0] #18: "However, if you previously did implement it and are now getting errors about missing apply(), you can simply call commit() from apply()."
+
+Answer:  #3 (https://stackoverflow.com/a/5960747)
+ [1] #19: "The docs give a pretty good explanation of the difference between [apply()](http://developer.android.com/reference/android/content/SharedPreferences.Editor.html#apply%28%29) and [commit()](http://developer.android.com/reference/android/content/SharedPreferences.Editor.html#commit%28%29):"
+ [1] #20: "Unlike commit(), which writes its preferences out to persistent storage synchronously, apply() commits its changes to the in-memory SharedPreferences immediately but starts an asynchronous commit to disk and you won't be notified of any failures."
+ [1] #21: "If another editor on this SharedPreferences does a regular commit() while a apply() is still outstanding, the commit() will block until all async commits are completed as well as the commit itself."
+ [1] #22: "As SharedPreferences instances are singletons within a process, it's safe to replace any instance of commit() with apply() if you were already ignoring the return value."
+
+Answer:  #4 (https://stackoverflow.com/a/13910783)
+ [0] #23: "I'm experiencing some problems using apply() instead commit()."
+ [1] #24: "As stated before in other responses, the apply() is asynchronous."
+ [0] #25: "I'm getting the problem that the changes formed to a "string set" preference are never written to the persistent memory."
+ [0] #26: "It happens if you "force detention" of the program or, in the ROM that I have installed on my device with Android 4.1, when the process is killed by the system due to memory necessities."
+ [0] #27: "I recommend to use "commit()" instead "apply()" if you want your preferences alive."
+
+Answer:  #5 (https://stackoverflow.com/a/15646839)
+ [0] #28: "Use apply()."
+ [1] #29: "It writes the changes to the RAM immediately and waits and writes it to the internal storage(the actual preference file) after."
+ [1] #30: "Commit writes the changes synchronously and directly to the file."
+
+Answer:  #6 (https://stackoverflow.com/a/43564456)
+ [1] #31: "commit() is synchronously, apply() is asynchronous"
+ [1] #32: "apply() is void function."
+ [1] #33: "commit() returns true if the new values were successfully written to persistent storage."
+ [1] #34: "apply() guarantees complete before switching states , you don't need to worry about Android component lifecycles"
+ [0] #35: "If you dont use value returned from commit() and you're using commit() from main thread, use apply() instead of commit()"
+
+Answer:  #7 (https://stackoverflow.com/a/56847549)
+ [0] #36: "The difference between commit() and apply()"
+ [0] #37: "We might be confused by those two terms, when we are using SharedPreference."
+ [1] #38: "Basically they are probably the same, so let’s clarify the differences of commit() and apply()."
+ [1] #39: "1.Return value:"
+ [1] #40: "apply() commits without returning a boolean indicating success or failure."
+ [1] #41: "commit() returns true if the save works, false otherwise."
+ [1] #42: "Speed:"
+ [1] #43: "apply() is faster."
+ [1] #44: "commit() is slower."
+ [1] #45: "Asynchronous v.s."
+ [1] #46: "Synchronous:"
+ [1] #47: "apply(): Asynchronous commit(): Synchronous"
+ [1] #48: "Atomic:"
+ [1] #49: "apply(): atomic commit(): atomic"
+ [1] #50: "Error notification:"
+ [1] #51: "apply(): No commit(): Yes"
+
+Answer:  #8 (https://stackoverflow.com/a/15335507)
+ [1] #52: "Commit() is instantaneous but performs disk writes."
+ [1] #53: "If you are on the ui thread you should call apply() which is asynchronous."
+
+Answer:  #9 (https://stackoverflow.com/a/15335577)
+ [1] #54: "apply() - returns void"
+ [1] #55: "apply() was added in 2.3, it saves without returning a boolean indicating success or failure."
+ [1] #56: "commit() - returns boolean value."
+ [1] #57: "commit() returns true if the save works, false otherwise."
+ [1] #58: "apply() was added as the android dev team noticed that most no one took notice of the return value, so apply is faster."
+ [0] #59: "You can refer to below link"
+ [1] #60: "[What's the difference between commit() and apply() in Shared Preference](https://stackoverflow.com/questions/5960678/whats-the-difference-between-commit-and-apply)"

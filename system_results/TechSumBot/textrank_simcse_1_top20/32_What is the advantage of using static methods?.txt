@@ -1,0 +1,5 @@
+"If you don't need access to the attributes or methods of the class or instance, a staticmethod is better than a classmethod or instancemethod.
+"The call signature of a staticmethod is the same as that of a classmethod or instancemethod, namely <instance>.<method>(<arguments>).
+"When you call a classmethod object (which wraps a function object) on an object instance, the class of the instance object gets passed in as a first argument.
+"That way it is clear (from the @staticmethod decorator) that the class' and instance's state is not read or modified.
+"Static methods have limited use, because they don't have access to the attributes of an instance of a class (like a regular method does), and they don't have access to the attributes of the class itself (like a class method does).

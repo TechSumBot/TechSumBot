@@ -1,0 +1,5 @@
+Some possibilities:
+For documentation purposes - just to make it explicit which exceptions are expected
+As a placeholder for a future (or past) more serious handling before re-raising
+It looks like this would not be the intended effect and to avoid it the UnicodeDecodeError is processed explicitly by the first handler.
+"Usage looked something like:

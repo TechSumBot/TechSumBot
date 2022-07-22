@@ -1,0 +1,8 @@
+sentence-transformers
+sklearn
+gensim
+nltk
+scipy
+numpy
+rouge
+matplotlib

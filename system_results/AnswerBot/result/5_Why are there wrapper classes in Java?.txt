@@ -1,0 +1,5 @@
+wrapper classes are used instead of primitive types when an object is expected.
+"as a solution to this problem, java allows you to include the primitives in the family of objects by using what are called wrapper classes.
+"the user takes the chocolate, removes and throws the wrapper and eats it.
+"a simple file can be treated as an object , an address of a system can be seen as an object , an image can be treated as an object (with java.awt.image) and a simple data type can be converted into an object (with wrapper classes).
+several possible reasons:

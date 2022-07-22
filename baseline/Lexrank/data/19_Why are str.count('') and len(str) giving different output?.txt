@@ -1,0 +1,244 @@
+str.count() counts non-overlapping occurrences of the substring:
+Return the number of non-overlapping occurrences of substring sub.
+There is exactly one such place where the substring '' occurs in the string '': right at the start.
+So the count should return 1.
+Generally speaking, the empty string will match at all positions in a given string, including right at the start and end, so the count should always be the length plus 1:
+That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+So yes, the results are different and they are entirely correct.
+.count('') counts the number of locations of zero-length strings.
+You could also think of this as the number of possible cursor positions.
+Instead of counting the number of characters (like len(str)), you're counting the number of anti-characters.
+"[Documentation (hyper-link)]:
+"Return the number of non-overlapping occurrences of subsequence sub in the range [start, end].
+"Optional arguments start and end are interpreted as in slice notation.
+"If we have a look at the [implementation (hyper-link)], we find that it call the function stringlib_count ([source (hyper-link)]) which just goes on and return the length of the string plus one, when the length of the sub is zero:
+"([source (hyper-link)])
+"Note: maxcount is set to largest positive value of [size_t (hyper-link)].
+"Of course, that is just a short cirtcuit.
+"If we skip that check, the code goes on to call [FASTSEARCH (hyper-link)].
+"How is [FASTSHEARCH implemented (hyper-link)]?
+"It goes on a [loop (hyper-link)], checking for every position if the string matches the sub at that position.
+"Since it is looking for an empty string, it will say that it matches in every position (at every position, it finds no characters that differ, up to the length of the sub).
+"Remember that it is looking in the inclusive range from start to end.
+"Meaning that it will look in every position in the string, that is:
+"The start (before the first character)
+"Between each character pair (after each character, before the next one)
+"The end (after the last character)
+"That is one position per character (before each character) plus one (the end).
+"Or if you prefer, it is one position per character (after each character) plus one (the start).
+"In either case, it will return the length of the string plus one.
+"The developers short circuited it to avoid doing the loop.
+"'' doesn't mean any string, it means no string (aka, the empty string, or the 0-length string).
+"There are, strictly speaking, an infinite number of 0-length strings in a string, but practically, len(string) + 1 is returned - one for just before first character, and one each for after every character.
+"This scenario has been explicitly special-cased in [count.h (hyper-link)]:
+"When the search string is the empty string, len(string) + 1 is returned by default.
+"Every string1 can be thought of as:
+"which contains exactly len(any_string) + 1 instances of ''.
+"For "foo" for example, it would be:
+"As it can be seen there are 4 instances of "" in it.
+"Note however, that this is a problem where no answer or all answers could somehow support a case for themselves.
+"It get's philosophical:
+"How much nothing is contained in nothing?
+"How much nothing is contained in something?
+"This answer tries to explain the convention used by Python and does not intend to suggest that this is the way all languages do it \ should be doing it; it is just how Python does it.
+"1Empty strings are an exception and are handled differently; they simply return 1; which is yet another convention.
+"Counts the number of occurrences of sub in str.
+"Since strings are sequences, it basically counts the number of splits sub would cause in str.
+"An empty string is at the beginning, between each character, and at the end.
+"Hence, why when you use 'test', which has a len of 4, you get 5 occurrences of sub ('').
+"The answer lies in the below code
+"This is how it splits the string So, look it at this way "" is the space or no space between each character in the string (including spaces).
+"So start counting from before H and count on each side of char and space and you will understand why it was 12.
+"Take a look at this helpful answer on the difference between len(a) and a.count("") too.
+"[Why are str.count('') and len(str) giving different output?
+"(hyper-link)]
+"That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+"[original answer (hyper-link)]
+"The count() method returns the number of occurrences of a substring in the given string.
+"The empty string, when used as a substring, is an edge case.
+"As you can see from the first example below, the empty string is considered to be a substring of itself.
+"Therefore, if the empty string is a substring of every character, and of the empty string, then count should return the number of characters plus one.
+"I suppose larger substrings were not considered to be valid, otherwise a higher value would be returned.
+str.count() counts non-overlapping occurrences of the substring:
+Return the number of non-overlapping occurrences of substring sub.
+There is exactly one such place where the substring '' occurs in the string '': right at the start.
+So the count should return 1.
+Generally speaking, the empty string will match at all positions in a given string, including right at the start and end, so the count should always be the length plus 1:
+That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+So yes, the results are different and they are entirely correct.
+.count('') counts the number of locations of zero-length strings.
+You could also think of this as the number of possible cursor positions.
+Instead of counting the number of characters (like len(str)), you're counting the number of anti-characters.
+"[Documentation (hyper-link)]:
+"Return the number of non-overlapping occurrences of subsequence sub in the range [start, end].
+"Optional arguments start and end are interpreted as in slice notation.
+"If we have a look at the [implementation (hyper-link)], we find that it call the function stringlib_count ([source (hyper-link)]) which just goes on and return the length of the string plus one, when the length of the sub is zero:
+"([source (hyper-link)])
+"Note: maxcount is set to largest positive value of [size_t (hyper-link)].
+"Of course, that is just a short cirtcuit.
+"If we skip that check, the code goes on to call [FASTSEARCH (hyper-link)].
+"How is [FASTSHEARCH implemented (hyper-link)]?
+"It goes on a [loop (hyper-link)], checking for every position if the string matches the sub at that position.
+"Since it is looking for an empty string, it will say that it matches in every position (at every position, it finds no characters that differ, up to the length of the sub).
+"Remember that it is looking in the inclusive range from start to end.
+"Meaning that it will look in every position in the string, that is:
+"The start (before the first character)
+"Between each character pair (after each character, before the next one)
+"The end (after the last character)
+"That is one position per character (before each character) plus one (the end).
+"Or if you prefer, it is one position per character (after each character) plus one (the start).
+"In either case, it will return the length of the string plus one.
+"The developers short circuited it to avoid doing the loop.
+"'' doesn't mean any string, it means no string (aka, the empty string, or the 0-length string).
+"There are, strictly speaking, an infinite number of 0-length strings in a string, but practically, len(string) + 1 is returned - one for just before first character, and one each for after every character.
+"This scenario has been explicitly special-cased in [count.h (hyper-link)]:
+"When the search string is the empty string, len(string) + 1 is returned by default.
+"Every string1 can be thought of as:
+"which contains exactly len(any_string) + 1 instances of ''.
+"For "foo" for example, it would be:
+"As it can be seen there are 4 instances of "" in it.
+"Note however, that this is a problem where no answer or all answers could somehow support a case for themselves.
+"It get's philosophical:
+"How much nothing is contained in nothing?
+"How much nothing is contained in something?
+"This answer tries to explain the convention used by Python and does not intend to suggest that this is the way all languages do it \ should be doing it; it is just how Python does it.
+"1Empty strings are an exception and are handled differently; they simply return 1; which is yet another convention.
+"Counts the number of occurrences of sub in str.
+"Since strings are sequences, it basically counts the number of splits sub would cause in str.
+"An empty string is at the beginning, between each character, and at the end.
+"Hence, why when you use 'test', which has a len of 4, you get 5 occurrences of sub ('').
+"The answer lies in the below code
+"This is how it splits the string So, look it at this way "" is the space or no space between each character in the string (including spaces).
+"So start counting from before H and count on each side of char and space and you will understand why it was 12.
+"Take a look at this helpful answer on the difference between len(a) and a.count("") too.
+"[Why are str.count('') and len(str) giving different output?
+"(hyper-link)]
+"That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+"[original answer (hyper-link)]
+"The count() method returns the number of occurrences of a substring in the given string.
+"The empty string, when used as a substring, is an edge case.
+"As you can see from the first example below, the empty string is considered to be a substring of itself.
+"Therefore, if the empty string is a substring of every character, and of the empty string, then count should return the number of characters plus one.
+"I suppose larger substrings were not considered to be valid, otherwise a higher value would be returned.
+str.count() counts non-overlapping occurrences of the substring:
+Return the number of non-overlapping occurrences of substring sub.
+There is exactly one such place where the substring '' occurs in the string '': right at the start.
+So the count should return 1.
+Generally speaking, the empty string will match at all positions in a given string, including right at the start and end, so the count should always be the length plus 1:
+That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+So yes, the results are different and they are entirely correct.
+.count('') counts the number of locations of zero-length strings.
+You could also think of this as the number of possible cursor positions.
+Instead of counting the number of characters (like len(str)), you're counting the number of anti-characters.
+"[Documentation (hyper-link)]:
+"Return the number of non-overlapping occurrences of subsequence sub in the range [start, end].
+"Optional arguments start and end are interpreted as in slice notation.
+"If we have a look at the [implementation (hyper-link)], we find that it call the function stringlib_count ([source (hyper-link)]) which just goes on and return the length of the string plus one, when the length of the sub is zero:
+"([source (hyper-link)])
+"Note: maxcount is set to largest positive value of [size_t (hyper-link)].
+"Of course, that is just a short cirtcuit.
+"If we skip that check, the code goes on to call [FASTSEARCH (hyper-link)].
+"How is [FASTSHEARCH implemented (hyper-link)]?
+"It goes on a [loop (hyper-link)], checking for every position if the string matches the sub at that position.
+"Since it is looking for an empty string, it will say that it matches in every position (at every position, it finds no characters that differ, up to the length of the sub).
+"Remember that it is looking in the inclusive range from start to end.
+"Meaning that it will look in every position in the string, that is:
+"The start (before the first character)
+"Between each character pair (after each character, before the next one)
+"The end (after the last character)
+"That is one position per character (before each character) plus one (the end).
+"Or if you prefer, it is one position per character (after each character) plus one (the start).
+"In either case, it will return the length of the string plus one.
+"The developers short circuited it to avoid doing the loop.
+"'' doesn't mean any string, it means no string (aka, the empty string, or the 0-length string).
+"There are, strictly speaking, an infinite number of 0-length strings in a string, but practically, len(string) + 1 is returned - one for just before first character, and one each for after every character.
+"This scenario has been explicitly special-cased in [count.h (hyper-link)]:
+"When the search string is the empty string, len(string) + 1 is returned by default.
+"Every string1 can be thought of as:
+"which contains exactly len(any_string) + 1 instances of ''.
+"For "foo" for example, it would be:
+"As it can be seen there are 4 instances of "" in it.
+"Note however, that this is a problem where no answer or all answers could somehow support a case for themselves.
+"It get's philosophical:
+"How much nothing is contained in nothing?
+"How much nothing is contained in something?
+"This answer tries to explain the convention used by Python and does not intend to suggest that this is the way all languages do it \ should be doing it; it is just how Python does it.
+"1Empty strings are an exception and are handled differently; they simply return 1; which is yet another convention.
+"Counts the number of occurrences of sub in str.
+"Since strings are sequences, it basically counts the number of splits sub would cause in str.
+"An empty string is at the beginning, between each character, and at the end.
+"Hence, why when you use 'test', which has a len of 4, you get 5 occurrences of sub ('').
+"The answer lies in the below code
+"This is how it splits the string So, look it at this way "" is the space or no space between each character in the string (including spaces).
+"So start counting from before H and count on each side of char and space and you will understand why it was 12.
+"Take a look at this helpful answer on the difference between len(a) and a.count("") too.
+"[Why are str.count('') and len(str) giving different output?
+"(hyper-link)]
+"That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+"[original answer (hyper-link)]
+"The count() method returns the number of occurrences of a substring in the given string.
+"The empty string, when used as a substring, is an edge case.
+"As you can see from the first example below, the empty string is considered to be a substring of itself.
+"Therefore, if the empty string is a substring of every character, and of the empty string, then count should return the number of characters plus one.
+"I suppose larger substrings were not considered to be valid, otherwise a higher value would be returned.
+str.count() counts non-overlapping occurrences of the substring:
+Return the number of non-overlapping occurrences of substring sub.
+There is exactly one such place where the substring '' occurs in the string '': right at the start.
+So the count should return 1.
+Generally speaking, the empty string will match at all positions in a given string, including right at the start and end, so the count should always be the length plus 1:
+That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+So yes, the results are different and they are entirely correct.
+.count('') counts the number of locations of zero-length strings.
+You could also think of this as the number of possible cursor positions.
+Instead of counting the number of characters (like len(str)), you're counting the number of anti-characters.
+"[Documentation (hyper-link)]:
+"Return the number of non-overlapping occurrences of subsequence sub in the range [start, end].
+"Optional arguments start and end are interpreted as in slice notation.
+"If we have a look at the [implementation (hyper-link)], we find that it call the function stringlib_count ([source (hyper-link)]) which just goes on and return the length of the string plus one, when the length of the sub is zero:
+"([source (hyper-link)])
+"Note: maxcount is set to largest positive value of [size_t (hyper-link)].
+"Of course, that is just a short cirtcuit.
+"If we skip that check, the code goes on to call [FASTSEARCH (hyper-link)].
+"How is [FASTSHEARCH implemented (hyper-link)]?
+"It goes on a [loop (hyper-link)], checking for every position if the string matches the sub at that position.
+"Since it is looking for an empty string, it will say that it matches in every position (at every position, it finds no characters that differ, up to the length of the sub).
+"Remember that it is looking in the inclusive range from start to end.
+"Meaning that it will look in every position in the string, that is:
+"The start (before the first character)
+"Between each character pair (after each character, before the next one)
+"The end (after the last character)
+"That is one position per character (before each character) plus one (the end).
+"Or if you prefer, it is one position per character (after each character) plus one (the start).
+"In either case, it will return the length of the string plus one.
+"The developers short circuited it to avoid doing the loop.
+"'' doesn't mean any string, it means no string (aka, the empty string, or the 0-length string).
+"There are, strictly speaking, an infinite number of 0-length strings in a string, but practically, len(string) + 1 is returned - one for just before first character, and one each for after every character.
+"This scenario has been explicitly special-cased in [count.h (hyper-link)]:
+"When the search string is the empty string, len(string) + 1 is returned by default.
+"Every string1 can be thought of as:
+"which contains exactly len(any_string) + 1 instances of ''.
+"For "foo" for example, it would be:
+"As it can be seen there are 4 instances of "" in it.
+"Note however, that this is a problem where no answer or all answers could somehow support a case for themselves.
+"It get's philosophical:
+"How much nothing is contained in nothing?
+"How much nothing is contained in something?
+"This answer tries to explain the convention used by Python and does not intend to suggest that this is the way all languages do it \ should be doing it; it is just how Python does it.
+"1Empty strings are an exception and are handled differently; they simply return 1; which is yet another convention.
+"Counts the number of occurrences of sub in str.
+"Since strings are sequences, it basically counts the number of splits sub would cause in str.
+"An empty string is at the beginning, between each character, and at the end.
+"Hence, why when you use 'test', which has a len of 4, you get 5 occurrences of sub ('').
+"The answer lies in the below code
+"This is how it splits the string So, look it at this way "" is the space or no space between each character in the string (including spaces).
+"So start counting from before H and count on each side of char and space and you will understand why it was 12.
+"Take a look at this helpful answer on the difference between len(a) and a.count("") too.
+"[Why are str.count('') and len(str) giving different output?
+"(hyper-link)]
+"That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+"[original answer (hyper-link)]
+"The count() method returns the number of occurrences of a substring in the given string.
+"The empty string, when used as a substring, is an edge case.
+"As you can see from the first example below, the empty string is considered to be a substring of itself.
+"Therefore, if the empty string is a substring of every character, and of the empty string, then count should return the number of characters plus one.
+"I suppose larger substrings were not considered to be valid, otherwise a higher value would be returned.

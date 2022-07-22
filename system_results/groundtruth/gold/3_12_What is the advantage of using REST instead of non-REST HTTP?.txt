@@ -1,0 +1,5 @@
+Simply put, REST means using HTTP the way it's meant to be.
+Simple.
+IMHO the biggest advantage that REST enables is that of reducing client/server coupling.
+Caching.
+"Simply put: NONE.

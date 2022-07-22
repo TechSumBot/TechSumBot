@@ -1,0 +1,5 @@
+Well, I don't see any difference between catching a general exception or a specific one, except that when having multiple catch blocks, you can react differently depending on what the exception is.
+Unless you are doing some logging and clean up code in the front end of your application, then I think it is bad to catch all exceptions.
+"A good rule of thumb is that you should only catch exceptions that you can properly deal with yourself.
+"So in general, catching generic exceptions is bad unless you are 100% sure that you know exactly which kinds of exceptions will be thrown and under which circumstances.
+"If in doubt, let them bubble up to the top level exception handler instead.

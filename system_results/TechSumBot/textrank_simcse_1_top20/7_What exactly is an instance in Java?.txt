@@ -1,0 +1,5 @@
+An object is a dynamically created instance of a class type or a dynamically created array.
+"The Object is also called the instance of the class.
+When you create an object, you are creating an "instance" of a class, therefore "instantiating" a class.
+"Reference is, in the Java context, a variable* - it is something pointing to an object/instance.
+""object" and "instance" are the same thing.

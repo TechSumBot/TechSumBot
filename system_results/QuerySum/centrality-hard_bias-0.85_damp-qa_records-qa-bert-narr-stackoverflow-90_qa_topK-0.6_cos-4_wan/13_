@@ -1,0 +1,5 @@
+"If you divide int by 0, then JVM will throw Arithmetic Exception.
+Integer arithmetic (implemented as [two's complement (hyper-link)] representation by Java and most other languages and hardware) is different and has no special infinity or NaN values, thus throwing exceptions is a useful behaviour there.
+"Division of a zero by a zero results in NaN; division of zero by any other finite value results in a signed zero.
+"Because the IEEE standard for floating point numbers used has defined values for positive and negative infinity, and the special "not a number" case.
+"The "magic" is that Java floating point representations are based on the [IEE 754 floating point (hyper-link)] standard.

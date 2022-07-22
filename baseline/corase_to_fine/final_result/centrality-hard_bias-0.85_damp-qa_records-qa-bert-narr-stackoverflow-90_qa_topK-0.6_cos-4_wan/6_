@@ -1,0 +1,5 @@
+"Reference types have memory overhead as they require more memory than value types.
+"For example we might say that a particular approach might incur considerable CPU overhead while another might incur more memory overhead and yet another might weighted to network overhead (and entail an external dependency, for example).
+"For a programmer overhead refers to those system resources which are consumed by your code when it's running on a giving platform on a given set of input data.
+"You can check [Wikipedia](http://en.wikipedia.org/wiki/Overhead).
+But to save you time, Overhead is work required to do the productive work.

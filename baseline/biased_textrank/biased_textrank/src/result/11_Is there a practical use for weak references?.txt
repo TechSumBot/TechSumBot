@@ -1,0 +1,5 @@
+a Listener, you can use a weak reference.
+"Weak references may be used to solve the problem of circular references if the reference cycles are avoided by using weak references for some of the references within the group.
+"What are realistic situations in which people use weak references?
+"If a [WeakReference (hyper-link)] is the only reference to an object, and you want the object to hang around, you should probably be using a [SoftReference (hyper-link)] instead.
+"WeakReferences are best used in cases where there will be other references to the object, but you can't (or don't want to have to) detect when those other references are no longer used.

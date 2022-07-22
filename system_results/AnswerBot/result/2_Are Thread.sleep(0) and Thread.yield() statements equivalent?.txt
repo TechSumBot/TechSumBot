@@ -1,0 +1,5 @@
+"thread.yield can give up cpu resource to threads with lower priorities, while thread.sleep(0) gives up cpu only to threads with equal or higher priorities.
+"openjdk source (java se 7) have the following implementation for thread.sleep(0) in jvm_sleep function of jvm.cpp:
+"i'd wager that doing each a million times in a row would take much longer for sleep(), since system timer granularity probably often causes it to actually sleep for a non-negligible amount of time.
+"the most obvious difference is that sleep() throws the (checked) interruptedexception.
+"thread.sleep() has a slightly larger overhead because it creates a system that includes some kind of timer that will wake the process.

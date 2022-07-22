@@ -1,0 +1,5 @@
+"With REST you need additional communication layer for your server-side and client-side scripts => it's actually more complicated than use of non-REST HTTP.
+Simply put, REST means using HTTP the way it's meant to be.
+"You can organize your application the same way (or better) when you are using non-REST approach.
+"Instead of having randomly named setter and getter URLs and using GET for all the getters and POST for all the setters, we try to have the URLs identify resources, and then use the HTTP actions GET, POST, PUT and DELETE to do stuff to them.
+"I would suggest everybody, who is looking for an answer to this question, go through [this "slideshow" (hyper-link)].

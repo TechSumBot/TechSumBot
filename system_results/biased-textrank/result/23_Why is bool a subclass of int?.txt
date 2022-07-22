@@ -1,0 +1,5 @@
+Thus the decision to make True and False masquerade as 1 and 0, respectively.
+"6) Should bool inherit from int?
+"This is because Boolean is a subclass of int.
+"You can get these values by converting the bools into ints:
+"boolean is a subclass of int.

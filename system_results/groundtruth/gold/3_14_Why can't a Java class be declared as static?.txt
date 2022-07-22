@@ -1,0 +1,5 @@
+its because when we use static keyword for a component, that component becomes a class level component and its memory is taken by its class.
+From above points, we can say Java creators had not allowed an outer class to be static because there is no need to make it static.
+Because this is pointless and useless.
+If you want to have static object, just make static instance of class.
+"Hence, no static keyword is required since the class is already global within the package and through-out the application if public.

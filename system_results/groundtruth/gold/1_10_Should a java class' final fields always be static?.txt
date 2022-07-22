@@ -1,0 +1,5 @@
+static means that the field relates to the type rather than any particular instance of the type.
+"final means that the field can't change value after initial assignment (which must occur during type/instance initialization).
+"static final fields are usually for constants - whereas instance fields which are final are usually used when creating immutable types.
+"Final fields do not need to be static, and sometimes it can be useful to have a non-static final instance variable.
+"No definitely not.

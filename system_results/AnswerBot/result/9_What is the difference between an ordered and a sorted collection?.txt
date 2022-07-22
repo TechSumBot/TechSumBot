@@ -1,0 +1,5 @@
+an ordered collection means that the elements of the collection have a specific order.
+"so the difference is whether the ordering depends on the values ("sorted"), or is a property that elements have independently of their value ("ordered").
+"for a interger collections, the sorted may be from min number to max number for a person collection, it may be sored by the height of persons or the weight of persons, etc.
+"a sorted collection is an ordered collection when the order additionally depends on the value of the element to be inserted in, throughout the use of the comparable interface which provides you with a method to define the sorting criteria.
+"for example, if you have a sortedset then the strings will be sorted according to the lexicographical sort order.

@@ -1,0 +1,5 @@
+"what exactly would a static class do?
+to prevent a particular class being instantiated you should add a private constructor.
+(one time i couldn't figure out why an outer class instance wasn't being garbage-collected -- it was because i was keeping a reference to one of its inner class instances elsewhere, and the inner class was not static and so had a reference to the outer class instance.
+in java, the static keyword typically flags a method or field as existing not once per instance of a class, but once ever.
+static does have a meaning for inner classes, which is entirely different: usually an inner class instance can access the members of an outer class instance that it's tied to, but if the inner class is static, it does not have such a reference and can be instantiated without an instance of the outer class.

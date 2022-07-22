@@ -1,0 +1,5 @@
+in order to allow that, the compiler must add a parameterless constructor, which will have no effect but to allow instantiation.
+"the default constructor can be constructed only when the class doesn't have a constructor.
+if the compiler were to create an empty, parameterless constructor in this case, it would allow someone to skip the logic that i had written, which might lead to my code breaking in all number of ways.
+if i've defined a constructor of my own, especially one with parameters, then i most likely have logic of my own that must be executed on creating the class.
+"had the compiler provided a default constructor, you would have had to write a no-arg constructor and make it private in order to prevent objects being created using no arguments.

@@ -1,0 +1,5 @@
+Push is a defined [stack (hyper-link)] behaviour; if you pushed A on to stack (B,C,D) you would get (A,B,C,D).
+Since a pop operation isn't that common in lists (though 'removeLast' could have been used), they defined a pop() but not a push().
+Push and Pop are really concepts that can be applied to either end of a set... Just as long as you're consistent... For some reason, to me, Push() seems like it should apply to the front of a set...
+Implicit here is that most people need to append to a list, but many fewer have occasion to treat lists as stacks, which is why list.append came in so much earlier.
+The list.pop() method is an alternative to del listobject[index] in that it returns the value at the index you are removing.

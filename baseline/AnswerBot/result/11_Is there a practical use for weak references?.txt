@@ -1,0 +1,5 @@
+"since weak reference can be claimed by garbage collector at any time, is there any practical reason to use it?
+btw soft references are like weak references, but they will not always be cleaned up immediately.
+"some garbage-collected languages feature or support various levels of weak references, such as java, c#, python, perl, php or lisp.
+"the most common usage of weak references is for values in "lookup" maps.
+a listener, you can use a weak reference.

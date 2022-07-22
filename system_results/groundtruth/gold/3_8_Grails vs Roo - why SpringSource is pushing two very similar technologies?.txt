@@ -1,0 +1,5 @@
+The main difference is that Roo is a pure Java framework whereas Grails leverages Groovy as well as Java.
+IMO the two are not very similar.
+Grails is a Web framework, Roo is not
+The main difference besides using different languages (Groovy vs Java as others mentioned) is that Roo is mainly a development time tool and Grails is more involved in runtime.
+"I think the main difference is between dynamic and statically typed languages - to me this is huge.

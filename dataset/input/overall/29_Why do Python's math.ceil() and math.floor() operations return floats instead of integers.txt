@@ -1,0 +1,56 @@
+
+Query:  "Why do Python's math.ceil() and math.floor() operations return floats instead of integers?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/8582776)
+ [ ] #0: "Maybe because other languages do this as well, so it is generally-accepted behavior."
+ [ ] #1: "(For good reasons, as shown in the other answers)"
+
+Answer:  #1 (https://stackoverflow.com/a/8582781)
+ [ ] #2: "Because python's math library is a thin wrapper around the C math library which returns floats."
+
+Answer:  #2 (https://stackoverflow.com/a/8582794)
+ [ ] #3: "The range of floating point numbers usually exceeds the range of integers."
+ [ ] #4: "By returning a floating point value, the functions can return a sensible value for input values that lie outside the representable range of integers."
+ [ ] #5: "Consider: If floor() returned an integer, what should floor(1.0e30) return?"
+ [ ] #6: "Now, while Python's integers are now arbitrary precision, it wasn't always this way."
+ [ ] #7: "The standard library functions are thin wrappers around the equivalent C library functions."
+
+Answer:  #3 (https://stackoverflow.com/a/8582799)
+ [ ] #8: "Because the range for floats is greater than that of integers -- returning an integer could overflow"
+
+Answer:  #4 (https://stackoverflow.com/a/8582832)
+ [ ] #9: "Before Python 2.4, an integer couldn't hold the full range of truncated real numbers."
+ [ ] #10: "[http://docs.python.org/whatsnew/2.4.html#pep-237-unifying-long-integers-and-integers (hyper-link)]"
+
+Answer:  #5 (https://stackoverflow.com/a/8582845)
+ [ ] #11: "As pointed out by other answers, in python they return floats probably because of historical reasons to prevent overflow problems."
+ [ ] #12: "However, they return integers in python 3."
+         [code snippet]
+ [ ] #13: "You can find more information in [PEP 3141 (hyper-link)]."
+
+Answer:  #6 (https://stackoverflow.com/a/8582849)
+ [ ] #14: "The source of your confusion is evident in your comment:"
+ [ ] #15: "The whole point of ceil/floor operations is to convert floats to integers!"
+ [ ] #16: "The point of the ceil and floor operations is to round floating-point data to integral values."
+ [ ] #17: "Not to do a type conversion."
+ [ ] #18: "Users who need to get integer values can do an explicit conversion following the operation."
+ [ ] #19: "Note that it would not be possible to implement a round to integral value as trivially if all you had available were a ceil or float operation that returned an integer."
+ [ ] #20: "You would need to first check that the input is within the representable integer range, then call the function; you would need to handle NaN and infinities in a separate code path."
+ [ ] #21: "Additionally, you must have versions of ceil and floor which return floating-point numbers if you want to conform to [IEEE 754 (hyper-link)]."
+
+Answer:  #7 (https://stackoverflow.com/a/10970552)
+ [ ] #22: "This is a very interesting question!"
+ [ ] #23: "As a float requires some bits to store the exponent (=bits_for_exponent) any floating point number greater than 2**(float_size - bits_for_exponent) will always be an integral value!"
+ [ ] #24: "At the other extreme a float with a negative exponent will give one of 1, 0 or -1."
+ [ ] #25: "This makes the discussion of integer range versus float range moot because these functions will simply return the original number whenever the number is outside the range of the integer type."
+ [ ] #26: "The python functions are wrappers of the C function and so this is really a deficiency of the C functions where they should have returned an integer and forced the programer to do the range/NaN/Inf check before calling ceil/floor."
+ [ ] #27: "Thus the logical answer is the only time these functions are useful they would return a value within integer range and so the fact they return a float is a mistake and you are very smart for realizing this!"
+
+Answer:  #8 (https://stackoverflow.com/a/9180058)
+ [ ] #28: "This is an oddity that is present in all math libraries."
+ [ ] #29: "One point to make is that floating-point numbers representing integers are different from integers (they might exceed even the range of a 64-bit integer, for example)."
+ [ ] #30: "Usually you continue to use those numbers in a calculation, for example."
+ [ ] #31: "And then they have to be converted to floating-point again, anyway."

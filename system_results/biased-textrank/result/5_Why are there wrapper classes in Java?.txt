@@ -1,0 +1,5 @@
+"As a solution to this problem, Java allows you to include the primitives in the family of objects by using what are called wrapper classes.
+"Java uses primitive types, such as int, char, double to hold the basic data types supported by the language.
+"Sometimes, it is required to convert data types into objects in Java language.
+"The it1 object can be used in Java programming wherever k is required an object.
+"Features of the Java wrapper Classes.

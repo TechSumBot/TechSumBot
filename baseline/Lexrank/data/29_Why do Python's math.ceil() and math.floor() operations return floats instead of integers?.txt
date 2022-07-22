@@ -1,0 +1,84 @@
+Maybe because other languages do this as well, so it is generally-accepted behavior.
+(For good reasons, as shown in the other answers)
+Because python's math library is a thin wrapper around the C math library which returns floats.
+The range of floating point numbers usually exceeds the range of integers.
+By returning a floating point value, the functions can return a sensible value for input values that lie outside the representable range of integers.
+Consider: If floor() returned an integer, what should floor(1.0e30) return?
+Now, while Python's integers are now arbitrary precision, it wasn't always this way.
+The standard library functions are thin wrappers around the equivalent C library functions.
+Because the range for floats is greater than that of integers -- returning an integer could overflow
+Before Python 2.4, an integer couldn't hold the full range of truncated real numbers.
+"[http://docs.python.org/whatsnew/2.4.html#pep-237-unifying-long-integers-and-integers (hyper-link)]
+"As pointed out by other answers, in python they return floats probably because of historical reasons to prevent overflow problems.
+"However, they return integers in python 3.
+"You can find more information in [PEP 3141 (hyper-link)].
+"The source of your confusion is evident in your comment:
+"The whole point of ceil/floor operations is to convert floats to integers!
+"The point of the ceil and floor operations is to round floating-point data to integral values.
+"Not to do a type conversion.
+"Users who need to get integer values can do an explicit conversion following the operation.
+"Note that it would not be possible to implement a round to integral value as trivially if all you had available were a ceil or float operation that returned an integer.
+"You would need to first check that the input is within the representable integer range, then call the function; you would need to handle NaN and infinities in a separate code path.
+"Additionally, you must have versions of ceil and floor which return floating-point numbers if you want to conform to [IEEE 754 (hyper-link)].
+"This is a very interesting question!
+"As a float requires some bits to store the exponent (=bits_for_exponent) any floating point number greater than 2**(float_size - bits_for_exponent) will always be an integral value!
+"At the other extreme a float with a negative exponent will give one of 1, 0 or -1.
+"This makes the discussion of integer range versus float range moot because these functions will simply return the original number whenever the number is outside the range of the integer type.
+"The python functions are wrappers of the C function and so this is really a deficiency of the C functions where they should have returned an integer and forced the programer to do the range/NaN/Inf check before calling ceil/floor.
+"Thus the logical answer is the only time these functions are useful they would return a value within integer range and so the fact they return a float is a mistake and you are very smart for realizing this!
+Maybe because other languages do this as well, so it is generally-accepted behavior.
+(For good reasons, as shown in the other answers)
+Because python's math library is a thin wrapper around the C math library which returns floats.
+The range of floating point numbers usually exceeds the range of integers.
+By returning a floating point value, the functions can return a sensible value for input values that lie outside the representable range of integers.
+Consider: If floor() returned an integer, what should floor(1.0e30) return?
+Now, while Python's integers are now arbitrary precision, it wasn't always this way.
+The standard library functions are thin wrappers around the equivalent C library functions.
+Because the range for floats is greater than that of integers -- returning an integer could overflow
+Before Python 2.4, an integer couldn't hold the full range of truncated real numbers.
+"[http://docs.python.org/whatsnew/2.4.html#pep-237-unifying-long-integers-and-integers (hyper-link)]
+"As pointed out by other answers, in python they return floats probably because of historical reasons to prevent overflow problems.
+"However, they return integers in python 3.
+"You can find more information in [PEP 3141 (hyper-link)].
+"The source of your confusion is evident in your comment:
+"The whole point of ceil/floor operations is to convert floats to integers!
+"The point of the ceil and floor operations is to round floating-point data to integral values.
+"Not to do a type conversion.
+"Users who need to get integer values can do an explicit conversion following the operation.
+"Note that it would not be possible to implement a round to integral value as trivially if all you had available were a ceil or float operation that returned an integer.
+"You would need to first check that the input is within the representable integer range, then call the function; you would need to handle NaN and infinities in a separate code path.
+"Additionally, you must have versions of ceil and floor which return floating-point numbers if you want to conform to [IEEE 754 (hyper-link)].
+"This is a very interesting question!
+"As a float requires some bits to store the exponent (=bits_for_exponent) any floating point number greater than 2**(float_size - bits_for_exponent) will always be an integral value!
+"At the other extreme a float with a negative exponent will give one of 1, 0 or -1.
+"This makes the discussion of integer range versus float range moot because these functions will simply return the original number whenever the number is outside the range of the integer type.
+"The python functions are wrappers of the C function and so this is really a deficiency of the C functions where they should have returned an integer and forced the programer to do the range/NaN/Inf check before calling ceil/floor.
+"Thus the logical answer is the only time these functions are useful they would return a value within integer range and so the fact they return a float is a mistake and you are very smart for realizing this!
+Maybe because other languages do this as well, so it is generally-accepted behavior.
+(For good reasons, as shown in the other answers)
+Because python's math library is a thin wrapper around the C math library which returns floats.
+The range of floating point numbers usually exceeds the range of integers.
+By returning a floating point value, the functions can return a sensible value for input values that lie outside the representable range of integers.
+Consider: If floor() returned an integer, what should floor(1.0e30) return?
+Now, while Python's integers are now arbitrary precision, it wasn't always this way.
+The standard library functions are thin wrappers around the equivalent C library functions.
+Because the range for floats is greater than that of integers -- returning an integer could overflow
+Before Python 2.4, an integer couldn't hold the full range of truncated real numbers.
+"[http://docs.python.org/whatsnew/2.4.html#pep-237-unifying-long-integers-and-integers (hyper-link)]
+"As pointed out by other answers, in python they return floats probably because of historical reasons to prevent overflow problems.
+"However, they return integers in python 3.
+"You can find more information in [PEP 3141 (hyper-link)].
+"The source of your confusion is evident in your comment:
+"The whole point of ceil/floor operations is to convert floats to integers!
+"The point of the ceil and floor operations is to round floating-point data to integral values.
+"Not to do a type conversion.
+"Users who need to get integer values can do an explicit conversion following the operation.
+"Note that it would not be possible to implement a round to integral value as trivially if all you had available were a ceil or float operation that returned an integer.
+"You would need to first check that the input is within the representable integer range, then call the function; you would need to handle NaN and infinities in a separate code path.
+"Additionally, you must have versions of ceil and floor which return floating-point numbers if you want to conform to [IEEE 754 (hyper-link)].
+"This is a very interesting question!
+"As a float requires some bits to store the exponent (=bits_for_exponent) any floating point number greater than 2**(float_size - bits_for_exponent) will always be an integral value!
+"At the other extreme a float with a negative exponent will give one of 1, 0 or -1.
+"This makes the discussion of integer range versus float range moot because these functions will simply return the original number whenever the number is outside the range of the integer type.
+"The python functions are wrappers of the C function and so this is really a deficiency of the C functions where they should have returned an integer and forced the programer to do the range/NaN/Inf check before calling ceil/floor.
+"Thus the logical answer is the only time these functions are useful they would return a value within integer range and so the fact they return a float is a mistake and you are very smart for realizing this!

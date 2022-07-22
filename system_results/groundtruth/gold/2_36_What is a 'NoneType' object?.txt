@@ -1,0 +1,5 @@
+None is the "null" of Python, and NoneType is its type.
+None is frequently used to represent the absence of a value, as when default arguments are not passed to a function.
+In Python, to represent the absence of a value, you can use the None value types.NoneType.None
+It is also a common default return value for functions that search for something and may or may not find it; for example, it's returned by re.search when the regex doesn't match, or dict.get when the key has no entry in the dict.
+Python's None object is roughly equivalent to null, nil, etc.

@@ -1,0 +1,5 @@
+Maybe because other languages do this as well, so it is generally-accepted behavior.
+Because python's math library is a thin wrapper around the C math library which returns floats.
+Because the range for floats is greater than that of integers -- returning an integer could overflow
+Before Python 2.4, an integer couldn't hold the full range of truncated real numbers.
+"Thus the logical answer is the only time these functions are useful they would return a value within integer range and so the fact they return a float is a mistake and you are very smart for realizing this!

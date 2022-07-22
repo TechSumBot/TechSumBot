@@ -1,0 +1,5 @@
+Generally speaking, the empty string will match at all positions in a given string, including right at the start and end, so the count should always be the length plus 1:
+"In either case, it will return the length of the string plus one.
+"There are, strictly speaking, an infinite number of 0-length strings in a string, but practically, len(string) + 1 is returned - one for just before first character, and one each for after every character.
+That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+"Since it is looking for an empty string, it will say that it matches in every position (at every position, it finds no characters that differ, up to the length of the sub).

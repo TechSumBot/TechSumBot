@@ -1,0 +1,5 @@
+"this helps with the case above because code could do true = 1 for backwards compatibility, but means that the name true needs to be looked up in the globals dictionary every time it is used.
+"if you're interested in trivia however, there are some differences.
+"because of the above restriction, the bytecode the two versions compile to is different in python 2 as there's an optimisation for constant integers that it can't use for true.
+"fundamentally it doesn't matter, such minutiae doesn't really affect whether something is 'pythonic' or not.
+"the true and false builtins are [not reserved words prior to python 3 (hyper-link)] so could be assigned to, changing their value.

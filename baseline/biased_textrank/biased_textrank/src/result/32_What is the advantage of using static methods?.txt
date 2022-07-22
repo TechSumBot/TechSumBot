@@ -1,0 +1,5 @@
+Why one would want to define static methods?
+So we make them static.
+"Otherwise you can use functions, which is what functions are for.
+"When I want to be explicit about methods that don't change the state of the object, I use static methods.
+"To address discuss the advantages of the staticmethod, we need to know what the alternatives are and how they differ from each other.

@@ -1,0 +1,5 @@
+Since Python is far less ubiquitous than PHP, I wouldn't be surprised if hosting, developer, and other maintenance costs for it (long term) would have it fit this scenario.
+Don't try to compare them by writing your own tiny benchmarks ("hello world") because you will probably not have results that are representative of a real web site generating a more complex page.
+PHP and Python are similiar enough to not warrent any kind of switching.
+As you know, Python is compiled just-in-time to byte code (.pyc files) when a file is run each time the file changes.
+I would assume that PHP (>5.5) is faster and more reliable for complex web applications because it is optimized for website scripting.

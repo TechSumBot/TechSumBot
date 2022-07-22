@@ -1,0 +1,5 @@
+It has to do with [operator precedence in Python (hyper-link)] (the interpreter thinks you're comparing True to not, since == has a higher precedence than not).
+Have a look in [this table of operator precedences (hyper-link)], you'll find that == binds tigher than not, and thus True == not False is parsed as (True == not) False which is clearly an error.
+The true reason for True == not False being a syntax error is that there exists no syntax rule that would produce a [comparison (hyper-link)] therefrom, since
+Another thing to remember is that is, not and is not are actually three separate operators.
+The syntax error seems to be caused by the not keyword, not (pun intended) the equality operator:

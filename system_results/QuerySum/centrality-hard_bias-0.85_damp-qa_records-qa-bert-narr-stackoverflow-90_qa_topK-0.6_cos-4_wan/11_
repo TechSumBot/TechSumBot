@@ -1,0 +1,5 @@
+"A weak reference is a reference that does not protect the referent object from collection by a garbage collector.
+"Weak references are used to avoid keeping memory referenced by unneeded objects.
+"The most common usage of weak references is for values in "lookup" Maps.
+"Of course there are practical reasons to use it.
+"Weak references are also used to minimize the number of unnecessary objects in memory by allowing the program to indicate which objects are not critical by only weakly referencing them.

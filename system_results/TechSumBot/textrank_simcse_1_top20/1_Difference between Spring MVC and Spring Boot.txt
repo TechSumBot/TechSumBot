@@ -1,0 +1,5 @@
+So, Spring MVC is a framework to be used in web applications and Spring Boot is a Spring based production-ready project initializer.
+"Spring boot = Spring MVC + Auto Configuration(Don't need to write spring.xml file for configurations) + Server(You can have embedded Tomcat, Netty, Jetty server).
+Spring MVC is a sub-project of the Spring Framework, targeting design and development of applications that use the MVC (Model-View-Controller) pattern.
+"Spring Boot and Spring MVC are not comparable or mutually exclusive.
+"Spring MVC is designed to integrate fully and completely with the Spring Framework and transitively, most other sub-projects.

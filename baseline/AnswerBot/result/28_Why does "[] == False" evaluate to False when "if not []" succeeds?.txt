@@ -1,0 +1,5 @@
+"however, it can evaluate to false--that is to say, its "truthiness" value is false.
+the most convincing aspect to me is that == is generally transitive, so a == b and b == c implies a == c. so if it were the way you expected and [] == false were true and '' == false were true, one might assume that [] == '' should be true (even though it obviously should not be in a language without implicit type conversion).
+here is how you would actually check how things will be evaluated by an if statement:
+"built-in types in python have a truth value which allows you to test them for truthfulness.
+"if statement: evaluates to true as long as statement is truthy (an int not equal to '0', true, a list with at least one element, a dict with one key, value pair ..etc).

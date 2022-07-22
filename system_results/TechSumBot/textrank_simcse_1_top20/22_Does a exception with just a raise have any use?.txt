@@ -1,0 +1,5 @@
+In the code you linked to is another additional exception handler:
+Since [UnicodeDecodeError (hyper-link)] is a subclass of ValueError, the second exception handler would cause any UnicodeDecodeError to be ignored.
+"I am not able to come up with something useful, other than to keep it as a placeholder for later insertion to catch useful exceptions.
+It looks like this would not be the intended effect and to avoid it the UnicodeDecodeError is processed explicitly by the first handler.
+"I've seen similar code before in a (set of) horrible VB.NET projects.

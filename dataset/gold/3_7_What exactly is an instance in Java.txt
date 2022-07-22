@@ -1,0 +1,5 @@
+When you use the keyword new for example JFrame j = new JFrame(); you are creating an instance of the class JFrame.
+When you create an object, you are creating an "instance" of a class, therefore "instantiating" a class.
+I think that Object = Instance.
+"A class is template for an object and an object is an instance of a class.
+"The Object is also called the instance of the class.

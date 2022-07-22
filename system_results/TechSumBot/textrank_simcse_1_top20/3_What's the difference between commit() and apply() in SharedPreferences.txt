@@ -1,0 +1,5 @@
+"commit() is synchronously, apply() is asynchronous
+"apply() commits without returning a boolean indicating success or failure.
+apply() was added in 2.3, it commits without returning a boolean indicating success or failure.
+Unlike commit(), which writes its preferences out to persistent storage synchronously, apply() commits its changes to the in-memory SharedPreferences immediately but starts an asynchronous commit to disk and you won't be notified of any failures.
+"As SharedPreferences instances are singletons within a process, it's safe to replace any instance of commit() with apply() if you were already ignoring the return value.

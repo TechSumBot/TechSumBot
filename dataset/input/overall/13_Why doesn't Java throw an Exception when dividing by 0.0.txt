@@ -1,0 +1,101 @@
+
+Query:  "Why doesn't Java throw an Exception when dividing by 0.0?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/2381547)
+ [1] #0: "The result of division by zero is, mathematically speaking, undefined, which can be expressed with a float/double (as NaN - not a number), it isn't, however, wrong in any fundamental sense."
+ [1] #1: "As an integer must hold a specific numerical value, an error must be thrown on division by zero when dealing with them."
+
+Answer:  #1 (https://stackoverflow.com/a/2381582)
+ [1] #2: "The way a double is stored is quite different to an int."
+ [1] #3: "See [http://firstclassthoughts.co.uk/java/traps/java_double_traps.html (hyper-link)] for a more detailed explanation on how Java handles double calculations."
+ [1] #4: "You should also read up on Floating Point numbers, in particular the concept of [Not a Number (NaN) (hyper-link)]."
+ [0] #5: "If you're interested in learning more about floating point representation, I'd advise reading [this document (hyper-link)] (Word format, sorry)."
+ [0] #6: "It delves into the binary representation of numbers, which may be helpful to your understanding."
+
+Answer:  #2 (https://stackoverflow.com/a/2381633)
+ [1] #7: "Java's float and double types, like pretty much any other language out there (and pretty much any hardware FP unit), implement the [IEEE 754 (hyper-link)] standard for floating point math, which mandates division by zero to return a special "infinity" value."
+ [1] #8: "Throwing an exception would actually violate that standard."
+ [1] #9: "Integer arithmetic (implemented as [two's complement (hyper-link)] representation by Java and most other languages and hardware) is different and has no special infinity or NaN values, thus throwing exceptions is a useful behaviour there."
+
+Answer:  #3 (https://stackoverflow.com/a/35150650)
+ [1] #10: "Though Java developers know about the double primitive type and Double class, while doing floating point arithmetic they don't pay enough attention to Double.INFINITY, NaN, -0.0 and other rules that govern the arithmetic calculations involving them."
+ [1] #11: "The simple answer to this question is that it will not throw ArithmeticException and return Double.INFINITY."
+ [0] #12: "Also, note that the comparison x == Double.NaN always evaluates to false, even if x itself is a NaN."
+ [0] #13: "To test if x is a NaN, one should use the method call Double.isNaN(x) to check if given number is NaN or not."
+ [0] #14: "This is very close to NULL in SQL."
+ [0] #15: "It may helpful for you."
+
+Answer:  #4 (https://stackoverflow.com/a/46511732)
+ [0] #16: "When divided by zero ( 0 or 0.00 )"
+ [0] #17: "If you divide double by 0, JVM will show Infinity."
+ [0] #18: "public static void main(String [] args){ double a=10.00; System.out.println(a/0); } Console: Infinity"
+ [0] #19: "If you divide int by 0, then JVM will throw Arithmetic Exception."
+ [0] #20: "public static void main(String [] args){ int a=10; System.out.println(a/0); } Console: Exception in thread "main" java.lang.ArithmeticException: / by zero"
+ [0] #21: "But if we divide int by 0.0, then JVM will show Infinity: public static void main(String [] args){ int a=10; System.out.println(a/0.0); } Console: Infinity"
+ [1] #22: "This is because JVM will automatically type cast int to double, so we get infinity instead of ArithmeticException."
+
+Answer:  #5 (https://stackoverflow.com/a/11643470)
+ [1] #23: "In short: floating point numbers can represent infinity (or even operations that yield values which aren't numbers) so an operation that results in this (e.g."
+ [1] #24: "dividing by 0) is valid."
+ [1] #25: "Expanding upon Mohammod Hossain's answer, as well as [this question and its accepted answer (hyper-link)], an ArithmeticException is thrown "Thrown when an exceptional arithmetic condition has occurred"."
+ [0] #26: "For integers, dividing by 0 is such a case, but for floating point numbers (floats and doubles) there exist positive and negative representations."
+ [0] #27: "As an example,"
+         [code snippet]
+ [0] #28: "This code will print "Infinity" and then "-Infinity" as its answers, because "Infinity" is actually an accepted value for floats and doubles that is encoded in Java."
+ [0] #29: "Also, from [this forum post (hyper-link)]:"
+ [0] #30: "Floating point representations usually include +inf, -inf and even "Not a Number"."
+ [0] #31: "Integer representations don't."
+ [0] #32: "The behaviour you're seeing isn't unique to Java, most programming languages will do something similar, because that's what the floating point hardware (or low level library) is doing."
+ [0] #33: "and again from the forum post:"
+ [1] #34: "Because the IEEE standard for floating point numbers used has defined values for positive and negative infinity, and the special "not a number" case."
+ [1] #35: "See the contants in java.lang.Float and java.lang.Double for details."
+
+Answer:  #6 (https://stackoverflow.com/a/20632746)
+ [1] #36: "Because something that is undefined in the number system cannot be obviously represented."
+ [1] #37: ""Undefined" is not a number (NaN) and double/float have NaN to indicate that."
+ [0] #38: "[IEEE 754 (hyper-link)]"
+ [1] #39: ""arithmetic formats: sets of binary and decimal floating-point data, which consist of finite numbers (including signed zeros and subnormal numbers), infinities, and special "not a number" values (NaNs)""
+
+Answer:  #7 (https://stackoverflow.com/a/20632761)
+ [1] #40: "Doubles in Java (and some but not all other languages) support values that are NaN (Not a number)."
+ [1] #41: "Operations like a division by 0 will give you a double which is NaN."
+ [0] #42: "Any operation involving a NaN will also result in a NaN."
+ [0] #43: "Wikipedia has a whole page on the subject of NaN:"
+ [0] #44: "[http://en.wikipedia.org/wiki/NaN (hyper-link)]"
+
+Answer:  #8 (https://stackoverflow.com/a/20632770)
+ [1] #45: "The "magic" is that Java floating point representations are based on the [IEE 754 floating point (hyper-link)] standard."
+ [1] #46: "This has a special value (NaN) that denotes the "indefinite value" that you get when zero is divided by zero."
+ [0] #47: "(There are also values that represent positive and negative infinity; e.g."
+ [0] #48: "1.0 / 0.0 gives INF - positive infinity.)"
+ [1] #49: "This is covered in the Java Language Specification; see sections [§4.2.3 (hyper-link)] which discusses the representations and [§4.2.4 (hyper-link)] which discusses how arithmetic works."
+ [0] #50: "Note that the same "magic" applies to float, double, Float and Double."
+
+Answer:  #9 (https://stackoverflow.com/a/31290994)
+ [1] #51: "The first case is treated as a division on double and the later as a division on int and hence the ArthimeticException."
+ [1] #52: "Here is what infinity means"
+ [0] #53: "[http://docs.oracle.com/javase/7/docs/api/java/lang/Double.html#POSITIVE_INFINITY (hyper-link)]"
+ [1] #54: "The division of doubles and floats is as per the [IEEE 754 (hyper-link)] standards for floating point match which shouldnt throw an exception."
+
+Answer:  #10 (https://stackoverflow.com/a/46886413)
+ [0] #55: "anything special with double data type?"
+ [1] #56: "Yes, double can represent infinity (as can float), whereas int can't."
+ [1] #57: "The floating point types follow IEEE 754, which allows for signed infinity values, as well as "not a number" (NaN) values, such as trying to obtain the square root of -1."
+ [0] #58: "From [JLS 15.17.2 (hyper-link)] (division):"
+ [1] #59: "if the value of the divisor in an integer division is 0, then an ArithmeticException is thrown."
+ [0] #60: "and"
+ [1] #61: "The result of a floating-point division is determined by the rules of IEEE 754 arithmetic:"
+ [0] #62: "..."
+ [0] #63: "Division of a zero by a zero results in NaN; division of zero by any other finite value results in a signed zero."
+ [0] #64: "The sign is determined by the rule stated above."
+ [1] #65: "Division of a nonzero finite value by a zero results in a signed infinity."
+
+Answer:  #11 (https://stackoverflow.com/a/51448780)
+ [0]  #66: "[Float.POSITIVE_INFINITY (hyper-link)] is a static field on the Float class, true."
+ [0] #67: "But it is of type float (not Float), so it is itself a primitive."
+ [0] #68: "No boxing is happening here."
+ [1] #69: "The fact of the matter is that a float, being an [IEEE 754 single-precision floating point number (hyper-link)], cannot just hold a range of regular floating-point numbers, but also a few special values, like ±∞ and NaN."
+ [0] #70: "And because Java doesn't have special syntax to write these values, they are offered as static fields on the Float class instead."

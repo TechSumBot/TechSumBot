@@ -1,0 +1,5 @@
+The difference between python and C is the usual difference between an interpreted (bytecode) and compiled (to native) language.
+However if you also include the development time Python often beats C. For many projects the development time is far more critical than the run time performance.
+"Internally the reason that Python code executes more slowly is because code is interpreted at runtime instead of being compiled to native code at compile time.
+"One thing that will arguably leave Python slower however, is that it's dynamically typed, and there is tons of lookup for each attribute access.
+"This compilation and execution are what make Python slower than other low-level languages such as C/C++.

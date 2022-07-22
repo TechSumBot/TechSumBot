@@ -1,0 +1,147 @@
+
+Query:  "Difference between Spring MVC and Spring Boot"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/32923000)
+ [1] #0: "Spring MVC is a complete HTTP oriented MVC framework managed by the Spring Framework and based in Servlets."
+ [0] #1: "It would be equivalent to JSF in the JavaEE stack."
+ [0] #2: "The most popular elements in it are classes annotated with @Controller, where you implement methods you can access using different HTTP requests."
+ [0] #3: "It has an equivalent @RestController to implement REST-based APIs."
+ [1] #4: "Spring boot is a utility for setting up applications quickly, offering an out of the box configuration in order to build Spring-powered applications."
+ [0] #5: "As you may know, Spring integrates a wide range of different modules under [its umbrella](https://spring.io/projects), as spring-core, spring-data, spring-web (which includes Spring MVC, by the way) and so on."
+ [0] #6: "With this tool you can tell Spring how many of them to use and you'll get a fast setup for them (you are allowed to change it by yourself later on)."
+ [1] #7: "So, Spring MVC is a framework to be used in web applications and Spring Boot is a Spring based production-ready project initializer."
+ [0] #8: "You might find useful visiting the [Spring MVC tag wiki](https://stackoverflow.com/tags/spring-mvc/info) as well as the [Spring Boot tag wiki](https://stackoverflow.com/tags/spring-boot/info) in SO."
+
+Answer:  #1 (https://stackoverflow.com/a/32923141)
+ [1] #9: "Spring MVC is a sub-project of the Spring Framework, targeting design and development of applications that use the MVC (Model-View-Controller) pattern."
+ [1] #10: "Spring MVC is designed to integrate fully and completely with the Spring Framework and transitively, most other sub-projects."
+ [0] #11: "Spring Boot can be understood quite well from [this article](https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone) by the Spring Engineering team."
+ [0] #12: "It is supposedly opinionated, i.e."
+ [1] #13: "it heavily advocates a certain style of rapid development, but it is designed well enough to accommodate exceptions to the rule, if you will."
+ [1] #14: "In short, it is a convention over configuration methodology that is willing to understand your need to break convention when warranted."
+
+Answer:  #2 (https://stackoverflow.com/a/32923492)
+ [0] #15: "Spring MVC and Spring Boot are well described in other answers, and so without repeating that, let me jump straight to the specifics."
+ [0] #16: "Spring Boot and Spring MVC are not comparable or mutually exclusive."
+ [1] #17: "If you want to do web application development using Spring, you would use Spring MVC anyway."
+ [0] #18: "Your question then becomes whether to use Spring Boot or not."
+ [1] #19: "For developing common Spring applications or starting to learn Spring, I think using Spring Boot would be recommended."
+ [1] #20: "It considerably eases the job, is production ready and is rapidly being widely adopted."
+ [0] #21: "I have seen sometimes beginners asking this question because in STS (Spring Tool Suite) there are two wizards: one for creating a Spring Boot project, and another for creating a Spring MVC project."
+ [0] #22: "So, my recommendation would be to create a Spring Boot project and choose Web as a module in that."
+
+Answer:  #3 (https://stackoverflow.com/a/42739643)
+ [?] #23: "SpringBoot is actually pre configured that reduced boiler configuration and providing easiest or quick way to start your application."
+ [?] #24: "SpringBoot take the headache of configuration from developer to it's own self rather than Spring."
+ [0] #25: "Implicitly SpringBoot is based on Spring framework concept like bean, controller , services, jpa etc."
+ [0] #26: "You can say that SpringBoot is a wrapper of Spring."
+ [0] #27: "In SpringBoot by default port of Server is 8080 but if you want to change then go to your application.properties and write"
+ [0] #28: "server.port = 8084"
+
+Answer:  #4 (https://stackoverflow.com/a/47666794)
+ [1] #29: "Using spring boot you will no need to build configuration."
+ [0] #30: "This will have done automatically when you create project."
+ [1] #31: "If you use spring MVC you need to build configuration yourself."
+ [0] #32: "It is more complicated, but it is crucial."
+
+Answer:  #5 (https://stackoverflow.com/a/52232727)
+ [0] #33: "Here is some main point which differentiate Spring, Spring MVC and Spring Boot :"
+ [0] #34: "Spring :"
+ [0] #35: "Main Difference is "Test-ability"."
+ [0] #36: "Spring come with the DI and IOC."
+ [0] #37: "Through which all hard-work done by system we don't need to do any kind of work(like, normally we define object of class manually but through Di we just annotate with @Service or @Component - matching class manage those)."
+ [0] #38: "Through @Autowired annotation we easily mock() it at unit testing time."
+ [0] #39: "Duplication and Plumbing code."
+ [0] #40: "In JDBC we writing same code multiple time to perform any kind of database operation Spring solve that issue through Hibernate and ORM."
+ [0] #41: "Good Integration with other frameworks."
+ [0] #42: "Like Hibernate, ORM, Junit & Mockito."
+ [0] #43: "Spring MVC"
+ [1] #44: "Spring MVC framework is module of spring which provide facility HTTP oriented web application development."
+ [1] #45: "Spring MVC have clear code separation on input logic(controller), business logic(model), and UI logic(view)."
+ [1] #46: "Spring MVC pattern help to develop flexible and loosely coupled web applications."
+ [0] #47: "Provide various hard coded way to customise your application based on your need."
+ [0] #48: "Spring Boot :"
+ [1] #49: "Create of Quick Application so that, instead of manage single big web application we divide them individually into different Microservices which have their own scope & capability."
+ [1] #50: "Auto Configuration using Web Jar : In normal Spring there is lot of configuration like DispatcherServlet, Component Scan, View Resolver, Web Jar, XMLs."
+ [0] #51: "(For example if I would like to configure datasource, Entity Manager Transaction Manager Factory)."
+ [0] #52: "Configure automatically when it's not available using class-path."
+ [0] #53: "Comes with Default Spring Starters, which come with some default Spring configuration dependency (like Spring Core, Web-MVC, Jackson, Tomcat, Validation, Data Binding, Logging)."
+ [0] #54: "Don't worry about versioning issue as well."
+ [0] #55: "(Evolution like : Spring -> Spring MVC -> Spring Boot, So newer version have the compatibility of old version features.)"
+ [0] #56: "Note : It doesn't contain all point."
+
+Answer:  #6 (https://stackoverflow.com/a/55044807)
+ [0] #57: "Without repeating the same thing in previous answers, I'm writing this answer for the people who are looking to starting a new project and don't know which is the best framework to startup your project."
+ [0] #58: "If you are a beginner to this framework the best thing I prefer is Use spring boot(with STS /Spring Tool Suite)."
+ [0] #59: "Because it helps a lot."
+ [0] #60: "Its do all configurations on its own."
+ [0] #61: "Additionally, use Hibernate with spring-boot as a database framework."
+ [0] #62: "With this combination, your application will be the best."
+ [0] #63: "I can guarantee that with my experiences."
+ [0] #64: "Even this is one of the best frameworks for JEE(in present) this is gonna die in the near future."
+ [0] #65: "There are lightweight alternatives coming up."
+ [0] #66: "So keep updated with your experience don't stick to one particular framework."
+ [0] #67: "The best thing is being fluent in concepts, not in the frameworks."
+
+Answer:  #7 (https://stackoverflow.com/a/55873373)
+ [0] #68: "In simple term it can be stated as:"
+ [1] #69: "Spring boot = Spring MVC + Auto Configuration(Don't need to write spring.xml file for configurations) + Server(You can have embedded Tomcat, Netty, Jetty server)."
+ [1] #70: "And Spring Boot is an Opinionated framework, so its build taking in consideration for fast development, less time need for configuration and have a very good community support."
+
+Answer:  #8 (https://stackoverflow.com/a/58656059)
+ [0] #71: "Think this way:"
+ [1] #72: "Spring MVC is a web based framework to implement the MVC architecture."
+ [1] #73: "Spring Boot is a tool oriented to the programmer."
+ [0] #74: "Programmer must focus on programming and tool must focus on configurations."
+ [0] #75: "So we don't need to wast our time configuring a bunch of xml to make a simple 'Hello world'."
+
+Answer:  #9 (https://stackoverflow.com/a/60723511)
+ [0] #76: "Spring MVC and Spring Boot are exist for the different purpose."
+ [0] #77: "So, it is not wise to compare each other as the contenders."
+ [0] #78: "What is Spring Boot?"
+ [1] #79: "Spring Boot is a framework for packaging the spring application with sensible defaults."
+ [0] #80: "What does this mean?."
+ [0] #81: "You are developing a web application using Spring MVC, Spring Data, Hibernate and Tomcat."
+ [0] #82: "How do you package and deploy this application to your web server."
+ [0] #83: "As of now, we have to manually write the configurations, XML files, etc."
+ [0] #84: "for deploying to web server."
+ [0] #85: "Spring Boot does that for you with Zero XML configuration in your project."
+ [0] #86: "Believe me, you don't need deployment descriptor, web server, etc."
+ [0] #87: "Spring Boot is magical framework that bundles all the dependencies for you."
+ [0] #88: "Finally your web application will be a standalone JAR file with embeded servers."
+ [0] #89: "If you are still confused how this works, please read about microservice framework development using spring boot."
+ [0] #90: "What is Spring MVC?"
+ [1] #91: "It is a traditional web application framework that helps you to build web applications."
+ [0] #92: "It is similar to Struts framework."
+ [1] #93: "A Spring MVC is a Java framework which is used to build web applications."
+ [1] #94: "It follows the Model-View-Controller design pattern."
+ [1] #95: "It implements all the basic features of a core spring framework like Inversion of Control, Dependency Injection."
+ [1] #96: "A Spring MVC provides an elegant solution to use MVC in spring framework by the help of DispatcherServlet."
+ [0] #97: "Here, DispatcherServlet is a class that receives the incoming request and maps it to the right resource such as controllers, models, and views."
+ [0] #98: "I hope this helps you to understand the difference."
+
+Answer:  #10 (https://stackoverflow.com/a/63353530)
+ [1] #99: "To add my once cent, Java Spring is a framework while Java Spring Boot is addon to accelerate it by providing pre-configurations and or easy to use components."
+ [0] #100: "It is always recommended to have fundamental concepts of Java Spring before jumping to Java Spring Boot."
+
+Answer:  #11 (https://stackoverflow.com/a/51958291)
+ [1] #101: "You can use spring boot to embed a web server into your JAR."
+ [0] #102: "So basically you can run a single command (e.g."
+ [0] #103: "java -jar yourSpringBoot.jar) and it will start up the embedded web server and listen on whatever port you configured in the application properties file."
+ [1] #104: "Spring MVC is a framework, it allows you to build web applications."
+ [0] #105: "For the database question, I would recommend reading about Hibernate and its spring boot integration."
+
+Answer:  #12 (https://stackoverflow.com/a/51958339)
+ [1] #106: "Spring Boot is a framework for running enterprise applications using a simple, all-in-one tool that can configure, build, and run an application."
+ [1] #107: "Spring MVC is a framework for building said application."
+ [1] #108: "It is used to create Web application API endpoints, visualizations, database entities, and other stuff."
+ [1] #109: "You can configure and run it with Spring Boot or just use the standard Spring configuration system."
+ [0] #110: "If you want to map entities to a database, you can use Spring MVC and Spring Boot."
+ [0] #111: "There are plenty of tutorials online, but the basics is like this:"
+ [0] #112: "Create a Plain Old Java class with getters and setters (methods like getXXX and setXXX)."
+ [0] #113: "Annotate the class with @Entity"
+ [0] #114: "Ensure that Spring recognizes that package as containing entities."
+ [0] #115: "This can be done with Spring Boot by default when you annotate your Application class with @EnableAutoConfiguration"

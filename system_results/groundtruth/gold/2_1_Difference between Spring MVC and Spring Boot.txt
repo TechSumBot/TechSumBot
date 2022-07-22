@@ -1,0 +1,5 @@
+Spring MVC is a complete HTTP oriented MVC framework managed by the Spring Framework and based in Servlets.
+Spring boot is a utility for setting up applications quickly, offering an out of the box configuration in order to build Spring-powered applications.
+So, Spring MVC is a framework to be used in web applications and Spring Boot is a Spring based production-ready project initializer.
+Spring MVC is a sub-project of the Spring Framework, targeting design and development of applications that use the MVC (Model-View-Controller) pattern.
+"Auto Configuration using Web Jar : In normal Spring there is lot of configuration like DispatcherServlet, Component Scan, View Resolver, Web Jar, XMLs.

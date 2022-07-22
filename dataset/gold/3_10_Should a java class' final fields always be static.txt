@@ -1,0 +1,5 @@
+Absolutely not.
+Immutable objects are not the only case in which final properties are used, but they provide a evident example of their usefulness.
+They don't always come together and it's not a convention.
+"Final fields do not need to be static, and sometimes it can be useful to have a non-static final instance variable.
+"Ultimately it depends on what you're doing with those variables.

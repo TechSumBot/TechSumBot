@@ -1,0 +1,123 @@
+Yield adds the current thread to the ready queue and allows other threads to run.
+Sleep is not guaranteed to relinquish the cpu.
+yield() tells the JVM Thread Scheduler that it's OK to give other threads time slices.
+Usually the JVM uses this call to activate another thread of the same thread priority.
+In a good preemptive multithreading environment, yield() is a no-op.
+However, it is important in a cooperative multithreading environment, since without yield(), one thread can eat up all of the CPU.
+sleep(x) tells the JVM Thread Scheduler to actively put this thread to sleep and not run it again until at least x milliseconds have elapsed.
+Neither sleep() nor yield() change anything about the status of synchronization locks.
+If your thread has a lock, and you call sleep(1000), then at least a second will elapse before your thread wakes up.
+When it wakes up it may decide to release the lock -- or it may hold on to it longer.
+"SOURCE: [http://www.jguru.com/faq/view.jsp?EID=425624](http://www.jguru.com/faq/view.jsp?EID=425624)
+"No.
+"The most obvious difference is that sleep() throws the (checked) InterruptedException.
+"In practice, the effect may be almost the same, but it's entirely implementation-dependant.
+"I'd wager that doing each a million times in a row would take much longer for sleep(), since system timer granularity probably often causes it to actually sleep for a non-negligible amount of time.
+"Thread.Yield can give up CPU resource to threads with lower priorities, while Thread.Sleep(0) gives up CPU only to threads with equal or higher priorities.
+"At least on Windows platform :)
+"This really depends on the platform and version of the JVM.
+"For example, under Windows in JDK 5 (Hotspot), yield() is literally implemented as Sleep(0)-- although a sleep of 0 is treated slightly specially by Windows as I recall.
+"But in JDK 6, yield() is implemented as SwitchToThread().
+"I put together some information a while ago on [Thread.yield()](http://www.javamex.com/tutorials/threads/yield.shtml), including some implementational details that may be of interest.
+"(You might also want to see the stuff on [Thread.sleep()](http://www.javamex.com/tutorials/threads/sleep.shtml) I put together on the same site.)
+"OpenJDK source (Java SE 7) have the following implementation for Thread.sleep(0) in JVM_Sleep function of jvm.cpp:
+"And implemtation of Thread.yield() have the following code:
+"So Thread.sleep(0) and Thread.yield() may call same system calls in some platforms.
+"os::sleep and os::yield are platform specific stuff.
+"On both Linux and Windows: os::yield seems to be much simplier than os::sleep.
+"For example: os::yield of Linux calls only [sched_yield()](http://man7.org/linux/man-pages/man2/sched_yield.2.html).
+"And os::sleep have about 70 lines of code.
+"The famous Brian Goetz's book "Java Concurrency in Practice" (published in 2006 but still fundamentally valid) says the following on this question.
+"The semantics of Thread.yield and Thread.sleep(0) are undefined [JLS17.9]; the JVM is free to implement them as no-ops or treat them as scheduling hints.
+"In particular, they are not required to have the semantics of sleep(0) on Unix systems — put the current thread at the end of the run queue for that priority, yielding to other threads of the same priority — though some JVMs implement yield in this way.
+"The rest one can find in the Javadoc pages.
+"Thread.sleep() will just pause the thread and not give away control.
+"Thread.yield() will pause the thread and allow other threads to run.
+"If no threads need to, the original thread will resume immediately.
+"Thread.Sleep() has a slightly larger overhead because it creates a system that includes some kind of timer that will wake the process.
+"(Depends on implementation basically) Bottom line it will call a Yield() in the end.
+"Thread.Yield() Will just give-up the thread's turn, and gain it in the next round.
+"Thread.Sleep(0) might have an optimization to just call yield.
+"(Again, implementation)
+Yield adds the current thread to the ready queue and allows other threads to run.
+Sleep is not guaranteed to relinquish the cpu.
+yield() tells the JVM Thread Scheduler that it's OK to give other threads time slices.
+Usually the JVM uses this call to activate another thread of the same thread priority.
+In a good preemptive multithreading environment, yield() is a no-op.
+However, it is important in a cooperative multithreading environment, since without yield(), one thread can eat up all of the CPU.
+sleep(x) tells the JVM Thread Scheduler to actively put this thread to sleep and not run it again until at least x milliseconds have elapsed.
+Neither sleep() nor yield() change anything about the status of synchronization locks.
+If your thread has a lock, and you call sleep(1000), then at least a second will elapse before your thread wakes up.
+When it wakes up it may decide to release the lock -- or it may hold on to it longer.
+"SOURCE: [http://www.jguru.com/faq/view.jsp?EID=425624](http://www.jguru.com/faq/view.jsp?EID=425624)
+"No.
+"The most obvious difference is that sleep() throws the (checked) InterruptedException.
+"In practice, the effect may be almost the same, but it's entirely implementation-dependant.
+"I'd wager that doing each a million times in a row would take much longer for sleep(), since system timer granularity probably often causes it to actually sleep for a non-negligible amount of time.
+"Thread.Yield can give up CPU resource to threads with lower priorities, while Thread.Sleep(0) gives up CPU only to threads with equal or higher priorities.
+"At least on Windows platform :)
+"This really depends on the platform and version of the JVM.
+"For example, under Windows in JDK 5 (Hotspot), yield() is literally implemented as Sleep(0)-- although a sleep of 0 is treated slightly specially by Windows as I recall.
+"But in JDK 6, yield() is implemented as SwitchToThread().
+"I put together some information a while ago on [Thread.yield()](http://www.javamex.com/tutorials/threads/yield.shtml), including some implementational details that may be of interest.
+"(You might also want to see the stuff on [Thread.sleep()](http://www.javamex.com/tutorials/threads/sleep.shtml) I put together on the same site.)
+"OpenJDK source (Java SE 7) have the following implementation for Thread.sleep(0) in JVM_Sleep function of jvm.cpp:
+"And implemtation of Thread.yield() have the following code:
+"So Thread.sleep(0) and Thread.yield() may call same system calls in some platforms.
+"os::sleep and os::yield are platform specific stuff.
+"On both Linux and Windows: os::yield seems to be much simplier than os::sleep.
+"For example: os::yield of Linux calls only [sched_yield()](http://man7.org/linux/man-pages/man2/sched_yield.2.html).
+"And os::sleep have about 70 lines of code.
+"The famous Brian Goetz's book "Java Concurrency in Practice" (published in 2006 but still fundamentally valid) says the following on this question.
+"The semantics of Thread.yield and Thread.sleep(0) are undefined [JLS17.9]; the JVM is free to implement them as no-ops or treat them as scheduling hints.
+"In particular, they are not required to have the semantics of sleep(0) on Unix systems — put the current thread at the end of the run queue for that priority, yielding to other threads of the same priority — though some JVMs implement yield in this way.
+"The rest one can find in the Javadoc pages.
+"Thread.sleep() will just pause the thread and not give away control.
+"Thread.yield() will pause the thread and allow other threads to run.
+"If no threads need to, the original thread will resume immediately.
+"Thread.Sleep() has a slightly larger overhead because it creates a system that includes some kind of timer that will wake the process.
+"(Depends on implementation basically) Bottom line it will call a Yield() in the end.
+"Thread.Yield() Will just give-up the thread's turn, and gain it in the next round.
+"Thread.Sleep(0) might have an optimization to just call yield.
+"(Again, implementation)
+Yield adds the current thread to the ready queue and allows other threads to run.
+Sleep is not guaranteed to relinquish the cpu.
+yield() tells the JVM Thread Scheduler that it's OK to give other threads time slices.
+Usually the JVM uses this call to activate another thread of the same thread priority.
+In a good preemptive multithreading environment, yield() is a no-op.
+However, it is important in a cooperative multithreading environment, since without yield(), one thread can eat up all of the CPU.
+sleep(x) tells the JVM Thread Scheduler to actively put this thread to sleep and not run it again until at least x milliseconds have elapsed.
+Neither sleep() nor yield() change anything about the status of synchronization locks.
+If your thread has a lock, and you call sleep(1000), then at least a second will elapse before your thread wakes up.
+When it wakes up it may decide to release the lock -- or it may hold on to it longer.
+"SOURCE: [http://www.jguru.com/faq/view.jsp?EID=425624](http://www.jguru.com/faq/view.jsp?EID=425624)
+"No.
+"The most obvious difference is that sleep() throws the (checked) InterruptedException.
+"In practice, the effect may be almost the same, but it's entirely implementation-dependant.
+"I'd wager that doing each a million times in a row would take much longer for sleep(), since system timer granularity probably often causes it to actually sleep for a non-negligible amount of time.
+"Thread.Yield can give up CPU resource to threads with lower priorities, while Thread.Sleep(0) gives up CPU only to threads with equal or higher priorities.
+"At least on Windows platform :)
+"This really depends on the platform and version of the JVM.
+"For example, under Windows in JDK 5 (Hotspot), yield() is literally implemented as Sleep(0)-- although a sleep of 0 is treated slightly specially by Windows as I recall.
+"But in JDK 6, yield() is implemented as SwitchToThread().
+"I put together some information a while ago on [Thread.yield()](http://www.javamex.com/tutorials/threads/yield.shtml), including some implementational details that may be of interest.
+"(You might also want to see the stuff on [Thread.sleep()](http://www.javamex.com/tutorials/threads/sleep.shtml) I put together on the same site.)
+"OpenJDK source (Java SE 7) have the following implementation for Thread.sleep(0) in JVM_Sleep function of jvm.cpp:
+"And implemtation of Thread.yield() have the following code:
+"So Thread.sleep(0) and Thread.yield() may call same system calls in some platforms.
+"os::sleep and os::yield are platform specific stuff.
+"On both Linux and Windows: os::yield seems to be much simplier than os::sleep.
+"For example: os::yield of Linux calls only [sched_yield()](http://man7.org/linux/man-pages/man2/sched_yield.2.html).
+"And os::sleep have about 70 lines of code.
+"The famous Brian Goetz's book "Java Concurrency in Practice" (published in 2006 but still fundamentally valid) says the following on this question.
+"The semantics of Thread.yield and Thread.sleep(0) are undefined [JLS17.9]; the JVM is free to implement them as no-ops or treat them as scheduling hints.
+"In particular, they are not required to have the semantics of sleep(0) on Unix systems — put the current thread at the end of the run queue for that priority, yielding to other threads of the same priority — though some JVMs implement yield in this way.
+"The rest one can find in the Javadoc pages.
+"Thread.sleep() will just pause the thread and not give away control.
+"Thread.yield() will pause the thread and allow other threads to run.
+"If no threads need to, the original thread will resume immediately.
+"Thread.Sleep() has a slightly larger overhead because it creates a system that includes some kind of timer that will wake the process.
+"(Depends on implementation basically) Bottom line it will call a Yield() in the end.
+"Thread.Yield() Will just give-up the thread's turn, and gain it in the next round.
+"Thread.Sleep(0) might have an optimization to just call yield.
+"(Again, implementation)

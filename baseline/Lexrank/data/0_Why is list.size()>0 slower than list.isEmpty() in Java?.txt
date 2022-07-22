@@ -1,0 +1,196 @@
+Counting items in a linked list can be very slow.
+For ArrayList, yes — you are correct that the operations take (roughly) the same time.
+For other implementations of List — for example, a naïve linked list* — counting the size might take a very long time, while you only actually care whether it is greater than zero.
+So if you absolutely know that the list is an implementation of ArrayList and will never ever change, then it does not really matter; but:
+This is bad programming practice to tie yourself down to a specific implementation.
+If things change a few years down the line with code restructuring, testing will show that "it works," but things are running less efficiently than before.
+Even in the best case, size() == 0 is still not faster than isEmpty(), so there is no compelling reason to ever use the former.
+isEmpty() is a clearer definition of what it is you actually care about and are testing, and so makes your code a bit more easily understandable.
+* I originally wrote LinkedList here, implicitly referencing java.util.LinkedList, though that particular implementation does store its size explicitly, making size() an O(1) operation here.
+A naïve linked list operation might not do this, and in the more general sense there is no efficiency guarantee on implementations of List.
+"Given those two implementations, the speed should be the same, that much is true.
+"But those are by far not the only possible implementations for these methods.
+"A primitive linked list (one that doesn't store the size separately) for example could answer isEmpty() much faster than a size() call.
+"More importantly: isEmpty() describes your intent exactly, while size()==0 is unnecessarily complex (not hugely complex of course, but any unnecessary complexity at all should be avoided).
+"You said:
+"Here eTime-sTime>eeTime-eTime in all cases Why?
+"First off, it's probably because of your testing code.
+"You can't test the speed of calling l.size() and l.isEmpty() at the same time, since they both query the same value.
+"Most likely calling l.size() has loaded the size of your list into your cpu cache and calling l.isEmpty() is a lot faster as a result.
+"You could try calling l.size() a couple of million times and l.isEmpty() a couple of million times in two separate programs but in theory the compiler could just optimize away all those calls since you're not actually doing anything with the results.
+"In any case, the performance difference between the two will be negligible, especially once you do the comparison you need to do to see if the list is empty (l.size() == 0).
+"Most likely the generated code will look almost completely similar.
+"As some other posters noted, you want to optimize for readability in this case, not speed.
+"It's pretty much a toss-up.
+"size() and isEmpty() used on Vector gave differing results on long runs, neither beat the other consistently.
+"When run on an ArrayList size() seemed faster, but not by much.
+"This is most likely due to the fact that access to Vector is synchronized, so what you're really seeing when trying to benchmark access to these methods is synchronisation overhead, which can be very sensitive.
+"The thing to take away here is that when you're trying to optimize a method call with a couple nanoseconds difference in execution time, then you're doing it wrong.
+"Get the basics right first, like using Longs where you should be using long.
+"Your testing code is flawed.
+"Just reverse the order, i.e call isEmpty first and size > 0 second and you'll get the opposite result.
+"This is due to class loading, caching, etc.
+"I'm sorry, but your benchmark is flawed.
+"Take a look at [Java theory and practice: Anatomy of a flawed microbenchmark](http://www.ibm.com/developerworks/java/library/j-jtp02225.html) for a general description on how to approach benchmarks.
+"Update: for a proper benchmark you should look into [JApex](http://japex.sourceforge.net).
+"According to PMD ( static ruleset based Java source code analyzer ) isEmpty() is preferred.
+"You can find the PMD ruleset here.
+"Search for "UseCollectionIsEmpty" rule.
+"According to me it also helps in keeping the entire source code consistent rather than half of the folks using isEmpty() and the rest using size()==0.
+".size() has to look at the entire list, while .isEmpty() can stop at the first one.
+"Obviously implementation dependent, but as has been said before, if you don't need to know the actual size, why bother counting all the elements?
+"Basically I had found that .size() can be O(1) or O(N), depending on the data structure; .isEmpty() is never O(N).
+"It might be that some collections just use size()==0 inside their isEmpty() method, but that doesn't mean that they all do.
+"The default implementation of isEmpty() just checks whether size() == 0, but a particular collection is free to override this with something else if it's more efficient.
+"Here's a nice example.
+"The [ConcurrentSkipListSet documentation](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentSkipListSet.html) says:
+"Beware that, unlike in most collections, the size method is not a constant-time operation.
+"For this class, you'd certainly want to use isEmpty() rather than size() == 0.
+"(To understand why it's true for a skip list, you'd need to read up on how skip lists work, but do come back and ask another question about them if you want to know more.)
+Counting items in a linked list can be very slow.
+For ArrayList, yes — you are correct that the operations take (roughly) the same time.
+For other implementations of List — for example, a naïve linked list* — counting the size might take a very long time, while you only actually care whether it is greater than zero.
+So if you absolutely know that the list is an implementation of ArrayList and will never ever change, then it does not really matter; but:
+This is bad programming practice to tie yourself down to a specific implementation.
+If things change a few years down the line with code restructuring, testing will show that "it works," but things are running less efficiently than before.
+Even in the best case, size() == 0 is still not faster than isEmpty(), so there is no compelling reason to ever use the former.
+isEmpty() is a clearer definition of what it is you actually care about and are testing, and so makes your code a bit more easily understandable.
+* I originally wrote LinkedList here, implicitly referencing java.util.LinkedList, though that particular implementation does store its size explicitly, making size() an O(1) operation here.
+A naïve linked list operation might not do this, and in the more general sense there is no efficiency guarantee on implementations of List.
+"Given those two implementations, the speed should be the same, that much is true.
+"But those are by far not the only possible implementations for these methods.
+"A primitive linked list (one that doesn't store the size separately) for example could answer isEmpty() much faster than a size() call.
+"More importantly: isEmpty() describes your intent exactly, while size()==0 is unnecessarily complex (not hugely complex of course, but any unnecessary complexity at all should be avoided).
+"You said:
+"Here eTime-sTime>eeTime-eTime in all cases Why?
+"First off, it's probably because of your testing code.
+"You can't test the speed of calling l.size() and l.isEmpty() at the same time, since they both query the same value.
+"Most likely calling l.size() has loaded the size of your list into your cpu cache and calling l.isEmpty() is a lot faster as a result.
+"You could try calling l.size() a couple of million times and l.isEmpty() a couple of million times in two separate programs but in theory the compiler could just optimize away all those calls since you're not actually doing anything with the results.
+"In any case, the performance difference between the two will be negligible, especially once you do the comparison you need to do to see if the list is empty (l.size() == 0).
+"Most likely the generated code will look almost completely similar.
+"As some other posters noted, you want to optimize for readability in this case, not speed.
+"It's pretty much a toss-up.
+"size() and isEmpty() used on Vector gave differing results on long runs, neither beat the other consistently.
+"When run on an ArrayList size() seemed faster, but not by much.
+"This is most likely due to the fact that access to Vector is synchronized, so what you're really seeing when trying to benchmark access to these methods is synchronisation overhead, which can be very sensitive.
+"The thing to take away here is that when you're trying to optimize a method call with a couple nanoseconds difference in execution time, then you're doing it wrong.
+"Get the basics right first, like using Longs where you should be using long.
+"Your testing code is flawed.
+"Just reverse the order, i.e call isEmpty first and size > 0 second and you'll get the opposite result.
+"This is due to class loading, caching, etc.
+"I'm sorry, but your benchmark is flawed.
+"Take a look at [Java theory and practice: Anatomy of a flawed microbenchmark](http://www.ibm.com/developerworks/java/library/j-jtp02225.html) for a general description on how to approach benchmarks.
+"Update: for a proper benchmark you should look into [JApex](http://japex.sourceforge.net).
+"According to PMD ( static ruleset based Java source code analyzer ) isEmpty() is preferred.
+"You can find the PMD ruleset here.
+"Search for "UseCollectionIsEmpty" rule.
+"According to me it also helps in keeping the entire source code consistent rather than half of the folks using isEmpty() and the rest using size()==0.
+".size() has to look at the entire list, while .isEmpty() can stop at the first one.
+"Obviously implementation dependent, but as has been said before, if you don't need to know the actual size, why bother counting all the elements?
+"Basically I had found that .size() can be O(1) or O(N), depending on the data structure; .isEmpty() is never O(N).
+"It might be that some collections just use size()==0 inside their isEmpty() method, but that doesn't mean that they all do.
+"The default implementation of isEmpty() just checks whether size() == 0, but a particular collection is free to override this with something else if it's more efficient.
+"Here's a nice example.
+"The [ConcurrentSkipListSet documentation](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentSkipListSet.html) says:
+"Beware that, unlike in most collections, the size method is not a constant-time operation.
+"For this class, you'd certainly want to use isEmpty() rather than size() == 0.
+"(To understand why it's true for a skip list, you'd need to read up on how skip lists work, but do come back and ask another question about them if you want to know more.)
+Counting items in a linked list can be very slow.
+For ArrayList, yes — you are correct that the operations take (roughly) the same time.
+For other implementations of List — for example, a naïve linked list* — counting the size might take a very long time, while you only actually care whether it is greater than zero.
+So if you absolutely know that the list is an implementation of ArrayList and will never ever change, then it does not really matter; but:
+This is bad programming practice to tie yourself down to a specific implementation.
+If things change a few years down the line with code restructuring, testing will show that "it works," but things are running less efficiently than before.
+Even in the best case, size() == 0 is still not faster than isEmpty(), so there is no compelling reason to ever use the former.
+isEmpty() is a clearer definition of what it is you actually care about and are testing, and so makes your code a bit more easily understandable.
+* I originally wrote LinkedList here, implicitly referencing java.util.LinkedList, though that particular implementation does store its size explicitly, making size() an O(1) operation here.
+A naïve linked list operation might not do this, and in the more general sense there is no efficiency guarantee on implementations of List.
+"Given those two implementations, the speed should be the same, that much is true.
+"But those are by far not the only possible implementations for these methods.
+"A primitive linked list (one that doesn't store the size separately) for example could answer isEmpty() much faster than a size() call.
+"More importantly: isEmpty() describes your intent exactly, while size()==0 is unnecessarily complex (not hugely complex of course, but any unnecessary complexity at all should be avoided).
+"You said:
+"Here eTime-sTime>eeTime-eTime in all cases Why?
+"First off, it's probably because of your testing code.
+"You can't test the speed of calling l.size() and l.isEmpty() at the same time, since they both query the same value.
+"Most likely calling l.size() has loaded the size of your list into your cpu cache and calling l.isEmpty() is a lot faster as a result.
+"You could try calling l.size() a couple of million times and l.isEmpty() a couple of million times in two separate programs but in theory the compiler could just optimize away all those calls since you're not actually doing anything with the results.
+"In any case, the performance difference between the two will be negligible, especially once you do the comparison you need to do to see if the list is empty (l.size() == 0).
+"Most likely the generated code will look almost completely similar.
+"As some other posters noted, you want to optimize for readability in this case, not speed.
+"It's pretty much a toss-up.
+"size() and isEmpty() used on Vector gave differing results on long runs, neither beat the other consistently.
+"When run on an ArrayList size() seemed faster, but not by much.
+"This is most likely due to the fact that access to Vector is synchronized, so what you're really seeing when trying to benchmark access to these methods is synchronisation overhead, which can be very sensitive.
+"The thing to take away here is that when you're trying to optimize a method call with a couple nanoseconds difference in execution time, then you're doing it wrong.
+"Get the basics right first, like using Longs where you should be using long.
+"Your testing code is flawed.
+"Just reverse the order, i.e call isEmpty first and size > 0 second and you'll get the opposite result.
+"This is due to class loading, caching, etc.
+"I'm sorry, but your benchmark is flawed.
+"Take a look at [Java theory and practice: Anatomy of a flawed microbenchmark](http://www.ibm.com/developerworks/java/library/j-jtp02225.html) for a general description on how to approach benchmarks.
+"Update: for a proper benchmark you should look into [JApex](http://japex.sourceforge.net).
+"According to PMD ( static ruleset based Java source code analyzer ) isEmpty() is preferred.
+"You can find the PMD ruleset here.
+"Search for "UseCollectionIsEmpty" rule.
+"According to me it also helps in keeping the entire source code consistent rather than half of the folks using isEmpty() and the rest using size()==0.
+".size() has to look at the entire list, while .isEmpty() can stop at the first one.
+"Obviously implementation dependent, but as has been said before, if you don't need to know the actual size, why bother counting all the elements?
+"Basically I had found that .size() can be O(1) or O(N), depending on the data structure; .isEmpty() is never O(N).
+"It might be that some collections just use size()==0 inside their isEmpty() method, but that doesn't mean that they all do.
+"The default implementation of isEmpty() just checks whether size() == 0, but a particular collection is free to override this with something else if it's more efficient.
+"Here's a nice example.
+"The [ConcurrentSkipListSet documentation](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentSkipListSet.html) says:
+"Beware that, unlike in most collections, the size method is not a constant-time operation.
+"For this class, you'd certainly want to use isEmpty() rather than size() == 0.
+"(To understand why it's true for a skip list, you'd need to read up on how skip lists work, but do come back and ask another question about them if you want to know more.)
+Counting items in a linked list can be very slow.
+For ArrayList, yes — you are correct that the operations take (roughly) the same time.
+For other implementations of List — for example, a naïve linked list* — counting the size might take a very long time, while you only actually care whether it is greater than zero.
+So if you absolutely know that the list is an implementation of ArrayList and will never ever change, then it does not really matter; but:
+This is bad programming practice to tie yourself down to a specific implementation.
+If things change a few years down the line with code restructuring, testing will show that "it works," but things are running less efficiently than before.
+Even in the best case, size() == 0 is still not faster than isEmpty(), so there is no compelling reason to ever use the former.
+isEmpty() is a clearer definition of what it is you actually care about and are testing, and so makes your code a bit more easily understandable.
+* I originally wrote LinkedList here, implicitly referencing java.util.LinkedList, though that particular implementation does store its size explicitly, making size() an O(1) operation here.
+A naïve linked list operation might not do this, and in the more general sense there is no efficiency guarantee on implementations of List.
+"Given those two implementations, the speed should be the same, that much is true.
+"But those are by far not the only possible implementations for these methods.
+"A primitive linked list (one that doesn't store the size separately) for example could answer isEmpty() much faster than a size() call.
+"More importantly: isEmpty() describes your intent exactly, while size()==0 is unnecessarily complex (not hugely complex of course, but any unnecessary complexity at all should be avoided).
+"You said:
+"Here eTime-sTime>eeTime-eTime in all cases Why?
+"First off, it's probably because of your testing code.
+"You can't test the speed of calling l.size() and l.isEmpty() at the same time, since they both query the same value.
+"Most likely calling l.size() has loaded the size of your list into your cpu cache and calling l.isEmpty() is a lot faster as a result.
+"You could try calling l.size() a couple of million times and l.isEmpty() a couple of million times in two separate programs but in theory the compiler could just optimize away all those calls since you're not actually doing anything with the results.
+"In any case, the performance difference between the two will be negligible, especially once you do the comparison you need to do to see if the list is empty (l.size() == 0).
+"Most likely the generated code will look almost completely similar.
+"As some other posters noted, you want to optimize for readability in this case, not speed.
+"It's pretty much a toss-up.
+"size() and isEmpty() used on Vector gave differing results on long runs, neither beat the other consistently.
+"When run on an ArrayList size() seemed faster, but not by much.
+"This is most likely due to the fact that access to Vector is synchronized, so what you're really seeing when trying to benchmark access to these methods is synchronisation overhead, which can be very sensitive.
+"The thing to take away here is that when you're trying to optimize a method call with a couple nanoseconds difference in execution time, then you're doing it wrong.
+"Get the basics right first, like using Longs where you should be using long.
+"Your testing code is flawed.
+"Just reverse the order, i.e call isEmpty first and size > 0 second and you'll get the opposite result.
+"This is due to class loading, caching, etc.
+"I'm sorry, but your benchmark is flawed.
+"Take a look at [Java theory and practice: Anatomy of a flawed microbenchmark](http://www.ibm.com/developerworks/java/library/j-jtp02225.html) for a general description on how to approach benchmarks.
+"Update: for a proper benchmark you should look into [JApex](http://japex.sourceforge.net).
+"According to PMD ( static ruleset based Java source code analyzer ) isEmpty() is preferred.
+"You can find the PMD ruleset here.
+"Search for "UseCollectionIsEmpty" rule.
+"According to me it also helps in keeping the entire source code consistent rather than half of the folks using isEmpty() and the rest using size()==0.
+".size() has to look at the entire list, while .isEmpty() can stop at the first one.
+"Obviously implementation dependent, but as has been said before, if you don't need to know the actual size, why bother counting all the elements?
+"Basically I had found that .size() can be O(1) or O(N), depending on the data structure; .isEmpty() is never O(N).
+"It might be that some collections just use size()==0 inside their isEmpty() method, but that doesn't mean that they all do.
+"The default implementation of isEmpty() just checks whether size() == 0, but a particular collection is free to override this with something else if it's more efficient.
+"Here's a nice example.
+"The [ConcurrentSkipListSet documentation](http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentSkipListSet.html) says:
+"Beware that, unlike in most collections, the size method is not a constant-time operation.
+"For this class, you'd certainly want to use isEmpty() rather than size() == 0.
+"(To understand why it's true for a skip list, you'd need to read up on how skip lists work, but do come back and ask another question about them if you want to know more.)

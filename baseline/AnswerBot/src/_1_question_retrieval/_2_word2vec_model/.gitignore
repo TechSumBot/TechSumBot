@@ -1,0 +1,3 @@
+model
+model.trainables.syn1neg.npy
+model.wv.vectors.npy

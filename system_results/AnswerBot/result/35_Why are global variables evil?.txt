@@ -1,0 +1,5 @@
+"[are global variables bad?
+however, global constants are not conceptually the same as global variables; global constants are perfectly harmless.
+however, sane use of global state is acceptable (as is local state and mutability) even in functional programming, either for algorithm optimization, reduced complexity, caching and memoization, or the practicality of porting structures originating in a predominantly imperative codebase.
+"a personal opinion on the topic is that having global variables being used in a function logic means that some other code can alter the logic and the expected output of that function which will make debugging very hard (especially in big projects) and will make testing harder as well.
+the reason global variables are bad is that they enable functions to have hidden (non-obvious, surprising, hard to detect, hard to diagnose) side effects, leading to an increase in complexity, potentially leading to [spaghetti code (hyper-link)].

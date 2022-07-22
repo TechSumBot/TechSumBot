@@ -1,0 +1,5 @@
+Java's float and double types, like pretty much any other language out there (and pretty much any hardware FP unit), implement the [IEEE 754 (hyper-link)] standard for floating point math, which mandates division by zero to return a special "infinity" value.
+Integer arithmetic (implemented as [two's complement (hyper-link)] representation by Java and most other languages and hardware) is different and has no special infinity or NaN values, thus throwing exceptions is a useful behaviour there.
+The simple answer to this question is that it will not throw ArithmeticException and return Double.INFINITY.
+This is because JVM will automatically type cast int to double, so we get infinity instead of ArithmeticException.
+In short: floating point numbers can represent infinity (or even operations that yield values which aren't numbers) so an operation that results in this (e.g.

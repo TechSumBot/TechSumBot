@@ -1,0 +1,5 @@
+The default, parameterless constructor is added if you don't do anything yourself to take control over object creation.
+"It follows that there must be a way to remove the default public parameterless constructor.
+"Automatically remove the parameterless constructor when a constructor with parameters is declared
+"Now we ask ourselves: If there is no parameterless constructor, what must it be replaced by?
+"and Under what types of scenarios would we want to remove the default public parameterless constructor?

@@ -1,0 +1,5 @@
+I think this is mostly a matter of style.
+"There is no practical difference.
+Both should be easily understandable as an infinite loop.
+The first one will work also in those early versions where True is not yet defined.
+"Neither is hard to read or understand, though personally I'd always use while True, which is a bit more explicit.

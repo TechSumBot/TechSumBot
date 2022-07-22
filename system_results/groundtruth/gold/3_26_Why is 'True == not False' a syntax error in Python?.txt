@@ -1,0 +1,5 @@
+It has to do with [operator precedence in Python (hyper-link)] (the interpreter thinks you're comparing True to not, since == has a higher precedence than not).
+It's just a matter of operator precedence.
+The syntax error seems to be caused by the not keyword, not (pun intended) the equality operator:
+not has a lower priority than non-Boolean operators, so not a == b is interpreted as not (a == b), and a == not b is a syntax error.
+Basically, the interpreter thinks you're comparing True to not.

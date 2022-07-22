@@ -1,0 +1,5 @@
+its because when we use static keyword for a component, that component becomes a class level component and its memory is taken by its class.
+From above points, we can say Java creators had not allowed an outer class to be static because there is no need to make it static.
+Outer classes are already effectively static A static nested class means it has no reference to the outer class.
+"A static nested class is simply namespaces at work.
+"Hence, no static keyword is required since the class is already global within the package and through-out the application if public.

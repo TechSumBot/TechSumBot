@@ -1,0 +1,200 @@
+An ordered collection maintains the order of the elements based on the sequence you put stuff into/remove them from the collection.
+A sorted collection keeps the elements sorted based on a sort criteria.
+An ordered collection means that the elements of the collection have a specific order.
+The order is independent of the value.
+A [List (hyper-link)] is an example.
+A sorted collection means that not only does the collection have order, but the order depends on the value of the element.
+A [SortedSet (hyper-link)] is an example.
+In contrast, a collection without any order can maintain the elements in any order.
+A [Set (hyper-link)] is an example.
+Java uses "ordered collection" to mean a collection such as List, where (unlike HashSet), the collection remembers what order the elements are supposed to be in.
+"So elements can be added to the collection at a particular "place" in the order.
+"Java uses "sorted collection" to mean a collection such as SortedSet, where (unlike List), the order that the iterator traverses the collection is in accordance with a specified Comparator or the natural order of the elements.
+"So the difference is whether the ordering depends on the values ("sorted"), or is a property that elements have independently of their value ("ordered").
+"Sorted would imply ordering according to an implementation of Comparable or Comparator.
+"Ordered would imply that it is following the insertion order or some other definition of order that is consistent and defined, but otherwise arbitrary.
+"So a sorted list of strings would be sorted according to the String.compareTo method.
+"A list might contain a list of strings inserted in arbitrary order, but that order will always remain the same.
+"Of course there are methods on the Collections class to sort a list.
+"Yes, though the concepts are similar.
+"List is an ordered collection: each element has an index, which forms an ordering of the elements, but not usually related to any property of the elements themselves.
+"SortedMap and SortedSet are sorted collections, which means that iteration through the collection will happen in a sequence derived from the elements themselves.
+"For example, if you have a SortedSet<String> then the Strings will be sorted according to the lexicographical sort order.
+"An ordered Collection can be sorted but doesn't have to be (e.g.
+"after using Collections.sort()) when the external ordering is identical with the elements' sort order.
+"A sorted collection is always implicitly ordered (i.e.
+"there is always a "first" element, and it's always the same as long as you don't add another, smaller one).
+"An ordered collection is a collection that keep track of a consecutive index which every element is inserted in.
+"A sorted collection is an ordered collection when the order additionally depends on the value of the element to be inserted in, throughout the use of the Comparable interface which provides you with a method to define the sorting criteria.
+"I hope it could help.
+"A sorted collection usually mean the elements are sorted from minimun value to maxinum value or vice versa depending on the attribute(s) of the elements on which algorithms work.
+"for a interger collections, the sorted may be from min number to max number for a person collection, it may be sored by the height of persons or the weight of persons, etc.
+"When talking about order, it usually means the order of insertion.
+"The order may be changed after sorting
+"Sorted Collection vs.
+"Ordered Collection
+"1.
+"Sorted collection
+"A sorted collection is sorting a collection by utilizing the sorting features provided by the Java collections framework.
+"The sorting occurs in the memory of JVM which running Hibernate, after the data being read from database using java comparator.
+"If your collection is not large, it will be more efficient way to sort it.
+"As it happens in jvm memory, it can throw Out of Memory error.
+"2.
+"Order collection
+"Order collection is sorting a collection by specifying the order-by clause in query for sorting this collection when retrieval.
+"If your collection is very large, it will be more efficient way to sort it.
+"It is fast compared to sorted collection.
+"By ordered, it means that each element is assigned an index and can be referenced by that index.
+"In a Set, things don't have an index.
+"Ordered doesn't mean sorted, it means that the items will show up in the order you put them in.
+"This is in contrast to, say, a SortedSet where the items will not be ordered in the order you put them in, they will be sorted according to whatever sort criteria you put, or a HashMap, where they might show up in any order at all, depending on the hash function.
+An ordered collection maintains the order of the elements based on the sequence you put stuff into/remove them from the collection.
+A sorted collection keeps the elements sorted based on a sort criteria.
+An ordered collection means that the elements of the collection have a specific order.
+The order is independent of the value.
+A [List (hyper-link)] is an example.
+A sorted collection means that not only does the collection have order, but the order depends on the value of the element.
+A [SortedSet (hyper-link)] is an example.
+In contrast, a collection without any order can maintain the elements in any order.
+A [Set (hyper-link)] is an example.
+Java uses "ordered collection" to mean a collection such as List, where (unlike HashSet), the collection remembers what order the elements are supposed to be in.
+"So elements can be added to the collection at a particular "place" in the order.
+"Java uses "sorted collection" to mean a collection such as SortedSet, where (unlike List), the order that the iterator traverses the collection is in accordance with a specified Comparator or the natural order of the elements.
+"So the difference is whether the ordering depends on the values ("sorted"), or is a property that elements have independently of their value ("ordered").
+"Sorted would imply ordering according to an implementation of Comparable or Comparator.
+"Ordered would imply that it is following the insertion order or some other definition of order that is consistent and defined, but otherwise arbitrary.
+"So a sorted list of strings would be sorted according to the String.compareTo method.
+"A list might contain a list of strings inserted in arbitrary order, but that order will always remain the same.
+"Of course there are methods on the Collections class to sort a list.
+"Yes, though the concepts are similar.
+"List is an ordered collection: each element has an index, which forms an ordering of the elements, but not usually related to any property of the elements themselves.
+"SortedMap and SortedSet are sorted collections, which means that iteration through the collection will happen in a sequence derived from the elements themselves.
+"For example, if you have a SortedSet<String> then the Strings will be sorted according to the lexicographical sort order.
+"An ordered Collection can be sorted but doesn't have to be (e.g.
+"after using Collections.sort()) when the external ordering is identical with the elements' sort order.
+"A sorted collection is always implicitly ordered (i.e.
+"there is always a "first" element, and it's always the same as long as you don't add another, smaller one).
+"An ordered collection is a collection that keep track of a consecutive index which every element is inserted in.
+"A sorted collection is an ordered collection when the order additionally depends on the value of the element to be inserted in, throughout the use of the Comparable interface which provides you with a method to define the sorting criteria.
+"I hope it could help.
+"A sorted collection usually mean the elements are sorted from minimun value to maxinum value or vice versa depending on the attribute(s) of the elements on which algorithms work.
+"for a interger collections, the sorted may be from min number to max number for a person collection, it may be sored by the height of persons or the weight of persons, etc.
+"When talking about order, it usually means the order of insertion.
+"The order may be changed after sorting
+"Sorted Collection vs.
+"Ordered Collection
+"1.
+"Sorted collection
+"A sorted collection is sorting a collection by utilizing the sorting features provided by the Java collections framework.
+"The sorting occurs in the memory of JVM which running Hibernate, after the data being read from database using java comparator.
+"If your collection is not large, it will be more efficient way to sort it.
+"As it happens in jvm memory, it can throw Out of Memory error.
+"2.
+"Order collection
+"Order collection is sorting a collection by specifying the order-by clause in query for sorting this collection when retrieval.
+"If your collection is very large, it will be more efficient way to sort it.
+"It is fast compared to sorted collection.
+"By ordered, it means that each element is assigned an index and can be referenced by that index.
+"In a Set, things don't have an index.
+"Ordered doesn't mean sorted, it means that the items will show up in the order you put them in.
+"This is in contrast to, say, a SortedSet where the items will not be ordered in the order you put them in, they will be sorted according to whatever sort criteria you put, or a HashMap, where they might show up in any order at all, depending on the hash function.
+An ordered collection maintains the order of the elements based on the sequence you put stuff into/remove them from the collection.
+A sorted collection keeps the elements sorted based on a sort criteria.
+An ordered collection means that the elements of the collection have a specific order.
+The order is independent of the value.
+A [List (hyper-link)] is an example.
+A sorted collection means that not only does the collection have order, but the order depends on the value of the element.
+A [SortedSet (hyper-link)] is an example.
+In contrast, a collection without any order can maintain the elements in any order.
+A [Set (hyper-link)] is an example.
+Java uses "ordered collection" to mean a collection such as List, where (unlike HashSet), the collection remembers what order the elements are supposed to be in.
+"So elements can be added to the collection at a particular "place" in the order.
+"Java uses "sorted collection" to mean a collection such as SortedSet, where (unlike List), the order that the iterator traverses the collection is in accordance with a specified Comparator or the natural order of the elements.
+"So the difference is whether the ordering depends on the values ("sorted"), or is a property that elements have independently of their value ("ordered").
+"Sorted would imply ordering according to an implementation of Comparable or Comparator.
+"Ordered would imply that it is following the insertion order or some other definition of order that is consistent and defined, but otherwise arbitrary.
+"So a sorted list of strings would be sorted according to the String.compareTo method.
+"A list might contain a list of strings inserted in arbitrary order, but that order will always remain the same.
+"Of course there are methods on the Collections class to sort a list.
+"Yes, though the concepts are similar.
+"List is an ordered collection: each element has an index, which forms an ordering of the elements, but not usually related to any property of the elements themselves.
+"SortedMap and SortedSet are sorted collections, which means that iteration through the collection will happen in a sequence derived from the elements themselves.
+"For example, if you have a SortedSet<String> then the Strings will be sorted according to the lexicographical sort order.
+"An ordered Collection can be sorted but doesn't have to be (e.g.
+"after using Collections.sort()) when the external ordering is identical with the elements' sort order.
+"A sorted collection is always implicitly ordered (i.e.
+"there is always a "first" element, and it's always the same as long as you don't add another, smaller one).
+"An ordered collection is a collection that keep track of a consecutive index which every element is inserted in.
+"A sorted collection is an ordered collection when the order additionally depends on the value of the element to be inserted in, throughout the use of the Comparable interface which provides you with a method to define the sorting criteria.
+"I hope it could help.
+"A sorted collection usually mean the elements are sorted from minimun value to maxinum value or vice versa depending on the attribute(s) of the elements on which algorithms work.
+"for a interger collections, the sorted may be from min number to max number for a person collection, it may be sored by the height of persons or the weight of persons, etc.
+"When talking about order, it usually means the order of insertion.
+"The order may be changed after sorting
+"Sorted Collection vs.
+"Ordered Collection
+"1.
+"Sorted collection
+"A sorted collection is sorting a collection by utilizing the sorting features provided by the Java collections framework.
+"The sorting occurs in the memory of JVM which running Hibernate, after the data being read from database using java comparator.
+"If your collection is not large, it will be more efficient way to sort it.
+"As it happens in jvm memory, it can throw Out of Memory error.
+"2.
+"Order collection
+"Order collection is sorting a collection by specifying the order-by clause in query for sorting this collection when retrieval.
+"If your collection is very large, it will be more efficient way to sort it.
+"It is fast compared to sorted collection.
+"By ordered, it means that each element is assigned an index and can be referenced by that index.
+"In a Set, things don't have an index.
+"Ordered doesn't mean sorted, it means that the items will show up in the order you put them in.
+"This is in contrast to, say, a SortedSet where the items will not be ordered in the order you put them in, they will be sorted according to whatever sort criteria you put, or a HashMap, where they might show up in any order at all, depending on the hash function.
+An ordered collection maintains the order of the elements based on the sequence you put stuff into/remove them from the collection.
+A sorted collection keeps the elements sorted based on a sort criteria.
+An ordered collection means that the elements of the collection have a specific order.
+The order is independent of the value.
+A [List (hyper-link)] is an example.
+A sorted collection means that not only does the collection have order, but the order depends on the value of the element.
+A [SortedSet (hyper-link)] is an example.
+In contrast, a collection without any order can maintain the elements in any order.
+A [Set (hyper-link)] is an example.
+Java uses "ordered collection" to mean a collection such as List, where (unlike HashSet), the collection remembers what order the elements are supposed to be in.
+"So elements can be added to the collection at a particular "place" in the order.
+"Java uses "sorted collection" to mean a collection such as SortedSet, where (unlike List), the order that the iterator traverses the collection is in accordance with a specified Comparator or the natural order of the elements.
+"So the difference is whether the ordering depends on the values ("sorted"), or is a property that elements have independently of their value ("ordered").
+"Sorted would imply ordering according to an implementation of Comparable or Comparator.
+"Ordered would imply that it is following the insertion order or some other definition of order that is consistent and defined, but otherwise arbitrary.
+"So a sorted list of strings would be sorted according to the String.compareTo method.
+"A list might contain a list of strings inserted in arbitrary order, but that order will always remain the same.
+"Of course there are methods on the Collections class to sort a list.
+"Yes, though the concepts are similar.
+"List is an ordered collection: each element has an index, which forms an ordering of the elements, but not usually related to any property of the elements themselves.
+"SortedMap and SortedSet are sorted collections, which means that iteration through the collection will happen in a sequence derived from the elements themselves.
+"For example, if you have a SortedSet<String> then the Strings will be sorted according to the lexicographical sort order.
+"An ordered Collection can be sorted but doesn't have to be (e.g.
+"after using Collections.sort()) when the external ordering is identical with the elements' sort order.
+"A sorted collection is always implicitly ordered (i.e.
+"there is always a "first" element, and it's always the same as long as you don't add another, smaller one).
+"An ordered collection is a collection that keep track of a consecutive index which every element is inserted in.
+"A sorted collection is an ordered collection when the order additionally depends on the value of the element to be inserted in, throughout the use of the Comparable interface which provides you with a method to define the sorting criteria.
+"I hope it could help.
+"A sorted collection usually mean the elements are sorted from minimun value to maxinum value or vice versa depending on the attribute(s) of the elements on which algorithms work.
+"for a interger collections, the sorted may be from min number to max number for a person collection, it may be sored by the height of persons or the weight of persons, etc.
+"When talking about order, it usually means the order of insertion.
+"The order may be changed after sorting
+"Sorted Collection vs.
+"Ordered Collection
+"1.
+"Sorted collection
+"A sorted collection is sorting a collection by utilizing the sorting features provided by the Java collections framework.
+"The sorting occurs in the memory of JVM which running Hibernate, after the data being read from database using java comparator.
+"If your collection is not large, it will be more efficient way to sort it.
+"As it happens in jvm memory, it can throw Out of Memory error.
+"2.
+"Order collection
+"Order collection is sorting a collection by specifying the order-by clause in query for sorting this collection when retrieval.
+"If your collection is very large, it will be more efficient way to sort it.
+"It is fast compared to sorted collection.
+"By ordered, it means that each element is assigned an index and can be referenced by that index.
+"In a Set, things don't have an index.
+"Ordered doesn't mean sorted, it means that the items will show up in the order you put them in.
+"This is in contrast to, say, a SortedSet where the items will not be ordered in the order you put them in, they will be sorted according to whatever sort criteria you put, or a HashMap, where they might show up in any order at all, depending on the hash function.

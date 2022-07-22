@@ -1,0 +1,84 @@
+It gives you a directory of all attributes of an object.
+This is not a directory as used in file systems, but the standard usage: a listing of names or data.
+You're retrieving a "directory", a list of all of the stuff that's available in some resource.
+This answer will be most useful to those new to Python.
+I am learning Python and just this morning was thinking about the builtin constants and functions that are available in the language.
+I find it interesting that you only have to remember three things:
+There is a 'special' builtin function dir().
+There is a 'system variable' __builtins__.
+dir(__builtins__) outputs a view of 'Python's builtin world'.
+So what does dir mean?
+"I've settled on this for now:
+"directions: supplies maps for traversing the Python Landscape.
+"See also:
+"[dir(): Display a namespace's names (hyper-link)]
+"So if you want, you could also let dir stand for
+"display inside rubric
+"IIRC I named it after the DIR command in DOS.
+"It's probably just an analogy to directory listing.
+"list() is used for creating a lists, so dir() is used for listing elements object which has a similar tree-like structure to file system.
+"Just a guess.
+"It gives you an alphabetical listing of valid names (attributes) in the scope (object).
+"This is pretty much the meaning of the word directory in english.
+"Most likely it's a reference to the [DIR (hyper-link)] command of MSDOS.
+"DIR does directory listings, like the Unix command ls.
+"I know that without arguments, it returns a list of names in the current local scope.
+"For example:
+"With arguments, it returns a sorted dictionary keys of all the attributes of that object.
+"for example:
+It gives you a directory of all attributes of an object.
+This is not a directory as used in file systems, but the standard usage: a listing of names or data.
+You're retrieving a "directory", a list of all of the stuff that's available in some resource.
+This answer will be most useful to those new to Python.
+I am learning Python and just this morning was thinking about the builtin constants and functions that are available in the language.
+I find it interesting that you only have to remember three things:
+There is a 'special' builtin function dir().
+There is a 'system variable' __builtins__.
+dir(__builtins__) outputs a view of 'Python's builtin world'.
+So what does dir mean?
+"I've settled on this for now:
+"directions: supplies maps for traversing the Python Landscape.
+"See also:
+"[dir(): Display a namespace's names (hyper-link)]
+"So if you want, you could also let dir stand for
+"display inside rubric
+"IIRC I named it after the DIR command in DOS.
+"It's probably just an analogy to directory listing.
+"list() is used for creating a lists, so dir() is used for listing elements object which has a similar tree-like structure to file system.
+"Just a guess.
+"It gives you an alphabetical listing of valid names (attributes) in the scope (object).
+"This is pretty much the meaning of the word directory in english.
+"Most likely it's a reference to the [DIR (hyper-link)] command of MSDOS.
+"DIR does directory listings, like the Unix command ls.
+"I know that without arguments, it returns a list of names in the current local scope.
+"For example:
+"With arguments, it returns a sorted dictionary keys of all the attributes of that object.
+"for example:
+It gives you a directory of all attributes of an object.
+This is not a directory as used in file systems, but the standard usage: a listing of names or data.
+You're retrieving a "directory", a list of all of the stuff that's available in some resource.
+This answer will be most useful to those new to Python.
+I am learning Python and just this morning was thinking about the builtin constants and functions that are available in the language.
+I find it interesting that you only have to remember three things:
+There is a 'special' builtin function dir().
+There is a 'system variable' __builtins__.
+dir(__builtins__) outputs a view of 'Python's builtin world'.
+So what does dir mean?
+"I've settled on this for now:
+"directions: supplies maps for traversing the Python Landscape.
+"See also:
+"[dir(): Display a namespace's names (hyper-link)]
+"So if you want, you could also let dir stand for
+"display inside rubric
+"IIRC I named it after the DIR command in DOS.
+"It's probably just an analogy to directory listing.
+"list() is used for creating a lists, so dir() is used for listing elements object which has a similar tree-like structure to file system.
+"Just a guess.
+"It gives you an alphabetical listing of valid names (attributes) in the scope (object).
+"This is pretty much the meaning of the word directory in english.
+"Most likely it's a reference to the [DIR (hyper-link)] command of MSDOS.
+"DIR does directory listings, like the Unix command ls.
+"I know that without arguments, it returns a list of names in the current local scope.
+"For example:
+"With arguments, it returns a sorted dictionary keys of all the attributes of that object.
+"for example:

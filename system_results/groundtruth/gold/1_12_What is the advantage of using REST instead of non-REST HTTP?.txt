@@ -1,0 +1,5 @@
+It makes it easy for new clients to use your application, even if you haven't designed it specifically for them (probably, because they weren't around when you created your app).
+"There are other more in depth benefits of REST which revolve around evolve-ability via loose coupling and hypertext, but caching mechanisms are the main reason you should care about RESTful HTTP.
+"With REST you need additional communication layer for your server-side and client-side scripts => it's actually more complicated than use of non-REST HTTP.
+"increased scalability (due to stateless, cache and layered system constraints)
+"decoupled client and server (due to stateless and uniform interface constraints) reusable clients (client can use general REST browsers and RDF semantics to decide which link to follow and how to display the results) non breaking clients (clients break only by application specific semantics changes, because they use the semantics instead of some API specific knowledge)

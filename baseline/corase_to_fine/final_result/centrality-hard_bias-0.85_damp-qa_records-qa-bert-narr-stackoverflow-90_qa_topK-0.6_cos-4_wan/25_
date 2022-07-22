@@ -1,0 +1,5 @@
+It means NOT EQUAL, but it is deprecated, use != instead.
+"The () spelling has been removed in Python 3.
+"[https://docs.python.org/2/reference/expressions.html#not-in (hyper-link)]
+"it looks like it's the same as !=
+x ( y, x (= y, x )= y, x ) y, x = y, x () y, 0 (= d ( 10

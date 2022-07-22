@@ -1,0 +1,5 @@
+"DIR does directory listings, like the Unix command ls.
+"list() is used for creating a lists, so dir() is used for listing elements object which has a similar tree-like structure to file system.
+"It gives you an alphabetical listing of valid names (attributes) in the scope (object).
+This is not a directory as used in file systems, but the standard usage: a listing of names or data.
+"IIRC I named it after the DIR command in DOS.

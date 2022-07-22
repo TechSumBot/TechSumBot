@@ -1,0 +1,5 @@
+See the documentation on [Truth Value Testing (hyper-link)], empty lists are considered false, but this doesn't mean they are equivalent to False.
+"If empty containers were literally equal to False, by the way, then any empty container would be equal to any other empty container: for example, {} == "" would be True.
+Empty containers are "falsy," that is, they evaluate to False in a Boolean context.
+"However, it can evaluate to False--that is to say, its "truthiness" value is False.
+"An if statement doesn't depend on whether the value is equal to true.

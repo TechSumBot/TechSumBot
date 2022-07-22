@@ -1,0 +1,5 @@
+"The semantics of Thread.yield and Thread.sleep(0) are undefined [JLS17.9]; the JVM is free to implement them as no-ops or treat them as scheduling hints.
+"So Thread.sleep(0) and Thread.yield() may call same system calls in some platforms.
+"Thread.yield() will pause the thread and allow other threads to run.
+"os::sleep and os::yield are platform specific stuff.
+When it wakes up it may decide to release the lock -- or it may hold on to it longer.

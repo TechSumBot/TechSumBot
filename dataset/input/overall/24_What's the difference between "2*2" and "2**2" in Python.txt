@@ -1,0 +1,70 @@
+
+Query:  "What's the difference between "2*2" and "2**2" in Python?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/1044859)
+ [ ] #0: "Double stars (**) are exponentiation."
+ [ ] #1: "So "2 times 2" and "2 to the power 2" are the same."
+ [ ] #2: "Change the numbers and you'll see a difference."
+
+Answer:  #1 (https://stackoverflow.com/a/1044864)
+ [ ] #3: "2**2 = 2 power-of 2"
+ [ ] #4: "2*2 = 2 times 2"
+
+Answer:  #2 (https://stackoverflow.com/a/1044865)
+ [ ] #5: "The ** operator in Python is really "power;" that is, 2**3 = 8."
+
+Answer:  #3 (https://stackoverflow.com/a/1044866)
+ [ ] #6: "Try:"
+         [code snippet]
+ [ ] #7: "and"
+         [code snippet]
+ [ ] #8: "to see the difference."
+ [ ] #9: "** is the operator for "power of"."
+ [ ] #10: "In your particular operation, 2 to the power of 2 yields the same as 2 times 2."
+
+Answer:  #4 (https://stackoverflow.com/a/1044867)
+         [code snippet]
+ [ ] #11: "In this case they happen to have the same value, but..."
+         [code snippet]
+
+Answer:  #5 (https://stackoverflow.com/a/1044869)
+ [ ] #12: "The top one is a "power" operator, so in this case it is the same as 2 * 2 equal to is 2 to the power of 2."
+ [ ] #13: "If you put a 3 in the middle position, you will see a difference."
+
+Answer:  #6 (https://stackoverflow.com/a/1044933)
+ [ ] #14: "To specifically answer your question Why is the code1 used if we can use code2?"
+ [ ] #15: "I might suggest that the programmer was thinking in a mathematically broader sense."
+ [ ] #16: "Specifically, perhaps the broader equation is a power equation, and the fact that both first numbers are "2" is more coincidence than mathematical reality."
+ [ ] #17: "I'd want to make sure that the broader context of the code supports it being [code snippet] in all cases, rather than in this specific case alone."
+ [ ] #18: "This could get you in big trouble if x is anything but 2."
+         [code snippet]
+
+Answer:  #7 (https://stackoverflow.com/a/1045786)
+ [ ] #19: "A double asterisk means to the power of."
+ [ ] #20: "A single asterisk means multiplied by."
+ [ ] #21: "22 is the same as 2x2 which is why both answers came out as 4."
+
+Answer:  #8 (https://stackoverflow.com/a/12082829)
+ [ ] #22: "Power has more precedence than multiply, so:"
+         [code snippet]
+
+Answer:  #9 (https://stackoverflow.com/a/45252295)
+ [ ] #23: "For visual learners........................."
+ [ ] #24: "[ (hyper-link)]"
+
+Answer:  #10 (https://stackoverflow.com/a/39559466)
+ [ ] #25: "This is x raised to the power 2."
+ [ ] #26: "Expanded out, the list comprehension has the meaning:"
+         [code snippet]
+
+Answer:  #11 (https://stackoverflow.com/a/39559476)
+         [code snippet]
+ [ ] #27: "Below is a list comprehension:"
+         [code snippet]
+ [ ] #28: "so it creates a list with f(x)'s for each x as returned by the iterator"
+ [ ] #29: "In this case f(x) = raising to the power of 2"
+ [ ] #30: "range(10) are the numbers 0-->9"
+ [ ] #31: "so for each number it will return that number raised to the power of 2"

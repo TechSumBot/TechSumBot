@@ -1,0 +1,5 @@
+.count('') counts the number of locations of zero-length strings.
+Instead of counting the number of characters (like len(str)), you're counting the number of anti-characters.
+"1Empty strings are an exception and are handled differently; they simply return 1; which is yet another convention.
+"Since strings are sequences, it basically counts the number of splits sub would cause in str.
+"[Why are str.count('') and len(str) giving different output?

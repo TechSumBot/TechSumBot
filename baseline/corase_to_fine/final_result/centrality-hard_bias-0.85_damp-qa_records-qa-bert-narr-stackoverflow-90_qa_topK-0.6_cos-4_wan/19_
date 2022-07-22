@@ -1,0 +1,5 @@
+"[Why are str.count('') and len(str) giving different output?
+"The count() method returns the number of occurrences of a substring in the given string.
+"Therefore, if the empty string is a substring of every character, and of the empty string, then count should return the number of characters plus one.
+That's because empty strings are considered to exist between all the characters of a string; for a string length 2, there are 3 empty strings; one at the start, one between the two characters, and one at the end.
+"It goes on a [loop (hyper-link)], checking for every position if the string matches the sub at that position.

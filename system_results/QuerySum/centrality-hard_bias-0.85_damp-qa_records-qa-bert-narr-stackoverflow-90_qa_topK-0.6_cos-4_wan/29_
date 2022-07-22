@@ -1,0 +1,5 @@
+"The whole point of ceil/floor operations is to convert floats to integers!
+"However, they return integers in python 3.
+"This makes the discussion of integer range versus float range moot because these functions will simply return the original number whenever the number is outside the range of the integer type.
+Because python's math library is a thin wrapper around the C math library which returns floats.
+"Note that it would not be possible to implement a round to integral value as trivially if all you had available were a ceil or float operation that returned an integer.

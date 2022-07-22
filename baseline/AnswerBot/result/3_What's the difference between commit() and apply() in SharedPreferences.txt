@@ -1,0 +1,5 @@
+"as sharedpreferences instances are singletons within a process, it's safe to replace any instance of commit() with apply() if you were already ignoring the return value.
+"the docs give a pretty good explanation of the difference between [apply()](http://developer.android.com/reference/android/content/sharedpreferences.editor.html#apply%28%29) and [commit()](http://developer.android.com/reference/android/content/sharedpreferences.editor.html#commit%28%29):
+unlike commit(), which writes its preferences out to persistent storage synchronously, apply() commits its changes to the in-memory sharedpreferences immediately but starts an asynchronous commit to disk and you won't be notified of any failures.
+"if another editor on this sharedpreferences does a regular commit() while a apply() is still outstanding, the commit() will block until all async commits are completed as well as the commit itself.
+, false otherwise.

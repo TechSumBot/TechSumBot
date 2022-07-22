@@ -1,0 +1,5 @@
+Double stars (**) are exponentiation.
+The ** operator in Python is really "power;" that is, 2**3 = 8.
+The top one is a "power" operator, so in this case it is the same as 2 * 2 equal to is 2 to the power of 2.
+A double asterisk means to the power of.
+A single asterisk means multiplied by.

@@ -1,0 +1,5 @@
+"It cannot access attributes or methods of the instance or class.
+1.It eliminates the use of self argument.
+2.It reduces memory usage because Python doesn't have to instantiate a [bound-method (hyper-link)] for each object instiantiated:
+3.It improves code readability, signifying that the method does not depend on state of the object itself.
+4.It allows for method overriding in that if the method were defined at the module-level (i.e.

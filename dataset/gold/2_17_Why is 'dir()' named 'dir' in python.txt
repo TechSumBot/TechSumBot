@@ -1,0 +1,5 @@
+This is not a directory as used in file systems, but the standard usage: a listing of names or data.
+list() is used for creating a lists, so dir() is used for listing elements object which has a similar tree-like structure to file system.
+It gives you an alphabetical listing of valid names (attributes) in the scope (object).
+Most likely it's a reference to the [DIR (hyper-link)] command of MSDOS.
+The Python [os.listdir (hyper-link)] function is used to list the content of a directory, like the MS-DOS DIR command.

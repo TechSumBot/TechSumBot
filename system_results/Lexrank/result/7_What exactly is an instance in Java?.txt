@@ -1,0 +1,1 @@
+"The Object is also called the instance of the class."I think that Object = Instance."For example, String s = null; - s is a reference, that currently references no instance, but can reference an instance of the String class."It's not an instance of that class."A class is template for an object and an object is an instance of a class.

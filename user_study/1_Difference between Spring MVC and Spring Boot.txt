@@ -1,0 +1,5 @@
+"here is some main point which differentiate spring, spring mvc and spring boot :
+so, spring mvc is a framework to be used in web applications and spring boot is a spring based production-ready project initializer.
+"spring boot = spring mvc + auto configuration(don't need to write spring.xml file for configurations) + server(you can have embedded tomcat, netty, jetty server).
+"spring mvc and spring boot are well described in other answers, and so without repeating that, let me jump straight to the specifics.
+"to add my once cent, java spring is a framework while java spring boot is addon to accelerate it by providing pre-configurations and or easy to use components.

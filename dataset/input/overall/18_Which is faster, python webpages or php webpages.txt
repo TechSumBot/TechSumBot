@@ -1,0 +1,68 @@
+
+Query:  "Which is faster, python webpages or php webpages?"
+
+
+Sentences:
+
+Answer:  #0 (https://stackoverflow.com/a/77093)
+ [ ] #0: "If it ain't broke don't fix it."
+ [ ] #1: "Just write a quick test, but bear in mind that each language will be faster with certain functions then the other."
+
+Answer:  #1 (https://stackoverflow.com/a/77166)
+ [ ] #2: "You need to be able to make a business case for switching, not just that "it's faster"."
+ [ ] #3: "If a site built on technology B costs 20% more in developer time for maintenance over a set period (say, 3 years), it would likely be cheaper to add another webserver to the system running technology A to bridge the performance gap."
+ [ ] #4: "Just saying "we should switch to technology B because technology B is faster!""
+ [ ] #5: "doesn't really work."
+ [ ] #6: "Since Python is far less ubiquitous than PHP, I wouldn't be surprised if hosting, developer, and other maintenance costs for it (long term) would have it fit this scenario."
+
+Answer:  #2 (https://stackoverflow.com/a/77174)
+ [ ] #7: "It's about the same."
+ [ ] #8: "The difference shouldn't be large enough to be the reason to pick one or the other."
+ [ ] #9: "Don't try to compare them by writing your own tiny benchmarks ("hello world") because you will probably not have results that are representative of a real web site generating a more complex page."
+
+Answer:  #3 (https://stackoverflow.com/a/77220)
+ [ ] #10: "PHP and Python are similiar enough to not warrent any kind of switching."
+ [ ] #11: "Any performance improvement you might get from switching from one language to another would be vastly outgunned by simply not spending the money on converting the code (you don't code for free right?)"
+ [ ] #12: "and just buy more hardware."
+
+Answer:  #4 (https://stackoverflow.com/a/77297)
+ [ ] #13: "There's no point in attempting to convince your employer to port from PHP to Python, especially not for an existing system, which is what I think you implied in your question."
+ [ ] #14: "The reason for this is that you already have a (presumably) working system, with an existing investment of time and effort (and experience)."
+ [ ] #15: "To discard this in favour of a trivial performance gain (not that I'm claiming there would be one) would be foolish, and no manager worth his salt ought to endorse it."
+ [ ] #16: "It may also create a problem with maintainability, depending on who else has to work with the system, and their experience with Python."
+
+Answer:  #5 (https://stackoverflow.com/a/79744)
+ [ ] #17: "It sounds like you don't want to compare the two languages, but that you want to compare two web systems."
+ [ ] #18: "This is tricky, because there are many variables involved."
+ [ ] #19: "For example, Python web applications can take advantage of [mod_wsgi (hyper-link)] to talk to web servers, which is faster than any of the typical ways that PHP talks to web servers (even mod_php ends up being slower if you're using Apache, because Apache can only use the Prefork MPM with mod_php rather than multi-threaded MPM like Worker)."
+ [ ] #20: "There is also the issue of code compilation."
+ [ ] #21: "As you know, Python is compiled just-in-time to byte code (.pyc files) when a file is run each time the file changes."
+ [ ] #22: "Therefore, after the first run of a Python file, the compilation step is skipped and the Python interpreter simply fetches the precompiled .pyc file."
+ [ ] #23: "Because of this, one could argue that Python has a native advantage over PHP."
+ [ ] #24: "However, optimizers and caching systems can be installed for PHP websites (my favorite is [eAccelerator (hyper-link)]) to much the same effect."
+ [ ] #25: "In general, enough tools exist such that one can pretty much do everything that the other can do."
+ [ ] #26: "Of course, as others have mentioned, there's more than just speed involved in the business case to switch languages."
+ [ ] #27: "We have an app written in oCaml at my current employer, which turned out to be a mistake because the original author left the company and nobody else wants to touch it."
+ [ ] #28: "Similarly, the PHP-web community is much larger than the Python-web community; Website hosting services are more likely to offer PHP support than Python support; etc."
+ [ ] #29: "But back to speed."
+ [ ] #30: "You must recognize that the question of speed here involves many moving parts."
+ [ ] #31: "Fortunately, many of these parts can be independently optimized, affording you various avenues to seek performance gains."
+
+Answer:  #6 (https://stackoverflow.com/a/510276)
+ [ ] #32: "an IS organization would not ponder this unless availability was becoming an issue."
+ [ ] #33: "if so the case, look into replication, load balancing and lots of ram."
+
+Answer:  #7 (https://stackoverflow.com/a/2412215)
+ [ ] #34: "I had to come back to web development at my new job, and, if not Pylons/Python, maybe I would have chosen to live in jungle instead :) In my subjective opinion, PHP is for kindergarten, I did it in my 3rd year of uni and, I believe, many self-respecting (or over-estimating) software engineers will not want to be bothered with PHP code."
+ [ ] #35: "Why my employers agreed?"
+ [ ] #36: "We (the team) just switched to Python, and they did not have much to say."
+ [ ] #37: "The website still is and will be PHP, but we are developing other applications, including web, in Python."
+ [ ] #38: "Advantages of Pylons?"
+ [ ] #39: "You can integrate your python libraries into the web app, and that is, imho, a huge advantage."
+ [ ] #40: "As for performance, we are still having troubles."
+
+Answer:  #8 (https://stackoverflow.com/a/33627050)
+ [ ] #41: "I would assume that PHP (>5.5) is faster and more reliable for complex web applications because it is optimized for website scripting."
+ [ ] #42: "Many of the benchmarks you will find at the net are only made to prove that the favoured language is better."
+ [ ] #43: "But you can not compare 2 languages with a mathematical task running X-times."
+ [ ] #44: "For a real benchmark you need two comparable frameworks with hundreds of classes/files an a web application running 100 clients at once."
