@@ -1,5 +1,5 @@
 # Answer Summarization for Technical Queries: Benchmark and New Approach
-This repository contains the code, pre-trained models, and Stack Overflow summarization benchmark for our paper: "Answer Summarization for Technical Queries: Benchmark and New Approach".
+This repository contains the code, pre-trained models, and Stack Overflow summarization benchmark for our paper: "Answer Summarization for Technical Queries: Benchmark and New Approach" [pdf](presentation/ase22-162.pdf).
 # Quick Link
 + [Overview](#overview)
 + [Benchmark](#benchmark)
