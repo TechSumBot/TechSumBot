@@ -1,24 +1,33 @@
 # Intro
-This module aims to train the sentence representation model which is based on the constractive learning architecture ([SIMCSE](https://github.com/princeton-nlp/SimCSE)). 
+
+This module aims to train the sentence representation model which is based on the constractive learning architecture ([SIMCSE](https://github.com/princeton-nlp/SimCSE)).
+
 # Train
-To train such a model, firstly you should prepare the triplet dataset. Please refers to the 
+
+To train such a model, firstly you should prepare the triplet dataset. Please refers to the
+
 ```
 data_builder.py
 ```
 
-Please put the data into 
+Please put the data into
+
 ```
 data/
 ```
+
 folder.
 
-Then, you need to download the [original SIMCSE model](https://huggingface.co/princeton-nlp/unsup-simcse-roberta-base) in the 
+Then, you need to download the [original SIMCSE model](https://huggingface.co/princeton-nlp/unsup-simcse-roberta-base) in the
+
 ```
 model/simcse_sup_roberta
 ```
+
 folder.
 
 Next, please run the following command to train the model:
+
 ```
 # python train.py \
     --model_name_or_path '../model/simcse_sup_roberta' \
@@ -41,12 +50,17 @@ Next, please run the following command to train the model:
     "$@"
 
 ```
+
 Please follow the [readme file](https://github.com/princeton-nlp/SimCSE) of SIMCSE for further details.
 
-The result model is stored in the 
+The result model is stored in the
+
 ```
 '../../result/'
 ```
+
 folder.
 
 # Model
+
+You can directly reuse our tuned model [here](https://drive.google.com/file/d/1-aVwmWzWQL1n8RMwsCwqErpz3UJe2Plm/view?usp=sharing)
