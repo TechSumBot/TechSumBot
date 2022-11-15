@@ -16,7 +16,7 @@ Please put the data into
 data/
 ```
 
-folder.
+folder. Our data is also available to download [here](https://drive.google.com/file/d/1Plt8I0XowOu-0W1q24eGWE3GTkgYMXqt/view?usp=sharing).
 
 Then, you need to download the [original SIMCSE model](https://huggingface.co/princeton-nlp/unsup-simcse-roberta-base) in the
 
