@@ -2,9 +2,7 @@
 
 This repository contains the code, pre-trained models, and Stack Overflow summarization benchmark for our paper: "Answer Summarization for Technical Queries: Benchmark and New Approach" [\[pdf\]](presentation/ase22-162.pdf).
 
-Our tool is also available at http://techsumbot.com.
-
-To deploy our tool on your local machine, please kindly refers to the [guideline](tool_src/readme.md) here.
+Our tool is also available at http://techsumbot.com (please kindly refers to the [guideline](tool_src/readme.md) to deploy this web-service on your local machine).
 
 # Quick Link
 
