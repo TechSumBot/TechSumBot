@@ -250,15 +250,117 @@ def reduce_redundancy(input,redundancy_threshold):
             summary_embedding.append(embedding[index_1])
     return summary[:5]
 
+def reduce_redundancy_tool(input,redundancy_threshold):
+    # get the sentences from <sentence, score>
+    sents = []
+
+    for item in input:
+        sents.append(item[0])
+
+    print('the length of all sents are %s'%(str(len(sents))))
+
+    # get the semantic embedding
+    if sim_algorithm =='simcse':
+        # embedding = get_sentence_simcsse_similarity(sents).tolist()
+        embedding = get_sentence_simcsse_similarity_update(sents)
+    if sim_algorithm == 'simcse_origin':
+        embedding = get_sentence_simcsse_similarity_update_origin(sents)
 
 
+    if sim_algorithm =='sbert':
+        sbert = SentenceTransformer('bert-base-nli-mean-tokens')
 
+        embedding = sbert.encode(sents)
+        print('the length of all embedding are %s'%(str(len(embedding))))
+
+    if sim_algorithm =='tfidf':
+        input = [item[0] for item in input]
+        embedding = get_sentence_tfidf_similarity(sents)
+    
+    # iteratively get the non-redundant sentences
+    summary = []
+    summary_embedding = []
+
+    # print(sentence_similarity_score(embedding[7], embedding[10]));exit()
+
+    for index_1, ground_truth in enumerate(embedding):
+        flag = False
+
+        for index_2, sent in enumerate(summary_embedding):
+
+            if sim_algorithm =='simcse' or sim_algorithm =='simcse_origin':
+                sim_score = sentence_similarity_score(ground_truth, sent)
+            if sim_algorithm =='sbert':
+                sim_score = sentence_similarity_score(ground_truth, sent)                
+            if sim_algorithm =='tfidf':
+                sim_score = cosine_similarity(ground_truth, sent)
+            if sim_score>redundancy_threshold:
+                print('===========================\nThe redundant sentences pair is shown below:')
+                print(sents[index_1])
+                print(summary[index_2])
+                print('the similarity score of both sentences are %s'%(str(sim_score)))
+                print('\n\n\n')
+                flag = True
+        if not flag:                
+            summary.append(sents[index_1])
+            summary_embedding.append(embedding[index_1])
+    return summary
+
+def summarize_tool(sent_list, query):
+    # module 1 model setting 
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    print(device)
+    max_length = 64
+    bert_model = "bert-base-uncased"
+    tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
+    model = RobertaForSequenceClassification.from_pretrained('model/module_1')
+    
+    model.eval()
+    # module 2 model setting
+    sim_tokenizer = AutoTokenizer.from_pretrained("_2_module/SimCSE/result/my-sup-simcse-bert-base-uncased/")
+    sim_model = AutoModel.from_pretrained("_2_module/SimCSE/result/my-sup-simcse-bert-base-uncased/")
+    # test();exit(0)
+
+    # threshold for the hyper-parameter
+    threshold = 1
+    topk = 20
+    #lexrank textrank
+    summarize_algorithm='textrank'
+    # sim algorithm for removing redundancy : tfidf;simcse;sbert;simcse_origin
+    sim_algorithm = 'simcse'
+    # embedding algorithm for input of textrank : simcse/tfidf
+    embedding_algorithm = 'tfidf'
+    # redundancy_threshold
+    redundancy_threshold = 0.8
+    # get the data 
+    
+    
+
+    module_1_result = {}
+
+    for sent in sent_list:            
+        with torch.no_grad():
+            # query first, then answers
+            sent_score = answer_score(query,sent)
+            module_1_result[sent]=sent_score.astype(float)[0]
+    module_1_result = sorted(module_1_result.items(),key = lambda x:x[1],reverse = True)
+    print('Dic length %s; top: %s; sim: %s; sim algorithn: %s; summarization algorithm: %s'%(str(len(module_1_result)),topk,threshold,sim_algorithm,summarize_algorithm))
+
+    module_1_result = list(module_1_result)
+    copy = module_1_result
+
+    # module for centralize: return the list ranking with centralize score
+    centralized_list = centralize_topk(copy,candidate, topk, summarize_algorithm,embedding_algorithm)
+
+    # module for reducing redundancy
+    summary = reduce_redundancy_tool(centralized_list,redundancy_threshold)
+    return summary
 
 
 if __name__ == "__main__":
     # module 1 model setting 
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-    print(device)
+    # print(device)
     max_length = 64
     bert_model = "bert-base-uncased"
     tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
